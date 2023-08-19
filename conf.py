@@ -37,9 +37,9 @@ exclude_patterns = ['_build',
 
 html_theme = 'furo'
 html_static_path = ['_static']
-html_logo = "logo.png"
+html_logo = "spike_logo.png"
 html_title = "Lego Spike Python Coding"
-html_favicon = "logo.ico"
+html_favicon = "spike_logo.ico"
 
 html_theme_options = {
     "footer_icons": [
