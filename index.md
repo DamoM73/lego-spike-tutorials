@@ -1,6 +1,6 @@
-# <Title>
+# Lego Spike Python Coding
 
-<introduction>
+This website provides tutorials on programming the Lego Spike Prime using Python.
 
 ```{toctree}
 :maxdepth: 1
