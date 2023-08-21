@@ -137,7 +137,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -170,6 +170,7 @@
 <li class="toctree-l1"><a class="reference internal" href="06_colour.html">Colour Sensor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_distance.html">Distance Sensor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_planning_code.html">Planning Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="99_documentation.html">Spike Prime Python API</a></li>
 </ul>
 
 </div>
@@ -198,7 +199,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -206,6 +207,18 @@
         <article role="main">
           <section id="hub-outputs">
 <h1>Hub Outputs<a class="headerlink" href="#hub-outputs" title="Link to this heading">#</a></h1>
+<section id="light">
+<h2>Light<a class="headerlink" href="#light" title="Link to this heading">#</a></h2>
+<p>The light module allows you to program the colour of the power button light and connect button light.</p>
+<p><img alt="Connect and Power buttons" src="_images/hub.jpg" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">hub</span> <span class="kn">import</span> <span class="n">light</span>
+<span class="linenos">2</span><span class="kn">import</span> <span class="nn">color</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="n">light</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">light</span><span class="o">.</span><span class="n">POWER</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">PURPLE</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">light</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">light</span><span class="o">.</span><span class="n">CONNECT</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">YELLOW</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -258,8 +271,27 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Hub Outputs</a><ul>
+<li><a class="reference internal" href="#light">Light</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

@@ -1,0 +1,793 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Planning Code" href="08_planning_code.html" />
+
+    <link rel="shortcut icon" href="_static/spike_logo.ico"/><!-- Generated with Sphinx 7.2.2 and Furo 2023.08.19 -->
+        <title>Spike Prime Python API - Lego Spike Python Coding</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --font-stack: gill sans, sans-serif;
+  --font-stack--monospace: monaco, monospace;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Lego Spike Python Coding</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/spike_logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Lego Spike Python Coding</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_setup.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_hub_output.html">Hub Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_motors.html">Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_hub_input.html">Hub Inputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_force.html">Force Sensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_colour.html">Colour Sensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_distance.html">Distance Sensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_planning_code.html">Planning Code</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Spike Prime Python API</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="spike-prime-python-api">
+<h1>Spike Prime Python API<a class="headerlink" href="#spike-prime-python-api" title="Link to this heading">#</a></h1>
+<section id="app-module">
+<h2>App module<a class="headerlink" href="#app-module" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">app</span></code> module is used communicate between hub and app.</p>
+<section id="bargraph">
+<h3>Bargraph<a class="headerlink" href="#bargraph" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">bargraph</span></code> module is used make bar graphs in the SPIKE App</p>
+<p>To use the <code class="docutils literal notranslate"><span class="pre">bargraph</span></code> module simply import the module like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">bargraph</span>
+</pre></div>
+</div>
+<section id="bargraph-change">
+<h4>bargraph.change<a class="headerlink" href="#bargraph-change" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">change(color:</span> <span class="pre">int,</span> <span class="pre">value:</span> <span class="pre">float)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">color:</span> <span class="pre">int</span></code> → A colour from the <code class="docutils literal notranslate"><span class="pre">color</span></code> module</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value:</span> <span class="pre">float</span></code> → The value</p></li>
+</ul>
+</section>
+<section id="bargraph-clear-all">
+<h4>bargraph.clear_all<a class="headerlink" href="#bargraph-clear-all" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">clear_all()</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+</section>
+<section id="bargraph-get-value">
+<h4>bargraph.get_value<a class="headerlink" href="#bargraph-get-value" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">get_value(color:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">Awaitable</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">color:</span> <span class="pre">int</span></code> → A colour from the <code class="docutils literal notranslate"><span class="pre">color</span></code> module</p></li>
+</ul>
+</section>
+<section id="bargraph-hide">
+<h4>bargraph.hide<a class="headerlink" href="#bargraph-hide" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">hide()</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+</section>
+<section id="bargraph-set-value">
+<h4>bargraph.set_value<a class="headerlink" href="#bargraph-set-value" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">set_value(color:</span> <span class="pre">int,</span> <span class="pre">value:</span> <span class="pre">float)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">color:</span> <span class="pre">int</span></code> → A colour from the <code class="docutils literal notranslate"><span class="pre">color</span></code> module</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value:</span> <span class="pre">float</span></code> → The value</p></li>
+</ul>
+</section>
+<section id="bargraph-show">
+<h4>bargraph.show<a class="headerlink" href="#bargraph-show" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">show(fullscreen:</span> <span class="pre">bool)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fullscreen:</span> <span class="pre">bool</span></code> → Show in full screen</p></li>
+</ul>
+</section>
+</section>
+<section id="display-module">
+<h3>Display module<a class="headerlink" href="#display-module" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">display</span></code> module is used to show images in the SPIKE App</p>
+<p>To use the <code class="docutils literal notranslate"><span class="pre">display</span></code> module simply import the module like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">display</span>
+</pre></div>
+</div>
+<section id="display-hide">
+<h4>display.hide<a class="headerlink" href="#display-hide" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">hide()</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+</section>
+<section id="display-image">
+<h4>display.image<a class="headerlink" href="#display-image" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">image(image:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+<ul class="simple">
+<li><p>image: int → The id of the image to show. The range of available images is 1 to 21. There are constants in the display module for these.</p></li>
+</ul>
+</section>
+<section id="display-show">
+<h4>display.show<a class="headerlink" href="#display-show" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">show(fullscreen:</span> <span class="pre">bool)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fullscreen:</span> <span class="pre">bool</span></code> → Show in full screen</p></li>
+</ul>
+</section>
+<section id="display-text">
+<h4>display.text<a class="headerlink" href="#display-text" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">text(text:</span> <span class="pre">str)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">text:</span> <span class="pre">str</span></code></p>
+<ul class="simple">
+<li><p>The text to display</p></li>
+</ul>
+</section>
+<section id="display-constants">
+<h4>display.constants<a class="headerlink" href="#display-constants" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>IMAGE_ROBOT_1 → <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p>IMAGE_ROBOT_2 → <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p>IMAGE_ROBOT_3 → <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
+<li><p>IMAGE_ROBOT_4 → <code class="docutils literal notranslate"><span class="pre">4</span></code></p></li>
+<li><p>IMAGE_ROBOT_5 → <code class="docutils literal notranslate"><span class="pre">5</span></code></p></li>
+<li><p>IMAGE_HUB_1 → <code class="docutils literal notranslate"><span class="pre">6</span></code></p></li>
+<li><p>IMAGE_HUB_2 → <code class="docutils literal notranslate"><span class="pre">7</span></code></p></li>
+<li><p>IMAGE_HUB_3 → <code class="docutils literal notranslate"><span class="pre">8</span></code></p></li>
+<li><p>IMAGE_HUB_4 → <code class="docutils literal notranslate"><span class="pre">9</span></code></p></li>
+<li><p>IMAGE_AMUSEMENT_PARK → <code class="docutils literal notranslate"><span class="pre">10</span></code></p></li>
+<li><p>IMAGE_BEACH → <code class="docutils literal notranslate"><span class="pre">11</span></code></p></li>
+<li><p>IMAGE_HAUNTED_HOUSE → <code class="docutils literal notranslate"><span class="pre">12</span></code></p></li>
+<li><p>IMAGE_CARNIVAL → <code class="docutils literal notranslate"><span class="pre">13</span></code></p></li>
+<li><p>IMAGE_BOOKSHELF → <code class="docutils literal notranslate"><span class="pre">14</span></code></p></li>
+<li><p>IMAGE_PLAYGROUND → <code class="docutils literal notranslate"><span class="pre">15</span></code></p></li>
+<li><p>IMAGE_MOON → <code class="docutils literal notranslate"><span class="pre">16</span></code></p></li>
+<li><p>IMAGE_CAVE → <code class="docutils literal notranslate"><span class="pre">17</span></code></p></li>
+<li><p>IMAGE_OCEAN → <code class="docutils literal notranslate"><span class="pre">18</span></code></p></li>
+<li><p>IMAGE_POLAR_BEAR → <code class="docutils literal notranslate"><span class="pre">19</span></code></p></li>
+<li><p>IMAGE_PARK → <code class="docutils literal notranslate"><span class="pre">20</span></code></p></li>
+<li><p>IMAGE_RANDOM → <code class="docutils literal notranslate"><span class="pre">21</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="linegraph">
+<h3>Linegraph<a class="headerlink" href="#linegraph" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">linegraph</span></code> module is used make line graphs in the SPIKE App</p>
+<p>To use the <code class="docutils literal notranslate"><span class="pre">linegraph</span></code> module simply import the module like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">linegraph</span>
+</pre></div>
+</div>
+<section id="linegraph-clear">
+<h4>linegraph.clear<a class="headerlink" href="#linegraph-clear" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">clear(color:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">color:</span> <span class="pre">int</span></code> → A colour from the <code class="docutils literal notranslate"><span class="pre">color</span></code> module</p></li>
+</ul>
+</section>
+<section id="linegraph-clear-all">
+<h4>linegraph.clear_all<a class="headerlink" href="#linegraph-clear-all" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">clear_all()</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+</section>
+<section id="linegraph-get-average">
+<h4>linegraph.get_average<a class="headerlink" href="#linegraph-get-average" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">get_average(color:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">Awaitable</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">color:</span> <span class="pre">int</span></code> → A colour from the <code class="docutils literal notranslate"><span class="pre">color</span></code> module</p></li>
+</ul>
+</section>
+<section id="linegraph-get-last">
+<h4>linegraph.get_last<a class="headerlink" href="#linegraph-get-last" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">get_last(color:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">Awaitable</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">color:</span> <span class="pre">int</span></code> → A colour from the <code class="docutils literal notranslate"><span class="pre">color</span></code> module</p></li>
+</ul>
+</section>
+<section id="linegraph-get-max">
+<h4>linegraph.get_max<a class="headerlink" href="#linegraph-get-max" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">get_max(color:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">Awaitable</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">color:</span> <span class="pre">int</span></code> → A colour from the <code class="docutils literal notranslate"><span class="pre">color</span></code> module</p></li>
+</ul>
+</section>
+<section id="linegraph-get-min">
+<h4>linegraph.get_min<a class="headerlink" href="#linegraph-get-min" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">get_min(color:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">Awaitable</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">color:</span> <span class="pre">int</span></code> → A colour from the <code class="docutils literal notranslate"><span class="pre">color</span></code> module</p></li>
+</ul>
+</section>
+<section id="linegraph-hide">
+<h4>linegraph.hide<a class="headerlink" href="#linegraph-hide" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">hide()</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+</section>
+<section id="linegraph-plot">
+<h4>linegraph.plot<a class="headerlink" href="#linegraph-plot" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">plot(color:</span> <span class="pre">int,</span> <span class="pre">x:</span> <span class="pre">float,</span> <span class="pre">y:</span> <span class="pre">float)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">color:</span> <span class="pre">int</span></code> → A colour from the <code class="docutils literal notranslate"><span class="pre">color</span></code> module</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x:</span> <span class="pre">float</span></code> → The X value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y:</span> <span class="pre">float</span></code> → The Y value</p></li>
+</ul>
+</section>
+<section id="linegraph-show">
+<h4>linegraph.show<a class="headerlink" href="#linegraph-show" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">show(fullscreen:</span> <span class="pre">bool)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fullscreen:</span> <span class="pre">bool</span></code> → Show in full screen</p></li>
+</ul>
+</section>
+</section>
+<section id="music">
+<h3>Music<a class="headerlink" href="#music" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">music</span></code> module is used make music in the SPIKE App</p>
+<p>To use the <code class="docutils literal notranslate"><span class="pre">music</span></code> module simply import the module like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">music</span>
+</pre></div>
+</div>
+<section id="music-play-drum">
+<h4>music.play_drum<a class="headerlink" href="#music-play-drum" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">play_drum(drum:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">drum:</span> <span class="pre">int</span></code> → The drum name. See all available values in the <code class="docutils literal notranslate"><span class="pre">app.sound</span></code> module.</p></li>
+</ul>
+</section>
+<section id="music-play-note">
+<h4>music.play_note<a class="headerlink" href="#music-play-note" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">play_note(instrument:</span> <span class="pre">int,</span> <span class="pre">note:</span> <span class="pre">int,</span> <span class="pre">duration:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">instrument:</span> <span class="pre">int</span></code> → The instrument name. See all available values in the <code class="docutils literal notranslate"><span class="pre">app.music</span></code> module.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">note:</span> <span class="pre">int</span></code> → The midi note to play (<code class="docutils literal notranslate"><span class="pre">0</span></code>-<code class="docutils literal notranslate"><span class="pre">130</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">duration:</span> <span class="pre">int</span></code> → The duration in milliseconds</p></li>
+</ul>
+</section>
+<section id="music-constants">
+<h4>music.constants<a class="headerlink" href="#music-constants" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>DRUM_BASS → <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p>DRUM_BONGO → <code class="docutils literal notranslate"><span class="pre">13</span></code></p></li>
+<li><p>DRUM_CABASA → <code class="docutils literal notranslate"><span class="pre">15</span></code></p></li>
+<li><p>DRUM_CLAVES → <code class="docutils literal notranslate"><span class="pre">9</span></code></p></li>
+<li><p>DRUM_CLOSED_HI_HAT → <code class="docutils literal notranslate"><span class="pre">6</span></code></p></li>
+<li><p>DRUM_CONGA → <code class="docutils literal notranslate"><span class="pre">14</span></code></p></li>
+<li><p>DRUM_COWBELL → <code class="docutils literal notranslate"><span class="pre">11</span></code></p></li>
+<li><p>DRUM_CRASH_CYMBAL → <code class="docutils literal notranslate"><span class="pre">4</span></code></p></li>
+<li><p>DRUM_CUICA → <code class="docutils literal notranslate"><span class="pre">18</span></code></p></li>
+<li><p>DRUM_GUIRO → <code class="docutils literal notranslate"><span class="pre">16</span></code></p></li>
+<li><p>DRUM_HAND_CLAP → <code class="docutils literal notranslate"><span class="pre">8</span></code></p></li>
+<li><p>DRUM_OPEN_HI_HAT → <code class="docutils literal notranslate"><span class="pre">5</span></code></p></li>
+<li><p>DRUM_SIDE_STICK → <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
+<li><p>DRUM_SNARE → <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p>DRUM_TAMBOURINE → <code class="docutils literal notranslate"><span class="pre">7</span></code></p></li>
+<li><p>DRUM_TRIANGLE → <code class="docutils literal notranslate"><span class="pre">12</span></code></p></li>
+<li><p>DRUM_VIBRASLAP → <code class="docutils literal notranslate"><span class="pre">17</span></code></p></li>
+<li><p>DRUM_WOOD_BLOCK → <code class="docutils literal notranslate"><span class="pre">10</span></code></p></li>
+<li><p>INSTRUMENT_BASS → <code class="docutils literal notranslate"><span class="pre">6</span></code></p></li>
+<li><p>INSTRUMENT_BASSOON → <code class="docutils literal notranslate"><span class="pre">14</span></code></p></li>
+<li><p>INSTRUMENT_CELLO → <code class="docutils literal notranslate"><span class="pre">8</span></code></p></li>
+<li><p>INSTRUMENT_CHOIR → <code class="docutils literal notranslate"><span class="pre">15</span></code></p></li>
+<li><p>INSTRUMENT_CLARINET → <code class="docutils literal notranslate"><span class="pre">10</span></code></p></li>
+<li><p>INSTRUMENT_ELECTRIC_GUITAR → <code class="docutils literal notranslate"><span class="pre">5</span></code></p></li>
+<li><p>INSTRUMENT_ELECTRIC_PIANO → <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p>INSTRUMENT_FLUTE → <code class="docutils literal notranslate"><span class="pre">12</span></code></p></li>
+<li><p>INSTRUMENT_GUITAR → <code class="docutils literal notranslate"><span class="pre">4</span></code></p></li>
+<li><p>INSTRUMENT_MARIMBA → <code class="docutils literal notranslate"><span class="pre">19</span></code></p></li>
+<li><p>INSTRUMENT_MUSIC_BOX → <code class="docutils literal notranslate"><span class="pre">17</span></code></p></li>
+<li><p>INSTRUMENT_ORGAN → <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
+<li><p>INSTRUMENT_PIANO → <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p>INSTRUMENT_PIZZICATO → <code class="docutils literal notranslate"><span class="pre">7</span></code></p></li>
+<li><p>INSTRUMENT_SAXOPHONE → <code class="docutils literal notranslate"><span class="pre">11</span></code></p></li>
+<li><p>INSTRUMENT_STEEL_DRUM → <code class="docutils literal notranslate"><span class="pre">18</span></code></p></li>
+<li><p>INSTRUMENT_SYNTH_LEAD → <code class="docutils literal notranslate"><span class="pre">20</span></code></p></li>
+<li><p>INSTRUMENT_SYNTH_PAD → <code class="docutils literal notranslate"><span class="pre">21</span></code></p></li>
+<li><p>INSTRUMENT_TROMBONE → <code class="docutils literal notranslate"><span class="pre">9</span></code></p></li>
+<li><p>INSTRUMENT_VIBRAPHONE → <code class="docutils literal notranslate"><span class="pre">16</span></code></p></li>
+<li><p>INSTRUMENT_WOODEN_FLUTE → <code class="docutils literal notranslate"><span class="pre">13</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="sound">
+<h3>Sound<a class="headerlink" href="#sound" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">sound</span></code> module is used play sounds in the SPIKE App</p>
+<p>To use the <code class="docutils literal notranslate"><span class="pre">sound</span></code> module simply import the module like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">sound</span>
+</pre></div>
+</div>
+<section id="sound-play">
+<h4>sound.play<a class="headerlink" href="#sound-play" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">play(sound_name:</span> <span class="pre">str,</span> <span class="pre">volume:</span> <span class="pre">int</span> <span class="pre">&amp;rarr;</span> <span class="pre">100,</span> <span class="pre">pitch:</span> <span class="pre">int</span> <span class="pre">&amp;rarr;</span> <span class="pre">0,</span> <span class="pre">pan:</span> <span class="pre">int</span> <span class="pre">&amp;rarr;</span> <span class="pre">0)</span> <span class="pre">-&gt;</span> <span class="pre">Awaitable</span></code></p></li>
+</ul>
+<p>Play a sound in the SPIKE App</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sound_name:</span> <span class="pre">str</span></code> → The sound name as seen in the Word Blocks sound extension</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">volume:</span> <span class="pre">int</span></code> → The volume (<code class="docutils literal notranslate"><span class="pre">0</span></code>-<code class="docutils literal notranslate"><span class="pre">100</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pitch:</span> <span class="pre">int</span></code> → The pitch of the sound</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pan:</span> <span class="pre">int</span></code> → The pan effect determines which speaker is emitting the sound, with <code class="docutils literal notranslate"><span class="pre">-100</span></code> being only the left speaker, <code class="docutils literal notranslate"><span class="pre">0</span></code> being normal, and <code class="docutils literal notranslate"><span class="pre">100</span></code> being only the right speaker.</p></li>
+</ul>
+</section>
+<section id="sound-set-attributes">
+<h4>sound.set_attributes<a class="headerlink" href="#sound-set-attributes" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">set_attributes(volume:</span> <span class="pre">int,</span> <span class="pre">pitch:</span> <span class="pre">int,</span> <span class="pre">pan:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">volume:</span> <span class="pre">int</span></code> → The volume (<code class="docutils literal notranslate"><span class="pre">0</span></code>-<code class="docutils literal notranslate"><span class="pre">100</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pitch:</span> <span class="pre">int</span></code> → The pitch of the sound</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pan:</span> <span class="pre">int</span></code> → The pan effect determines which speaker is emitting the sound, with <code class="docutils literal notranslate"><span class="pre">-100</span></code> being only the left speaker, <code class="docutils literal notranslate"><span class="pre">0</span></code> being normal, and <code class="docutils literal notranslate"><span class="pre">100</span></code> being only the right speaker.</p></li>
+</ul>
+</section>
+<section id="sound-stop">
+<h4>sound.stop<a class="headerlink" href="#sound-stop" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">stop()</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+</section>
+</section>
+</section>
+<section id="colour">
+<h2>Colour<a class="headerlink" href="#colour" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">color</span></code> module contains all the colour constants to use with the <code class="docutils literal notranslate"><span class="pre">color_matrix</span></code>, <code class="docutils literal notranslate"><span class="pre">color_sensor</span></code> and <code class="docutils literal notranslate"><span class="pre">light</span></code> modules.</p>
+<p>To use the <code class="docutils literal notranslate"><span class="pre">color</span></code> module, add the following import statement to your project:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">import</span> <span class="nn">color</span>
+</pre></div>
+</div>
+<section id="color-constants">
+<h3>color.constants<a class="headerlink" href="#color-constants" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>BLACK → <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+<li><p>MAGENTA → <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p>PURPLE → <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p>BLUE → <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
+<li><p>AZURE → <code class="docutils literal notranslate"><span class="pre">4</span></code></p></li>
+<li><p>TURQUOISE → <code class="docutils literal notranslate"><span class="pre">5</span></code></p></li>
+<li><p>GREEN → <code class="docutils literal notranslate"><span class="pre">6</span></code></p></li>
+<li><p>YELLOW → <code class="docutils literal notranslate"><span class="pre">7</span></code></p></li>
+<li><p>ORANGE → <code class="docutils literal notranslate"><span class="pre">8</span></code></p></li>
+<li><p>RED → <code class="docutils literal notranslate"><span class="pre">9</span></code></p></li>
+<li><p>WHITE → <code class="docutils literal notranslate"><span class="pre">10</span></code></p></li>
+<li><p>UNKNOWN → <code class="docutils literal notranslate"><span class="pre">-1</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="colour-matrix">
+<h2>Colour Matrix<a class="headerlink" href="#colour-matrix" title="Link to this heading">#</a></h2>
+<p>To use the <code class="docutils literal notranslate"><span class="pre">color_matrix</span></code> module, add the following import statement to your project:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">import</span> <span class="nn">color_matrix</span>
+</pre></div>
+</div>
+<p>All functions in the module should be called inside the <code class="docutils literal notranslate"><span class="pre">color_matrix</span></code> module as a prefix like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">color_matrix</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">BLUE</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="color-matrix-clear">
+<h3>color_matrix.clear<a class="headerlink" href="#color-matrix-clear" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">clear(port:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+<p>Turn off all pixels on a Colour Matrix</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">hub</span> <span class="kn">import</span> <span class="n">port</span>
+<span class="linenos">2</span><span class="kn">import</span> <span class="nn">color_matrix</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="n">color_matrix</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">port</span><span class="o">.</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">port:</span> <span class="pre">int</span></code> → A port from the <code class="docutils literal notranslate"><span class="pre">port</span></code> submodule in the <code class="docutils literal notranslate"><span class="pre">hub</span></code> module</p></li>
+</ul>
+</section>
+<section id="color-matrix-get-pixel">
+<h3>color_matrix.get_pixel<a class="headerlink" href="#color-matrix-get-pixel" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">get_pixel(port:</span> <span class="pre">int,</span> <span class="pre">x:</span> <span class="pre">int,</span> <span class="pre">y:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">tuple[int,</span> <span class="pre">int]</span></code></p>
+<p>Retrieve a specific pixel represented as a tuple containing the colour and intensity</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">hub</span> <span class="kn">import</span> <span class="n">port</span>
+<span class="linenos">2</span><span class="kn">import</span> <span class="nn">color_matrix</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="c1"># Print the colour and intensity of the 0,0 pixel on the Colour Matrix connected to port A </span>
+<span class="linenos">5</span><span class="nb">print</span><span class="p">(</span><span class="n">color_matrix</span><span class="o">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">port:</span> <span class="pre">int</span></code> → A port from the <code class="docutils literal notranslate"><span class="pre">port</span></code> submodule in the <code class="docutils literal notranslate"><span class="pre">hub</span></code> module</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x:</span> <span class="pre">int</span></code> → The X value (<code class="docutils literal notranslate"><span class="pre">0</span></code>-<code class="docutils literal notranslate"><span class="pre">2</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y:</span> <span class="pre">int</span></code> → The Y value (<code class="docutils literal notranslate"><span class="pre">0</span></code>-<code class="docutils literal notranslate"><span class="pre">2</span></code>)</p></li>
+</ul>
+</section>
+<section id="color-matrix-set-pixel">
+<h3>color_matrix.set_pixel<a class="headerlink" href="#color-matrix-set-pixel" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">set_pixel(port:</span> <span class="pre">int,</span> <span class="pre">x:</span> <span class="pre">int,</span> <span class="pre">y:</span> <span class="pre">int,</span> <span class="pre">pixel:</span> <span class="pre">tuple[color:</span> <span class="pre">int,</span> <span class="pre">intensity:</span> <span class="pre">int])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+<p>Change a single pixel on a Colour Matrix</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">hub</span> <span class="kn">import</span> <span class="n">port</span>
+<span class="linenos">2</span><span class="kn">import</span> <span class="nn">color</span>
+<span class="linenos">3</span><span class="kn">import</span> <span class="nn">color_matrix</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="c1"># Change the colour of the 0,0 pixel on the Colour Matrix connected to port A </span>
+<span class="linenos">6</span><span class="n">color_matrix</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">color</span><span class="o">.</span><span class="n">RED</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="linenos">7</span>
+<span class="linenos">8</span><span class="c1"># Print the colour of the 0,0 pixel on the Colour Matrix connected to port A </span>
+<span class="linenos">9</span><span class="nb">print</span><span class="p">(</span><span class="n">color_matrix</span><span class="o">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">port:</span> <span class="pre">int</span></code> → A port from the <code class="docutils literal notranslate"><span class="pre">port</span></code> submodule in the <code class="docutils literal notranslate"><span class="pre">hub</span></code> module</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x:</span> <span class="pre">int</span></code> → The X value (<code class="docutils literal notranslate"><span class="pre">0</span></code>-<code class="docutils literal notranslate"><span class="pre">2</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y:</span> <span class="pre">int</span></code> → The Y value (<code class="docutils literal notranslate"><span class="pre">0</span></code>-<code class="docutils literal notranslate"><span class="pre">2</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pixel:</span> <span class="pre">tuple[color:</span> <span class="pre">int,</span> <span class="pre">intensity:</span> <span class="pre">int]</span></code> → Tuple containing colour and intensity, meaning how bright to light up the pixel</p></li>
+</ul>
+</section>
+<section id="color-matrix-show">
+<h3>color_matrix.show<a class="headerlink" href="#color-matrix-show" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">show(port:</span> <span class="pre">int,</span> <span class="pre">pixels:</span> <span class="pre">list[tuple[int,</span> <span class="pre">int]])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code></p>
+<p>Change all pixels at once on a Colour Matrix</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">hub</span> <span class="kn">import</span> <span class="n">port</span>
+<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">color</span>
+<span class="linenos"> 3</span><span class="kn">import</span> <span class="nn">color_matrix</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># Update all pixels on Colour Matrix using the show function </span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># Create a list with 18 items (colour and intensity pairs) </span>
+<span class="linenos"> 8</span><span class="n">pixels</span> <span class="o">=</span> <span class="p">[(</span><span class="n">color</span><span class="o">.</span><span class="n">BLUE</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span> <span class="o">*</span> <span class="mi">9</span> 
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1"># Update all pixels to show same colour and intensity </span>
+<span class="linenos">11</span><span class="n">color_matrix</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">pixels</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">port:</span> <span class="pre">int</span></code> → A port from the <code class="docutils literal notranslate"><span class="pre">port</span></code> submodule in the <code class="docutils literal notranslate"><span class="pre">hub</span></code> module</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pixels:</span> <span class="pre">list[tuple[int,</span> <span class="pre">int]]</span></code> → A list containing colour and intensity value tuples for all 9 pixels.</p></li>
+</ul>
+</section>
+</section>
+<section id="colour-sensor">
+<h2>Colour Sensor<a class="headerlink" href="#colour-sensor" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">color_sensor</span></code> module enables you to write code that reacts to specific colours or the intensity of the reflected light.</p>
+<p>To use the <code class="docutils literal notranslate"><span class="pre">color_sensor</span></code> module, add the following import statement to your project:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">import</span> <span class="nn">color_sensor</span>
+</pre></div>
+</div>
+<p>All functions in the module should be called inside the color_sensor module as a prefix like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">color_sensor</span><span class="o">.</span><span class="n">reflection</span><span class="p">(</span><span class="n">port</span><span class="o">.</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The Colour Sensor can recognise the following colours:</p>
+<ul class="simple">
+<li><p>Red</p></li>
+<li><p>Green</p></li>
+<li><p>Blue</p></li>
+<li><p>Magenta</p></li>
+<li><p>Yellow</p></li>
+<li><p>Orange</p></li>
+<li><p>Azure</p></li>
+<li><p>Black</p></li>
+<li><p>White</p></li>
+</ul>
+<section id="color-sensor-color">
+<h3>color_sensor.color<a class="headerlink" href="#color-sensor-color" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">color(port:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">int</span></code></p>
+<p>Returns the colour value of the detected colour. Use the color module to map the colour value to a specific colour.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">import</span> <span class="nn">color_sensor</span>
+<span class="linenos">2</span><span class="kn">from</span> <span class="nn">hub</span> <span class="kn">import</span> <span class="n">port</span>
+<span class="linenos">3</span><span class="kn">import</span> <span class="nn">color</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="k">if</span> <span class="n">color_sensor</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">port</span><span class="o">.</span><span class="n">A</span><span class="p">)</span> <span class="ow">is</span> <span class="n">color</span><span class="o">.</span><span class="n">RED</span><span class="p">:</span>
+<span class="linenos">6</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Red detected&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">port:</span> <span class="pre">int</span></code> → A port from the <code class="docutils literal notranslate"><span class="pre">port</span></code> submodule in the <code class="docutils literal notranslate"><span class="pre">hub</span></code> module</p></li>
+</ul>
+</section>
+<section id="color-sensor-reflection">
+<h3>color_sensor.reflection<a class="headerlink" href="#color-sensor-reflection" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">reflection(port:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">int</span></code></p>
+<p>Retrieves the intensity of the reflected light (<code class="docutils literal notranslate"><span class="pre">0</span></code>-<code class="docutils literal notranslate"><span class="pre">100</span></code>%).</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">port:</span> <span class="pre">int</span></code> → A port from the <code class="docutils literal notranslate"><span class="pre">port</span></code> submodule in the <code class="docutils literal notranslate"><span class="pre">hub</span></code> module</p></li>
+</ul>
+</section>
+<section id="color-sensor-rgbi">
+<h3>color_sensor.rgbi<a class="headerlink" href="#color-sensor-rgbi" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">rgbi(port:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">tuple[int,</span> <span class="pre">int,</span> <span class="pre">int,</span> <span class="pre">int]</span></code></p>
+<p>Retrieves the overall colour intensity and intensity of red, green and blue.</p>
+<p>Returns <code class="docutils literal notranslate"><span class="pre">tuple[red:</span> <span class="pre">int,</span> <span class="pre">green:</span> <span class="pre">int,</span> <span class="pre">blue:</span> <span class="pre">int,</span> <span class="pre">intensity:</span> <span class="pre">int]</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">port:</span> <span class="pre">int</span></code> → A port from the <code class="docutils literal notranslate"><span class="pre">port</span></code> submodule in the <code class="docutils literal notranslate"><span class="pre">hub</span></code> module</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          <a class="prev-page" href="08_planning_code.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Planning Code</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Damien Murtagh
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/DamoM73/lego-spike-tutorials" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Spike Prime Python API</a><ul>
+<li><a class="reference internal" href="#app-module">App module</a><ul>
+<li><a class="reference internal" href="#bargraph">Bargraph</a><ul>
+<li><a class="reference internal" href="#bargraph-change">bargraph.change</a></li>
+<li><a class="reference internal" href="#bargraph-clear-all">bargraph.clear_all</a></li>
+<li><a class="reference internal" href="#bargraph-get-value">bargraph.get_value</a></li>
+<li><a class="reference internal" href="#bargraph-hide">bargraph.hide</a></li>
+<li><a class="reference internal" href="#bargraph-set-value">bargraph.set_value</a></li>
+<li><a class="reference internal" href="#bargraph-show">bargraph.show</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#display-module">Display module</a><ul>
+<li><a class="reference internal" href="#display-hide">display.hide</a></li>
+<li><a class="reference internal" href="#display-image">display.image</a></li>
+<li><a class="reference internal" href="#display-show">display.show</a></li>
+<li><a class="reference internal" href="#display-text">display.text</a></li>
+<li><a class="reference internal" href="#display-constants">display.constants</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#linegraph">Linegraph</a><ul>
+<li><a class="reference internal" href="#linegraph-clear">linegraph.clear</a></li>
+<li><a class="reference internal" href="#linegraph-clear-all">linegraph.clear_all</a></li>
+<li><a class="reference internal" href="#linegraph-get-average">linegraph.get_average</a></li>
+<li><a class="reference internal" href="#linegraph-get-last">linegraph.get_last</a></li>
+<li><a class="reference internal" href="#linegraph-get-max">linegraph.get_max</a></li>
+<li><a class="reference internal" href="#linegraph-get-min">linegraph.get_min</a></li>
+<li><a class="reference internal" href="#linegraph-hide">linegraph.hide</a></li>
+<li><a class="reference internal" href="#linegraph-plot">linegraph.plot</a></li>
+<li><a class="reference internal" href="#linegraph-show">linegraph.show</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#music">Music</a><ul>
+<li><a class="reference internal" href="#music-play-drum">music.play_drum</a></li>
+<li><a class="reference internal" href="#music-play-note">music.play_note</a></li>
+<li><a class="reference internal" href="#music-constants">music.constants</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sound">Sound</a><ul>
+<li><a class="reference internal" href="#sound-play">sound.play</a></li>
+<li><a class="reference internal" href="#sound-set-attributes">sound.set_attributes</a></li>
+<li><a class="reference internal" href="#sound-stop">sound.stop</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#colour">Colour</a><ul>
+<li><a class="reference internal" href="#color-constants">color.constants</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#colour-matrix">Colour Matrix</a><ul>
+<li><a class="reference internal" href="#color-matrix-clear">color_matrix.clear</a></li>
+<li><a class="reference internal" href="#color-matrix-get-pixel">color_matrix.get_pixel</a></li>
+<li><a class="reference internal" href="#color-matrix-set-pixel">color_matrix.set_pixel</a></li>
+<li><a class="reference internal" href="#color-matrix-show">color_matrix.show</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#colour-sensor">Colour Sensor</a><ul>
+<li><a class="reference internal" href="#color-sensor-color">color_sensor.color</a></li>
+<li><a class="reference internal" href="#color-sensor-reflection">color_sensor.reflection</a></li>
+<li><a class="reference internal" href="#color-sensor-rgbi">color_sensor.rgbi</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=a4664895"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    </body>
+</html>
