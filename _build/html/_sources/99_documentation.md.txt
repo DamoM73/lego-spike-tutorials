@@ -19,6 +19,8 @@ from app import bargraph
 
 `change(color: int, value: float) -> None`
 
+Parameters
+
 - `color: int` &rarr; A colour from the `color` module
 - `value: float` &rarr; The value
 
@@ -30,6 +32,8 @@ from app import bargraph
 
 `get_value(color: int) -> Awaitable`
 
+Parameters
+
 - `color: int` &rarr; A colour from the `color` module
 
 #### bargraph.hide
@@ -40,12 +44,16 @@ from app import bargraph
 
 `set_value(color: int, value: float) -> None`
 
+Parameters
+
 - `color: int` &rarr; A colour from the `color` module
 - `value: float` &rarr; The value
 
 #### bargraph.show
 
 `show(fullscreen: bool) -> None`
+
+Parameters
 
 - `fullscreen: bool` &rarr; Show in full screen
 
@@ -68,11 +76,15 @@ from app import display
 
 `image(image: int) -> None`
 
+Parameters
+
 - image: int &rarr; The id of the image to show. The range of available images is 1 to 21. There are constants in the display module for these.
 
 #### display.show
 
 `show(fullscreen: bool) -> None`
+
+Parameters
 
 - `fullscreen: bool` &rarr; Show in full screen
 
@@ -80,9 +92,9 @@ from app import display
 
 `text(text: str) -> None`
 
-`text: str`
+Parameters
 
-- The text to display
+- `text: str` &rarr; The text to display
 
 #### display.constants
 
@@ -123,6 +135,8 @@ from app import linegraph
 
 `clear(color: int) -> None`
 
+Parameters
+
 - `color: int` &rarr; A colour from the `color` module
 
 #### linegraph.clear_all
@@ -133,11 +147,15 @@ from app import linegraph
 
 `get_average(color: int) -> Awaitable`
 
+Parameters
+
 - `color: int` &rarr; A colour from the `color` module
 
 #### linegraph.get_last
 
 `get_last(color: int) -> Awaitable`
+
+Parameters
 
 - `color: int` &rarr; A colour from the `color` module
 
@@ -145,11 +163,15 @@ from app import linegraph
 
 `get_max(color: int) -> Awaitable`
 
+Parameters
+
 - `color: int` &rarr; A colour from the `color` module
 
 #### linegraph.get_min
 
 `get_min(color: int) -> Awaitable`
+
+Parameters
 
 - `color: int` &rarr; A colour from the `color` module
 
@@ -161,6 +183,8 @@ from app import linegraph
 
 `plot(color: int, x: float, y: float) -> None`
 
+Parameters
+
 - `color: int` &rarr; A colour from the `color` module
 - `x: float` &rarr; The X value
 - `y: float` &rarr; The Y value
@@ -168,6 +192,8 @@ from app import linegraph
 #### linegraph.show
 
 `show(fullscreen: bool) -> None`
+
+Parameters
 
 - `fullscreen: bool` &rarr; Show in full screen
 
@@ -186,11 +212,15 @@ from app import music
 
 `play_drum(drum: int) -> None`
 
+Parameters
+
 - `drum: int` &rarr; The drum name. See all available values in the `app.sound` module.
 
 #### music.play_note
 
 `play_note(instrument: int, note: int, duration: int) -> None`
+
+Parameters
 
 - `instrument: int` &rarr; The instrument name. See all available values in the `app.music` module.
 - `note: int` &rarr; The midi note to play (`0`-`130`)
@@ -251,9 +281,11 @@ from app import sound
 
 #### sound.play
 
-- `play(sound_name: str, volume: int &rarr; 100, pitch: int &rarr; 0, pan: int &rarr; 0) -> Awaitable`
+`play(sound_name: str, volume: int &rarr; 100, pitch: int &rarr; 0, pan: int &rarr; 0) -> Awaitable`
 
 Play a sound in the SPIKE App
+
+Parameters
 
 - `sound_name: str` &rarr; The sound name as seen in the Word Blocks sound extension
 - `volume: int` &rarr; The volume (`0`-`100`)
@@ -263,6 +295,8 @@ Play a sound in the SPIKE App
 #### sound.set_attributes
 
 `set_attributes(volume: int, pitch: int, pan: int) -> None`
+
+Parameters
 
 - `volume: int` &rarr; The volume (`0`-`100`)
 - `pitch: int` &rarr; The pitch of the sound
@@ -328,6 +362,8 @@ import color_matrix
 color_matrix.clear(port.A)
 ```
 
+Parameters
+
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 
 ### color_matrix.get_pixel
@@ -344,6 +380,8 @@ import color_matrix
 # Print the colour and intensity of the 0,0 pixel on the Colour Matrix connected to port A 
 print(color_matrix.get_pixel(port.A, 0, 0))
 ```
+
+Parameters
 
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 - `x: int` &rarr; The X value (`0`-`2`)
@@ -367,6 +405,8 @@ color_matrix.set_pixel(port.A, 0, 0, (color.RED, 10))
 # Print the colour of the 0,0 pixel on the Colour Matrix connected to port A 
 print(color_matrix.get_pixel(port.A, 0, 0)[0])
 ```
+
+Parameters
 
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 - `x: int` &rarr; The X value (`0`-`2`)
@@ -393,6 +433,8 @@ pixels = [(color.BLUE, 10)] * 9
 # Update all pixels to show same colour and intensity 
 color_matrix.show(port.A, pixels)
 ```
+
+Parameters
 
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 - `pixels: list[tuple[int, int]]` &rarr; A list containing colour and intensity value tuples for all 9 pixels.
@@ -443,6 +485,8 @@ if color_sensor.color(port.A) is color.RED:
     print("Red detected")
 ```
 
+Parameters
+
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 
 ### color_sensor.reflection
@@ -450,6 +494,8 @@ if color_sensor.color(port.A) is color.RED:
 `reflection(port: int) -> int`
 
 Retrieves the intensity of the reflected light (`0`-`100`%).
+
+Parameters
 
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 
@@ -460,6 +506,8 @@ Retrieves the intensity of the reflected light (`0`-`100`%).
 Retrieves the overall colour intensity and intensity of red, green and blue.
 
 Returns `tuple[red: int, green: int, blue: int, intensity: int]`
+
+Parameters
 
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 
@@ -488,6 +536,8 @@ device.device_id(port.A)
 
 Retrieve the raw LPF-2 data from a device.
 
+Parameters
+
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 
 ### device.device_id
@@ -496,6 +546,8 @@ Retrieve the raw LPF-2 data from a device.
 
 Retrieve the device ID of a device. Each device has an ID based on its type.
 
+Parameters
+
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 
 ### device.get_duty_cycle
@@ -503,6 +555,8 @@ Retrieve the device ID of a device. Each device has an ID based on its type.
 `get_duty_cycle(port: int) -> int`
 
 Retrieve the duty cycle for a device. Returned values are in the range `0` to `10000`
+
+Parameters
 
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 
@@ -513,6 +567,8 @@ Retrieve the duty cycle for a device. Returned values are in the range `0` to `1
 When a device is attached to the hub it might take a short amount of time before it's ready to accept requests.
 Use ready to test for the readiness of the attached devices.
 
+Parameters
+
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 
 ### device.set_duty_cycle
@@ -520,6 +576,8 @@ Use ready to test for the readiness of the attached devices.
 `set_duty_cycle(port: int, duty_cycle: int) -> None`
 
 Set the duty cycle on a device. Range 0 to 10000
+
+Parameters
 
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 - `duty_cycle: int` &rarr; The PWM value (`0`-`10000`)
@@ -553,6 +611,8 @@ distance_sensor.distance(port.A)
 
 Turns off all the lights in the Distance Sensor connected to port.
 
+Parameters
+
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 
 ### distance_sensor.distance
@@ -561,6 +621,8 @@ Turns off all the lights in the Distance Sensor connected to port.
 
 Retrieve the distance in millimetres captured by the Distance Sensor connected to port. If the Distance Sensor cannot read a valid distance it will return -1.
 
+Parameters
+
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 
 ### distance_sensor.get_pixel
@@ -568,6 +630,8 @@ Retrieve the distance in millimetres captured by the Distance Sensor connected t
 `get_pixel(port: int, x: int, y: int) -> int`
 
 Retrieve the intensity of a specific light on the Distance Sensor connected to port.
+
+Parameters
 
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 - `x: int` &rarr; The X value (`0` - `3`)
@@ -578,6 +642,8 @@ Retrieve the intensity of a specific light on the Distance Sensor connected to p
 `set_pixel(port: int, x: int, y: int, intensity: int) -> None`
 
 Changes the intensity of a specific light on the Distance Sensor connected to port.
+
+Parameters
 
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 - `x: int` &rarr; The X value (`0` - `3`)
@@ -604,8 +670,10 @@ pixels = [100] * 4
 distance_sensor.show(port.A, pixels)
 ```
 
+Parameters
+
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
-- `pixels: bytes` A list containing intensity values for all 4 pixels.
+- `pixels: bytes` &rarr; A list containing intensity values for all 4 pixels.
 
 ## Force Sensor module
 
@@ -639,6 +707,8 @@ import force_sensor
 print(force_sensor.force(port.A))
 ```
 
+Parameters
+
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 
 ### force_sensor.pressed
@@ -655,6 +725,8 @@ import force_sensor
 print(force_sensor.pressed(port.A))
 ```
 
+Parameters
+
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 
 ### force_sensor.raw
@@ -670,6 +742,8 @@ import force_sensor
 
 print(force_sensor.raw(port.A))
 ```
+
+Parameters
 
 - `port: int` &rarr; A port from the `port` submodule in the `hub` module
 
@@ -714,6 +788,8 @@ while button.pressed(button.LEFT):
 print("Left button was pressed for " + str(left_button_press_duration) + " milliseconds")
 ```
 
+Parameters
+
 - `button: int` &rarr; A button from the `button` submodule in the `hub` module
 
 #### button.constants
@@ -753,6 +829,8 @@ import color
 # Change the light to red 
 light.color(light.POWER, color.RED)
 ```
+
+Parameters
 
 - `light: int` &rarr; The light on the hub
 - `color: int` &rarr; A colour from the `color` module
@@ -830,6 +908,8 @@ light_matrix.show_image(1)
 print(light_matrix.get_pixel(2, 2))
 ```
 
+Parameters
+
 - `x: int` &rarr; The X value, range (`0` - `4`)
 - `y: int` &rarr; The Y value, range (`0` - `4`)
 
@@ -861,6 +941,8 @@ from hub import light_matrix
 light_matrix.set_pixel(2, 2, 100)
 ```
 
+Parameters
+
 - `x: int` &rarr; The X value, range (`0` - `4`)
 - `y: int` &rarr; The Y value, range (`0` - `4`)
 - `intensity: int` &rarr; How bright to light up the pixel
@@ -883,6 +965,8 @@ pixels = [100] * 25
 light_matrix.show(pixels)
 ```
 
+Parameters
+
 - `pixels: Iterable` &rarr; A list containing light intensity values for all 25 pixels.
 
 #### light_matrix.show_image
@@ -900,6 +984,8 @@ from hub import light_matrix
 light_matrix.show_image(light_matrix.IMAGE_HAPPY)
 ```
 
+Parameters
+
 - `image: int` &rarr; The id of the image to show. The range of available images is `1` to `67`. There are constants in the `light_matrix` module for these.
 
 #### light_matrix.write
@@ -914,6 +1000,8 @@ from hub import light_matrix
 # White a message to the hub 
 light_matrix.write("Hello, world!")
 ```
+
+Parameters
 
 - `text: str` &rarr; The text to display
 - `intensity: int` &rarr; How bright to light up the pixel
@@ -1011,6 +1099,8 @@ motion_sensor.up_face()
 
 Returns a tuple containing x, y & z acceleration values as integers. The values are in mg (0.001 g)
 
+Parameters
+
 - `raw_unfiltered: bool` &rarr; If we want the data back raw and unfiltered
 
 #### motion_sensor.angular_velocity
@@ -1018,6 +1108,8 @@ Returns a tuple containing x, y & z acceleration values as integers. The values 
 `angular_velocity(raw_unfiltered: bool) -> tuple[int, int, int]`
 
 Returns a tuple containing x, y & z angular velocity values as integers. The values are decidegrees per second
+
+Parameters
 
 - `raw_unfiltered: bool` &rarr; If we want the data back raw and unfiltered
 
@@ -1067,6 +1159,8 @@ Reset the tap count returned by the `tap_count` function
 
 Change the yaw angle offset. The angle set will be the new yaw value.
 
+Parameters
+
 - `angle: int`
 
 #### motion_sensor.set_yaw_face
@@ -1074,6 +1168,8 @@ Change the yaw angle offset. The angle set will be the new yaw value.
 `set_yaw_face(up: int) -> bool`
 
 Change what hub face is used as the yaw face. If you put the hub on a flat surface with this face pointing up, when you rotate the hub only the yaw will update
+
+Parameters
 
 - `up: int` &rarr; The hub face that should be set as the upwards facing hub face.
 
@@ -1179,3 +1275,839 @@ Turns off the hub.
 `temperature() -> int`
 
 Retrieve the hub temperature. Measured in decidegrees Celsius (d°C) which is 1/10 of a degree Celsius (°C)
+
+## Motor Module
+
+To use a motor add the following import statement to your project:
+
+```{code-block} python
+:linenos:
+import motor
+```
+
+All functions in the module should be called inside the `motor` module as a prefix like so:
+
+```{code-block} python
+:linenos:
+motor.run(port.A, 1000)
+```
+
+### motor.absolute_position
+
+`absolute_position(port: int) -> int`
+
+Get the absolute position of a motor
+
+Parameters
+
+- `port: int` &rarr; A port from the port submodule in the `hub` module
+
+### motor.get_duty_cycle
+
+`get_duty_cycle(port: int) -> int`
+
+Get the PWM of a motor
+
+Parameters
+
+- `port: int` &rarr; A port from the port submodule in the `hub` module
+
+### motor.relative_position
+
+`relative_position(port: int) -> int`
+
+Get the relative position of a motor
+
+Parameters
+
+- `port: int` &rarr; A port from the port submodule in the `hub` module
+
+### reset_relative_position
+
+`reset_relative_position(port: int, position: int) -> None`
+
+Change the position used as the offset when using the run_to_relative_position function.
+
+Parameters
+
+- `port: int` &rarr; A port from the port submodule in the `hub` module
+- `position: int` &rarr; The degree of the motor
+
+### motor.run
+
+`run(port: int, velocity: int, *, acceleration: int = 1000) -> None`
+
+Start a motor at a constant speed
+
+```{code-block} python
+:linenos:
+from hub import port
+import motor, time
+
+# Start motor 
+motor.run(port.A, 1000)
+```
+
+Parameters
+
+- `port: int` &rarr; A port from the port submodule in the `hub` module
+- `velocity: int` &rarr; The velocity in degrees/sec
+  - Small motor (essential): `-660` to `660`
+  - Medium motor: `-1110` to `1110`
+  - Large motor: `-1050` to `1050`
+- `acceleration: int` &rarr; The acceleration (deg/sec²) (`0` - `10000`)
+
+### motor.run_for_degree
+
+`run_for_degrees(port: int, degrees: int, velocity: int, *, stop: int = BRAKE, acceleration: int = 1000, deceleration: int = 1000) -> Awaitable`
+
+Turn a motor for a specific number of degrees
+
+When awaited returns a status of the movement that corresponds to one of the following constants:
+
+- `motor.READY`
+- `motor.RUNNING`
+- `motor.STALLED`
+- `motor.CANCELED`
+- `motor.ERROR`
+- `motor.DISCONNECTED`
+
+Parameters
+
+- `port: int` &rarr; A port from the port submodule in the `hub` module
+- `degrees: int` &rarr; The number of degrees
+- `velocity: int` &rarr; The velocity in degrees/sec
+  - Small motor (essential): `-660` to `660`
+  - Medium motor: `-1110` to `1110`
+  - Large motor: `-1050` to `1050`
+- `stop: int` &rarr; The behaviour of the motor after it has stopped. Use the constants in the motor module.
+  - `motor.COAST` to make the motor coast until a stop
+  - `motor.BREAK` to brake and continue to brake after stop
+  - `motor.HOLD` to tell the motor to hold it's position
+  - `motor.CONTINUE` to tell the motor to keep running at whatever velocity it's running at until it gets another command
+  - `motor.SMART_COAST` to make the motor brake until stop and then coast and compensate for inaccuracies in the next command
+  - `motor.SMART_BRAKE` to make the motor brake and continue to brake after stop and compensate for inaccuracies in the next command
+- `acceleration: int` &rarr; The acceleration (deg/sec²) (`0` - `10000`)
+- `deceleration: int` &rarr; The deceleration (deg/sec²) (`0` - `10000`)
+
+### motor.run_for_time
+
+`run_for_time(port: int, duration: int, velocity: int, *, stop: int = BRAKE, acceleration: int = 1000, deceleration: int = 1000) -> Awaitable`
+
+Run a motor for a limited amount of time
+
+When awaited returns a status of the movement that corresponds to one of the following constants:
+
+- `motor.READY`
+- `motor.RUNNING`
+- `motor.STALLED`
+- `motor.ERROR`
+- `motor.DISCONNECTED`
+
+```{code-block} python
+:linenos:
+from hub import port
+import runloop
+import motor
+
+async def main():
+    # Run at 1000 velocity for 1 second 
+    await motor.run_for_time(port.A, 1000, 1000)
+
+    # Run at 280 velocity for 1 second 
+    await motor_pair.run_for_time(port.A, 1000, 280)
+
+    # Run at 280 velocity for 10 seconds with a slow deceleration 
+    await motor_pair.run_for_time(port.A, 10000, 280, deceleration=10)
+
+runloop.run(main())
+```
+
+Parameters
+
+- `port: int` &rarr; A port from the port submodule in the `hub` module
+- `duration: int` &rarr; The duration in milliseconds
+- `velocity: int` &rarr; The velocity in degrees/sec
+  - Small motor (essential): `-660` to `660`
+  - Medium motor: `-1110` to `1110`
+  - Large motor: `-1050` to `1050`
+- `stop: int` &rarr; The behaviour of the motor after it has stopped. Use the constants in the motor module.
+  - `motor.COAST` to make the motor coast until a stop
+  - `motor.BREAK` to brake and continue to brake after stop
+  - `motor.HOLD` to tell the motor to hold it's position
+  - `motor.CONTINUE` to tell the motor to keep running at whatever velocity it's running at until it gets another command
+  - `motor.SMART_COAST` to make the motor brake until stop and then coast and compensate for inaccuracies in the next command
+  - `motor.SMART_BRAKE` to make the motor brake and continue to brake after stop and compensate for inaccuracies in the next command
+- `acceleration: int` &rarr; The acceleration (deg/sec²) (`0` - `10000`)
+- `deceleration: int` &rarr; The deceleration (deg/sec²) (`0` - `10000`)
+
+### motor.run_to_absolute_position
+
+`run_to_absolute_position(port: int, position: int, velocity: int, *, direction: int, stop: int = BRAKE, acceleration: int = 1000, deceleration: int = 1000) -> Awaitable`
+
+Turn a motor to an absolute position.
+
+When awaited returns a status of the movement that corresponds to one of the following constants:
+
+- `motor.READY`
+- `motor.RUNNING`
+- `motor.STALLED`
+- `motor.ERROR`
+- `motor.DISCONNECTED`
+
+Parameters
+
+- `port: int` &rarr; A port from the port submodule in the `hub` module
+- `position: int` &rarr; The degree of the motor
+- `velocity: int` &rarr; The velocity in degrees/sec
+  - Small motor (essential): `-660` to `660`
+  - Medium motor: `-1110` to `1110`
+  - Large motor: `-1050` to `1050`
+- `direction: int` &rarr; The direction to turn.
+  - `motor.CLOCKWISE`
+  - `motor.COUNTERCLOCKWISE`
+  - `motor.SHORTEST_PATH`
+  - `motor.LONGEST_PATH`
+- `stop: int` &rarr; The behaviour of the motor after it has stopped. Use the constants in the motor module.
+  - `motor.COAST` to make the motor coast until a stop
+  - `motor.BREAK` to brake and continue to brake after stop
+  - `motor.HOLD` to tell the motor to hold it's position
+  - `motor.CONTINUE` to tell the motor to keep running at whatever velocity it's running at until it gets another command
+  - `motor.SMART_COAST` to make the motor brake until stop and then coast and compensate for inaccuracies in the next command
+  - `motor.SMART_BRAKE` to make the motor brake and continue to brake after stop and compensate for inaccuracies in the next command
+- `acceleration: int` &rarr; The acceleration (deg/sec²) (`0` - `10000`)
+- `deceleration: int` &rarr; The deceleration (deg/sec²) (`0` - `10000`)
+
+### motor.run_to_relative_position
+
+`run_to_relative_position(port: int, position: int, velocity: int, *, stop: int = BRAKE, acceleration: int = 1000, deceleration: int = 1000) -> Awaitable`
+
+Turn a motor to a position relative to the current position.
+
+When awaited returns a status of the movement that corresponds to one of the following constants:
+
+- `motor.READY`
+- `motor.RUNNING`
+- `motor.STALLED`
+- `motor.ERROR`
+- `motor.DISCONNECTED`
+
+Parameters
+
+- `port: int` &rarr; A port from the port submodule in the `hub` module
+- `position: int` &rarr; The degree of the motor
+- `velocity: int` &rarr; The velocity in degrees/sec
+  - Small motor (essential): `-660` to `660`
+  - Medium motor: `-1110` to `1110`
+  - Large motor: `-1050` to `1050`
+- `stop: int` &rarr; The behaviour of the motor after it has stopped. Use the constants in the motor module.
+  - `motor.COAST` to make the motor coast until a stop
+  - `motor.BREAK` to brake and continue to brake after stop
+  - `motor.HOLD` to tell the motor to hold it's position
+  - `motor.CONTINUE` to tell the motor to keep running at whatever velocity it's running at until it gets another command
+  - `motor.SMART_COAST` to make the motor brake until stop and then coast and compensate for inaccuracies in the next command
+  - `motor.SMART_BRAKE` to make the motor brake and continue to brake after stop and compensate for inaccuracies in the next command
+- `acceleration: int` &rarr; The acceleration (deg/sec²) (`0` - `10000`)
+- `deceleration: int` &rarr; The deceleration (deg/sec²) (`0` - `10000`)
+
+### motor.set_duty_cycle
+
+`set_duty_cycle(port: int, pwm: int) -> None`
+
+Start a motor with a specific PWM
+
+Parameters
+
+- `port: int` &rarr; A port from the port submodule in the `hub` module
+- `pwm: int` &rarr; The PWM value (`-10000` - `10000`)
+
+### motor.stop
+
+`stop(port: int, *, stop: int = BRAKE) -> None`
+
+Stops a motor
+
+```{code-block} python
+:linenos:
+from hub import port
+import motor, time
+
+# Start motor 
+motor.run(port.A, 1000)
+
+# Wait for 2 seconds 
+time.sleep_ms(2000)
+
+# Stop motor 
+motor.stop(port.A)
+```
+
+Parameters
+
+- `port: int` &rarr; A port from the port submodule in the `hub` module
+- `stop: int` &rarr; The behaviour of the motor after it has stopped. Use the constants in the motor module.
+  - `motor.COAST` to make the motor coast until a stop
+  - `motor.BREAK` to brake and continue to brake after stop
+  - `motor.HOLD` to tell the motor to hold it's position
+  - `motor.CONTINUE` to tell the motor to keep running at whatever velocity it's running at until it gets another command
+  - `motor.SMART_COAST` to make the motor brake until stop and then coast and compensate for inaccuracies in the next command
+  - `motor.SMART_BRAKE` to make the motor brake and continue to brake after stop and compensate for inaccuracies in the next command
+
+### motor.velocity
+
+`velocity(port: int) -> int`
+
+Get the velocity (deg/sec) of a Motor
+
+Parameters
+
+- `port: int` &rarr; A port from the port submodule in the `hub` module
+
+### motor.constants
+
+- `READY` &rarr; `1`
+- `RUNNING` &rarr; `2`
+- `STALLED` &rarr; `-1`
+- `CANCELED` &rarr; `-2`
+- `ERROR` &rarr; `-3`
+- `DISCONNECTED` &rarr; `0`
+- `COAST` &rarr; `1`
+- `BRAKE` &rarr; `2`
+- `HOLD` &rarr; `3`
+- `CONTINUE` &rarr; `0`
+- `SMART_COAST` &rarr; `4`
+- `SMART_BRAKE` &rarr; `5`
+- `CLOCKWISE` &rarr; `0`
+- `COUNTERCLOCKWISE` &rarr; `1`
+- `SHORTEST_PATH` &rarr; `2`
+- `LONGEST_PATH` &rarr; `3`
+
+## Motor Pair Module
+
+The `motor_pair` module is used to run motors in a synchronised fashion. This mode is optimal for creating drive bases where you'd want a pair of motors to start and stop at the same time.
+
+To use the `motor_pair` module simply import the module like so:
+
+```{code-block} python
+:linenos:
+import motor_pair
+```
+
+All functions in the module should be called inside the `motor_pair` module as a prefix like so:
+
+```{code-block} python
+:linenos:
+motor_pair.pair(motor_pair.PAIR_1, port.A, port.B)
+```
+
+### motor_pair.move
+
+`move(pair: int, steering: int, *, velocity: int = 360, acceleration: int = 1000) -> None`
+
+Move a `motor_pair` at a constant speed until a new command is given.
+
+```{code-block} python
+:linenos:
+from hub import port
+import runloop
+import motor_pair
+
+async def main():
+    # Pair motors on port A and B 
+    motor_pair.pair(motor_pair.PAIR_1, port.A, port.B)
+
+    await runloop.sleep_ms(2000)
+
+    # Move straight at default velocity 
+    motor_pair.move(motor_pair.PAIR_1, 0)
+
+    await runloop.sleep_ms(2000)
+
+    # Move straight at a specific velocity 
+    motor_pair.move(motor_pair.PAIR_1, 0, velocity=280)
+
+    await runloop.sleep_ms(2000)
+
+    # Move straight at a specific velocity and acceleration 
+    motor_pair.move(motor_pair.PAIR_1, 0, velocity=280, acceleration=100)
+
+runloop.run(main())
+```
+
+Parameters
+
+- `pair: int` &rarr; The pair slot of the `motor_pair`.
+- `steering: int` &rarr; The steering (`-100` to `100`)
+- `velocity: int` &rarr; The velocity in degrees/sec
+  - Small motor (essential): `-660` to `660`
+  - Medium motor: `-1110` to `1110`
+  - Large motor: `-1050` to `1050`
+- `acceleration: int` &rarr; The acceleration (deg/sec²) (`0` - `10000`)
+
+### motor_pair.move_for_degrees
+
+`move_for_degrees(pair: int, degrees: int, steering: int, *, velocity: int = 360, stop: int = motor.BRAKE, acceleration: int = 1000, deceleration: int = 1000) -> Awaitable`
+
+Move a `motor_pair` at a constant speed for a specific number of degrees.
+
+When awaited returns a status of the movement that corresponds to one of the following constants:
+
+- `motor.READY`
+- `motor.RUNNING`
+- `motor.STALLED`
+- `motor.ERROR`
+- `motor.DISCONNECTED`
+
+```{code-block} python
+:linenos:
+from hub import port
+import runloop
+import motor_pair
+
+async def main():
+    # Pair motors on port A and B 
+    motor_pair.pair(motor_pair.PAIR_1, port.A, port.B)
+
+    # Move straight at default velocity for 90 degrees 
+    await motor_pair.move_for_degrees(motor_pair.PAIR_1, 90, 0)
+
+    # Move straight at a specific velocity for 1000 degrees 
+    await motor_pair.move_for_degrees(motor_pair.PAIR_1, 1000, 0, velocity=280)
+
+    # Move straight at a specific velocity for 10 seconds with a slow deceleration 
+    await motor_pair.move_for_degrees(motor_pair.PAIR_1, 10000, 0, velocity=280, deceleration=10)
+
+runloop.run(main())
+```
+
+Parameters
+
+- `pair: int` &rarr; The pair slot of the `motor_pair`.
+- `degrees: int` &rarr; The number of degrees
+- `steering: int` &rarr; The steering (`-100` to `100`)
+- `velocity: int` &rarr; The velocity in degrees/sec
+  - Small motor (essential): `-660` to `660`
+  - Medium motor: `-1110` to `1110`
+  - Large motor: `-1050` to `1050`
+- `stop: int` &rarr; The behaviour of the motor after it has stopped. Use the constants in the motor module.
+  - `motor.COAST` to make the motor coast until a stop
+  - `motor.BREAK` to brake and continue to brake after stop
+  - `motor.HOLD` to tell the motor to hold it's position
+  - `motor.CONTINUE` to tell the motor to keep running at whatever velocity it's running at until it gets another command
+  - `motor.SMART_COAST` to make the motor brake until stop and then coast and compensate for inaccuracies in the next command
+  - `motor.SMART_BRAKE` to make the motor brake and continue to brake after stop and compensate for inaccuracies in the next command
+- `acceleration: int` &rarr; The acceleration (deg/sec²) (`0` - `10000`)
+- `deceleration: int` &rarr; The deceleration (deg/sec²) (`0` - `10000`)
+
+### motor_pair.move_for_time
+
+`move_for_time(pair: int, duration: int, steering: int, *, velocity: int = 360, stop: int = motor.BRAKE, acceleration: int = 1000, deceleration: int = 1000) -> Awaitable`
+
+Move a `motor_pair` at a constant speed for a specific duration.
+
+When awaited returns a status of the movement that corresponds to one of the following constants from the `motor` module:
+
+- `motor.READY`
+- `motor.RUNNING`
+- `motor.STALLED`
+- `motor.ERROR`
+- `motor.DISCONNECTED`
+
+```{code-block} python
+:linenos:
+from hub import port
+import runloop
+import motor_pair
+
+async def main():
+    # Pair motors on port A and B 
+    motor_pair.pair(motor_pair.PAIR_1, port.A, port.B)
+
+    # Move straight at default velocity for 1 second 
+    await motor_pair.move_for_time(motor_pair.PAIR_1, 1000, 0)
+
+    # Move straight at a specific velocity for 1 second 
+    await motor_pair.move_for_time(motor_pair.PAIR_1, 1000, 0, velocity=280)
+
+    # Move straight at a specific velocity for 10 seconds with a slow deceleration 
+    await motor_pair.move_for_time(motor_pair.PAIR_1, 10000, 0, velocity=280, deceleration=10)
+
+runloop.run(main())
+```
+
+Parameters
+
+- `pair: int` &rarr; The pair slot of the `motor_pair`.
+- `duration: int` &rarr; The duration in milliseconds
+- `steering: int` &rarr; The steering (`-100` to `100`)
+- `velocity: int` &rarr; The velocity in degrees/sec
+  - Small motor (essential): `-660` to `660`
+  - Medium motor: `-1110` to `1110`
+  - Large motor: `-1050` to `1050`
+- `stop: int` &rarr; The behaviour of the motor after it has stopped. Use the constants in the motor module.
+  - `motor.COAST` to make the motor coast until a stop
+  - `motor.BREAK` to brake and continue to brake after stop
+  - `motor.HOLD` to tell the motor to hold it's position
+  - `motor.CONTINUE` to tell the motor to keep running at whatever velocity it's running at until it gets another command
+  - `motor.SMART_COAST` to make the motor brake until stop and then coast and compensate for inaccuracies in the next command
+  - `motor.SMART_BRAKE` to make the motor brake and continue to brake after stop and compensate for inaccuracies in the next command
+- `acceleration: int` &rarr; The acceleration (deg/sec²) (`0` - `10000`)
+- `deceleration: int` &rarr; The deceleration (deg/sec²) (`0` - `10000`)
+
+### motor_pair.move_tank
+
+`move_tank(pair: int, left_velocity: int, right_velocity: int, *, acceleration: int = 1000) -> None`
+
+Perform a tank move on a `motor_pair` at a constant speed until a new command is given.
+
+```{code-block} python
+:linenos:
+from hub import port
+import runloop
+import motor_pair
+
+async def main():
+    # Pair motors on port A and B 
+    motor_pair.pair(motor_pair.PAIR_1, port.A, port.B)
+
+    # Move straight at default velocity 
+    motor_pair.move_tank(motor_pair.PAIR_1, 1000, 1000)
+
+    await runloop.sleep_ms(2000)
+
+    # Turn right 
+    motor_pair.move_tank(motor_pair.PAIR_1, 0, 1000)
+
+    await runloop.sleep_ms(2000)
+
+    # Perform tank turn 
+    motor_pair.move_tank(motor_pair.PAIR_1, 1000, -1000)
+
+runloop.run(main())
+```
+
+Parameters
+
+- `pair: int` &rarr; The pair slot of the `motor_pair`.
+- `left_velocity: int` &rarr; The velocity (deg/sec) of the left motor.
+- `right_velocity: int` &rarr; The velocity (deg/sec) of the right motor.
+- `acceleration: int` &rarr; The acceleration (deg/sec²) (`0` - `10000`)
+
+### motor_pair.move_tank_for_degrees
+
+`move_tank_for_degrees(pair: int, degrees: int, left_velocity: int, right_velocity: int, *, stop: int = motor.BRAKE, acceleration: int = 1000, deceleration: int = 1000) -> Awaitable`
+
+Perform a tank move on a `motor_pair` at a constant speed until a new command is given.
+
+When awaited returns a status of the movement that corresponds to one of the following constants from the `motor` module:
+
+- `motor.READY`
+- `motor.RUNNING`
+- `motor.STALLED`
+- `motor.ERROR`
+- `motor.DISCONNECTED`
+
+```{code-block} python
+:linenos:
+from hub import port
+import runloop
+import motor_pair
+
+async def main():
+    # Pair motors on port A and B 
+    motor_pair.pair(motor_pair.PAIR_1, port.A, port.B)
+
+    # Move straight at default velocity for 360 degrees 
+    await motor_pair.move_tank_for_degrees(motor_pair.PAIR_1, 360, 1000, 1000)
+
+    # Turn right for 180 degrees 
+    await motor_pair.move_tank_for_degrees(motor_pair.PAIR_1, 180, 0, 1000)
+
+    # Perform tank turn for 720 degrees 
+    await motor_pair.move_tank_for_degrees(motor_pair.PAIR_1, 720, 1000, -1000)
+
+runloop.run(main())
+```
+
+Parameters
+
+- `pair: int` &rarr; The pair slot of the `motor_pair`.
+- `degrees: int` &rarr; The number of degrees
+- `left_velocity: int` &rarr; The velocity (deg/sec) of the left motor.
+- `right_velocity: int` &rarr; The velocity (deg/sec) of the right motor.
+- `stop: int` &rarr; The behaviour of the motor after it has stopped. Use the constants in the motor module.
+  - `motor.COAST` to make the motor coast until a stop
+  - `motor.BREAK` to brake and continue to brake after stop
+  - `motor.HOLD` to tell the motor to hold it's position
+  - `motor.CONTINUE` to tell the motor to keep running at whatever velocity it's running at until it gets
+- `acceleration: int` &rarr; The acceleration (deg/sec²) (`0` - `10000`)
+- `deceleration: int` &RARR; The deceleration (deg/sec²) (`0` - `10000`)
+
+### motor_pair.move_tank_for_time
+
+`move_tank_for_time(pair: int, duration: int, left_velocity: int, right_velocity: int, *, stop: int = motor.BRAKE, acceleration: int = 1000, deceleration: int = 1000) -> Awaitable`
+
+Perform a tank move on a `motor_pair` at a constant speed for a specific amount of time.
+
+When awaited returns a status of the movement that corresponds to one of the following constants from the `motor` module:
+
+- `motor.READY`
+- `motor.RUNNING`
+- `motor.STALLED`
+- `motor.ERROR`
+- `motor.DISCONNECTED`
+
+```{code-block} python
+:linenos:
+from hub import port
+import runloop
+import motor_pair
+
+async def main():
+    # Pair motors on port A and B 
+    motor_pair.pair(motor_pair.PAIR_1, port.A, port.B)
+
+    # Move straight at default velocity for 1 second 
+    await motor_pair.move_tank_for_time(motor_pair.PAIR_1, 1000, 1000, 1000)
+
+    # Turn right for 3 seconds 
+    await motor_pair.move_tank_for_time(motor_pair.PAIR_1, 0, 1000, 3000)
+
+    # Perform tank turn for 2 seconds 
+    await motor_pair.move_tank_for_time(motor_pair.PAIR_1, 1000, -1000, 2000)
+
+runloop.run(main())
+```
+
+Parameters
+
+- `pair: int` &rarr; The pair slot of the `motor_pair`.
+- `duration: int` &rarr; The duration in milliseconds
+- `left_velocity: int` &rarr; The velocity (deg/sec) of the left motor.
+- `right_velocity: int` &rarr; The velocity (deg/sec) of the right motor.
+- `stop: int` &rarr; The behaviour of the motor after it has stopped. Use the constants in the motor module.
+  - `motor.COAST` to make the motor coast until a stop
+  - `motor.BREAK` to brake and continue to brake after stop
+  - `motor.HOLD` to tell the motor to hold it's position
+  - `motor.CONTINUE` to tell the motor to keep running at whatever velocity it's running at until it gets
+- `acceleration: int` &rarr; The acceleration (deg/sec²) (`0` - `10000`)
+- `deceleration: int` &RARR; The deceleration (deg/sec²) (`0` - `10000`)
+
+### motor_pair.move_tank_for_time
+
+`move_tank_for_time(pair: int, duration: int, left_velocity: int, right_velocity: int, *, stop: int = motor.BRAKE, acceleration: int = 1000, deceleration: int = 1000) -> Awaitable`
+
+Perform a tank move on a `motor_pair` at a constant speed for a specific amount of time.
+
+When awaited returns a status of the movement that corresponds to one of the following constants from the `motor` module:
+
+- `motor.READY`
+- `motor.RUNNING`
+- `motor.STALLED`
+- `motor.ERROR`
+- `motor.DISCONNECTED`
+
+```{code-block} python
+:linenos:
+from hub import port
+import runloop
+import motor_pair
+
+async def main():
+    # Pair motors on port A and B 
+    motor_pair.pair(motor_pair.PAIR_1, port.A, port.B)
+
+    # Move straight at default velocity for 1 second 
+    await motor_pair.move_tank_for_time(motor_pair.PAIR_1, 1000, 1000, 1000)
+
+    # Turn right for 3 seconds 
+    await motor_pair.move_tank_for_time(motor_pair.PAIR_1, 0, 1000, 3000)
+
+    # Perform tank turn for 2 seconds 
+    await motor_pair.move_tank_for_time(motor_pair.PAIR_1, 1000, -1000, 2000)
+
+runloop.run(main())
+```
+
+Parameters
+
+- `pair: int` &rarr; The pair slot of the `motor_pair`.
+- `duration: int` &rarr; The duration in milliseconds
+- `left_velocity: int` &rarr; The velocity (deg/sec) of the left motor.
+- `right_velocity: int` &rarr; The velocity (deg/sec) of the right motor.
+- `stop: int` &rarr; The behaviour of the motor after it has stopped. Use the constants in the motor module.
+  - `motor.COAST` to make the motor coast until a stop
+  - `motor.BREAK` to brake and continue to brake after stop
+  - `motor.HOLD` to tell the motor to hold it's position
+  - `motor.CONTINUE` to tell the motor to keep running at whatever velocity it's running at until it gets
+- `acceleration: int` &rarr; The acceleration (deg/sec²) (`0` - `10000`)
+- `deceleration: int` &RARR; The deceleration (deg/sec²) (`0` - `10000`)
+
+### motor_pair.pair
+
+`pair(pair: int, left_motor: int, right_motor: int) -> None`
+
+pair two motors (left_motor & right_motor) and store the paired motors in pair.
+
+Use pair in all subsequent motor_pair related function calls.
+
+```{code-block} python
+:linenos:
+import motor_pair
+from hub import port
+
+motor_pair.pair(motor_pair.PAIR_1, port.A, port.B)
+```
+
+Parameters
+
+- `pair: int` &rarr; The pair slot of the `motor_pair`.
+- `left_motor: int` &rarr; The port of the left motor. Use the `port` submodule in the `hub` module.
+- `right_motor: int` &rarr; The port of the right motor. Use the `port` submodule in the `hub` module.
+
+### motor_pair.stop
+
+`stop(pair: int, *, stop: int = motor.BRAKE) -> None`
+
+Stops a Motor Pair.
+
+```{code-block} python
+:linenos:
+import motor_pair
+
+motor_pair.stop(motor_pair.PAIR_1)
+```
+
+Parameters
+
+- `pair: int` &rarr; The pair slot of the `motor_pair`.
+- `stop: int` &rarr; The behaviour of the motor after it has stopped. Use the constants in the motor module.
+  - `motor.COAST` to make the motor coast until a stop
+  - `motor.BREAK` to brake and continue to brake after stop
+  - `motor.HOLD` to tell the motor to hold it's position
+  - `motor.CONTINUE` to tell the motor to keep running at whatever velocity it's running at until it gets
+
+### motor_pair.unpair
+
+`unpair(pair: int) -> None`
+
+Unpair a Motor Pair.
+
+```{code-block} python
+:linenos:
+import motor_pair
+
+motor_pair.unpair(motor_pair.PAIR_1)
+```
+
+Parameters
+
+- `pair: int` &rarr; The pair slot of the `motor_pair`.
+
+### motor_pair.constants
+
+- `PAIR_1` &rarr; `0` - First Motor Pair
+- `PAIR_2` &rarr; `1` - Second Motor Pair
+- `PAIR_3` &rarr; `2` - Third Motor Pair
+
+## Orientation Module
+
+The `orientation` module contains all the orientation constants to use with the `light_matrix` module.
+
+To use the `orientation` module add the following import statement to your project:
+
+```{code-block} python
+:linenos:
+import orientation
+```
+
+### orientation.constants
+
+- `UP` &rarr; `0`
+- `RIGHT` &rarr; `1`
+- `DOWN` &rarr; `2`
+- `LEFT` &rarr; `3`
+
+## Runloop Module
+
+The `runloop` module contains all functions and constants to run `async` functions.
+
+To use the `runloop` module, add the following import statement to your project:
+
+```{code-block} python
+:linenos:
+import runloop
+```
+
+All functions in the module should be called inside the `runloop` module as a prefix like so:
+
+```{code-block} python
+:linenos:
+runloop.run(some_async_function())
+```
+
+### runloop.run
+
+`run(*functions: Awaitable) -> None`
+
+Start any number of parallel `async` functions. This is the function you should use to create programs with a similar structure to Word Blocks.
+
+Parameters
+
+- `*functions: awaitable` &rarr; The functions to run
+
+### runloop.sleep_ms
+
+`sleep_ms(duration: int) -> Awaitable`
+
+Pause the execution of the application for any amount of milliseconds.
+
+```{code-block} python
+:linenos:
+from hub import light_matrix
+import runloop
+
+async def main():
+    light_matrix.write("Hi!")
+    # Wait for ten seconds 
+    await runloop.sleep_ms(10000)
+    light_matrix.write("Are you still here?")
+
+runloop.run(main())
+```
+
+Parameters
+
+- `duration: int` &rarr; The duration in milliseconds
+
+### runloop.until
+
+`until(function: Callable[[], bool], timeout: int = 0) -> Awaitable`
+
+Returns an awaitable that will return when the condition in the function or lambda passed is `True` or when it times out
+
+```{code-block} python
+:linenos:
+import color_sensor
+import color
+import port
+import runloop
+
+def is_color_red():
+    return color_sensor.color(port.A) is color.RED
+
+async def main():
+    # Wait until Colour Sensor sees red 
+    await runloop.until(is_color_red)
+    print("Red!")
+
+runloop.run(main())
+```
+
+Parameters
+
+- `function: Callable[[], bool]` &rarr; A callable with no parameters that returns either True or False.
+Callable is anything that can be called, so a def or a lambda
+- `timeout: int` &rarr; A timeout for the function in milliseconds.
+  - If the callable does not return `True` within the timeout, the `until` still resolves after the timeout.
+  - `0` means no timeout, in that case it will not resolve until the callable returns `True`
