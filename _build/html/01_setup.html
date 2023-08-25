@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Hub" href="02_hub_output.html" /><link rel="prev" title="Lego Spike Python Coding" href="index.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Hub Outputs" href="02_hub_output.html" /><link rel="prev" title="Lego Spike Python Coding" href="index.html" />
 
     <link rel="shortcut icon" href="_static/spike_logo.ico"/><!-- Generated with Sphinx 7.2.2 and Furo 2023.08.19 -->
         <title>Introduction - Lego Spike Python Coding</title>
@@ -137,7 +137,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -163,13 +163,14 @@
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_hub_output.html">Hub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_hub_output.html">Hub Outputs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_motors.html">Motors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_hub_input.html">Sound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_hub_input.html">Hub Inputs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_force.html">Force Sensor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_colour.html">Colour Sensor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_distance.html">Distance Sensor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_planning_code.html">Planning Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="99_documentation.html">Spike Prime Python API</a></li>
 </ul>
 
 </div>
@@ -198,7 +199,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -206,6 +207,112 @@
         <article role="main">
           <section id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<aside class="topic">
+<p class="topic-title">In this lesson you will:</p>
+<ul class="simple">
+<li><p>install our IDE - Lego Spike App 3</p></li>
+<li><p>learn how to create Python files for the robot</p></li>
+<li><p>use the app to connect to your robot using Bluetooth</p></li>
+<li><p>check that your robot is configured correctly</p></li>
+<li><p>write and run your first Spike Prime program</p></li>
+</ul>
+</aside>
+<p><img alt="Spike Logo" src="_images/spike_logo.png" /></p>
+<section id="install-spike-app-3">
+<h2>Install Spike App 3<a class="headerlink" href="#install-spike-app-3" title="Link to this heading">#</a></h2>
+<p>You will be using the Lego Spike App 3 to program our robot, so the first thing you need to do is install the App.</p>
+<p>To do this:</p>
+<ul class="simple">
+<li><p>go to the <a class="reference external" href="https://education.lego.com/en-au/downloads/spike-app/software/">LEGO Education SPIKE App download</a></p></li>
+<li><p>choose your operating system (Windows 11 users choose Windows 10)</p></li>
+<li><p>click the <strong>Download</strong> button</p></li>
+<li><p>run the downloaded file and keep clicking <strong>next</strong> to install the app</p></li>
+<li><p>when the app is installed it should automatically start</p></li>
+</ul>
+</section>
+<section id="creating-python-files">
+<h2>Creating Python Files<a class="headerlink" href="#creating-python-files" title="Link to this heading">#</a></h2>
+<p>Once we are in the app, there are a few steps to accessing the Python coding environment.</p>
+<ol class="arabic simple">
+<li><p>In the <strong>Select you Spike solution</strong> page, choose the <strong>Spike Prime</strong> option.</p></li>
+<li><p>There are some steps you will only need to do the first time</p>
+<ol class="arabic simple">
+<li><p>Click <strong>Got it</strong> on the next screen</p></li>
+<li><p>Click <strong>DON’T SHOW ME THIS AGAIN</strong> on the next screen, then click the <strong>X</strong></p></li>
+<li><p>Click the settings cog icon <img alt="cog icon" src="_images/setting.png" /> at the bottom lefthand corner of the window.</p></li>
+<li><p>Choose <strong>General</strong> and then click the <strong>Enable Python projects</strong> toggle.</p></li>
+<li><p>Finally, click the home icon</p></li>
+</ol>
+</li>
+</ol>
+<p><img alt="enable python projects" src="_images/enable_python_projects.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>Click <strong>New Project</strong></p></li>
+<li><p>Give your project a name (First Program), click Python and then click CREATE</p></li>
+</ol>
+<p><img alt="create new project" src="_images/create_new_project.png" /></p>
+<ol class="arabic simple" start="5">
+<li><p>Finally we will delete all the code that has been prewritten for us. Hold <strong>Ctrl</strong> + <strong>A</strong> (<strong>command</strong> + <strong>A</strong> on macs) and then <strong>delete</strong>.</p></li>
+</ol>
+</section>
+<section id="connect-to-robot">
+<h2>Connect to Robot<a class="headerlink" href="#connect-to-robot" title="Link to this heading">#</a></h2>
+<p>You will use Bluetooth to connect to your robot.</p>
+<ol class="arabic simple">
+<li><p>Click the yellow <strong>Connect</strong> icon in the top left of the screen</p></li>
+<li><p>Turn you robot on by pressing and briefly holding the power button</p></li>
+<li><p>Then click on <strong>Green already updated</strong></p></li>
+</ol>
+<p><img alt="Green power button" src="_images/green_power_button.png" /></p>
+<ol class="arabic simple" start="4">
+<li><p>Follow the instruction to <strong>turn on Bluetooth</strong></p></li>
+<li><p>Connect to your robot by choosing it’s name from the list</p></li>
+</ol>
+</section>
+<section id="check-configuration">
+<h2>Check Configuration<a class="headerlink" href="#check-configuration" title="Link to this heading">#</a></h2>
+<p>Your robot has three sensors modules and two motors modules connected.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Port</p></th>
+<th class="head"><p>Purpose</p></th>
+<th class="head"><p>Image</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ultrasonic Sensor</p></td>
+<td><p>C</p></td>
+<td><p>Detect the distance to object in front</p></td>
+<td><p><img alt="Ultrasonic Sensor" src="_images/distance.png" /></p></td>
+</tr>
+<tr class="row-odd"><td><p>Force Sensor</p></td>
+<td><p>F</p></td>
+<td><p>Detect the amount of pressure applied</p></td>
+<td><p><img alt="Force Sensor" src="_images/force.png" /></p></td>
+</tr>
+<tr class="row-even"><td><p>Colour Sensor</p></td>
+<td><p>D</p></td>
+<td><p>Detect the colour of an object, or the amount of light reflected</p></td>
+<td><p><img alt="Colour Sensor" src="_images/colour.png" /></p></td>
+</tr>
+<tr class="row-odd"><td><p>Motor</p></td>
+<td><p>A B</p></td>
+<td><p>Turns in response to commands from hub</p></td>
+<td><p><img alt="Motor Sensor" src="_images/motor.png" /></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>To successfully follow these tutorials, you need to make sure that they are all connected to the correct hub ports.</p>
+<p>To check the port that modules are connected to, look at the top of the screen beside the connection icon. Make sure that each module is connected to the correct port. It should look like the image below.</p>
+<p><img alt="module icons" src="_images/modules_icons.png" /></p>
+</section>
+<section id="first-program">
+<h2>First Program<a class="headerlink" href="#first-program" title="Link to this heading">#</a></h2>
+<p>Our final check is for you to run your first program.</p>
+</section>
 </section>
 
         </article>
@@ -218,7 +325,7 @@
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Hub</div>
+                <div class="title">Hub Outputs</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -258,8 +365,31 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#install-spike-app-3">Install Spike App 3</a></li>
+<li><a class="reference internal" href="#creating-python-files">Creating Python Files</a></li>
+<li><a class="reference internal" href="#connect-to-robot">Connect to Robot</a></li>
+<li><a class="reference internal" href="#check-configuration">Check Configuration</a></li>
+<li><a class="reference internal" href="#first-program">First Program</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
