@@ -1,16 +1,52 @@
 # Introduction
 
 ```{topic} In this lesson you will:
-- install our IDE - Lego Spike App 3
-- learn how to create Python files for the robot
-- use the app to connect to your robot using Bluetooth
-- check that your robot is configured correctly
-- write and run your first Spike Prime program
+- about the Pybricks IDE
+- learn how to use Bluetooth to connect to your robot
+- write and run your first Spike Prime Python program
 ```
 
-![Spike Logo](assets/spike_logo.png)
+![Technology used](assets/Logos.png)
 
-## Install Spike App 3
+In this course you will be using three integrated technologies.
+
+- **LEGO Spike Prime**: the hardware ie. the robot components. 
+- **Pybricks**: the software, both the software running on the robot, and the IDE
+- **Python**: the language you will be programming in. 
+
+These all work together seamlessly, so you will barely recognise that you are using different technologies.
+
+```{admonition} Pybricks
+:class: note
+Pybricks is in OpenSource Python platform for smart LEGO hubs.
+
+We have replaced the standard LEGO Spike firmware (the code that runs the robot) with Pybricks' firmware. The advantage is that Pybricks is better at running Python. The disadvantage is that you can no longer use the LEGO Spike App to program the robot.
+```
+
+## Pybricks IDE
+
+You will be using the Pybricks IDE to program the robot. You can use the IDE in the browser or you can install it as an app on your computer.
+
+To access the Pybricks IDE goto:
+
+**[https://code.pybricks.com/](https://code.pybricks.com/)**
+
+If this is the first time you have visited code.pybricks.com you should be offered to take a **Welcome Tour**, go ahead an take it (if this option didn't show up, just click on the link on the lefthand menu).
+
+Since your robot already has the Pybricks Firmware installed, you can go strait to connecting to the robot.
+
+## Connect Robot
+
+You can connect to the robot by either using a USB cable or Bluetooth. Bluetooth is more convenient, so you will use that.
+
+To connect using Bluetooth:
+
+1. press and hold the power button on the robot (the big one)
+2. the hub should light up nine squares and the power button should be flashing blue.
+3. Click the **Bluetooth button** on the Pybricks IDE
+4. Choose your robot name from the pop-up list (the name is on the front of your robot)
+5. Click **Pair**
+6. the hub power button should be solid blue, indicating a successful connection
 
 You will be using the Lego Spike App 3 to program our robot, so the first thing you need to do is install the App.
 
