@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Motors" href="03_motors.html" /><link rel="prev" title="Introduction" href="01_setup.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Motors" href="03_motors.html" /><link rel="prev" title="Setup" href="01_setup.html" />
 
     <link rel="shortcut icon" href="_static/spike_logo.ico"/><!-- Generated with Sphinx 7.2.2 and Furo 2023.08.19 -->
         <title>Hub Outputs - Lego Spike Python Coding</title>
@@ -162,7 +162,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="01_setup.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_setup.html">Setup</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Hub Outputs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_motors.html">Motors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_hub_input.html">Hub Inputs</a></li>
@@ -207,17 +207,99 @@
         <article role="main">
           <section id="hub-outputs">
 <h1>Hub Outputs<a class="headerlink" href="#hub-outputs" title="Link to this heading">#</a></h1>
-<section id="light">
-<h2>Light<a class="headerlink" href="#light" title="Link to this heading">#</a></h2>
-<p>The light module allows you to program the colour of the power button light and connect button light.</p>
-<p><img alt="Connect and Power buttons" src="_images/hub.jpg" /></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">hub</span> <span class="kn">import</span> <span class="n">light</span>
-<span class="linenos">2</span><span class="kn">import</span> <span class="nn">color</span>
-<span class="linenos">3</span>
-<span class="linenos">4</span><span class="n">light</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">light</span><span class="o">.</span><span class="n">POWER</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">PURPLE</span><span class="p">)</span>
-<span class="linenos">5</span><span class="n">light</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">light</span><span class="o">.</span><span class="n">CONNECT</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">YELLOW</span><span class="p">)</span>
+<aside class="topic">
+<p class="topic-title">In this lesson you will:</p>
+<ul class="simple">
+<li><p>the output features on the Spike Prime Hub</p></li>
+</ul>
+</aside>
+<div class="important admonition">
+<p class="admonition-title">Pybrick Documentation</p>
+<p>To explore all Pybricks’ features check the <strong><a class="reference external" href="https://docs.pybricks.com/en/stable/index.html">Pybricks documentaion</a></strong>. This can also be seen in the right-hand panel of the Pybricks IDE.</p>
+</div>
+<p>The Spike Prime Hub has many features that can be used to produce output for the robot.</p>
+<div class="note admonition">
+<p class="admonition-title">Output and Input</p>
+<p>Imagine that you want the robot to explore a room all by itself. When the robot uses its sensors to see if there are obstacles ahead and decides to turn left, that’s the <strong>input</strong>. It’s like the robot figuring out what’s around it.</p>
+<p>Then, when the robot actually turns and goes in the new direction, that’s the <strong>output</strong>. It’s the robot taking action based on what it learned from its sensors.</p>
+<p>So, input is when the robot gathers information, and output is the robot using that information to make decisions and move around. It’s like the robot’s way of thinking and moving on its own!</p>
+</div>
+<section id="the-hub-status-light">
+<h2>The Hub Status Light<a class="headerlink" href="#the-hub-status-light" title="Link to this heading">#</a></h2>
+<p>The Hub Status Light is around the Power button and it is blue by default.</p>
+<p><img alt="Hub Status Light" src="_images/primehub_light.png" /></p>
+<p>Pybricks has four commands for the status light:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.light.on"><code class="docutils literal notranslate"><span class="pre">light.on(color)</span></code></a></strong> → Turns on the light at the specified colour.</p></li>
+<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.light.off"><code class="docutils literal notranslate"><span class="pre">light.off()</span></code></a></strong> → Turns off the light.</p></li>
+<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.light.blink"><code class="docutils literal notranslate"><span class="pre">light.blink(color,</span> <span class="pre">durations)</span></code></a></strong> → Blinks the light at a given colour by turning it on and off for given durations.</p></li>
+<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.light.animate"><code class="docutils literal notranslate"><span class="pre">light.animate(colors,</span> <span class="pre">interval)</span></code></a></strong> → Animates the light with a sequence of colours, shown one by one for the given interval.</p></li>
+</ul>
+<div class="admonition-primm admonition">
+<p class="admonition-title">PRIMM</p>
+<p>Throughout this course we will use the <strong>PRIMM</strong> process to reinforce our learning. <strong>PRIMM</strong> stands for <strong>Predict</strong>, <strong>Run</strong>, <strong>Investigate</strong>, <strong>Modify</strong>, and <strong>Make</strong>. It reflects effective programming practices and encourages curiosity in programming.</p>
+<p><strong>Predict</strong>: Before you run the code you need to predict what you think will happen. Go ahead and have a guess at what you think will happen.</p>
+<p><strong>Run</strong>: Then run the program and see how accurate your prediction was. If your prediction was incorrect, how was the result different?</p>
+<p><strong>Investigate</strong>: Go through the code and work out what each line of code does.</p>
+<p><strong>Modify</strong>: Edit the code. Change it around and see that results your get</p>
+<p><strong>Make</strong>: Use your new understanding of the code to make a different program.</p>
+</div>
+<p>You will now use all four status light command:</p>
+<ol class="arabic simple">
+<li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">hub_light.py</span></code></p></li>
+<li><p><strong>Type</strong> the code below into the file</p></li>
+<li><p><strong>Predict</strong> what you think will happen.</p></li>
+<li><p><strong>Run</strong> your code</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># hub_light.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># --- SETUP</span>
+<span class="linenos">10</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="c1"># --- MAIN LOOP</span>
+<span class="linenos">14</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">15</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">MAGENTA</span><span class="p">)</span>
+<span class="linenos">16</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">17</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">blink</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="p">,</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">250</span><span class="p">])</span>
+<span class="linenos">18</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1500</span><span class="p">)</span>
+<span class="linenos">19</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">animate</span><span class="p">([</span><span class="n">Color</span><span class="o">.</span><span class="n">GREEN</span><span class="p">,</span> <span class="n">Color</span><span class="o">.</span><span class="n">WHITE</span><span class="p">,</span> <span class="n">Color</span><span class="o">.</span><span class="n">ORANGE</span><span class="p">],</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">20</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span>
+<span class="linenos">21</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+<span class="linenos">22</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Time to <strong>investigate</strong> the code:</p>
+<ul class="simple">
+<li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p></li>
+<li><p><strong>lines 9 - 10</strong> → creates a PrimeHub and names it <code class="docutils literal notranslate"><span class="pre">hub</span></code></p></li>
+<li><p><strong>line 14</strong> → creates an endless loop</p></li>
+<li><p><strong>line 15</strong> → changes the status light to <code class="docutils literal notranslate"><span class="pre">MAGENTA</span></code></p>
+<ul>
+<li><p>the <strong><a class="reference external" href="https://docs.pybricks.com/en/stable/parameters/color.html#color">color documentation</a></strong> provides more details</p></li>
+</ul>
+</li>
+<li><p><strong>line 16</strong> → waits for 1000 milliseconds (ie. 1 second)</p></li>
+<li><p><strong>line 17</strong> → blinks <code class="docutils literal notranslate"><span class="pre">RED</span></code> in the pattern on for 500ms, off 250ms, on 500ms, off 250ms</p></li>
+<li><p><strong>line 18</strong> → waits for 1500 milliseconds</p></li>
+<li><p><strong>line 19</strong> → moves through the three colours <code class="docutils literal notranslate"><span class="pre">GREEN</span></code>, <code class="docutils literal notranslate"><span class="pre">WHITE</span></code> then <code class="docutils literal notranslate"><span class="pre">ORANGE</span></code>, showing  each for 1000ms</p></li>
+<li><p><strong>line 20</strong> → waits for 3000 milliseconds</p></li>
+<li><p><strong>line 21</strong> → turns the light off</p></li>
+<li><p><strong>line 16</strong> → waits for 1000 milliseconds</p></li>
+</ul>
+<p>Try <strong>modifying</strong> the code:</p>
+<ul class="simple">
+<li><p>can you display different colours?</p></li>
+<li><p>can you change the timing of the blink?</p></li>
+<li><p>can you change the timing of the animation?</p></li>
+<li><p>what happens when you comment out (put a <code class="docutils literal notranslate"><span class="pre">#</span></code> in front) all the <code class="docutils literal notranslate"><span class="pre">wait</span></code> commands?</p></li>
+</ul>
 </section>
 </section>
 
@@ -242,7 +324,7 @@
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Introduction</div>
+                <div class="title">Setup</div>
                 
               </div>
             </a>
@@ -284,7 +366,7 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Hub Outputs</a><ul>
-<li><a class="reference internal" href="#light">Light</a></li>
+<li><a class="reference internal" href="#the-hub-status-light">The Hub Status Light</a></li>
 </ul>
 </li>
 </ul>

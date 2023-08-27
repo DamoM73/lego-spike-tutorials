@@ -1,9 +1,9 @@
-# Introduction
+# Setup
 
 ```{topic} In this lesson you will:
 - about the Pybricks IDE
 - learn how to use Bluetooth to connect to your robot
-- write and run your first Spike Prime Python program
+- run your first Spike Prime Python program to check your robot configuration
 ```
 
 ![Technology used](assets/Logos.png)
@@ -25,9 +25,9 @@ We have replaced the standard LEGO Spike firmware (the code that runs the robot)
 
 ## Pybricks IDE
 
-You will be using the Pybricks IDE to program the robot. You can use the IDE in the browser or you can install it as an app on your computer.
+You will be using the Pybricks IDE to program the robot. You can use the IDE in the browser or you can install it as an app on your computer. either will work fine.
 
-To access the Pybricks IDE goto:
+To access the Pybricks IDE go to:
 
 **[https://code.pybricks.com/](https://code.pybricks.com/)**
 
@@ -48,68 +48,56 @@ To connect using Bluetooth:
 5. Click **Pair**
 6. the hub power button should be solid blue, indicating a successful connection
 
-You will be using the Lego Spike App 3 to program our robot, so the first thing you need to do is install the App.
-
-To do this:
-
-- go to the [LEGO Education SPIKE App download](https://education.lego.com/en-au/downloads/spike-app/software/)
-- choose your operating system (Windows 11 users choose Windows 10)
-- click the **Download** button
-- run the downloaded file and keep clicking **next** to install the app
-- when the app is installed it should automatically start
-
-## Creating Python Files
-
-Once we are in the app, there are a few steps to accessing the Python coding environment.
-
-1. In the **Select you Spike solution** page, choose the **Spike Prime** option.
-2. There are some steps you will only need to do the first time
-   1. Click **Got it** on the next screen
-   2. Click **DON'T SHOW ME THIS AGAIN** on the next screen, then click the **X**
-   3. Click the settings cog icon ![cog icon](assets/setting.png) at the bottom lefthand corner of the window.
-   4. Choose **General** and then click the **Enable Python projects** toggle.
-   5. Finally, click the home icon
-
-![enable python projects](assets/enable_python_projects.png)
-
-3. Click **New Project**
-4. Give your project a name (First Program), click Python and then click CREATE
-
-![create new project](assets/create_new_project.png)
-
-5. Finally we will delete all the code that has been prewritten for us. Hold **Ctrl** + **A** (**command** + **A** on macs) and then **delete**.
-
-## Connect to Robot
-
-You will use Bluetooth to connect to your robot. 
-
-1. Click the yellow **Connect** icon in the top left of the screen
-2. Turn you robot on by pressing and briefly holding the power button
-3. Then click on **Green already updated**
-
-![Green power button](assets/green_power_button.png)
-
-4. Follow the instruction to **turn on Bluetooth**
-5. Connect to your robot by choosing it's name from the list
-
 ## Check Configuration
 
-Your robot has three sensors modules and two motors modules connected. 
+Your robot has three sensors devices and two motors devices connected. 
 
-| Module | Port | Purpose | Image |
+| Device | Port | Purpose | Image |
 | --- | --- | --- | --- |
 | Ultrasonic Sensor | C | Detect the distance to object in front | ![Ultrasonic Sensor](assets/distance.png) |
 | Force Sensor | F | Detect the amount of pressure applied | ![Force Sensor](assets/force.png) |
 | Colour Sensor | D | Detect the colour of an object, or the amount of light reflected | ![Colour Sensor](assets/colour.png) |
 | Motor | A B | Turns in response to commands from hub | ![Motor Sensor](assets/motor.png)
 
-To successfully follow these tutorials, you need to make sure that they are all connected to the correct hub ports.
+To successfully follow these tutorials, you need to make sure that they are all connected to the correct hub ports. To do this you will run your first program. 
 
-To check the port that modules are connected to, look at the top of the screen beside the connection icon. Make sure that each module is connected to the correct port. It should look like the image below.
+1. In the Pybricks IDE **Create a new file**  and choose the Prime Hub icon
+2. Called the file `check_config.py`
+3. **Copy** and **paste** the code below
+4. **Run** the code
 
-![module icons](assets/modules_icons.png)
+```{literalinclude} ./python_files/check_config.py
+:linenos:
+```
 
-## First Program
+### Checking the ports devices
 
-Our final check is for you to run your first program.
+Don't worry about understanding the code, you will learn that through these tutorials.
 
+What you need to check is the output in the terminal (the panel at the bottom of the IDE). It should be the same as below:
+
+```
+Hub configuration
+Port.A :  SPIKE Medium Angular Motor
+Port.B :  SPIKE Medium Angular Motor
+Port.C :  SPIKE Ultrasonic Sensor
+Port.D :  SPIKE Color Sensor
+Port.F :  SPIKE Force Sensor
+```
+
+If it is the same, this means the ports are connected to the correct devices. If not, you will need to rearrange the cables so they are plugged into the correct ports.
+
+### Checking the motors
+
+Since there is two motors in **Port A** and **Port B** you need check that the correct motors are in the correct ports. 
+
+- left motor &rarr; **Port A**
+- right motor &rarr; **Port B**
+
+If the motors are in the correct ports, the robot should turn 360&deg; in a **clockwise direction**.
+
+If the robot turned in a **counter-clockwise direction**,  switch the cables in **Port A** and **Port B**.
+
+## Start Exploring
+
+Your robot and computer are now setup. Time to start exploring what you can do.

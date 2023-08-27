@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Hub Outputs" href="02_hub_output.html" /><link rel="prev" title="Lego Spike Python Coding" href="index.html" />
 
     <link rel="shortcut icon" href="_static/spike_logo.ico"/><!-- Generated with Sphinx 7.2.2 and Furo 2023.08.19 -->
-        <title>Introduction - Lego Spike Python Coding</title>
+        <title>Setup - Lego Spike Python Coding</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -162,7 +162,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_hub_output.html">Hub Outputs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_motors.html">Motors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_hub_input.html">Hub Inputs</a></li>
@@ -205,14 +205,14 @@
           </label>
         </div>
         <article role="main">
-          <section id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+          <section id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h1>
 <aside class="topic">
 <p class="topic-title">In this lesson you will:</p>
 <ul class="simple">
 <li><p>about the Pybricks IDE</p></li>
 <li><p>learn how to use Bluetooth to connect to your robot</p></li>
-<li><p>write and run your first Spike Prime Python program</p></li>
+<li><p>run your first Spike Prime Python program to check your robot configuration</p></li>
 </ul>
 </aside>
 <p><img alt="Technology used" src="_images/Logos.png" /></p>
@@ -230,8 +230,8 @@
 </div>
 <section id="pybricks-ide">
 <h2>Pybricks IDE<a class="headerlink" href="#pybricks-ide" title="Link to this heading">#</a></h2>
-<p>You will be using the Pybricks IDE to program the robot. You can use the IDE in the browser or you can install it as an app on your computer.</p>
-<p>To access the Pybricks IDE goto:</p>
+<p>You will be using the Pybricks IDE to program the robot. You can use the IDE in the browser or you can install it as an app on your computer. either will work fine.</p>
+<p>To access the Pybricks IDE go to:</p>
 <p><strong><a class="reference external" href="https://code.pybricks.com/">https://code.pybricks.com/</a></strong></p>
 <p>If this is the first time you have visited code.pybricks.com you should be offered to take a <strong>Welcome Tour</strong>, go ahead an take it (if this option didn’t show up, just click on the link on the lefthand menu).</p>
 <p>Since your robot already has the Pybricks Firmware installed, you can go strait to connecting to the robot.</p>
@@ -248,62 +248,14 @@
 <li><p>Click <strong>Pair</strong></p></li>
 <li><p>the hub power button should be solid blue, indicating a successful connection</p></li>
 </ol>
-<p>You will be using the Lego Spike App 3 to program our robot, so the first thing you need to do is install the App.</p>
-<p>To do this:</p>
-<ul class="simple">
-<li><p>go to the <a class="reference external" href="https://education.lego.com/en-au/downloads/spike-app/software/">LEGO Education SPIKE App download</a></p></li>
-<li><p>choose your operating system (Windows 11 users choose Windows 10)</p></li>
-<li><p>click the <strong>Download</strong> button</p></li>
-<li><p>run the downloaded file and keep clicking <strong>next</strong> to install the app</p></li>
-<li><p>when the app is installed it should automatically start</p></li>
-</ul>
-</section>
-<section id="creating-python-files">
-<h2>Creating Python Files<a class="headerlink" href="#creating-python-files" title="Link to this heading">#</a></h2>
-<p>Once we are in the app, there are a few steps to accessing the Python coding environment.</p>
-<ol class="arabic simple">
-<li><p>In the <strong>Select you Spike solution</strong> page, choose the <strong>Spike Prime</strong> option.</p></li>
-<li><p>There are some steps you will only need to do the first time</p>
-<ol class="arabic simple">
-<li><p>Click <strong>Got it</strong> on the next screen</p></li>
-<li><p>Click <strong>DON’T SHOW ME THIS AGAIN</strong> on the next screen, then click the <strong>X</strong></p></li>
-<li><p>Click the settings cog icon <img alt="cog icon" src="_images/setting.png" /> at the bottom lefthand corner of the window.</p></li>
-<li><p>Choose <strong>General</strong> and then click the <strong>Enable Python projects</strong> toggle.</p></li>
-<li><p>Finally, click the home icon</p></li>
-</ol>
-</li>
-</ol>
-<p><img alt="enable python projects" src="_images/enable_python_projects.png" /></p>
-<ol class="arabic simple" start="3">
-<li><p>Click <strong>New Project</strong></p></li>
-<li><p>Give your project a name (First Program), click Python and then click CREATE</p></li>
-</ol>
-<p><img alt="create new project" src="_images/create_new_project.png" /></p>
-<ol class="arabic simple" start="5">
-<li><p>Finally we will delete all the code that has been prewritten for us. Hold <strong>Ctrl</strong> + <strong>A</strong> (<strong>command</strong> + <strong>A</strong> on macs) and then <strong>delete</strong>.</p></li>
-</ol>
-</section>
-<section id="connect-to-robot">
-<h2>Connect to Robot<a class="headerlink" href="#connect-to-robot" title="Link to this heading">#</a></h2>
-<p>You will use Bluetooth to connect to your robot.</p>
-<ol class="arabic simple">
-<li><p>Click the yellow <strong>Connect</strong> icon in the top left of the screen</p></li>
-<li><p>Turn you robot on by pressing and briefly holding the power button</p></li>
-<li><p>Then click on <strong>Green already updated</strong></p></li>
-</ol>
-<p><img alt="Green power button" src="_images/green_power_button.png" /></p>
-<ol class="arabic simple" start="4">
-<li><p>Follow the instruction to <strong>turn on Bluetooth</strong></p></li>
-<li><p>Connect to your robot by choosing it’s name from the list</p></li>
-</ol>
 </section>
 <section id="check-configuration">
 <h2>Check Configuration<a class="headerlink" href="#check-configuration" title="Link to this heading">#</a></h2>
-<p>Your robot has three sensors modules and two motors modules connected.</p>
+<p>Your robot has three sensors devices and two motors devices connected.</p>
 <div class="table-wrapper colwidths-auto docutils container">
 <table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p>Module</p></th>
+<tr class="row-odd"><th class="head"><p>Device</p></th>
 <th class="head"><p>Port</p></th>
 <th class="head"><p>Purpose</p></th>
 <th class="head"><p>Image</p></th>
@@ -333,13 +285,75 @@
 </tbody>
 </table>
 </div>
-<p>To successfully follow these tutorials, you need to make sure that they are all connected to the correct hub ports.</p>
-<p>To check the port that modules are connected to, look at the top of the screen beside the connection icon. Make sure that each module is connected to the correct port. It should look like the image below.</p>
-<p><img alt="module icons" src="_images/modules_icons.png" /></p>
+<p>To successfully follow these tutorials, you need to make sure that they are all connected to the correct hub ports. To do this you will run your first program.</p>
+<ol class="arabic simple">
+<li><p>In the Pybricks IDE <strong>Create a new file</strong>  and choose the Prime Hub icon</p></li>
+<li><p>Called the file <code class="docutils literal notranslate"><span class="pre">check_config.py</span></code></p></li>
+<li><p><strong>Copy</strong> and <strong>paste</strong> the code below</p></li>
+<li><p><strong>Run</strong> the code</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># check_config.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 8</span><span class="kn">from</span> <span class="nn">pybricks.iodevices</span> <span class="kn">import</span> <span class="n">PUPDevice</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1"># ---- DETECT WHAT IS CONNECTED TO EACH PORT ----</span>
+<span class="linenos">11</span><span class="n">device_names</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">12</span>    <span class="mi">48</span><span class="p">:</span> <span class="s2">&quot;SPIKE Medium Angular Motor&quot;</span><span class="p">,</span>
+<span class="linenos">13</span>    <span class="mi">49</span><span class="p">:</span> <span class="s2">&quot;SPIKE Large Angular Motor&quot;</span><span class="p">,</span>
+<span class="linenos">14</span>    <span class="mi">61</span><span class="p">:</span> <span class="s2">&quot;SPIKE Color Sensor&quot;</span><span class="p">,</span>
+<span class="linenos">15</span>    <span class="mi">62</span><span class="p">:</span> <span class="s2">&quot;SPIKE Ultrasonic Sensor&quot;</span><span class="p">,</span>
+<span class="linenos">16</span>    <span class="mi">63</span><span class="p">:</span> <span class="s2">&quot;SPIKE Force Sensor&quot;</span>
+<span class="linenos">17</span><span class="p">}</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="n">ports</span> <span class="o">=</span> <span class="p">[</span><span class="n">Port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">Port</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">Port</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="n">Port</span><span class="o">.</span><span class="n">D</span><span class="p">,</span> <span class="n">Port</span><span class="o">.</span><span class="n">F</span><span class="p">]</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hub configuration&quot;</span><span class="p">)</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">:</span>
+<span class="linenos">24</span>    <span class="n">device</span> <span class="o">=</span> <span class="n">PUPDevice</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="nb">print</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="s2">&quot;: &quot;</span><span class="p">,</span> <span class="n">device_names</span><span class="p">[</span><span class="n">device</span><span class="o">.</span><span class="n">info</span><span class="p">()[</span><span class="s2">&quot;id&quot;</span><span class="p">]])</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="c1"># CHECK THAT LEFT AND RIGHT MOTORS ARE CONNECTED TO CORRECT PORTS</span>
+<span class="linenos">28</span><span class="n">left_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">COUNTERCLOCKWISE</span><span class="p">)</span>
+<span class="linenos">29</span><span class="n">right_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">CLOCKWISE</span><span class="p">)</span>
+<span class="linenos">30</span><span class="n">drive_base</span> <span class="o">=</span> <span class="n">DriveBase</span><span class="p">(</span><span class="n">left_motor</span><span class="p">,</span> <span class="n">right_motor</span><span class="p">,</span> <span class="n">wheel_diameter</span><span class="o">=</span><span class="mi">57</span><span class="p">,</span> <span class="n">axle_track</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="n">drive_base</span><span class="o">.</span><span class="n">turn</span><span class="p">(</span><span class="mi">360</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="checking-the-ports-devices">
+<h3>Checking the ports devices<a class="headerlink" href="#checking-the-ports-devices" title="Link to this heading">#</a></h3>
+<p>Don’t worry about understanding the code, you will learn that through these tutorials.</p>
+<p>What you need to check is the output in the terminal (the panel at the bottom of the IDE). It should be the same as below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Hub</span> <span class="n">configuration</span>
+<span class="n">Port</span><span class="o">.</span><span class="n">A</span> <span class="p">:</span>  <span class="n">SPIKE</span> <span class="n">Medium</span> <span class="n">Angular</span> <span class="n">Motor</span>
+<span class="n">Port</span><span class="o">.</span><span class="n">B</span> <span class="p">:</span>  <span class="n">SPIKE</span> <span class="n">Medium</span> <span class="n">Angular</span> <span class="n">Motor</span>
+<span class="n">Port</span><span class="o">.</span><span class="n">C</span> <span class="p">:</span>  <span class="n">SPIKE</span> <span class="n">Ultrasonic</span> <span class="n">Sensor</span>
+<span class="n">Port</span><span class="o">.</span><span class="n">D</span> <span class="p">:</span>  <span class="n">SPIKE</span> <span class="n">Color</span> <span class="n">Sensor</span>
+<span class="n">Port</span><span class="o">.</span><span class="n">F</span> <span class="p">:</span>  <span class="n">SPIKE</span> <span class="n">Force</span> <span class="n">Sensor</span>
+</pre></div>
+</div>
+<p>If it is the same, this means the ports are connected to the correct devices. If not, you will need to rearrange the cables so they are plugged into the correct ports.</p>
 </section>
-<section id="first-program">
-<h2>First Program<a class="headerlink" href="#first-program" title="Link to this heading">#</a></h2>
-<p>Our final check is for you to run your first program.</p>
+<section id="checking-the-motors">
+<h3>Checking the motors<a class="headerlink" href="#checking-the-motors" title="Link to this heading">#</a></h3>
+<p>Since there is two motors in <strong>Port A</strong> and <strong>Port B</strong> you need check that the correct motors are in the correct ports.</p>
+<ul class="simple">
+<li><p>left motor → <strong>Port A</strong></p></li>
+<li><p>right motor → <strong>Port B</strong></p></li>
+</ul>
+<p>If the motors are in the correct ports, the robot should turn 360° in a <strong>clockwise direction</strong>.</p>
+<p>If the robot turned in a <strong>counter-clockwise direction</strong>,  switch the cables in <strong>Port A</strong> and <strong>Port B</strong>.</p>
+</section>
+</section>
+<section id="start-exploring">
+<h2>Start Exploring<a class="headerlink" href="#start-exploring" title="Link to this heading">#</a></h2>
+<p>Your robot and computer are now setup. Time to start exploring what you can do.</p>
 </section>
 </section>
 
@@ -405,13 +419,15 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#">Setup</a><ul>
 <li><a class="reference internal" href="#pybricks-ide">Pybricks IDE</a></li>
 <li><a class="reference internal" href="#connect-robot">Connect Robot</a></li>
-<li><a class="reference internal" href="#creating-python-files">Creating Python Files</a></li>
-<li><a class="reference internal" href="#connect-to-robot">Connect to Robot</a></li>
-<li><a class="reference internal" href="#check-configuration">Check Configuration</a></li>
-<li><a class="reference internal" href="#first-program">First Program</a></li>
+<li><a class="reference internal" href="#check-configuration">Check Configuration</a><ul>
+<li><a class="reference internal" href="#checking-the-ports-devices">Checking the ports devices</a></li>
+<li><a class="reference internal" href="#checking-the-motors">Checking the motors</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#start-exploring">Start Exploring</a></li>
 </ul>
 </li>
 </ul>
