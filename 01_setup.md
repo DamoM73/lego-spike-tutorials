@@ -23,6 +23,11 @@ Pybricks is in OpenSource Python platform for smart LEGO hubs.
 We have replaced the standard LEGO Spike firmware (the code that runs the robot) with Pybricks' firmware. The advantage is that Pybricks is better at running Python. The disadvantage is that you can no longer use the LEGO Spike App to program the robot.
 ```
 
+```{admonition} Firmware
+:class: note
+Firmware is like a robot's brain – it's the special software that's permanently inside a device, making sure it works the right way every time you use it.
+```
+
 ## Pybricks IDE
 
 You will be using the Pybricks IDE to program the robot. You can use the IDE in the browser or you can install it as an app on your computer. either will work fine.

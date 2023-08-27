@@ -79,3 +79,4 @@ Try **modifying** the code:
 - can you change the timing of the blink?
 - can you change the timing of the animation?
 - what happens when you comment out (put a `#` in front) all the `wait` commands?
+- 
