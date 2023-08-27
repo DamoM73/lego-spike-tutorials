@@ -211,6 +211,7 @@
 <p class="topic-title">In this lesson you will:</p>
 <ul class="simple">
 <li><p>the output features on the Spike Prime Hub</p></li>
+<li><p>learn how to change the status light</p></li>
 </ul>
 </aside>
 <div class="important admonition">
@@ -228,13 +229,18 @@
 <h2>The Hub Status Light<a class="headerlink" href="#the-hub-status-light" title="Link to this heading">#</a></h2>
 <p>The Hub Status Light is around the Power button and it is blue by default.</p>
 <p><img alt="Hub Status Light" src="_images/primehub_light.png" /></p>
-<p>Pybricks has four commands for the status light:</p>
+<section id="status-light-functions">
+<h3>Status Light Functions<a class="headerlink" href="#status-light-functions" title="Link to this heading">#</a></h3>
+<p>Pybricks has four functions for the status light:</p>
 <ul class="simple">
 <li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.light.on"><code class="docutils literal notranslate"><span class="pre">light.on(color)</span></code></a></strong> → Turns on the light at the specified colour.</p></li>
 <li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.light.off"><code class="docutils literal notranslate"><span class="pre">light.off()</span></code></a></strong> → Turns off the light.</p></li>
 <li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.light.blink"><code class="docutils literal notranslate"><span class="pre">light.blink(color,</span> <span class="pre">durations)</span></code></a></strong> → Blinks the light at a given colour by turning it on and off for given durations.</p></li>
 <li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.light.animate"><code class="docutils literal notranslate"><span class="pre">light.animate(colors,</span> <span class="pre">interval)</span></code></a></strong> → Animates the light with a sequence of colours, shown one by one for the given interval.</p></li>
 </ul>
+</section>
+<section id="status-light-example">
+<h3>Status Light Example<a class="headerlink" href="#status-light-example" title="Link to this heading">#</a></h3>
 <div class="admonition-primm admonition">
 <p class="admonition-title">PRIMM</p>
 <p>Throughout this course we will use the <strong>PRIMM</strong> process to reinforce our learning. <strong>PRIMM</strong> stands for <strong>Predict</strong>, <strong>Run</strong>, <strong>Investigate</strong>, <strong>Modify</strong>, and <strong>Make</strong>. It reflects effective programming practices and encourages curiosity in programming.</p>
@@ -244,7 +250,7 @@
 <p><strong>Modify</strong>: Edit the code. Change it around and see that results your get</p>
 <p><strong>Make</strong>: Use your new understanding of the code to make a different program.</p>
 </div>
-<p>You will now use all four status light command:</p>
+<p>You will now use all four status light functions:</p>
 <ol class="arabic simple">
 <li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">hub_light.py</span></code></p></li>
 <li><p><strong>Type</strong> the code below into the file</p></li>
@@ -298,9 +304,38 @@
 <li><p>can you display different colours?</p></li>
 <li><p>can you change the timing of the blink?</p></li>
 <li><p>can you change the timing of the animation?</p></li>
-<li><p>what happens when you comment out (put a <code class="docutils literal notranslate"><span class="pre">#</span></code> in front) all the <code class="docutils literal notranslate"><span class="pre">wait</span></code> commands?</p></li>
-<li></li>
+<li><p>what happens when you comment out (put a <code class="docutils literal notranslate"><span class="pre">#</span></code> in front) all the <code class="docutils literal notranslate"><span class="pre">wait</span></code> functions?</p></li>
 </ul>
+</section>
+</section>
+<section id="light-matrix">
+<h2>Light Matrix<a class="headerlink" href="#light-matrix" title="Link to this heading">#</a></h2>
+<p>The Spike Prime Hub has a five by five light matrix that can be used to display text and images, or individual pixels (light) can be accessed using their coordinates (see below).</p>
+<p><img alt="light matrix" src="_images/primehub_display.png" /></p>
+<section id="light-matrix-functions">
+<h3>Light Matrix Functions<a class="headerlink" href="#light-matrix-functions" title="Link to this heading">#</a></h3>
+<p>Pybricks has eight functions for the Light Matrix</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.orientation"><code class="docutils literal notranslate"><span class="pre">display.orientation(up)</span></code></a></strong> → Sets the orientation of the light matrix display.</p></li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.off"><code class="docutils literal notranslate"><span class="pre">display.off()</span></code></a></strong> → Turns off all the pixels.</p></li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.pixel"><code class="docutils literal notranslate"><span class="pre">display.pixel(row,</span> <span class="pre">column,</span> <span class="pre">brightness=100)</span></code></a></strong> → Turns on one pixel at the specified brightness.</p></li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.icon"><code class="docutils literal notranslate"><span class="pre">display.icon(icon)</span></code></a></strong> → Displays an icon, represented by a matrix of brightness: % values. <strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/parameters/icon.html#pybricks.parameters.Icon">A list of icons can be found here</a></strong></p></li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.animate"><code class="docutils literal notranslate"><span class="pre">display.animate(matrices,</span> <span class="pre">interval)</span></code></a></strong> → Displays an animation made using a list of images.</p></li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.number"><code class="docutils literal notranslate"><span class="pre">display.number(number)</span></code></a></strong> → Displays a number in the range -99 to 99.</p></li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.char"><code class="docutils literal notranslate"><span class="pre">display.char(char)</span></code></a></strong> → Displays a character or symbol on the light grid.</p></li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.text"><code class="docutils literal notranslate"><span class="pre">display.text(text,</span> <span class="pre">on=500,</span> <span class="pre">off=50)</span></code></a></strong> → Displays a text string, one character at a time, with a pause between each character.</p></li>
+</ul>
+</section>
+<section id="light-matrix-example">
+<h3>Light Matrix Example<a class="headerlink" href="#light-matrix-example" title="Link to this heading">#</a></h3>
+<p>The code below uses all eight functions for the light matrix.</p>
+<ol class="arabic simple">
+<li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">light_matrix.py</span></code></p></li>
+<li><p><strong>Type</strong> the code below into the file</p></li>
+<li><p><strong>Predict</strong> what you think will happen.</p></li>
+<li><p><strong>Run</strong> your code</p></li>
+</ol>
+</section>
 </section>
 </section>
 
@@ -367,7 +402,16 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Hub Outputs</a><ul>
-<li><a class="reference internal" href="#the-hub-status-light">The Hub Status Light</a></li>
+<li><a class="reference internal" href="#the-hub-status-light">The Hub Status Light</a><ul>
+<li><a class="reference internal" href="#status-light-functions">Status Light Functions</a></li>
+<li><a class="reference internal" href="#status-light-example">Status Light Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#light-matrix">Light Matrix</a><ul>
+<li><a class="reference internal" href="#light-matrix-functions">Light Matrix Functions</a></li>
+<li><a class="reference internal" href="#light-matrix-example">Light Matrix Example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

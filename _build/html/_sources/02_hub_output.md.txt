@@ -2,6 +2,7 @@
 
 ```{topic} In this lesson you will:
 - the output features on the Spike Prime Hub
+- learn how to change the status light
 ```
 
 ```{admonition} Pybrick Documentation
@@ -26,12 +27,16 @@ The Hub Status Light is around the Power button and it is blue by default.
 
 ![Hub Status Light](assets/primehub_light.png)
 
-Pybricks has four commands for the status light:
+### Status Light Functions
+
+Pybricks has four functions for the status light:
 
 - **[`light.on(color)`](https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.light.on)** &rarr; Turns on the light at the specified colour.
 - **[`light.off()`](https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.light.off)** &rarr; Turns off the light.
 - **[`light.blink(color, durations)`](https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.light.blink)** &rarr; Blinks the light at a given colour by turning it on and off for given durations.
 - **[`light.animate(colors, interval)`](https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.light.animate)** &rarr; Animates the light with a sequence of colours, shown one by one for the given interval.
+
+### Status Light Example
 
 ```{admonition} PRIMM
 Throughout this course we will use the **PRIMM** process to reinforce our learning. **PRIMM** stands for **Predict**, **Run**, **Investigate**, **Modify**, and **Make**. It reflects effective programming practices and encourages curiosity in programming.
@@ -47,7 +52,7 @@ Throughout this course we will use the **PRIMM** process to reinforce our learni
 **Make**: Use your new understanding of the code to make a different program.
 ```
 
-You will now use all four status light command:
+You will now use all four status light functions:
 
 1. **Create** a new file called `hub_light.py`
 2. **Type** the code below into the file
@@ -78,5 +83,34 @@ Try **modifying** the code:
 - can you display different colours?
 - can you change the timing of the blink?
 - can you change the timing of the animation?
-- what happens when you comment out (put a `#` in front) all the `wait` commands?
-- 
+- what happens when you comment out (put a `#` in front) all the `wait` functions?
+
+## Light Matrix
+
+The Spike Prime Hub has a five by five light matrix that can be used to display text and images, or individual pixels (light) can be accessed using their coordinates (see below).
+
+![light matrix](assets/primehub_display.png)
+
+### Light Matrix Functions
+
+Pybricks has eight functions for the Light Matrix
+
+- **[`display.orientation(up)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.orientation)** &rarr; Sets the orientation of the light matrix display.
+- **[`display.off()`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.off)** &rarr; Turns off all the pixels.
+- **[`display.pixel(row, column, brightness=100)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.pixel)** &rarr; Turns on one pixel at the specified brightness.
+- **[`display.icon(icon)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.icon)** &rarr; Displays an icon, represented by a matrix of brightness: % values. **[A list of icons can be found here](https://code.pybricks.com/static/docs/v2.7.0/parameters/icon.html#pybricks.parameters.Icon)**
+- **[`display.animate(matrices, interval)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.animate)** &rarr; Displays an animation made using a list of images.
+- **[`display.number(number)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.number)** &rarr; Displays a number in the range -99 to 99.
+- **[`display.char(char)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.char)** &rarr; Displays a character or symbol on the light grid. 
+- **[`display.text(text, on=500, off=50)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.text)** &rarr; Displays a text string, one character at a time, with a pause between each character. 
+
+### Light Matrix Example
+
+The code below uses all eight functions for the light matrix.
+
+1. **Create** a new file called `light_matrix.py`
+2. **Type** the code below into the file
+3. **Predict** what you think will happen.
+4. **Run** your code
+
+
