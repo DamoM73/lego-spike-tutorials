@@ -212,6 +212,7 @@
 <ul class="simple">
 <li><p>the output features on the Spike Prime Hub</p></li>
 <li><p>learn how to change the status light</p></li>
+<li><p>learn how to display information on the light matrix</p></li>
 </ul>
 </aside>
 <div class="important admonition">
@@ -241,15 +242,6 @@
 </section>
 <section id="status-light-example">
 <h3>Status Light Example<a class="headerlink" href="#status-light-example" title="Link to this heading">#</a></h3>
-<div class="admonition-primm admonition">
-<p class="admonition-title">PRIMM</p>
-<p>Throughout this course we will use the <strong>PRIMM</strong> process to reinforce our learning. <strong>PRIMM</strong> stands for <strong>Predict</strong>, <strong>Run</strong>, <strong>Investigate</strong>, <strong>Modify</strong>, and <strong>Make</strong>. It reflects effective programming practices and encourages curiosity in programming.</p>
-<p><strong>Predict</strong>: Before you run the code you need to predict what you think will happen. Go ahead and have a guess at what you think will happen.</p>
-<p><strong>Run</strong>: Then run the program and see how accurate your prediction was. If your prediction was incorrect, how was the result different?</p>
-<p><strong>Investigate</strong>: Go through the code and work out what each line of code does.</p>
-<p><strong>Modify</strong>: Edit the code. Change it around and see that results your get</p>
-<p><strong>Make</strong>: Use your new understanding of the code to make a different program.</p>
-</div>
 <p>You will now use all four status light functions:</p>
 <ol class="arabic simple">
 <li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">hub_light.py</span></code></p></li>
@@ -335,6 +327,188 @@
 <li><p><strong>Predict</strong> what you think will happen.</p></li>
 <li><p><strong>Run</strong> your code</p></li>
 </ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># light_matrix.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span><span class="p">,</span> <span class="n">Icon</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># --- SETUP</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="c1"># --- MAIN LOOP</span>
+<span class="linenos">15</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">16</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">orientation</span><span class="p">(</span><span class="n">Side</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">)</span>
+<span class="linenos">17</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="n">Icon</span><span class="o">.</span><span class="n">UP</span><span class="p">)</span>
+<span class="linenos">18</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">19</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">orientation</span><span class="p">(</span><span class="n">Side</span><span class="o">.</span><span class="n">BOTTOM</span><span class="p">)</span>
+<span class="linenos">20</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="n">Icon</span><span class="o">.</span><span class="n">UP</span><span class="p">)</span>
+<span class="linenos">21</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">22</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">orientation</span><span class="p">(</span><span class="n">Side</span><span class="o">.</span><span class="n">LEFT</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="n">Icon</span><span class="o">.</span><span class="n">UP</span><span class="p">)</span>
+<span class="linenos">24</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">orientation</span><span class="p">(</span><span class="n">Side</span><span class="o">.</span><span class="n">TOP</span><span class="p">)</span>
+<span class="linenos">26</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="n">Icon</span><span class="o">.</span><span class="n">UP</span><span class="p">)</span>
+<span class="linenos">27</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+<span class="linenos">30</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">33</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">34</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">35</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">36</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">37</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+<span class="linenos">40</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">41</span>
+<span class="linenos">42</span>    <span class="n">arrows</span> <span class="o">=</span> <span class="p">[</span><span class="n">Icon</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">,</span> <span class="n">Icon</span><span class="o">.</span><span class="n">DOWN</span><span class="p">,</span> <span class="n">Icon</span><span class="o">.</span><span class="n">LEFT</span><span class="p">,</span> <span class="n">Icon</span><span class="o">.</span><span class="n">UP</span><span class="p">]</span>
+<span class="linenos">43</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">animate</span><span class="p">(</span><span class="n">arrows</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="linenos">44</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+<span class="linenos">45</span>
+<span class="linenos">46</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+<span class="linenos">47</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">48</span>
+<span class="linenos">49</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">char</span><span class="p">(</span><span class="s2">&quot;R&quot;</span><span class="p">)</span>
+<span class="linenos">50</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">51</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">number</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">52</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">53</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">char</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="linenos">54</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">55</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">number</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">56</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">57</span>
+<span class="linenos">58</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+<span class="linenos">59</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">60</span>
+<span class="linenos">61</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;C3PO&quot;</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="linenos">62</span>
+<span class="linenos">63</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+<span class="linenos">64</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Investigating</strong> the code:</p>
+<ul class="simple">
+<li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p>
+<ul>
+<li><p>make sure to add <code class="docutils literal notranslate"><span class="pre">Icon</span></code> to the end of <strong>line 5</strong></p></li>
+</ul>
+</li>
+<li><p><strong>lines 9 - 10</strong> → creates a PrimeHub and names it <code class="docutils literal notranslate"><span class="pre">hub</span></code></p></li>
+<li><p><strong>line 15</strong> → creates an endless loop</p></li>
+<li><p><strong>lines 16 - 27</strong> → changes which side of the hub is considered up and then displays the up arrow.</p></li>
+<li><p><strong>lines 29 - 30</strong> → turns the display off for 1 second</p></li>
+<li><p><strong>lines 32 - 37</strong> → turns on a number of pixels to show the meh face</p></li>
+<li><p><strong>lines 29 - 40</strong> → turns the display off for 1 second</p></li>
+<li><p><strong>line 42</strong> → makes an <code class="docutils literal notranslate"><span class="pre">Icon</span></code> list</p></li>
+<li><p><strong>line 43</strong> → displays each icon in the icon list for 500ms</p></li>
+<li><p><strong>line 44</strong> → waits for a second</p></li>
+<li><p><strong>lines 46 - 47</strong> → turns the display off for 1 second</p></li>
+<li><p><strong>lines 49 - 56</strong> → displays numbers and characters</p></li>
+<li><p><strong>lines 58 - 59</strong> → turns the display off for 1 second</p></li>
+<li><p><strong>line 61</strong> → displays the text <code class="docutils literal notranslate"><span class="pre">C3PO</span></code></p></li>
+<li><p><strong>lines 63 - 54</strong> → turns the display off for 2 seconds</p></li>
+</ul>
+<p>Time to <strong>modify</strong> the code:</p>
+<ul class="simple">
+<li><p>can you make the <code class="docutils literal notranslate"><span class="pre">Icon.HAPPY</span></code> spin around the display?</p></li>
+<li><p>can you change the meh face so the mouth uses the entire screen and the eyes are four pixels big?</p></li>
+<li><p>what happens if you comment out all the <code class="docutils literal notranslate"><span class="pre">wait</span></code> functions?</p></li>
+</ul>
+</section>
+</section>
+<section id="speaker">
+<h2>Speaker<a class="headerlink" href="#speaker" title="Link to this heading">#</a></h2>
+<p>The Prime Hub has a speaker built in, which can be used to produce sounds.</p>
+<section id="speaker-functions">
+<h3>Speaker Functions<a class="headerlink" href="#speaker-functions" title="Link to this heading">#</a></h3>
+<p>The hub’s speaker has three functions:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.volume"><code class="docutils literal notranslate"><span class="pre">speaker.volume(volume)</span></code></a></strong> →</p>
+<ul>
+<li><p>If volume is given, sets the speaker volume.</p></li>
+<li><p>If no volume is given, this method returns the current volume.</p></li>
+</ul>
+</li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.beep"><code class="docutils literal notranslate"><span class="pre">speaker.beep(frequency=500,</span> <span class="pre">duration=100)</span></code></a></strong> → Play a beep/tone.</p></li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.play_notes"><code class="docutils literal notranslate"><span class="pre">speaker.play_notes(notes,</span> <span class="pre">tempo=120)</span></code></a></strong> → Plays a sequence of musical notes.</p></li>
+</ul>
+</section>
+<section id="speaker-example">
+<h3>Speaker Example<a class="headerlink" href="#speaker-example" title="Link to this heading">#</a></h3>
+<p>The example below uses the three speaker functions:</p>
+<ol class="arabic simple">
+<li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">light_matrix.py</span></code></p></li>
+<li><p><strong>Type</strong> the code below into the file</p></li>
+<li><p><strong>Predict</strong> what you think will happen.</p></li>
+<li><p><strong>Run</strong> your code</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># speaker.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># --- SETUP</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="c1"># --- MAIN LOOP</span>
+<span class="linenos">15</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">16</span>    
+<span class="linenos">17</span>    <span class="n">hub</span><span class="o">.</span><span class="n">speaker</span><span class="o">.</span><span class="n">volume</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">18</span>    <span class="n">current_volume</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">hub</span><span class="o">.</span><span class="n">speaker</span><span class="o">.</span><span class="n">volume</span><span class="p">())</span>
+<span class="linenos">19</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">current_volume</span><span class="p">)</span>
+<span class="linenos">20</span>    <span class="n">hub</span><span class="o">.</span><span class="n">speaker</span><span class="o">.</span><span class="n">beep</span><span class="p">(</span><span class="mi">440</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">21</span>    
+<span class="linenos">22</span>    <span class="n">hub</span><span class="o">.</span><span class="n">speaker</span><span class="o">.</span><span class="n">volume</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="n">current_volume</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">hub</span><span class="o">.</span><span class="n">speaker</span><span class="o">.</span><span class="n">volume</span><span class="p">())</span>
+<span class="linenos">24</span>    <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">current_volume</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="n">hub</span><span class="o">.</span><span class="n">speaker</span><span class="o">.</span><span class="n">beep</span><span class="p">(</span><span class="mi">440</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">26</span>    
+<span class="linenos">27</span>    <span class="n">oh_when_the_saints</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos">28</span>        <span class="s2">&quot;C4/4&quot;</span><span class="p">,</span> <span class="s2">&quot;E4/4&quot;</span><span class="p">,</span> <span class="s2">&quot;F4/4&quot;</span><span class="p">,</span> <span class="s2">&quot;G4/1&quot;</span><span class="p">,</span>
+<span class="linenos">29</span>        <span class="s2">&quot;C4/4&quot;</span><span class="p">,</span> <span class="s2">&quot;E4/4&quot;</span><span class="p">,</span> <span class="s2">&quot;F4/4&quot;</span><span class="p">,</span> <span class="s2">&quot;G4/1&quot;</span><span class="p">,</span>
+<span class="linenos">30</span>        <span class="s2">&quot;C4/4&quot;</span><span class="p">,</span> <span class="s2">&quot;E4/4&quot;</span><span class="p">,</span> <span class="s2">&quot;F4/4&quot;</span><span class="p">,</span> <span class="s2">&quot;G4/2&quot;</span><span class="p">,</span>
+<span class="linenos">31</span>        <span class="s2">&quot;E4/2&quot;</span><span class="p">,</span> <span class="s2">&quot;C4/2&quot;</span><span class="p">,</span> <span class="s2">&quot;E4/2&quot;</span><span class="p">,</span> <span class="s2">&quot;D4/1&quot;</span><span class="p">,</span>
+<span class="linenos">32</span>        <span class="s2">&quot;E4/4&quot;</span><span class="p">,</span> <span class="s2">&quot;E4/4&quot;</span><span class="p">,</span> <span class="s2">&quot;D4/4&quot;</span><span class="p">,</span> <span class="s2">&quot;C4/2&quot;</span><span class="p">,</span>
+<span class="linenos">33</span>        <span class="s2">&quot;C4/2&quot;</span><span class="p">,</span> <span class="s2">&quot;E4/2&quot;</span><span class="p">,</span> <span class="s2">&quot;G4/4&quot;</span><span class="p">,</span> <span class="s2">&quot;G4/4&quot;</span><span class="p">,</span> <span class="s2">&quot;G4/4&quot;</span><span class="p">,</span> <span class="s2">&quot;F4/1&quot;</span><span class="p">,</span>
+<span class="linenos">34</span>        <span class="s2">&quot;E4/4&quot;</span><span class="p">,</span> <span class="s2">&quot;F4/4&quot;</span><span class="p">,</span> <span class="s2">&quot;G4/2&quot;</span><span class="p">,</span> <span class="s2">&quot;E4/2&quot;</span><span class="p">,</span> <span class="s2">&quot;C4/2&quot;</span><span class="p">,</span> <span class="s2">&quot;D4/2&quot;</span><span class="p">,</span> <span class="s2">&quot;C4/1&quot;</span>
+<span class="linenos">35</span>    <span class="p">]</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span>    <span class="n">hub</span><span class="o">.</span><span class="n">speaker</span><span class="o">.</span><span class="n">play_notes</span><span class="p">(</span><span class="n">oh_when_the_saints</span><span class="p">,</span><span class="mi">180</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now <strong>investigate</strong> the code:</p>
+<ul class="simple">
+<li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p></li>
+<li><p><strong>lines 9 - 10</strong> → creates a PrimeHub and names it <code class="docutils literal notranslate"><span class="pre">hub</span></code></p></li>
+<li><p><strong>line 15</strong> → creates an endless loop</p></li>
+<li><p><strong>line 17</strong> → sets the speaker volume to 100%</p></li>
+<li><p><strong>lines 18 - 19</strong> → read the current volume level and assigns it to <code class="docutils literal notranslate"><span class="pre">current_volume</span></code> then display it to the light matrix</p></li>
+<li><p><strong>line 20</strong> → play a tone of 440Hz for 500ms</p></li>
+<li><p><strong>line 22</strong> → sets the speaker volume to 50%</p></li>
+<li><p><strong>lines 23 - 24</strong> → read the current volume level and assigns it to <code class="docutils literal notranslate"><span class="pre">current_volume</span></code> then display it to the light matrix</p></li>
+<li><p><strong>line 25</strong> → play a tone of 440Hz for 500ms</p></li>
+<li><p><strong>lines 27 - 35</strong> → a list containing the notes for Oh When The Saints</p></li>
+<li><p><strong>line 37</strong> → play the notes in the <code class="docutils literal notranslate"><span class="pre">oh_when_the_saints</span></code> list at a tempo of 180bpm</p></li>
+</ul>
+<p><strong>Modify</strong> the code by:</p>
+<ul class="simple">
+<li><p>seeing what is the lowest volume beep you can hear</p></li>
+<li><p>seeing what is the lowest pitch beep you can hear</p></li>
+<li><p>seeing what is the highest pitch beep you can hear</p></li>
+<li><p>make the hub play a different tune</p></li>
+</ul>
 </section>
 </section>
 </section>
@@ -410,6 +584,11 @@
 <li><a class="reference internal" href="#light-matrix">Light Matrix</a><ul>
 <li><a class="reference internal" href="#light-matrix-functions">Light Matrix Functions</a></li>
 <li><a class="reference internal" href="#light-matrix-example">Light Matrix Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#speaker">Speaker</a><ul>
+<li><a class="reference internal" href="#speaker-functions">Speaker Functions</a></li>
+<li><a class="reference internal" href="#speaker-example">Speaker Example</a></li>
 </ul>
 </li>
 </ul>

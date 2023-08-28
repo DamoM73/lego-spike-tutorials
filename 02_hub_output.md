@@ -3,6 +3,7 @@
 ```{topic} In this lesson you will:
 - the output features on the Spike Prime Hub
 - learn how to change the status light
+- learn how to display information on the light matrix
 ```
 
 ```{admonition} Pybrick Documentation
@@ -37,20 +38,6 @@ Pybricks has four functions for the status light:
 - **[`light.animate(colors, interval)`](https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.light.animate)** &rarr; Animates the light with a sequence of colours, shown one by one for the given interval.
 
 ### Status Light Example
-
-```{admonition} PRIMM
-Throughout this course we will use the **PRIMM** process to reinforce our learning. **PRIMM** stands for **Predict**, **Run**, **Investigate**, **Modify**, and **Make**. It reflects effective programming practices and encourages curiosity in programming.
-
-**Predict**: Before you run the code you need to predict what you think will happen. Go ahead and have a guess at what you think will happen.
-
-**Run**: Then run the program and see how accurate your prediction was. If your prediction was incorrect, how was the result different?
-
-**Investigate**: Go through the code and work out what each line of code does.
-
-**Modify**: Edit the code. Change it around and see that results your get
-
-**Make**: Use your new understanding of the code to make a different program.
-```
 
 You will now use all four status light functions:
 
@@ -113,4 +100,79 @@ The code below uses all eight functions for the light matrix.
 3. **Predict** what you think will happen.
 4. **Run** your code
 
+```{literalinclude} ./python_files/hub_output_light_matrix.py
+:linenos:
+```
 
+**Investigating** the code:
+
+- **lines 3 - 7** &rarr; imports all the Pybricks command for use with your robot
+  - make sure to add `Icon` to the end of **line 5**
+- **lines 9 - 10** &rarr; creates a PrimeHub and names it `hub`
+- **line 15** &rarr; creates an endless loop
+- **lines 16 - 27** &rarr; changes which side of the hub is considered up and then displays the up arrow.
+- **lines 29 - 30** &rarr; turns the display off for 1 second
+- **lines 32 - 37** &rarr; turns on a number of pixels to show the meh face
+- **lines 29 - 40** &rarr; turns the display off for 1 second
+- **line 42** &rarr; makes an `Icon` list
+- **line 43** &rarr; displays each icon in the icon list for 500ms
+- **line 44** &rarr; waits for a second
+- **lines 46 - 47** &rarr; turns the display off for 1 second
+- **lines 49 - 56** &rarr; displays numbers and characters
+- **lines 58 - 59** &rarr; turns the display off for 1 second
+- **line 61** &rarr; displays the text `C3PO`
+- **lines 63 - 54** &rarr; turns the display off for 2 seconds
+
+Time to **modify** the code:
+
+- can you make the `Icon.HAPPY` spin around the display?
+- can you change the meh face so the mouth uses the entire screen and the eyes are four pixels big?
+- what happens if you comment out all the `wait` functions?
+
+## Speaker
+
+The Prime Hub has a speaker built in, which can be used to produce sounds.
+
+### Speaker Functions
+
+The hub's speaker has three functions:
+
+- **[`speaker.volume(volume)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.volume)** &rarr;
+  - If volume is given, sets the speaker volume.
+  - If no volume is given, this method returns the current volume.
+- **[`speaker.beep(frequency=500, duration=100)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.beep)** &rarr; Play a beep/tone.
+- **[`speaker.play_notes(notes, tempo=120)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.play_notes)** &rarr; Plays a sequence of musical notes.
+
+### Speaker Example
+
+The example below uses the three speaker functions:
+
+1. **Create** a new file called `light_matrix.py`
+2. **Type** the code below into the file
+3. **Predict** what you think will happen.
+4. **Run** your code
+
+```{literalinclude} ./python_files/hub_output_speaker.py
+:linenos:
+```
+
+Now **investigate** the code:
+
+- **lines 3 - 7** &rarr; imports all the Pybricks command for use with your robot
+- **lines 9 - 10** &rarr; creates a PrimeHub and names it `hub`
+- **line 15** &rarr; creates an endless loop
+- **line 17** &rarr; sets the speaker volume to 100%
+- **lines 18 - 19** &rarr; read the current volume level and assigns it to `current_volume` then display it to the light matrix
+- **line 20** &rarr; play a tone of 440Hz for 500ms
+- **line 22** &rarr; sets the speaker volume to 50%
+- **lines 23 - 24** &rarr; read the current volume level and assigns it to `current_volume` then display it to the light matrix
+- **line 25** &rarr; play a tone of 440Hz for 500ms
+- **lines 27 - 35** &rarr; a list containing the notes for Oh When The Saints
+- **line 37** &rarr; play the notes in the `oh_when_the_saints` list at a tempo of 180bpm
+
+**Modify** the code by:
+
+- seeing what is the lowest volume beep you can hear
+- seeing what is the lowest pitch beep you can hear
+- seeing what is the highest pitch beep you can hear
+- make the hub play a different tune
