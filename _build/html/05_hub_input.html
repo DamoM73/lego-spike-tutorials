@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Colour Sensor" href="06_colour.html" /><link rel="prev" title="Hub Inputs" href="04_hub_input.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Motors as sensors" href="06_motor_input.html" /><link rel="prev" title="Driving Base" href="04_driving_base.html" />
 
     <link rel="shortcut icon" href="_static/spike_logo.ico"/><!-- Generated with Sphinx 7.2.2 and Furo 2023.08.19 -->
-        <title>Force Sensor - Lego Spike Python Coding</title>
+        <title>Hub Inputs - Lego Spike Python Coding</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -137,7 +137,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -165,12 +165,14 @@
 <li class="toctree-l1"><a class="reference internal" href="01_setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_hub_output.html">Hub Outputs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_motors.html">Motors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_hub_input.html">Hub Inputs</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Force Sensor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_colour.html">Colour Sensor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_distance.html">Distance Sensor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_planning_code.html">Planning Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="99_documentation.html">Spike Prime Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_driving_base.html">Driving Base</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Hub Inputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_motor_input.html">Motors as sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_force.html">Force Sensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_colour.html">Colour Sensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_distance.html">Distance Sensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_planning_code.html">Planning Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="99_examples.html">Examples</a></li>
 </ul>
 
 </div>
@@ -199,14 +201,19 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="force-sensor">
-<h1>Force Sensor<a class="headerlink" href="#force-sensor" title="Link to this heading">#</a></h1>
+          <section id="hub-inputs">
+<h1>Hub Inputs<a class="headerlink" href="#hub-inputs" title="Link to this heading">#</a></h1>
+<section id="buttons">
+<h2>Buttons<a class="headerlink" href="#buttons" title="Link to this heading">#</a></h2>
+<p>The Prime Hub has four buttons, as shown below.</p>
+<p><img alt="Hub Buttons" src="_images/primehub_buttons.png" /></p>
+</section>
 </section>
 
         </article>
@@ -214,23 +221,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="06_colour.html">
+          <a class="next-page" href="06_motor_input.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Colour Sensor</div>
+                <div class="title">Motors as sensors</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="04_hub_input.html">
+          <a class="prev-page" href="04_driving_base.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Hub Inputs</div>
+                <div class="title">Driving Base</div>
                 
               </div>
             </a>
@@ -259,8 +266,27 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Hub Inputs</a><ul>
+<li><a class="reference internal" href="#buttons">Buttons</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

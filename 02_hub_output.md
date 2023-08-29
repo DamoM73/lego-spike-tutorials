@@ -4,6 +4,7 @@
 - the output features on the Spike Prime Hub
 - learn how to change the status light
 - learn how to display information on the light matrix
+- learn how to produce sounds using the hub speaker
 ```
 
 ```{admonition} Pybrick Documentation

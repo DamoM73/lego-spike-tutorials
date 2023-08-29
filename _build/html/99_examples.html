@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Motors" href="03_motors.html" /><link rel="prev" title="Setup" href="01_setup.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Planning Code" href="11_planning_code.html" />
 
     <link rel="shortcut icon" href="_static/spike_logo.ico"/><!-- Generated with Sphinx 7.2.2 and Furo 2023.08.19 -->
-        <title>Hub Outputs - Lego Spike Python Coding</title>
+        <title>Examples - Lego Spike Python Coding</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -163,7 +163,7 @@
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01_setup.html">Setup</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Hub Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_hub_output.html">Hub Outputs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_motors.html">Motors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_driving_base.html">Driving Base</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_hub_input.html">Hub Inputs</a></li>
@@ -173,7 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="09_colour.html">Colour Sensor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_distance.html">Distance Sensor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="11_planning_code.html">Planning Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="99_examples.html">Examples</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Examples</a></li>
 </ul>
 
 </div>
@@ -208,51 +208,12 @@
           </label>
         </div>
         <article role="main">
-          <section id="hub-outputs">
-<h1>Hub Outputs<a class="headerlink" href="#hub-outputs" title="Link to this heading">#</a></h1>
-<aside class="topic">
-<p class="topic-title">In this lesson you will:</p>
-<ul class="simple">
-<li><p>the output features on the Spike Prime Hub</p></li>
-<li><p>learn how to change the status light</p></li>
-<li><p>learn how to display information on the light matrix</p></li>
-<li><p>learn how to produce sounds using the hub speaker</p></li>
-</ul>
-</aside>
-<div class="important admonition">
-<p class="admonition-title">Pybrick Documentation</p>
-<p>To explore all Pybricks’ features check the <strong><a class="reference external" href="https://docs.pybricks.com/en/stable/index.html">Pybricks documentaion</a></strong>. This can also be seen in the right-hand panel of the Pybricks IDE.</p>
-</div>
-<p>The Spike Prime Hub has many features that can be used to produce output for the robot.</p>
-<div class="note admonition">
-<p class="admonition-title">Output and Input</p>
-<p>Imagine that you want the robot to explore a room all by itself. When the robot uses its sensors to see if there are obstacles ahead and decides to turn left, that’s the <strong>input</strong>. It’s like the robot figuring out what’s around it.</p>
-<p>Then, when the robot actually turns and goes in the new direction, that’s the <strong>output</strong>. It’s the robot taking action based on what it learned from its sensors.</p>
-<p>So, input is when the robot gathers information, and output is the robot using that information to make decisions and move around. It’s like the robot’s way of thinking and moving on its own!</p>
-</div>
-<section id="the-hub-status-light">
-<h2>The Hub Status Light<a class="headerlink" href="#the-hub-status-light" title="Link to this heading">#</a></h2>
-<p>The Hub Status Light is around the Power button and it is blue by default.</p>
-<p><img alt="Hub Status Light" src="_images/primehub_light.png" /></p>
-<section id="status-light-functions">
-<h3>Status Light Functions<a class="headerlink" href="#status-light-functions" title="Link to this heading">#</a></h3>
-<p>Pybricks has four functions for the status light:</p>
-<ul class="simple">
-<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.light.on"><code class="docutils literal notranslate"><span class="pre">light.on(color)</span></code></a></strong> → Turns on the light at the specified colour.</p></li>
-<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.light.off"><code class="docutils literal notranslate"><span class="pre">light.off()</span></code></a></strong> → Turns off the light.</p></li>
-<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.light.blink"><code class="docutils literal notranslate"><span class="pre">light.blink(color,</span> <span class="pre">durations)</span></code></a></strong> → Blinks the light at a given colour by turning it on and off for given durations.</p></li>
-<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.light.animate"><code class="docutils literal notranslate"><span class="pre">light.animate(colors,</span> <span class="pre">interval)</span></code></a></strong> → Animates the light with a sequence of colours, shown one by one for the given interval.</p></li>
-</ul>
-</section>
-<section id="status-light-example">
-<h3>Status Light Example<a class="headerlink" href="#status-light-example" title="Link to this heading">#</a></h3>
-<p>You will now use all four status light functions:</p>
-<ol class="arabic simple">
-<li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">hub_light.py</span></code></p></li>
-<li><p><strong>Type</strong> the code below into the file</p></li>
-<li><p><strong>Predict</strong> what you think will happen.</p></li>
-<li><p><strong>Run</strong> your code</p></li>
-</ol>
+          <section id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h1>
+<section id="hub-output">
+<h2>Hub Output<a class="headerlink" href="#hub-output" title="Link to this heading">#</a></h2>
+<section id="status-light">
+<h3>Status Light<a class="headerlink" href="#status-light" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># hub_light.py</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
@@ -277,60 +238,9 @@
 <span class="linenos">22</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Time to <strong>investigate</strong> the code:</p>
-<ul class="simple">
-<li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p></li>
-<li><p><strong>lines 9 - 10</strong> → creates a PrimeHub and names it <code class="docutils literal notranslate"><span class="pre">hub</span></code></p></li>
-<li><p><strong>line 14</strong> → creates an endless loop</p></li>
-<li><p><strong>line 15</strong> → changes the status light to <code class="docutils literal notranslate"><span class="pre">MAGENTA</span></code></p>
-<ul>
-<li><p>the <strong><a class="reference external" href="https://docs.pybricks.com/en/stable/parameters/color.html#color">color documentation</a></strong> provides more details</p></li>
-</ul>
-</li>
-<li><p><strong>line 16</strong> → waits for 1000 milliseconds (ie. 1 second)</p></li>
-<li><p><strong>line 17</strong> → blinks <code class="docutils literal notranslate"><span class="pre">RED</span></code> in the pattern on for 500ms, off 250ms, on 500ms, off 250ms</p></li>
-<li><p><strong>line 18</strong> → waits for 1500 milliseconds</p></li>
-<li><p><strong>line 19</strong> → moves through the three colours <code class="docutils literal notranslate"><span class="pre">GREEN</span></code>, <code class="docutils literal notranslate"><span class="pre">WHITE</span></code> then <code class="docutils literal notranslate"><span class="pre">ORANGE</span></code>, showing  each for 1000ms</p></li>
-<li><p><strong>line 20</strong> → waits for 3000 milliseconds</p></li>
-<li><p><strong>line 21</strong> → turns the light off</p></li>
-<li><p><strong>line 16</strong> → waits for 1000 milliseconds</p></li>
-</ul>
-<p>Try <strong>modifying</strong> the code:</p>
-<ul class="simple">
-<li><p>can you display different colours?</p></li>
-<li><p>can you change the timing of the blink?</p></li>
-<li><p>can you change the timing of the animation?</p></li>
-<li><p>what happens when you comment out (put a <code class="docutils literal notranslate"><span class="pre">#</span></code> in front) all the <code class="docutils literal notranslate"><span class="pre">wait</span></code> functions?</p></li>
-</ul>
-</section>
 </section>
 <section id="light-matrix">
-<h2>Light Matrix<a class="headerlink" href="#light-matrix" title="Link to this heading">#</a></h2>
-<p>The Spike Prime Hub has a five by five light matrix that can be used to display text and images, or individual pixels (light) can be accessed using their coordinates (see below).</p>
-<p><img alt="light matrix" src="_images/primehub_display.png" /></p>
-<section id="light-matrix-functions">
-<h3>Light Matrix Functions<a class="headerlink" href="#light-matrix-functions" title="Link to this heading">#</a></h3>
-<p>Pybricks has eight functions for the Light Matrix</p>
-<ul class="simple">
-<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.orientation"><code class="docutils literal notranslate"><span class="pre">display.orientation(up)</span></code></a></strong> → Sets the orientation of the light matrix display.</p></li>
-<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.off"><code class="docutils literal notranslate"><span class="pre">display.off()</span></code></a></strong> → Turns off all the pixels.</p></li>
-<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.pixel"><code class="docutils literal notranslate"><span class="pre">display.pixel(row,</span> <span class="pre">column,</span> <span class="pre">brightness=100)</span></code></a></strong> → Turns on one pixel at the specified brightness.</p></li>
-<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.icon"><code class="docutils literal notranslate"><span class="pre">display.icon(icon)</span></code></a></strong> → Displays an icon, represented by a matrix of brightness: % values. <strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/parameters/icon.html#pybricks.parameters.Icon">A list of icons can be found here</a></strong></p></li>
-<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.animate"><code class="docutils literal notranslate"><span class="pre">display.animate(matrices,</span> <span class="pre">interval)</span></code></a></strong> → Displays an animation made using a list of images.</p></li>
-<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.number"><code class="docutils literal notranslate"><span class="pre">display.number(number)</span></code></a></strong> → Displays a number in the range -99 to 99.</p></li>
-<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.char"><code class="docutils literal notranslate"><span class="pre">display.char(char)</span></code></a></strong> → Displays a character or symbol on the light grid.</p></li>
-<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.text"><code class="docutils literal notranslate"><span class="pre">display.text(text,</span> <span class="pre">on=500,</span> <span class="pre">off=50)</span></code></a></strong> → Displays a text string, one character at a time, with a pause between each character.</p></li>
-</ul>
-</section>
-<section id="light-matrix-example">
-<h3>Light Matrix Example<a class="headerlink" href="#light-matrix-example" title="Link to this heading">#</a></h3>
-<p>The code below uses all eight functions for the light matrix.</p>
-<ol class="arabic simple">
-<li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">light_matrix.py</span></code></p></li>
-<li><p><strong>Type</strong> the code below into the file</p></li>
-<li><p><strong>Predict</strong> what you think will happen.</p></li>
-<li><p><strong>Run</strong> your code</p></li>
-</ol>
+<h3>Light Matrix<a class="headerlink" href="#light-matrix" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># light_matrix.py</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
@@ -397,62 +307,9 @@
 <span class="linenos">64</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Investigating</strong> the code:</p>
-<ul class="simple">
-<li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p>
-<ul>
-<li><p>make sure to add <code class="docutils literal notranslate"><span class="pre">Icon</span></code> to the end of <strong>line 5</strong></p></li>
-</ul>
-</li>
-<li><p><strong>lines 9 - 10</strong> → creates a PrimeHub and names it <code class="docutils literal notranslate"><span class="pre">hub</span></code></p></li>
-<li><p><strong>line 15</strong> → creates an endless loop</p></li>
-<li><p><strong>lines 16 - 27</strong> → changes which side of the hub is considered up and then displays the up arrow.</p></li>
-<li><p><strong>lines 29 - 30</strong> → turns the display off for 1 second</p></li>
-<li><p><strong>lines 32 - 37</strong> → turns on a number of pixels to show the meh face</p></li>
-<li><p><strong>lines 29 - 40</strong> → turns the display off for 1 second</p></li>
-<li><p><strong>line 42</strong> → makes an <code class="docutils literal notranslate"><span class="pre">Icon</span></code> list</p></li>
-<li><p><strong>line 43</strong> → displays each icon in the icon list for 500ms</p></li>
-<li><p><strong>line 44</strong> → waits for a second</p></li>
-<li><p><strong>lines 46 - 47</strong> → turns the display off for 1 second</p></li>
-<li><p><strong>lines 49 - 56</strong> → displays numbers and characters</p></li>
-<li><p><strong>lines 58 - 59</strong> → turns the display off for 1 second</p></li>
-<li><p><strong>line 61</strong> → displays the text <code class="docutils literal notranslate"><span class="pre">C3PO</span></code></p></li>
-<li><p><strong>lines 63 - 54</strong> → turns the display off for 2 seconds</p></li>
-</ul>
-<p>Time to <strong>modify</strong> the code:</p>
-<ul class="simple">
-<li><p>can you make the <code class="docutils literal notranslate"><span class="pre">Icon.HAPPY</span></code> spin around the display?</p></li>
-<li><p>can you change the meh face so the mouth uses the entire screen and the eyes are four pixels big?</p></li>
-<li><p>what happens if you comment out all the <code class="docutils literal notranslate"><span class="pre">wait</span></code> functions?</p></li>
-</ul>
-</section>
 </section>
 <section id="speaker">
-<h2>Speaker<a class="headerlink" href="#speaker" title="Link to this heading">#</a></h2>
-<p>The Prime Hub has a speaker built in, which can be used to produce sounds.</p>
-<section id="speaker-functions">
-<h3>Speaker Functions<a class="headerlink" href="#speaker-functions" title="Link to this heading">#</a></h3>
-<p>The hub’s speaker has three functions:</p>
-<ul class="simple">
-<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.volume"><code class="docutils literal notranslate"><span class="pre">speaker.volume(volume)</span></code></a></strong> →</p>
-<ul>
-<li><p>If volume is given, sets the speaker volume.</p></li>
-<li><p>If no volume is given, this method returns the current volume.</p></li>
-</ul>
-</li>
-<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.beep"><code class="docutils literal notranslate"><span class="pre">speaker.beep(frequency=500,</span> <span class="pre">duration=100)</span></code></a></strong> → Play a beep/tone.</p></li>
-<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.play_notes"><code class="docutils literal notranslate"><span class="pre">speaker.play_notes(notes,</span> <span class="pre">tempo=120)</span></code></a></strong> → Plays a sequence of musical notes.</p></li>
-</ul>
-</section>
-<section id="speaker-example">
-<h3>Speaker Example<a class="headerlink" href="#speaker-example" title="Link to this heading">#</a></h3>
-<p>The example below uses the three speaker functions:</p>
-<ol class="arabic simple">
-<li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">light_matrix.py</span></code></p></li>
-<li><p><strong>Type</strong> the code below into the file</p></li>
-<li><p><strong>Predict</strong> what you think will happen.</p></li>
-<li><p><strong>Run</strong> your code</p></li>
-</ol>
+<h3>Speaker<a class="headerlink" href="#speaker" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># speaker.py</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
@@ -492,27 +349,6 @@
 <span class="linenos">37</span>    <span class="n">hub</span><span class="o">.</span><span class="n">speaker</span><span class="o">.</span><span class="n">play_notes</span><span class="p">(</span><span class="n">oh_when_the_saints</span><span class="p">,</span><span class="mi">180</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Now <strong>investigate</strong> the code:</p>
-<ul class="simple">
-<li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p></li>
-<li><p><strong>lines 9 - 10</strong> → creates a PrimeHub and names it <code class="docutils literal notranslate"><span class="pre">hub</span></code></p></li>
-<li><p><strong>line 15</strong> → creates an endless loop</p></li>
-<li><p><strong>line 17</strong> → sets the speaker volume to 100%</p></li>
-<li><p><strong>lines 18 - 19</strong> → read the current volume level and assigns it to <code class="docutils literal notranslate"><span class="pre">current_volume</span></code> then display it to the light matrix</p></li>
-<li><p><strong>line 20</strong> → play a tone of 440Hz for 500ms</p></li>
-<li><p><strong>line 22</strong> → sets the speaker volume to 50%</p></li>
-<li><p><strong>lines 23 - 24</strong> → read the current volume level and assigns it to <code class="docutils literal notranslate"><span class="pre">current_volume</span></code> then display it to the light matrix</p></li>
-<li><p><strong>line 25</strong> → play a tone of 440Hz for 500ms</p></li>
-<li><p><strong>lines 27 - 35</strong> → a list containing the notes for Oh When The Saints</p></li>
-<li><p><strong>line 37</strong> → play the notes in the <code class="docutils literal notranslate"><span class="pre">oh_when_the_saints</span></code> list at a tempo of 180bpm</p></li>
-</ul>
-<p><strong>Modify</strong> the code by:</p>
-<ul class="simple">
-<li><p>seeing what is the lowest volume beep you can hear</p></li>
-<li><p>seeing what is the lowest pitch beep you can hear</p></li>
-<li><p>seeing what is the highest pitch beep you can hear</p></li>
-<li><p>make the hub play a different tune</p></li>
-</ul>
 </section>
 </section>
 </section>
@@ -522,23 +358,15 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="03_motors.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Motors</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="01_setup.html">
+          
+          <a class="prev-page" href="11_planning_code.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Setup</div>
+                <div class="title">Planning Code</div>
                 
               </div>
             </a>
@@ -579,20 +407,11 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Hub Outputs</a><ul>
-<li><a class="reference internal" href="#the-hub-status-light">The Hub Status Light</a><ul>
-<li><a class="reference internal" href="#status-light-functions">Status Light Functions</a></li>
-<li><a class="reference internal" href="#status-light-example">Status Light Example</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#light-matrix">Light Matrix</a><ul>
-<li><a class="reference internal" href="#light-matrix-functions">Light Matrix Functions</a></li>
-<li><a class="reference internal" href="#light-matrix-example">Light Matrix Example</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#speaker">Speaker</a><ul>
-<li><a class="reference internal" href="#speaker-functions">Speaker Functions</a></li>
-<li><a class="reference internal" href="#speaker-example">Speaker Example</a></li>
+<li><a class="reference internal" href="#">Examples</a><ul>
+<li><a class="reference internal" href="#hub-output">Hub Output</a><ul>
+<li><a class="reference internal" href="#status-light">Status Light</a></li>
+<li><a class="reference internal" href="#light-matrix">Light Matrix</a></li>
+<li><a class="reference internal" href="#speaker">Speaker</a></li>
 </ul>
 </li>
 </ul>
