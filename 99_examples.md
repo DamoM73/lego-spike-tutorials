@@ -33,3 +33,9 @@
 ```{literalinclude} ./python_files/motors_output_stop.py
 :linenos:
 ```
+
+### Motor Fixed Amount
+
+```{literalinclude} ./python_files/motors_output_fixed.py
+:linenos:
+```

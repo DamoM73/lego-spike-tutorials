@@ -1,4 +1,4 @@
-# motors.py
+# motor_stop.py
 
 from pybricks.hubs import PrimeHub
 from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
@@ -15,8 +15,8 @@ right_motor = Motor(Port.B, Direction.CLOCKWISE)
 while True:
     hub.light.on(Color.GREEN)
 
-    left_motor.run(1000)
-    right_motor.run(1000)
+    left_motor.dc(100)
+    right_motor.dc(100)
     wait(1000)
     
     left_motor.stop()
@@ -25,8 +25,8 @@ while True:
 
     hub.light.on(Color.ORANGE)
 
-    left_motor.run(1000)
-    right_motor.run(1000)
+    left_motor.dc(100)
+    right_motor.dc(100)
     wait(1000)
     
     left_motor.brake()
@@ -35,8 +35,8 @@ while True:
 
     hub.light.on(Color.VIOLET)
 
-    left_motor.run(1000)
-    right_motor.run(1000)
+    left_motor.dc(100)
+    right_motor.dc(100)
     wait(1000)
     
     left_motor.hold()

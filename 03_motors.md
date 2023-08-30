@@ -97,6 +97,13 @@ Pybricks provides three functions to stop motors, each having a slightly differe
 
 ### Motor Stop Examples
 
+Explore how these three functions can be used.
+
+1. **Create** a new file called `motors_stop.py`
+2. **Type** the code below into the file
+3. **Predict** what you think will happen.
+4. **Run** your code
+
 ```{literalinclude} ./python_files/motors_output_stop.py
 :linenos:
 ```
@@ -107,8 +114,17 @@ Pybricks provides three functions to stop motors, each having a slightly differe
 - **lines 10 - 12** initialises the components of your robot
 - **line 15** &rarr; creates a infinite loop
 - **line 16** &rarr; set status light to green
-- **lines 18 - 20** &rarr; runs both motors at 1000
-
+- **lines 18 - 20** &rarr; runs both motors at 100% power for 1 second
+- **lines 22 - 23** &rarr; stop both motors using the `stop()` method
+- **line 24** wait half a second
+- **line 26** &rarr; set status light to orange
+- **lines 28 - 30** &rarr; runs both motors at 100% power for 1 second
+- **lines 32 - 33** &rarr; stop both motors using the `brake()` method
+- **line 34** wait half a second
+- **line 36** &rarr; set status light to orange
+- **lines 38 - 40** &rarr; runs both motors at 100% power for 1 second
+- **lines 42 - 43** &rarr; stop both motors using the `hold()` method
+- **line 44** wait half a second
 
 ```{admonition} Inidcating current robot logic
 :class: important
@@ -122,3 +138,79 @@ For example, the code above changes the colour of the status light to indicate w
 - orange &rarr; `brake()`
 - violet &rarr; `hold()`
 ```
+
+Try **modifying** the code:
+
+- what happens when you only stop one motor? Is it different for the different stopping functions?
+- what happens when you comment out all the `wait` functions?
+
+## Motor Fixed Amount
+
+### Motor Fixed Amount Functions
+
+Pybricks has four functions that can run a motor for a designated amount:
+
+- **[`run_time(speed, time, then=Stop.HOLD, wait=True)`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.run_time)** &rarr; Runs the motor at a constant speed for a given amount of time.
+- **[`run_angle(speed, rotation_angle, then=Stop.HOLD, wait=True)`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.run_angle)** &rarr; Runs the motor at a constant speed by a given angle.
+- **[`run_target(speed, target_angle, then=Stop.HOLD, wait=True)`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.run_target)** &rarr; Runs the motor at a constant speed towards a given target angle.
+- **[`track_target(target_angle)`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.track_target)** &rarr; Tracks a target angle. This is similar to `run_target()`, but the usual smooth acceleration is skipped: it will move to the target angle as fast as possible.
+
+```{admonition} Motors waiting
+:class: important
+You will notice that `run_time()`, `run_angle()` and `run_target()` have a parameter called `wait`. By default this is set to `True` which means the program will wait for the motor to finish it fixed movement before moving onto the next line of code.
+
+If you want both motors to run simultaneously, you need to set `wait` to `False`.
+```
+
+### Motor Fixed Amount Example
+
+Time to see these four functions in action.
+
+1. **Create** a new file called `motors_run_fixed.py`
+2. **Type** the code below into the file
+3. **Predict** what you think will happen.
+4. **Run** your code
+
+```{literalinclude} ./python_files/motors_output_fixed.py
+:linenos:
+```
+
+**Investigating** this code:
+
+- **lines 3 - 7** &rarr; imports all the Pybricks command for use with your robot
+- **lines 10 - 12** initialises the components of your robot
+- **line 15** &rarr; creates a infinite loop
+- **line 16** &rarr; set status light to brown
+- **line 18** &rarr; runs the left motor at 1000 d/s for 1 second, then coasts to a stop
+- **line 19** &rarr; runs the right motor at 1000 d/s for 1 second, then coasts to a stop
+- **line 21** &rarr; set status light to violet
+- **line 23** &rarr; runs the left motor at 1000 d/s for 180&deg;
+- **line 24** &rarr; runs the right motor at 1000 d/s for 180&deg;
+- **line 26** &rarr; set status light to cyan
+- **line 28** &rarr; sets the left motor's current position as 0&deg;
+- **line 29** &rarr; sets the left motor's current position as 0&deg;
+- **line 30** &rarr; runs the left motor at 1000 d/s to position 180&deg;
+- **line 31** &rarr; runs the right motor at 1000 d/s to position 180&deg;
+- **line 33** &rarr; set status light to gray
+- **line 35** &rarr; sets the left motor's current position as 0&deg;
+- **line 36** &rarr; sets the left motor's current position as 0&deg;
+- **line 37** &rarr; rapidly changes the left motor's position to 180&deg;
+- **line 38** &rarr; rapidly changes the right motor's position to 180&deg;
+- **line 40** &rarr; waits 2 seconds
+
+```{admonition} **run_angle()** vs **run_target()** vs **track_target()**
+:class: important
+If you want to turn a your motor a specific number of degree you are better off using `run_angle()`.
+
+`run_target()` & `track_target` are better to use if you want to move a motor to a specific degree position between 0&deg; and 359&deg;.
+
+Use `run_target()` if you want to control which direction the motor spins to get to the specified degree position.
+
+Use `track_target()` if you want the motor to take the quickest direction to the specified degree position.
+```
+
+**Modify** the code:
+
+- what happens when you add `False` as the last argument in **line 18**?
+- what happens if you change `Stop.COAST` to `Stop.HOLD` in **line 18** and **line 19**?
+- what happens if your comment out the `reset_angle()` lines?
