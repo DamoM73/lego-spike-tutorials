@@ -322,6 +322,86 @@
 </ul>
 </section>
 </section>
+<section id="motor-stop">
+<h2>Motor Stop<a class="headerlink" href="#motor-stop" title="Link to this heading">#</a></h2>
+<section id="motor-stop-functions">
+<h3>Motor Stop Functions<a class="headerlink" href="#motor-stop-functions" title="Link to this heading">#</a></h3>
+<p>Pybricks provides three functions to stop motors, each having a slightly different effect:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.stop"><code class="docutils literal notranslate"><span class="pre">stop()</span></code></a></strong> → Stops the motor and lets it spin freely.</p></li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.brake"><code class="docutils literal notranslate"><span class="pre">brake()</span></code></a></strong> → Passively brakes the motor.</p></li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.hold"><code class="docutils literal notranslate"><span class="pre">hold()</span></code></a></strong> → Stops the motor and actively holds it at its current angle.</p></li>
+</ul>
+</section>
+<section id="motor-stop-examples">
+<h3>Motor Stop Examples<a class="headerlink" href="#motor-stop-examples" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># motors.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># --- SETUP</span>
+<span class="linenos">10</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">11</span><span class="n">left_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">COUNTERCLOCKWISE</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">right_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">CLOCKWISE</span><span class="p">)</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="c1"># --- MAIN LOOP</span>
+<span class="linenos">15</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">16</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">GREEN</span><span class="p">)</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span>    <span class="n">left_motor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">19</span>    <span class="n">right_motor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">20</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">21</span>    
+<span class="linenos">22</span>    <span class="n">left_motor</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="linenos">23</span>    <span class="n">right_motor</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="linenos">24</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">ORANGE</span><span class="p">)</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span>    <span class="n">left_motor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">29</span>    <span class="n">right_motor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">30</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">31</span>    
+<span class="linenos">32</span>    <span class="n">left_motor</span><span class="o">.</span><span class="n">brake</span><span class="p">()</span>
+<span class="linenos">33</span>    <span class="n">right_motor</span><span class="o">.</span><span class="n">brake</span><span class="p">()</span>
+<span class="linenos">34</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">35</span>
+<span class="linenos">36</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">VIOLET</span><span class="p">)</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span>    <span class="n">left_motor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">39</span>    <span class="n">right_motor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">40</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">41</span>    
+<span class="linenos">42</span>    <span class="n">left_motor</span><span class="o">.</span><span class="n">hold</span><span class="p">()</span>
+<span class="linenos">43</span>    <span class="n">right_motor</span><span class="o">.</span><span class="n">hold</span><span class="p">()</span>
+<span class="linenos">44</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Investigate</strong> this code by unpacking it:</p>
+<ul class="simple">
+<li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p></li>
+<li><p><strong>lines 10 - 12</strong> initialises the components of your robot</p></li>
+<li><p><strong>line 15</strong> → creates a infinite loop</p></li>
+<li><p><strong>line 16</strong> → set status light to green</p></li>
+<li><p><strong>lines 18 - 20</strong> → runs both motors at 1000</p></li>
+</ul>
+<div class="important admonition">
+<p class="admonition-title">Inidcating current robot logic</p>
+<p>One of the difficult aspects of programming robots is working out what part of the code the robot is currently running. This presents a signifiacnt problem when debugging problematic code.</p>
+<p>One method to reduce this problem, is using outputs to indicate which part of the code is being run.</p>
+<p>For example, the code above changes the colour of the status light to indicate which stopping method is used:</p>
+<ul class="simple">
+<li><p>green → <code class="docutils literal notranslate"><span class="pre">stop()</span></code></p></li>
+<li><p>orange → <code class="docutils literal notranslate"><span class="pre">brake()</span></code></p></li>
+<li><p>violet → <code class="docutils literal notranslate"><span class="pre">hold()</span></code></p></li>
+</ul>
+</div>
+</section>
+</section>
 </section>
 
         </article>
@@ -391,6 +471,11 @@
 <li><a class="reference internal" href="#motor-running-forever">Motor Running Forever</a><ul>
 <li><a class="reference internal" href="#motor-running-forever-functions">Motor Running Forever Functions</a></li>
 <li><a class="reference internal" href="#motor-running-forever-examples">Motor Running Forever Examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#motor-stop">Motor Stop</a><ul>
+<li><a class="reference internal" href="#motor-stop-functions">Motor Stop Functions</a></li>
+<li><a class="reference internal" href="#motor-stop-examples">Motor Stop Examples</a></li>
 </ul>
 </li>
 </ul>

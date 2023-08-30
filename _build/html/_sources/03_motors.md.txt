@@ -84,3 +84,41 @@ Time to explore how these two functions can be used.
 - what happens if both motors' positive direction is the same?
 - what happens if you comment out all the wait commands?
 - work out how many degrees per second is produced by a motor at 50% power.
+
+## Motor Stop
+
+### Motor Stop Functions
+
+Pybricks provides three functions to stop motors, each having a slightly different effect:
+
+- **[`stop()`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.stop)** &rarr; Stops the motor and lets it spin freely.
+- **[`brake()`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.brake)** &rarr; Passively brakes the motor.
+- **[`hold()`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.hold)** &rarr; Stops the motor and actively holds it at its current angle.
+
+### Motor Stop Examples
+
+```{literalinclude} ./python_files/motors_output_stop.py
+:linenos:
+```
+
+**Investigate** this code by unpacking it:
+
+- **lines 3 - 7** &rarr; imports all the Pybricks command for use with your robot
+- **lines 10 - 12** initialises the components of your robot
+- **line 15** &rarr; creates a infinite loop
+- **line 16** &rarr; set status light to green
+- **lines 18 - 20** &rarr; runs both motors at 1000
+
+
+```{admonition} Inidcating current robot logic
+:class: important
+One of the difficult aspects of programming robots is working out what part of the code the robot is currently running. This presents a signifiacnt problem when debugging problematic code.
+
+One method to reduce this problem, is using outputs to indicate which part of the code is being run.
+
+For example, the code above changes the colour of the status light to indicate which stopping method is used:
+
+- green &rarr; `stop()`
+- orange &rarr; `brake()`
+- violet &rarr; `hold()`
+```

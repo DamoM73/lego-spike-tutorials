@@ -19,3 +19,17 @@
 ```{literalinclude} ./python_files/hub_output_speaker.py
 :linenos:
 ```
+
+## Motor Output
+
+### Motors Running Forever
+
+```{literalinclude} ./python_files/motors_output_run.py
+:linenos:
+```
+
+### Motors Stopping
+
+```{literalinclude} ./python_files/motors_output_stop.py
+:linenos:
+```
