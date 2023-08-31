@@ -15,7 +15,7 @@ To explore all Pybricks' features check the **[Pybricks documentaion](https://do
 Although your robot only has on type of motor, the LEGO Spike Prime kit actually has two:
 
 - Medium Angular Motor
-- Medium Angular Motor
+- Large Angular Motor
 
 ![Angular motors](assets/pupmotors.png)
 
