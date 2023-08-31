@@ -475,6 +475,73 @@
 </div>
 </section>
 </section>
+<section id="drive-base">
+<h2>Drive Base<a class="headerlink" href="#drive-base" title="Link to this heading">#</a></h2>
+<section id="drive-base-setup">
+<h3>Drive Base Setup<a class="headerlink" href="#drive-base-setup" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># drive_base.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># --- SETUP</span>
+<span class="linenos">10</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="c1"># create drive base</span>
+<span class="linenos">13</span><span class="n">left_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">COUNTERCLOCKWISE</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">right_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">CLOCKWISE</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">my_robot</span> <span class="o">=</span> <span class="n">DriveBase</span><span class="p">(</span><span class="n">left_motor</span><span class="p">,</span> <span class="n">right_motor</span><span class="p">,</span> <span class="n">wheel_diameter</span><span class="o">=</span><span class="mi">56</span><span class="p">,</span> <span class="n">axle_track</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="driving-forever">
+<h3>Driving Forever<a class="headerlink" href="#driving-forever" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># drive_base_forever.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># --- SETUP</span>
+<span class="linenos">10</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="c1"># create drive base</span>
+<span class="linenos">13</span><span class="n">left_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">COUNTERCLOCKWISE</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">right_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">CLOCKWISE</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">my_robot</span> <span class="o">=</span> <span class="n">DriveBase</span><span class="p">(</span><span class="n">left_motor</span><span class="p">,</span> <span class="n">right_motor</span><span class="p">,</span> <span class="n">wheel_diameter</span><span class="o">=</span><span class="mi">56</span><span class="p">,</span> <span class="n">axle_track</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="c1"># --- MAINLOOP</span>
+<span class="linenos">18</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">19</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">WHITE</span><span class="p">)</span>
+<span class="linenos">20</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">21</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="p">)</span>
+<span class="linenos">24</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="o">-</span><span class="mi">300</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="linenos">28</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">WHITE</span><span class="p">)</span>
+<span class="linenos">31</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">32</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">GREEN</span><span class="p">)</span>
+<span class="linenos">35</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="linenos">36</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="linenos">39</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 
         </article>
@@ -542,6 +609,11 @@
 <li><a class="reference internal" href="#motors-running-forever">Motors Running Forever</a></li>
 <li><a class="reference internal" href="#motors-stopping">Motors Stopping</a></li>
 <li><a class="reference internal" href="#motor-fixed-amount">Motor Fixed Amount</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#drive-base">Drive Base</a><ul>
+<li><a class="reference internal" href="#drive-base-setup">Drive Base Setup</a></li>
+<li><a class="reference internal" href="#driving-forever">Driving Forever</a></li>
 </ul>
 </li>
 </ul>

@@ -228,7 +228,8 @@
 </ul>
 <div class="important admonition">
 <p class="admonition-title">Motor angels vs Drivebase angels</p>
-<p>It is important to note the difference between Motor angels and Drivebase angels.</p>
+<p>It is important to note the difference between Motor angels and Drivebase angels.
+[]</p>
 <ul class="simple">
 <li><p>Motor angels indicate the amount of rotation of the axel of a motor, eg. 180° will turn a wheel half a rotation.</p></li>
 <li><p>Drivebase angels indicate how far from straight the robot will turn, eg. 180° will make the robot face backwards.</p></li>
@@ -270,15 +271,216 @@
 </pre></div>
 </div>
 <p>Did you predict that your robot would do nothing? Actually it didn’t do nothing, what it <em>did</em> do was initialise both motors and combined them to make a drive base called <code class="docutils literal notranslate"><span class="pre">my_robot</span></code>. The reason your robot did nothing was that you didn’t give it any commands. Let’s fix that by learning some commands you can use.</p>
+<div class="important admonition">
+<p class="admonition-title">Using the DriveBase motors individually</p>
+<p>After creating a DriveBase object, you can still use its two motors individually. If you start one motor, the other motor will automatically stop. Likewise, if a motor is already running and you make the drive base move, the original maneuver is cancelled and the drive base will take over.</p>
+</div>
 </section>
 <section id="driving-forever">
-<h2>Driving forever<a class="headerlink" href="#driving-forever" title="Link to this heading">#</a></h2>
+<h2>Driving Forever<a class="headerlink" href="#driving-forever" title="Link to this heading">#</a></h2>
+<section id="driving-forever-functions">
+<h3>Driving Forever Functions<a class="headerlink" href="#driving-forever-functions" title="Link to this heading">#</a></h3>
+<p>Pybricks has two function used to implement continuous driving of the drive base:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.drive"><code class="docutils literal notranslate"><span class="pre">drive(speed,</span> <span class="pre">turn_rate)</span></code></a></strong> → Starts driving at the specified speed and turn rate.</p></li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.stop"><code class="docutils literal notranslate"><span class="pre">stop()</span></code></a></strong> → Stops the robot by letting the motors spin freely.</p></li>
+</ul>
+</section>
+<section id="driving-forever-examples">
+<h3>Driving Forever Examples<a class="headerlink" href="#driving-forever-examples" title="Link to this heading">#</a></h3>
+<p>Use the code below to see these functions in use:</p>
+<ol class="arabic simple">
+<li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">drive_base_forever.py</span></code></p></li>
+<li><p><strong>Type</strong> the code below into the file</p></li>
+<li><p><strong>Predict</strong> what you think will happen.</p></li>
+<li><p><strong>Run</strong> your code</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># drive_base_forever.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># --- SETUP</span>
+<span class="linenos">10</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="c1"># create drive base</span>
+<span class="linenos">13</span><span class="n">left_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">COUNTERCLOCKWISE</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">right_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">CLOCKWISE</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">my_robot</span> <span class="o">=</span> <span class="n">DriveBase</span><span class="p">(</span><span class="n">left_motor</span><span class="p">,</span> <span class="n">right_motor</span><span class="p">,</span> <span class="n">wheel_diameter</span><span class="o">=</span><span class="mi">56</span><span class="p">,</span> <span class="n">axle_track</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="c1"># --- MAINLOOP</span>
+<span class="linenos">18</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">19</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">WHITE</span><span class="p">)</span>
+<span class="linenos">20</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">21</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="p">)</span>
+<span class="linenos">24</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="o">-</span><span class="mi">300</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="linenos">28</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">WHITE</span><span class="p">)</span>
+<span class="linenos">31</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">32</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">GREEN</span><span class="p">)</span>
+<span class="linenos">35</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="linenos">36</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="linenos">39</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Investigating</strong> this code:</p>
+<ul class="simple">
+<li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p></li>
+<li><p><strong>line 10</strong> → initialised the hub</p></li>
+<li><p><strong>lines 13 - 15</strong> → initialises the drive base</p></li>
+<li><p><strong>line 18</strong> → creates a infinite loop</p></li>
+<li><p><strong>line 19</strong> → sets status light to white</p></li>
+<li><p><strong>line 20</strong> → sets drive base to drive straight</p></li>
+<li><p><strong>line 21</strong> →  waits half a second</p></li>
+<li><p><strong>line 23</strong> → sets status light to red</p></li>
+<li><p><strong>line 24</strong> → sets drive base to drive a left curve</p></li>
+<li><p><strong>line 25</strong> →  waits half a second</p></li>
+<li><p><strong>line 27</strong> → stops the drive base</p></li>
+<li><p><strong>line 28</strong> → waits a second</p></li>
+<li><p><strong>line 30</strong> → sets status light to white</p></li>
+<li><p><strong>line 31</strong> → sets drive base to drive straight</p></li>
+<li><p><strong>line 32</strong> →  waits half a second</p></li>
+<li><p><strong>line 34</strong> → sets status light to green</p></li>
+<li><p><strong>line 35</strong> → sets drive base to drive a right curve</p></li>
+<li><p><strong>line 36</strong> →  waits half a second</p></li>
+<li><p><strong>line 38</strong> → stops the drive base</p></li>
+<li><p><strong>line 39</strong> → waits a second</p></li>
+</ul>
+<p>Now <strong>Modify the code</strong>:</p>
+<ul class="simple">
+<li><p>what is lowest turning value to provide the sharpest turn?</p></li>
+<li><p>can you make the robot drive backwards?</p></li>
+<li><p>what happens if you comment out all the <code class="docutils literal notranslate"><span class="pre">wait()</span></code> commands?</p></li>
+</ul>
+</section>
 </section>
 <section id="driving-fixed">
-<h2>Driving fixed<a class="headerlink" href="#driving-fixed" title="Link to this heading">#</a></h2>
+<h2>Driving Fixed<a class="headerlink" href="#driving-fixed" title="Link to this heading">#</a></h2>
+<section id="driving-fixed-functions">
+<h3>Driving Fixed Functions<a class="headerlink" href="#driving-fixed-functions" title="Link to this heading">#</a></h3>
+<p>There are three different ways that you can program you drive base to drive a fixed amount:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.straight"><code class="docutils literal notranslate"><span class="pre">straight(distance,</span> <span class="pre">then=Stop.HOLD,</span> <span class="pre">wait=True)</span></code></a></strong> → Drives straight for a given distance (mm) and then stops.</p></li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.turn"><code class="docutils literal notranslate"><span class="pre">turn(angle,</span> <span class="pre">then=Stop.HOLD,</span> <span class="pre">wait=True)</span></code></a></strong> → Turns in place by a given angle and then stops.</p></li>
+<li><p><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.curve"><code class="docutils literal notranslate"><span class="pre">curve(radius,</span> <span class="pre">angle,</span> <span class="pre">then=Stop.HOLD,</span> <span class="pre">wait=True)</span></code></a> → Drives an arc along a circle of a given radius (mm), by a given angle.</p></li>
+</ul>
+<p>There is also a function to change the setting used by the three functions above:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.settings"><code class="docutils literal notranslate"><span class="pre">settings(straight_speed,</span> <span class="pre">straight_acceleration,</span> <span class="pre">turn_rate,</span> <span class="pre">turn_acceleration)</span></code></a></strong> → Configures the speed and acceleration used by <code class="docutils literal notranslate"><span class="pre">straight()</span></code>, <code class="docutils literal notranslate"><span class="pre">turn()</span></code>, and <code class="docutils literal notranslate"><span class="pre">curve()</span></code></p></li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.settings"><code class="docutils literal notranslate"><span class="pre">settings()</span></code></a></strong> → If you give no arguments, this returns the current values as a tuple.</p></li>
+</ul>
+</section>
+<section id="driving-fixed-example">
+<h3>Driving Fixed Example<a class="headerlink" href="#driving-fixed-example" title="Link to this heading">#</a></h3>
+<p>Use the code below to see these functions in use:</p>
+<ol class="arabic simple">
+<li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">drive_base_fixed.py</span></code></p></li>
+<li><p><strong>Type</strong> the code below into the file</p></li>
+<li><p><strong>Predict</strong> what you think will happen.</p></li>
+<li><p><strong>Run</strong> your code</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># drive_base_fixed.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># --- SETUP</span>
+<span class="linenos">10</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="c1"># create drive base</span>
+<span class="linenos">13</span><span class="n">left_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">COUNTERCLOCKWISE</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">right_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">CLOCKWISE</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">my_robot</span> <span class="o">=</span> <span class="n">DriveBase</span><span class="p">(</span><span class="n">left_motor</span><span class="p">,</span> <span class="n">right_motor</span><span class="p">,</span> <span class="n">wheel_diameter</span><span class="o">=</span><span class="mi">56</span><span class="p">,</span> <span class="n">axle_track</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="c1"># - MAIN LOOP</span>
+<span class="linenos">18</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">19</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">YELLOW</span><span class="p">)</span>
+<span class="linenos">20</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">settings</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="linenos">21</span>    <span class="nb">print</span><span class="p">(</span><span class="n">my_robot</span><span class="o">.</span><span class="n">settings</span><span class="p">())</span>
+<span class="linenos">22</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">straight</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">turn</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">24</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">curve</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">180</span><span class="p">)</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">MAGENTA</span><span class="p">)</span>
+<span class="linenos">27</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">settings</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="linenos">28</span>    <span class="nb">print</span><span class="p">(</span><span class="n">my_robot</span><span class="o">.</span><span class="n">settings</span><span class="p">())</span>
+<span class="linenos">29</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">straight</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="linenos">30</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">turn</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">31</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">curve</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">180</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p></li>
+<li><p><strong>line 10</strong> → initialised the hub</p></li>
+<li><p><strong>lines 13 - 15</strong> → initialises the drive base</p></li>
+<li><p><strong>line 18</strong> → creates a infinite loop</p></li>
+<li><p><strong>line 19</strong> → sets status light to yellow</p></li>
+<li><p><strong>line 20</strong> → configures the drive base for:</p>
+<ul>
+<li><p>straight speed <code class="docutils literal notranslate"><span class="pre">200</span></code> mm/s</p></li>
+<li><p>straight_acceleration <code class="docutils literal notranslate"><span class="pre">200</span></code> mm/s<sup>2</sup></p></li>
+<li><p>turn rate <code class="docutils literal notranslate"><span class="pre">200</span></code> deg/s</p></li>
+<li><p>turn acceleration <code class="docutils literal notranslate"><span class="pre">200</span></code> deg/s<sup>2</sup></p></li>
+</ul>
+</li>
+<li><p><strong>line 21</strong> → prints current drive base configuration</p></li>
+<li><p><strong>line 22</strong> → drives the robot strait for 200mm</p></li>
+<li><p><strong>line 23</strong> → turns the robot in place for 90°</p></li>
+<li><p><strong>line 24</strong> → drives the robot in a 180° arc with a radius of 100mm</p></li>
+<li><p><strong>line 19</strong> → sets status light to magenta</p></li>
+<li><p><strong>line 20</strong> → configures the drive base for:</p>
+<ul>
+<li><p>straight speed <code class="docutils literal notranslate"><span class="pre">500</span></code> mm/s</p></li>
+<li><p>straight_acceleration <code class="docutils literal notranslate"><span class="pre">500</span></code> mm/s<sup>2</sup></p></li>
+<li><p>turn rate <code class="docutils literal notranslate"><span class="pre">500</span></code> deg/s</p></li>
+<li><p>turn acceleration <code class="docutils literal notranslate"><span class="pre">500</span></code> deg/s<sup>2</sup></p></li>
+</ul>
+</li>
+<li><p><strong>line 21</strong> → prints current drive base configuration</p></li>
+<li><p><strong>line 22</strong> → drives the robot strait for 200mm</p></li>
+<li><p><strong>line 23</strong> → turns the robot in place for 90°</p></li>
+<li><p><strong>line 24</strong> → drives the robot in a 180° arc with a radius of 100mm</p></li>
+</ul>
+<p>Explore the code by modifying it:</p>
+<ul class="simple">
+<li><p>what is the fastest effective values for straight speed, straight_acceleration, turn rate and turn acceleration?</p></li>
+<li><p>what is the slowest effective values for straight speed, straight_acceleration, turn rate and turn acceleration?</p></li>
+<li><p>what happens when you use negative values for straight speed, straight_acceleration, turn rate and turn acceleration?</p></li>
+</ul>
+</section>
 </section>
 <section id="calibration">
 <h2>Calibration<a class="headerlink" href="#calibration" title="Link to this heading">#</a></h2>
+<p>The values you entered for <strong>wheel_diameter</strong> and the <strong>axle_track</strong> were estimates measured with a ruler.</p>
+<p>In practice, most wheels compress slightly under the weight of the robot. To verify, make your robot drive 1000 mm using <code class="docutils literal notranslate"><span class="pre">my_robot.straight(1000)</span></code> and measure how far it really travelled.</p>
+<p>Change the <code class="docutils literal notranslate"><span class="pre">DriveBase</span></code> values as follows:</p>
+<ul class="simple">
+<li><p>robot doesn’t drive far enough → decrease the <code class="docutils literal notranslate"><span class="pre">wheel_diameter</span></code> value slightly</p></li>
+<li><p>robot drives too far → increase the <code class="docutils literal notranslate"><span class="pre">wheel_diameter</span></code> value slightly.</p></li>
+</ul>
+<p>Motor shafts and axles bend slightly under the load of the robot, causing the ground contact point of the wheels to be closer to the midpoint of your robot. To verify, make your robot turn 720 degrees using my_robot.turn(720) and check that it is back in the same place.</p>
+<p>Change the <code class="docutils literal notranslate"><span class="pre">DriveBase</span></code> values as follows:</p>
+<ul class="simple">
+<li><p>robot doesn’t turns far enough → increase the <code class="docutils literal notranslate"><span class="pre">axle_track</span></code> value slightly.</p></li>
+<li><p>robot turns too far → decrease the <code class="docutils literal notranslate"><span class="pre">axle_track</span></code> value slightly.</p></li>
+</ul>
+<p>When making these adjustments, always adjust the wheel_diameter first, as done above. Be sure to test both turning and driving straight after you are done.</p>
 </section>
 </section>
 
@@ -346,8 +548,16 @@
             <ul>
 <li><a class="reference internal" href="#">Drive Base</a><ul>
 <li><a class="reference internal" href="#setup">Setup</a></li>
-<li><a class="reference internal" href="#driving-forever">Driving forever</a></li>
-<li><a class="reference internal" href="#driving-fixed">Driving fixed</a></li>
+<li><a class="reference internal" href="#driving-forever">Driving Forever</a><ul>
+<li><a class="reference internal" href="#driving-forever-functions">Driving Forever Functions</a></li>
+<li><a class="reference internal" href="#driving-forever-examples">Driving Forever Examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#driving-fixed">Driving Fixed</a><ul>
+<li><a class="reference internal" href="#driving-fixed-functions">Driving Fixed Functions</a></li>
+<li><a class="reference internal" href="#driving-fixed-example">Driving Fixed Example</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#calibration">Calibration</a></li>
 </ul>
 </li>
