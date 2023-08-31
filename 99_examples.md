@@ -53,3 +53,9 @@
 ```{literalinclude} ./python_files/drive_base_output_forever.py
 :linenos:
 ```
+
+### Driving Fixed
+
+```{literalinclude} ./python_files/drive_base_output_fixed.py
+:linenos:
+```
