@@ -73,3 +73,19 @@
 ```{literalinclude} ./python_files/hub_input_imu_orientation.py
 :linenos:
 ```
+
+## Motor as Sensor
+
+### Motor Measurement Example
+
+```{literalinclude} ./python_files/motors_input.py
+:linenos:
+```
+
+## Drive Base as Sensor
+
+### Drive Base Measurement Example
+
+```{literalinclude} ./python_files/drive_base_input.py
+:linenos:
+```

@@ -74,3 +74,4 @@ Now use the code below to explore these functions:
 :class: caution
 - what happens if you move line 16 to inside the main loop?
 - can you use `my_robot.state()` to measure a straight move by the robot?
+```
