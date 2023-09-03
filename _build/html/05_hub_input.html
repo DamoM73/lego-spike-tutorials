@@ -210,10 +210,177 @@
         <article role="main">
           <section id="hub-inputs">
 <h1>Hub Inputs<a class="headerlink" href="#hub-inputs" title="Link to this heading">#</a></h1>
+<aside class="topic">
+<p class="topic-title">In this lesson you will:</p>
+<ul class="simple">
+<li><p>learn how to detect the hub buttons being pushed</p></li>
+</ul>
+</aside>
+<div class="important admonition">
+<p class="admonition-title">Pybrick Documentation</p>
+<p>To explore all Pybricks’ features check the <strong><a class="reference external" href="https://docs.pybricks.com/en/stable/index.html">Pybricks documentaion</a></strong>. This can also be seen in the right-hand panel of the Pybricks IDE.</p>
+</div>
+<p>The Prime Hub has two features that can provide input to the robot</p>
+<ul class="simple">
+<li><p>buttons</p></li>
+<li><p>inertial measurement unit (IMU)</p></li>
+</ul>
 <section id="buttons">
 <h2>Buttons<a class="headerlink" href="#buttons" title="Link to this heading">#</a></h2>
 <p>The Prime Hub has four buttons, as shown below.</p>
 <p><img alt="Hub Buttons" src="_images/primehub_buttons.png" /></p>
+<section id="buttons-functions">
+<h3>Buttons Functions<a class="headerlink" href="#buttons-functions" title="Link to this heading">#</a></h3>
+<p>Pybricks has only one function to detect the pressing of a button:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.buttons.pressed"><code class="docutils literal notranslate"><span class="pre">buttons.pressed()→</span> <span class="pre">Collection[Button]</span></code></a></strong> → Checks which buttons are currently pressed.</p>
+<ul>
+<li><p>returns a <strong>tuple</strong> of buttons currently being pressed.</p></li>
+<li><p>button values are:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Button.LEFT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Button.RIGHT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Button.CENTER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Button.BLUETOOTH</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="buttons-example">
+<h3>Buttons Example<a class="headerlink" href="#buttons-example" title="Link to this heading">#</a></h3>
+<p>Now explore how this functions works.</p>
+<ol class="arabic simple">
+<li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">buttons.py</span></code></p></li>
+<li><p><strong>Type</strong> the code below into the file</p></li>
+<li><p><strong>Predict</strong> what you think will happen.</p></li>
+<li><p><strong>Run</strong> your code</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># buttons.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span><span class="p">,</span> <span class="n">Icon</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># --- SETUP</span>
+<span class="linenos">10</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="c1"># --- MAIN LOOP</span>
+<span class="linenos">14</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">15</span>    <span class="n">pressed</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">buttons</span><span class="o">.</span><span class="n">pressed</span><span class="p">()</span>
+<span class="linenos">16</span>    
+<span class="linenos">17</span>    <span class="k">if</span> <span class="n">Button</span><span class="o">.</span><span class="n">LEFT</span> <span class="ow">in</span> <span class="n">pressed</span><span class="p">:</span>
+<span class="linenos">18</span>        <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="n">Icon</span><span class="o">.</span><span class="n">ARROW_LEFT</span><span class="p">)</span>
+<span class="linenos">19</span>    <span class="k">elif</span> <span class="n">Button</span><span class="o">.</span><span class="n">RIGHT</span> <span class="ow">in</span> <span class="n">pressed</span><span class="p">:</span>
+<span class="linenos">20</span>        <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="n">Icon</span><span class="o">.</span><span class="n">ARROW_RIGHT</span><span class="p">)</span>
+<span class="linenos">21</span>    <span class="k">elif</span> <span class="n">Button</span><span class="o">.</span><span class="n">CENTER</span> <span class="ow">in</span> <span class="n">pressed</span><span class="p">:</span>
+<span class="linenos">22</span>        <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="n">Icon</span><span class="o">.</span><span class="n">CIRCLE</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="k">elif</span> <span class="n">Button</span><span class="o">.</span><span class="n">BLUETOOTH</span> <span class="ow">in</span> <span class="n">pressed</span><span class="p">:</span>
+<span class="linenos">24</span>        <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">char</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">26</span>        <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Investigate</strong> the code:</p>
+<ul class="simple">
+<li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p></li>
+<li><p><strong>line 10</strong> → initialised the hub</p></li>
+<li><p><strong>line 14</strong> → creates an infinite loop</p></li>
+<li><p><strong>line 15</strong> → checks to see what buttons are currently being pressed and saves the to <code class="docutils literal notranslate"><span class="pre">pressed</span></code></p></li>
+<li><p><strong>line 17</strong> → checks to see if <code class="docutils literal notranslate"><span class="pre">Button.LEFT</span></code> is one of the buttons being pressed</p></li>
+<li><p><strong>line 18</strong> → displays a left arrow on the light matrix</p></li>
+<li><p><strong>line 19</strong> → checks to see if <code class="docutils literal notranslate"><span class="pre">Button.RIGHT</span></code> is one of the buttons being pressed</p></li>
+<li><p><strong>line 20</strong> → displays a right arrow on the light matrix</p></li>
+<li><p><strong>line 21</strong> → checks to see if <code class="docutils literal notranslate"><span class="pre">Button.CENTER</span></code> is one of the buttons being pressed</p></li>
+<li><p><strong>line 22</strong> → displays a circle on the light matrix</p></li>
+<li><p><strong>line 21</strong> → checks to see if <code class="docutils literal notranslate"><span class="pre">Button.BLUETOOTH</span></code> is one of the buttons being pressed</p></li>
+<li><p><strong>line 22</strong> → displays a <strong>B</strong> on the light matrix</p></li>
+<li><p><strong>line 26</strong> → turns the display off.</p></li>
+</ul>
+<p>Try <strong>modifying</strong> the code:</p>
+<ul class="simple">
+<li><p>make the light matrix display a down arrow if both <code class="docutils literal notranslate"><span class="pre">Button.LEFT</span></code> and <code class="docutils literal notranslate"><span class="pre">Button.RIGHT</span></code> are being pressed</p></li>
+</ul>
+</section>
+</section>
+<section id="imu">
+<h2>IMU<a class="headerlink" href="#imu" title="Link to this heading">#</a></h2>
+<p>The IMU is a sensor that can detect how the robot is moving. The sensor is configured around the <strong>x-axis</strong>, <strong>y-axis</strong> and <strong>z-axis</strong> as indicated in the image below.</p>
+<p><img alt="hub axes" src="_images/hub_axis.png" /></p>
+<p>Rotation along each axis has a specific name:</p>
+<ul class="simple">
+<li><p><strong>Roll</strong> is rotation along the x-axis</p></li>
+<li><p><strong>Pitch</strong> is rotation along the y-axis</p></li>
+<li><p><strong>Yaw</strong> is rotation along the z-axis, but it is <strong>not yet implemented</strong>.</p></li>
+</ul>
+<section id="imu-orientation-functions">
+<h3>IMU Orientation Functions<a class="headerlink" href="#imu-orientation-functions" title="Link to this heading">#</a></h3>
+<p>Pybricks offers two functions that informs the hub’s orientation:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.imu.up"><code class="docutils literal notranslate"><span class="pre">imu.up()→</span> <span class="pre">Side</span></code></a></strong> → Checks which side of the hub currently faces upward.</p>
+<ul>
+<li><p>side values are:</p>
+<ul>
+<li><p>Side.TOP</p></li>
+<li><p>Side.BOTTOM</p></li>
+<li><p>Side.LEFT</p></li>
+<li><p>Side.RIGHT</p></li>
+<li><p>Side.FRONT</p></li>
+<li><p>Side.BACK.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.imu.tilt"><code class="docutils literal notranslate"><span class="pre">imu.tilt()→</span> <span class="pre">Tuple[int,</span> <span class="pre">int]</span></code></a></strong> → Returns the pitch and roll angles in a tuple (pitch, roll)</p></li>
+</ul>
+</section>
+<section id="imu-orientation-example">
+<h3>IMU Orientation Example<a class="headerlink" href="#imu-orientation-example" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># imu_orientation</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># --- SETUP</span>
+<span class="linenos">10</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="c1"># --- MAIN LOOP</span>
+<span class="linenos">13</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">14</span>    <span class="n">up</span>  <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">imu</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
+<span class="linenos">15</span>    <span class="n">pitch</span><span class="p">,</span> <span class="n">roll</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">imu</span><span class="o">.</span><span class="n">tilt</span><span class="p">()</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span>    <span class="nb">print</span><span class="p">(</span><span class="n">up</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">pitch</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">roll</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now <strong>investigate each line of the code</strong></p>
+<ul class="simple">
+<li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p></li>
+<li><p><strong>line 10</strong> → initialised the hub</p></li>
+<li><p><strong>line 13</strong> → creates an infinite loop</p></li>
+<li><p><strong>line 14</strong> → gets which side of the hub is facing up and stores it in <code class="docutils literal notranslate"><span class="pre">up</span></code></p></li>
+<li><p><strong>line 15</strong> → gets the tuple containing the tilt values, stores the first tuple value in <code class="docutils literal notranslate"><span class="pre">pitch</span></code> and the second tuple value in <code class="docutils literal notranslate"><span class="pre">roll</span></code></p></li>
+<li><p><strong>line 17</strong> → prints the values of <code class="docutils literal notranslate"><span class="pre">up</span></code>, <code class="docutils literal notranslate"><span class="pre">pitch</span></code> and <code class="docutils literal notranslate"><span class="pre">roll</span></code> to the Pybricks terminal</p></li>
+</ul>
+<p><strong>Modify</strong></p>
+<ul class="simple">
+<li><p>what is the highest and lowest roll value you can get?</p></li>
+<li><p>what is the highest and lowest pitch value you can get?</p></li>
+<li><p>what happens if you remove both <code class="docutils literal notranslate"><span class="pre">&quot;\t&quot;,</span></code> from <strong>line 17</strong>?</p></li>
+</ul>
+</section>
+<section id="imu-movement-functions">
+<h3>IMU Movement Functions<a class="headerlink" href="#imu-movement-functions" title="Link to this heading">#</a></h3>
+</section>
+<section id="imu-movement-example">
+<h3>IMU Movement Example<a class="headerlink" href="#imu-movement-example" title="Link to this heading">#</a></h3>
+</section>
 </section>
 </section>
 
@@ -280,7 +447,18 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Hub Inputs</a><ul>
-<li><a class="reference internal" href="#buttons">Buttons</a></li>
+<li><a class="reference internal" href="#buttons">Buttons</a><ul>
+<li><a class="reference internal" href="#buttons-functions">Buttons Functions</a></li>
+<li><a class="reference internal" href="#buttons-example">Buttons Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#imu">IMU</a><ul>
+<li><a class="reference internal" href="#imu-orientation-functions">IMU Orientation Functions</a></li>
+<li><a class="reference internal" href="#imu-orientation-example">IMU Orientation Example</a></li>
+<li><a class="reference internal" href="#imu-movement-functions">IMU Movement Functions</a></li>
+<li><a class="reference internal" href="#imu-movement-example">IMU Movement Example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

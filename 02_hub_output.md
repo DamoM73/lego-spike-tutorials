@@ -12,7 +12,11 @@
 To explore all Pybricks' features check the **[Pybricks documentaion](https://docs.pybricks.com/en/stable/index.html)**. This can also be seen in the right-hand panel of the Pybricks IDE.
 ```
 
-The Spike Prime Hub has many features that can be used to produce output for the robot.
+The Spike Prime Hub has three features that can be used to produce output for the robot:
+
+- Hub status light
+- The light matrix
+- A speaker
 
 ```{admonition} Output and Input
 :class: note

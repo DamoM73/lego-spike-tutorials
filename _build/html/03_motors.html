@@ -230,7 +230,7 @@
 </ul>
 <p><img alt="Angular motors" src="_images/pupmotors.png" /></p>
 <p>Both motors are run using the same code. The only difference is the relative power.</p>
-<div class="important admonition">
+<div class="note admonition">
 <p class="admonition-title">DC Motor vs Encoded Motors</p>
 <p>The Spike Prime motors are called Angular, because you can program them to turn an exact number of degrees. This is possible because they have a built-in sensor called an encoder. Encoders record how many degrees the motor has turned.</p>
 <p>Motors without encoders are called DC motors (direct current). The only programming options DC motors provide are turn on and turn off.</p>
@@ -406,7 +406,7 @@
 <li><p><strong>lines 42 - 43</strong> → stop both motors using the <code class="docutils literal notranslate"><span class="pre">hold()</span></code> method</p></li>
 <li><p><strong>line 44</strong> wait half a second</p></li>
 </ul>
-<div class="important admonition">
+<div class="note admonition">
 <p class="admonition-title">Inidcating current robot logic</p>
 <p>One of the difficult aspects of programming robots is working out what part of the code the robot is currently running. This presents a signifiacnt problem when debugging problematic code.</p>
 <p>One method to reduce this problem, is using outputs to indicate which part of the code is being run.</p>
@@ -435,7 +435,7 @@
 <li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.run_target"><code class="docutils literal notranslate"><span class="pre">run_target(speed,</span> <span class="pre">target_angle,</span> <span class="pre">then=Stop.HOLD,</span> <span class="pre">wait=True)</span></code></a></strong> → Runs the motor at a constant speed towards a given target angle.</p></li>
 <li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.track_target"><code class="docutils literal notranslate"><span class="pre">track_target(target_angle)</span></code></a></strong> → Tracks a target angle. This is similar to <code class="docutils literal notranslate"><span class="pre">run_target()</span></code>, but the usual smooth acceleration is skipped: it will move to the target angle as fast as possible.</p></li>
 </ul>
-<div class="important admonition">
+<div class="note admonition">
 <p class="admonition-title">Motors waiting</p>
 <p>You will notice that <code class="docutils literal notranslate"><span class="pre">run_time()</span></code>, <code class="docutils literal notranslate"><span class="pre">run_angle()</span></code> and <code class="docutils literal notranslate"><span class="pre">run_target()</span></code> have a parameter called <code class="docutils literal notranslate"><span class="pre">wait</span></code>. By default this is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> which means the program will wait for the motor to finish it fixed movement before moving onto the next line of code.</p>
 <p>If you want both motors to run simultaneously, you need to set <code class="docutils literal notranslate"><span class="pre">wait</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
@@ -515,7 +515,7 @@
 <li><p><strong>line 38</strong> → rapidly changes the right motor’s position to 180°</p></li>
 <li><p><strong>line 40</strong> → waits 2 seconds</p></li>
 </ul>
-<div class="important admonition">
+<div class="note admonition">
 <p class="admonition-title"><strong>run_angle()</strong> vs <strong>run_target()</strong> vs <strong>track_target()</strong></p>
 <p>If you want to turn a your motor a specific number of degree you are better off using <code class="docutils literal notranslate"><span class="pre">run_angle()</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">run_target()</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">track_target</span></code> are better to use if you want to move a motor to a specific degree position between 0° and 359°.</p>

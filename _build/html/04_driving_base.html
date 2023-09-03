@@ -215,6 +215,11 @@
 <ul class="simple">
 <li><p>learn what a drive base is and how it can be to command your robot</p></li>
 <li><p>set up a drive base on your robot</p></li>
+<li><p>make the robot drive forever</p></li>
+<li><p>make the robot drive for a fixed distance</p></li>
+<li><p>make the robot turn a set nubmer of degrees</p></li>
+<li><p>make the robot drive in a set arc</p></li>
+<li><p>learn to calibrate the robot so the distance measurements are accurate</p></li>
 </ul>
 </aside>
 <div class="important admonition">
@@ -228,11 +233,10 @@
 </ul>
 <div class="important admonition">
 <p class="admonition-title">Motor angels vs Drivebase angels</p>
-<p>It is important to note the difference between Motor angels and Drivebase angels.
-[]</p>
+<p>It is important to note the difference between Motor angels and Drivebase angels.</p>
 <ul class="simple">
-<li><p>Motor angels indicate the amount of rotation of the axel of a motor, eg. 180° will turn a wheel half a rotation.</p></li>
-<li><p>Drivebase angels indicate how far from straight the robot will turn, eg. 180° will make the robot face backwards.</p></li>
+<li><p>Motor angles indicate the amount of rotation of the axel of a motor, eg. 180° will turn a wheel half a rotation.</p></li>
+<li><p>Drivebase angles indicate how far from straight the robot will turn, eg. 180° will make the robot face backwards.</p></li>
 </ul>
 </div>
 <section id="setup">
@@ -271,7 +275,7 @@
 </pre></div>
 </div>
 <p>Did you predict that your robot would do nothing? Actually it didn’t do nothing, what it <em>did</em> do was initialise both motors and combined them to make a drive base called <code class="docutils literal notranslate"><span class="pre">my_robot</span></code>. The reason your robot did nothing was that you didn’t give it any commands. Let’s fix that by learning some commands you can use.</p>
-<div class="important admonition">
+<div class="note admonition">
 <p class="admonition-title">Using the DriveBase motors individually</p>
 <p>After creating a DriveBase object, you can still use its two motors individually. If you start one motor, the other motor will automatically stop. Likewise, if a motor is already running and you make the drive base move, the original maneuver is cancelled and the drive base will take over.</p>
 </div>

@@ -22,7 +22,7 @@ Although your robot only has on type of motor, the LEGO Spike Prime kit actually
 Both motors are run using the same code. The only difference is the relative power.
 
 ```{admonition} DC Motor vs Encoded Motors
-:class: important
+:class: note
 The Spike Prime motors are called Angular, because you can program them to turn an exact number of degrees. This is possible because they have a built-in sensor called an encoder. Encoders record how many degrees the motor has turned.
 
 Motors without encoders are called DC motors (direct current). The only programming options DC motors provide are turn on and turn off.
@@ -127,7 +127,7 @@ Explore how these three functions can be used.
 - **line 44** wait half a second
 
 ```{admonition} Inidcating current robot logic
-:class: important
+:class: note
 One of the difficult aspects of programming robots is working out what part of the code the robot is currently running. This presents a signifiacnt problem when debugging problematic code.
 
 One method to reduce this problem, is using outputs to indicate which part of the code is being run.
@@ -156,7 +156,7 @@ Pybricks has four functions that can run a motor for a designated amount:
 - **[`track_target(target_angle)`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.track_target)** &rarr; Tracks a target angle. This is similar to `run_target()`, but the usual smooth acceleration is skipped: it will move to the target angle as fast as possible.
 
 ```{admonition} Motors waiting
-:class: important
+:class: note
 You will notice that `run_time()`, `run_angle()` and `run_target()` have a parameter called `wait`. By default this is set to `True` which means the program will wait for the motor to finish it fixed movement before moving onto the next line of code.
 
 If you want both motors to run simultaneously, you need to set `wait` to `False`.
@@ -199,7 +199,7 @@ Time to see these four functions in action.
 - **line 40** &rarr; waits 2 seconds
 
 ```{admonition} **run_angle()** vs **run_target()** vs **track_target()**
-:class: important
+:class: note
 If you want to turn a your motor a specific number of degree you are better off using `run_angle()`.
 
 `run_target()` & `track_target` are better to use if you want to move a motor to a specific degree position between 0&deg; and 359&deg;.

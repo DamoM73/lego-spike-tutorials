@@ -3,6 +3,11 @@
 ```{topic} In this lesson you will:
 - learn what a drive base is and how it can be to command your robot
 - set up a drive base on your robot
+- make the robot drive forever
+- make the robot drive for a fixed distance
+- make the robot turn a set nubmer of degrees
+- make the robot drive in a set arc
+- learn to calibrate the robot so the distance measurements are accurate
 ```
 
 ```{admonition} Pybrick Documentation
@@ -18,9 +23,9 @@ Pybricks uses `Drivebase` to combine two motors so you can issue command to them
 ```{admonition} Motor angels vs Drivebase angels
 :class: important
 It is important to note the difference between Motor angels and Drivebase angels.
-[]
-- Motor angels indicate the amount of rotation of the axel of a motor, eg. 180&deg; will turn a wheel half a rotation.
-- Drivebase angels indicate how far from straight the robot will turn, eg. 180&deg; will make the robot face backwards.
+
+- Motor angles indicate the amount of rotation of the axel of a motor, eg. 180&deg; will turn a wheel half a rotation.
+- Drivebase angles indicate how far from straight the robot will turn, eg. 180&deg; will make the robot face backwards.
 ```
 
 ## Setup
@@ -49,7 +54,7 @@ Go ahead and create your first drive base:
 Did you predict that your robot would do nothing? Actually it didn't do nothing, what it *did* do was initialise both motors and combined them to make a drive base called `my_robot`. The reason your robot did nothing was that you didn't give it any commands. Let's fix that by learning some commands you can use. 
 
 ```{admonition} Using the DriveBase motors individually
-:class: important
+:class: note
 After creating a DriveBase object, you can still use its two motors individually. If you start one motor, the other motor will automatically stop. Likewise, if a motor is already running and you make the drive base move, the original maneuver is cancelled and the drive base will take over.
 ```
 
