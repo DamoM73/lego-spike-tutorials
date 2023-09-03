@@ -137,7 +137,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -202,7 +202,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -210,6 +210,95 @@
         <article role="main">
           <section id="force-sensor">
 <h1>Force Sensor<a class="headerlink" href="#force-sensor" title="Link to this heading">#</a></h1>
+<aside class="topic">
+<p class="topic-title">In this lesson you will:</p>
+<ul class="simple">
+<li><p>detect if the sensor has been touched</p></li>
+<li><p>measure how much force has been applied to the sensor</p></li>
+<li><p>measure how far the sensor has been depressed</p></li>
+<li><p>detect if the force applied to the sensor exceeds a threshold</p></li>
+</ul>
+</aside>
+<div class="important admonition">
+<p class="admonition-title">Pybrick Documentation</p>
+<p>To explore all Pybricks’ features check the <strong><a class="reference external" href="https://docs.pybricks.com/en/stable/index.html">Pybricks documentaion</a></strong>. This can also be seen in the right-hand panel of the Pybricks IDE.</p>
+</div>
+<p>The force sensor is like a more complicated button. Not only can it detect if it has been pressed, it can also measure how hard it has been pressed, or, in other words, the force applied to it. The measuring element is the black ‘button’ on the front of the sensor.</p>
+<p><img alt="Force Sensor" src="_images/pupdevice-force.png" /></p>
+<p>To initialise the force sensor you must call the <code class="docutils literal notranslate"><span class="pre">ForceSensor()</span></code> class and nominate it’s port. For example, with the robot you would use:</p>
+<p><code class="docutils literal notranslate"><span class="pre">force_sensor</span> <span class="pre">=</span> <span class="pre">ForceSensor(Port.A)</span></code></p>
+<section id="force-sensor-functions">
+<h2>Force Sensor Functions<a class="headerlink" href="#force-sensor-functions" title="Link to this heading">#</a></h2>
+<p>Pybrick provides four functions to interact with the force sensor:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/pupdevices/forcesensor.html#pybricks.pupdevices.ForceSensor.force"><code class="docutils literal notranslate"><span class="pre">force()→</span> <span class="pre">float:</span> <span class="pre">N</span></code></a></strong> → Measures the force (N) exerted on the sensor.</p></li>
+<li><p><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/pupdevices/forcesensor.html#pybricks.pupdevices.ForceSensor.distance"><code class="docutils literal notranslate"><span class="pre">distance()→</span> <span class="pre">float:</span> <span class="pre">mm</span></code></a> → Measures by how much (mm) the sensor button has moved.</p></li>
+<li><p><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/pupdevices/forcesensor.html#pybricks.pupdevices.ForceSensor.pressed"><code class="docutils literal notranslate"><span class="pre">pressed(force=3)→</span> <span class="pre">bool</span></code></a> → Checks if the sensor button is pressed. Has a minimum force to be considered pressed.</p></li>
+<li><p><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/pupdevices/forcesensor.html#pybricks.pupdevices.ForceSensor.touched"><code class="docutils literal notranslate"><span class="pre">touched()→</span> <span class="pre">bool</span></code></a> → Checks if the sensor is touched. Detects slight movements of the button</p></li>
+</ul>
+</section>
+<section id="force-sensor-example">
+<h2>Force Sensor Example<a class="headerlink" href="#force-sensor-example" title="Link to this heading">#</a></h2>
+<p>Check how to use each of these functions by using the following code.</p>
+<ol class="arabic simple">
+<li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">force_sensor.py</span></code></p></li>
+<li><p><strong>Type</strong> the code below into the file</p></li>
+<li><p><strong>Predict</strong> what you think will happen.</p></li>
+<li><p><strong>Run</strong> your code</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># force_sensor.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># --- SETUP</span>
+<span class="linenos">10</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">11</span><span class="n">force_sensor</span> <span class="o">=</span> <span class="n">ForceSensor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">F</span><span class="p">)</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="c1"># --- MAIN LOOP</span>
+<span class="linenos">14</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">15</span>    <span class="n">force_reading</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">force_sensor</span><span class="o">.</span><span class="n">force</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">16</span>    <span class="n">distance_reading</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">force_sensor</span><span class="o">.</span><span class="n">distance</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">17</span>    <span class="n">is_pressed</span> <span class="o">=</span> <span class="n">force_sensor</span><span class="o">.</span><span class="n">pressed</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos">18</span>    <span class="n">is_touched</span> <span class="o">=</span> <span class="n">force_sensor</span><span class="o">.</span><span class="n">touched</span><span class="p">()</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span>    <span class="nb">print</span><span class="p">(</span>
+<span class="linenos">21</span>        <span class="s2">&quot;Force:&quot;</span><span class="p">,</span> <span class="n">force_reading</span><span class="p">,</span>
+<span class="linenos">22</span>        <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Distance:&quot;</span><span class="p">,</span> <span class="n">distance_reading</span><span class="p">,</span>
+<span class="linenos">23</span>        <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Force &gt; 3:&quot;</span><span class="p">,</span> <span class="n">is_pressed</span><span class="p">,</span>
+<span class="linenos">24</span>        <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Touched:&quot;</span><span class="p">,</span> <span class="n">is_touched</span>
+<span class="linenos">25</span>    <span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition-investigate admonition">
+<p class="admonition-title">Investigate</p>
+<ul class="simple">
+<li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p></li>
+<li><p><strong>line 10</strong> → initialises the hub</p></li>
+<li><p><strong>line 11</strong> → initialises the force sensor</p></li>
+<li><p><strong>line 14</strong> → creates an infinite loop</p></li>
+<li><p><strong>line 15</strong> → takes the force reading, rounds it to one decimal place and then stores it in <code class="docutils literal notranslate"><span class="pre">force_reading</span></code></p></li>
+<li><p><strong>line 16</strong> → takes the distance reading, rounds it to one decimal place and then stores it in <code class="docutils literal notranslate"><span class="pre">distance_reading</span></code></p></li>
+<li><p><strong>line 17</strong> → checks if the sensor is experiencing more than 3N of force and stores result in <code class="docutils literal notranslate"><span class="pre">is_pressed</span></code></p></li>
+<li><p><strong>line 18</strong> → checks if the sensor has been touched and stores the result in <code class="docutils literal notranslate"><span class="pre">is_touched</span></code></p></li>
+<li><p><strong>lines 20 - 25</strong> → prints the values that have been stored</p>
+<ul>
+<li><p>this is actually one print statement split over multiple line to make it easier to read</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="caution admonition">
+<p class="admonition-title">Modify</p>
+<ul class="simple">
+<li><p>what happens if you change the <code class="docutils literal notranslate"><span class="pre">pressed</span></code> threshold to <code class="docutils literal notranslate"><span class="pre">11</span></code>?</p></li>
+<li><p>what happens if you change the <code class="docutils literal notranslate"><span class="pre">pressed</span></code> threshold to <code class="docutils literal notranslate"><span class="pre">0</span></code>?</p></li>
+</ul>
+</div>
+</section>
 </section>
 
         </article>
@@ -262,8 +351,28 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Force Sensor</a><ul>
+<li><a class="reference internal" href="#force-sensor-functions">Force Sensor Functions</a></li>
+<li><a class="reference internal" href="#force-sensor-example">Force Sensor Example</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
