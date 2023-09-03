@@ -80,8 +80,7 @@ Use the code below to see these functions in use:
 :linenos:
 ```
 
-**Investigating** this code:
-
+```{admonition} Investigate
 - **lines 3 - 7** &rarr; imports all the Pybricks command for use with your robot
 - **line 10** &rarr; initialised the hub
 - **lines 13 - 15** &rarr; initialises the drive base
@@ -102,13 +101,14 @@ Use the code below to see these functions in use:
 - **line 36** &rarr;  waits half a second
 - **line 38** &rarr; stops the drive base
 - **line 39** &rarr; waits a second
- 
+```
 
-Now **Modify the code**:
-
+```{admonition} Modify
+:class: caution
 - what is lowest turning value to provide the sharpest turn?
 - can you make the robot drive backwards?
 - what happens if you comment out all the `wait()` commands?
+```
 
 ## Driving Fixed
 
@@ -138,6 +138,7 @@ Use the code below to see these functions in use:
 :linenos:
 ```
 
+```{admonition} Investigate
 - **lines 3 - 7** &rarr; imports all the Pybricks command for use with your robot
 - **line 10** &rarr; initialised the hub
 - **lines 13 - 15** &rarr; initialises the drive base
@@ -163,11 +164,14 @@ Use the code below to see these functions in use:
 - **line 23** &rarr; turns the robot in place for 90&deg;
 - **line 24** &rarr; drives the robot in a 180&deg; arc with a radius of 100mm
 
-Explore the code by modifying it:
+```
 
+```{admonition} Modify
+:class: caution
 - what is the fastest effective values for straight speed, straight_acceleration, turn rate and turn acceleration?
 - what is the slowest effective values for straight speed, straight_acceleration, turn rate and turn acceleration?
 - what happens when you use negative values for straight speed, straight_acceleration, turn rate and turn acceleration?
+```
 
 ## Calibration
 

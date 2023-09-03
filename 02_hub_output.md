@@ -55,8 +55,7 @@ You will now use all four status light functions:
 :linenos:
 ```
 
-Time to **investigate** the code:
-
+```{admonition} Investigate
 - **lines 3 - 7** &rarr; imports all the Pybricks command for use with your robot
 - **lines 9 - 10** &rarr; creates a PrimeHub and names it `hub`
 - **line 14** &rarr; creates an endless loop
@@ -69,13 +68,15 @@ Time to **investigate** the code:
 - **line 20** &rarr; waits for 3000 milliseconds
 - **line 21** &rarr; turns the light off
 - **line 16** &rarr; waits for 1000 milliseconds
+```
 
-Try **modifying** the code:
-
+```{admonition} Modify
+:class: caution
 - can you display different colours?
 - can you change the timing of the blink?
 - can you change the timing of the animation?
 - what happens when you comment out (put a `#` in front) all the `wait` functions?
+```
 
 ## Light Matrix
 
@@ -109,8 +110,7 @@ The code below uses all eight functions for the light matrix.
 :linenos:
 ```
 
-**Investigating** the code:
-
+```{admonition} Investigate
 - **lines 3 - 7** &rarr; imports all the Pybricks command for use with your robot
   - make sure to add `Icon` to the end of **line 5**
 - **lines 9 - 10** &rarr; creates a PrimeHub and names it `hub`
@@ -127,12 +127,14 @@ The code below uses all eight functions for the light matrix.
 - **lines 58 - 59** &rarr; turns the display off for 1 second
 - **line 61** &rarr; displays the text `C3PO`
 - **lines 63 - 54** &rarr; turns the display off for 2 seconds
+```
 
-Time to **modify** the code:
-
+```{admonition} Modify
+:class: caution
 - can you make the `Icon.HAPPY` spin around the display?
 - can you change the meh face so the mouth uses the entire screen and the eyes are four pixels big?
 - what happens if you comment out all the `wait` functions?
+```
 
 ## Speaker
 
@@ -161,8 +163,7 @@ The example below uses the three speaker functions:
 :linenos:
 ```
 
-Now **investigate** the code:
-
+```{admonition} Investigate
 - **lines 3 - 7** &rarr; imports all the Pybricks command for use with your robot
 - **lines 9 - 10** &rarr; creates a PrimeHub and names it `hub`
 - **line 15** &rarr; creates an endless loop
@@ -174,10 +175,12 @@ Now **investigate** the code:
 - **line 25** &rarr; play a tone of 440Hz for 500ms
 - **lines 27 - 35** &rarr; a list containing the notes for Oh When The Saints
 - **line 37** &rarr; play the notes in the `oh_when_the_saints` list at a tempo of 180bpm
+```
 
-**Modify** the code by:
-
+```{admonition} Modify
+:class: caution
 - seeing what is the lowest volume beep you can hear
 - seeing what is the lowest pitch beep you can hear
 - seeing what is the highest pitch beep you can hear
 - make the hub play a different tune
+```

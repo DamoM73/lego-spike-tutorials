@@ -45,8 +45,7 @@ Now explore how this functions works.
 :linenos:
 ```
 
-**Investigate** the code:
-
+```{admonition} Investigate
 - **lines 3 - 7** &rarr; imports all the Pybricks command for use with your robot
 - **line 10** &rarr; initialised the hub
 - **line 14** &rarr; creates an infinite loop
@@ -60,10 +59,12 @@ Now explore how this functions works.
 - **line 21** &rarr; checks to see if `Button.BLUETOOTH` is one of the buttons being pressed
 - **line 22** &rarr; displays a **B** on the light matrix
 - **line 26** &rarr; turns the display off.
+```
 
-Try **modifying** the code:
-
+```{admonition} Modify
+:class: caution
 - make the light matrix display a down arrow if both `Button.LEFT` and `Button.RIGHT` are being pressed
+```
 
 ## IMU
 
@@ -97,22 +98,18 @@ Pybricks offers two functions that informs the hub's orientation:
 :linenos:
 ```
 
-Now **investigate each line of the code**
-
+```{admonition} Investigate
 - **lines 3 - 7** &rarr; imports all the Pybricks command for use with your robot
 - **line 10** &rarr; initialised the hub
 - **line 13** &rarr; creates an infinite loop
 - **line 14** &rarr; gets which side of the hub is facing up and stores it in `up`
 - **line 15** &rarr; gets the tuple containing the tilt values, stores the first tuple value in `pitch` and the second tuple value in `roll`
 - **line 17** &rarr; prints the values of `up`, `pitch` and `roll` to the Pybricks terminal
+```
 
-**Modify**
-
+```{admonition} Modify
+:class: caution
 - what is the highest and lowest roll value you can get?
 - what is the highest and lowest pitch value you can get?
 - what happens if you remove both `"\t",` from **line 17**?
-
-### IMU Movement Functions
-
-
-### IMU Movement Example
+```

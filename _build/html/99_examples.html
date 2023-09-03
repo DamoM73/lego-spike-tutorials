@@ -210,8 +210,8 @@
         <article role="main">
           <section id="examples">
 <h1>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h1>
-<section id="hub-output">
-<h2>Hub Output<a class="headerlink" href="#hub-output" title="Link to this heading">#</a></h2>
+<section id="hub-outputs">
+<h2>Hub Outputs<a class="headerlink" href="#hub-outputs" title="Link to this heading">#</a></h2>
 <section id="status-light">
 <h3>Status Light<a class="headerlink" href="#status-light" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># hub_light.py</span>
@@ -578,6 +578,62 @@
 </div>
 </section>
 </section>
+<section id="hub-inputs">
+<h2>Hub Inputs<a class="headerlink" href="#hub-inputs" title="Link to this heading">#</a></h2>
+<section id="buttons">
+<h3>Buttons<a class="headerlink" href="#buttons" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># buttons.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span><span class="p">,</span> <span class="n">Icon</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># --- SETUP</span>
+<span class="linenos">10</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="c1"># --- MAIN LOOP</span>
+<span class="linenos">14</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">15</span>    <span class="n">pressed</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">buttons</span><span class="o">.</span><span class="n">pressed</span><span class="p">()</span>
+<span class="linenos">16</span>    
+<span class="linenos">17</span>    <span class="k">if</span> <span class="n">Button</span><span class="o">.</span><span class="n">LEFT</span> <span class="ow">in</span> <span class="n">pressed</span><span class="p">:</span>
+<span class="linenos">18</span>        <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="n">Icon</span><span class="o">.</span><span class="n">ARROW_LEFT</span><span class="p">)</span>
+<span class="linenos">19</span>    <span class="k">elif</span> <span class="n">Button</span><span class="o">.</span><span class="n">RIGHT</span> <span class="ow">in</span> <span class="n">pressed</span><span class="p">:</span>
+<span class="linenos">20</span>        <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="n">Icon</span><span class="o">.</span><span class="n">ARROW_RIGHT</span><span class="p">)</span>
+<span class="linenos">21</span>    <span class="k">elif</span> <span class="n">Button</span><span class="o">.</span><span class="n">CENTER</span> <span class="ow">in</span> <span class="n">pressed</span><span class="p">:</span>
+<span class="linenos">22</span>        <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="n">Icon</span><span class="o">.</span><span class="n">CIRCLE</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="k">elif</span> <span class="n">Button</span><span class="o">.</span><span class="n">BLUETOOTH</span> <span class="ow">in</span> <span class="n">pressed</span><span class="p">:</span>
+<span class="linenos">24</span>        <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">char</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">26</span>        <span class="n">hub</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="imu-orientation">
+<h3>IMU Orientation<a class="headerlink" href="#imu-orientation" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># imu_orientation</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># --- SETUP</span>
+<span class="linenos">10</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="c1"># --- MAIN LOOP</span>
+<span class="linenos">13</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">14</span>    <span class="n">up</span>  <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">imu</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
+<span class="linenos">15</span>    <span class="n">pitch</span><span class="p">,</span> <span class="n">roll</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">imu</span><span class="o">.</span><span class="n">tilt</span><span class="p">()</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span>    <span class="nb">print</span><span class="p">(</span><span class="n">up</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">pitch</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">roll</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 
         </article>
@@ -635,7 +691,7 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Examples</a><ul>
-<li><a class="reference internal" href="#hub-output">Hub Output</a><ul>
+<li><a class="reference internal" href="#hub-outputs">Hub Outputs</a><ul>
 <li><a class="reference internal" href="#status-light">Status Light</a></li>
 <li><a class="reference internal" href="#light-matrix">Light Matrix</a></li>
 <li><a class="reference internal" href="#speaker">Speaker</a></li>
@@ -651,6 +707,11 @@
 <li><a class="reference internal" href="#drive-base-setup">Drive Base Setup</a></li>
 <li><a class="reference internal" href="#driving-forever">Driving Forever</a></li>
 <li><a class="reference internal" href="#driving-fixed">Driving Fixed</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hub-inputs">Hub Inputs</a><ul>
+<li><a class="reference internal" href="#buttons">Buttons</a></li>
+<li><a class="reference internal" href="#imu-orientation">IMU Orientation</a></li>
 </ul>
 </li>
 </ul>

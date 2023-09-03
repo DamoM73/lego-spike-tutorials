@@ -63,8 +63,7 @@ Time to explore how these two functions can be used.
 :linenos:
 ```
 
-**Investigating** this code:
-
+```{admonition} Investigate
 - **lines 3 - 7** &rarr; imports all the Pybricks command for use with your robot
 - **lines 10 - 12** initialises the components of your robot
   - **line 10** &rarr; initialise the hub
@@ -78,12 +77,14 @@ Time to explore how these two functions can be used.
 - **line 18** &rarr; makes the robot wait for a second before moving onto the next command
 - **line 20** &rarr; sets `left_motor` to `50`. This turns the motor at 50% power
 - **line 21** &rarr; sets `right_motor` to `50`. This turns the motor at 50% power
+```
 
-**Modify** the code:
-
+```{admonition} Modify
+:class: caution
 - what happens if both motors' positive direction is the same?
 - what happens if you comment out all the wait commands?
 - work out how many degrees per second is produced by a motor at 50% power.
+```
 
 ## Motor Stop
 
@@ -108,8 +109,7 @@ Explore how these three functions can be used.
 :linenos:
 ```
 
-**Investigate** this code by unpacking it:
-
+```{admonition} Investigate
 - **lines 3 - 7** &rarr; imports all the Pybricks command for use with your robot
 - **lines 10 - 12** initialises the components of your robot
 - **line 15** &rarr; creates a infinite loop
@@ -125,6 +125,13 @@ Explore how these three functions can be used.
 - **lines 38 - 40** &rarr; runs both motors at 100% power for 1 second
 - **lines 42 - 43** &rarr; stop both motors using the `hold()` method
 - **line 44** wait half a second
+```
+
+```{admonition} Modify
+:class: caution
+- what happens when you only stop one motor? Is it different for the different stopping functions?
+- what happens when you comment out all the `wait` functions?
+```
 
 ```{admonition} Inidcating current robot logic
 :class: note
@@ -138,11 +145,6 @@ For example, the code above changes the colour of the status light to indicate w
 - orange &rarr; `brake()`
 - violet &rarr; `hold()`
 ```
-
-Try **modifying** the code:
-
-- what happens when you only stop one motor? Is it different for the different stopping functions?
-- what happens when you comment out all the `wait` functions?
 
 ## Motor Fixed Amount
 
@@ -175,8 +177,7 @@ Time to see these four functions in action.
 :linenos:
 ```
 
-**Investigating** this code:
-
+```{admonition} Investigate
 - **lines 3 - 7** &rarr; imports all the Pybricks command for use with your robot
 - **lines 10 - 12** initialises the components of your robot
 - **line 15** &rarr; creates a infinite loop
@@ -197,6 +198,14 @@ Time to see these four functions in action.
 - **line 37** &rarr; rapidly changes the left motor's position to 180&deg;
 - **line 38** &rarr; rapidly changes the right motor's position to 180&deg;
 - **line 40** &rarr; waits 2 seconds
+```
+
+```{admonition} Modify
+:class: caution
+- what happens when you add `False` as the last argument in **line 18**?
+- what happens if you change `Stop.COAST` to `Stop.HOLD` in **line 18** and **line 19**?
+- what happens if your comment out the `reset_angle()` lines?
+```
 
 ```{admonition} **run_angle()** vs **run_target()** vs **track_target()**
 :class: note
@@ -208,9 +217,3 @@ Use `run_target()` if you want to control which direction the motor spins to get
 
 Use `track_target()` if you want the motor to take the quickest direction to the specified degree position.
 ```
-
-**Modify** the code:
-
-- what happens when you add `False` as the last argument in **line 18**?
-- what happens if you change `Stop.COAST` to `Stop.HOLD` in **line 18** and **line 19**?
-- what happens if your comment out the `reset_angle()` lines?

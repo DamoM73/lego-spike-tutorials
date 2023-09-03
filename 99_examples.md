@@ -1,6 +1,6 @@
 # Examples
 
-## Hub Output
+## Hub Outputs
 
 ### Status Light
 
@@ -57,5 +57,19 @@
 ### Driving Fixed
 
 ```{literalinclude} ./python_files/drive_base_output_fixed.py
+:linenos:
+```
+
+## Hub Inputs
+
+### Buttons
+
+```{literalinclude} ./python_files/hub_input_buttons.py
+:linenos:
+```
+
+### IMU Orientation
+
+```{literalinclude} ./python_files/hub_input_imu_orientation.py
 :linenos:
 ```

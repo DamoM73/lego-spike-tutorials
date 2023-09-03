@@ -289,7 +289,8 @@
 <span class="linenos">22</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Investigating</strong> this code:</p>
+<div class="admonition-investigate admonition">
+<p class="admonition-title">Investigate</p>
 <ul class="simple">
 <li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p></li>
 <li><p><strong>lines 10 - 12</strong> initialises the components of your robot</p>
@@ -314,12 +315,15 @@
 <li><p><strong>line 20</strong> → sets <code class="docutils literal notranslate"><span class="pre">left_motor</span></code> to <code class="docutils literal notranslate"><span class="pre">50</span></code>. This turns the motor at 50% power</p></li>
 <li><p><strong>line 21</strong> → sets <code class="docutils literal notranslate"><span class="pre">right_motor</span></code> to <code class="docutils literal notranslate"><span class="pre">50</span></code>. This turns the motor at 50% power</p></li>
 </ul>
-<p><strong>Modify</strong> the code:</p>
+</div>
+<div class="caution admonition">
+<p class="admonition-title">Modify</p>
 <ul class="simple">
 <li><p>what happens if both motors’ positive direction is the same?</p></li>
 <li><p>what happens if you comment out all the wait commands?</p></li>
 <li><p>work out how many degrees per second is produced by a motor at 50% power.</p></li>
 </ul>
+</div>
 </section>
 </section>
 <section id="motor-stop">
@@ -388,7 +392,8 @@
 <span class="linenos">44</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Investigate</strong> this code by unpacking it:</p>
+<div class="admonition-investigate admonition">
+<p class="admonition-title">Investigate</p>
 <ul class="simple">
 <li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p></li>
 <li><p><strong>lines 10 - 12</strong> initialises the components of your robot</p></li>
@@ -406,6 +411,14 @@
 <li><p><strong>lines 42 - 43</strong> → stop both motors using the <code class="docutils literal notranslate"><span class="pre">hold()</span></code> method</p></li>
 <li><p><strong>line 44</strong> wait half a second</p></li>
 </ul>
+</div>
+<div class="caution admonition">
+<p class="admonition-title">Modify</p>
+<ul class="simple">
+<li><p>what happens when you only stop one motor? Is it different for the different stopping functions?</p></li>
+<li><p>what happens when you comment out all the <code class="docutils literal notranslate"><span class="pre">wait</span></code> functions?</p></li>
+</ul>
+</div>
 <div class="note admonition">
 <p class="admonition-title">Inidcating current robot logic</p>
 <p>One of the difficult aspects of programming robots is working out what part of the code the robot is currently running. This presents a signifiacnt problem when debugging problematic code.</p>
@@ -417,11 +430,6 @@
 <li><p>violet → <code class="docutils literal notranslate"><span class="pre">hold()</span></code></p></li>
 </ul>
 </div>
-<p>Try <strong>modifying</strong> the code:</p>
-<ul class="simple">
-<li><p>what happens when you only stop one motor? Is it different for the different stopping functions?</p></li>
-<li><p>what happens when you comment out all the <code class="docutils literal notranslate"><span class="pre">wait</span></code> functions?</p></li>
-</ul>
 </section>
 </section>
 <section id="motor-fixed-amount">
@@ -492,7 +500,8 @@
 <span class="linenos">40</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Investigating</strong> this code:</p>
+<div class="admonition-investigate admonition">
+<p class="admonition-title">Investigate</p>
 <ul class="simple">
 <li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p></li>
 <li><p><strong>lines 10 - 12</strong> initialises the components of your robot</p></li>
@@ -515,6 +524,15 @@
 <li><p><strong>line 38</strong> → rapidly changes the right motor’s position to 180°</p></li>
 <li><p><strong>line 40</strong> → waits 2 seconds</p></li>
 </ul>
+</div>
+<div class="caution admonition">
+<p class="admonition-title">Modify</p>
+<ul class="simple">
+<li><p>what happens when you add <code class="docutils literal notranslate"><span class="pre">False</span></code> as the last argument in <strong>line 18</strong>?</p></li>
+<li><p>what happens if you change <code class="docutils literal notranslate"><span class="pre">Stop.COAST</span></code> to <code class="docutils literal notranslate"><span class="pre">Stop.HOLD</span></code> in <strong>line 18</strong> and <strong>line 19</strong>?</p></li>
+<li><p>what happens if your comment out the <code class="docutils literal notranslate"><span class="pre">reset_angle()</span></code> lines?</p></li>
+</ul>
+</div>
 <div class="note admonition">
 <p class="admonition-title"><strong>run_angle()</strong> vs <strong>run_target()</strong> vs <strong>track_target()</strong></p>
 <p>If you want to turn a your motor a specific number of degree you are better off using <code class="docutils literal notranslate"><span class="pre">run_angle()</span></code>.</p>
@@ -522,12 +540,6 @@
 <p>Use <code class="docutils literal notranslate"><span class="pre">run_target()</span></code> if you want to control which direction the motor spins to get to the specified degree position.</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">track_target()</span></code> if you want the motor to take the quickest direction to the specified degree position.</p>
 </div>
-<p><strong>Modify</strong> the code:</p>
-<ul class="simple">
-<li><p>what happens when you add <code class="docutils literal notranslate"><span class="pre">False</span></code> as the last argument in <strong>line 18</strong>?</p></li>
-<li><p>what happens if you change <code class="docutils literal notranslate"><span class="pre">Stop.COAST</span></code> to <code class="docutils literal notranslate"><span class="pre">Stop.HOLD</span></code> in <strong>line 18</strong> and <strong>line 19</strong>?</p></li>
-<li><p>what happens if your comment out the <code class="docutils literal notranslate"><span class="pre">reset_angle()</span></code> lines?</p></li>
-</ul>
 </section>
 </section>
 </section>
