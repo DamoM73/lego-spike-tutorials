@@ -2,6 +2,7 @@
 
 ```{topic} In this lesson you will:
 - learn how to detect the hub buttons being pushed
+- learn how to detect the orienation of the hub
 ```
 
 ```{admonition} Pybrick Documentation
@@ -93,6 +94,13 @@ Pybricks offers two functions that informs the hub's orientation:
 - **[`imu.tilt()→ Tuple[int, int]`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.imu.tilt)** &rarr; Returns the pitch and roll angles in a tuple (pitch, roll)
 
 ### IMU Orientation Example
+
+Use the code below to explore how these functions works.
+
+1. **Create** a new file called `imu_orientation.py`
+2. **Type** the code below into the file
+3. **Predict** what you think will happen.
+4. **Run** your code
 
 ```{literalinclude} ./python_files/hub_input_imu_orientation.py
 :linenos:

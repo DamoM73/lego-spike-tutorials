@@ -137,7 +137,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -202,7 +202,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -210,6 +210,129 @@
         <article role="main">
           <section id="motors-as-sensors">
 <h1>Motors as sensors<a class="headerlink" href="#motors-as-sensors" title="Link to this heading">#</a></h1>
+<aside class="topic">
+<p class="topic-title">In this lesson you will:</p>
+<ul class="simple">
+<li><p>learn to read the motor speed</p></li>
+<li><p>learn to read the motor angle</p></li>
+<li><p>learn to reset the motor angle</p></li>
+<li><p>learn to read the torque applied to the motor</p></li>
+<li><p>learn to check if the motor has stalled</p></li>
+</ul>
+</aside>
+<div class="important admonition">
+<p class="admonition-title">Pybrick Documentation</p>
+<p>To explore all Pybricks’ features check the <strong><a class="reference external" href="https://docs.pybricks.com/en/stable/index.html">Pybricks documentaion</a></strong>. This can also be seen in the right-hand panel of the Pybricks IDE.</p>
+</div>
+<p>In the <strong><a class="reference internal" href="03_motors.html"><span class="std std-doc">tutorial on motors</span></a></strong> it was explained that the motors on the robot have encoders that can read the rotation of the motor axel. This encoder also means that motors can be used as sensors to provide input to the robot.</p>
+<section id="motor-measurement-functions">
+<h2>Motor Measurement Functions<a class="headerlink" href="#motor-measurement-functions" title="Link to this heading">#</a></h2>
+<p>You can get measurements from the motors using the following Pybrick functions:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.speed"><code class="docutils literal notranslate"><span class="pre">speed()→</span> <span class="pre">int:</span> <span class="pre">deg/s</span></code></a></strong> → Gets the speed of the motor (deg/s).</p></li>
+<li><p>[<a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.angle"><code class="docutils literal notranslate"><span class="pre">angle()→</span> <span class="pre">int:</span> <span class="pre">deg</span></code></a>](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.angle) → Gets the rotation angle of the motor (deg).</p></li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.load"><code class="docutils literal notranslate"><span class="pre">load()→</span> <span class="pre">int:</span> <span class="pre">mNm</span></code></a></strong> → Estimates the load that holds back the motor when it tries to move (mNm).</p></li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.stalled"><code class="docutils literal notranslate"><span class="pre">stalled()→</span> <span class="pre">bool</span></code></a></strong> → Checks if the motor is currently stalled.</p></li>
+</ul>
+<p>Pybricks also provides a configuration function:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.reset_angle"><code class="docutils literal notranslate"><span class="pre">reset_angle(angle=None)</span></code></a></strong> → Sets the accumulated rotation angle of the motor to a desired value.</p></li>
+</ul>
+</section>
+<section id="motor-measurement-example">
+<h2>Motor Measurement Example<a class="headerlink" href="#motor-measurement-example" title="Link to this heading">#</a></h2>
+<p>We will use the code below to see these functions work:</p>
+<p>Now explore how this functions works.</p>
+<ol class="arabic simple">
+<li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">motor_inputs.py</span></code></p></li>
+<li><p><strong>Type</strong> the code below into the file</p></li>
+<li><p><strong>Predict</strong> what you think will happen.</p></li>
+<li><p>When <strong>running</strong> your code you will need to interact with the robot:</p>
+<ul class="simple">
+<li><p>to get a speed reading of the wheel, press the <strong>left button</strong></p></li>
+<li><p>to get the wheel to return to it’s starting point, simultaneously press the <strong>left button</strong> and the <strong>right button</strong>.</p></li>
+<li><p>to get the torque load and stall reading, press and hold the <strong>right button</strong> then gradually slow the left wheel with your hand until t stops.</p></li>
+</ul>
+</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># motor_inputs.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># --- SETUP</span>
+<span class="linenos">10</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">11</span><span class="n">left_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">COUNTERCLOCKWISE</span><span class="p">)</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="n">left_motor</span><span class="o">.</span><span class="n">reset_angle</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="c1"># --- MAIN LOOP</span>
+<span class="linenos">16</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">17</span>    <span class="n">pressed</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">buttons</span><span class="o">.</span><span class="n">pressed</span><span class="p">()</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span>    <span class="k">if</span> <span class="n">Button</span><span class="o">.</span><span class="n">LEFT</span> <span class="ow">in</span> <span class="n">pressed</span> <span class="ow">and</span> <span class="n">Button</span><span class="o">.</span><span class="n">RIGHT</span> <span class="ow">in</span> <span class="n">pressed</span><span class="p">:</span>
+<span class="linenos">20</span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Angel:&quot;</span><span class="p">,</span> <span class="n">left_motor</span><span class="o">.</span><span class="n">angle</span><span class="p">())</span>
+<span class="linenos">21</span>        <span class="n">left_motor</span><span class="o">.</span><span class="n">run_target</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">22</span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Angel:&quot;</span><span class="p">,</span> <span class="n">left_motor</span><span class="o">.</span><span class="n">angle</span><span class="p">())</span>
+<span class="linenos">23</span>    
+<span class="linenos">24</span>    <span class="k">elif</span> <span class="n">Button</span><span class="o">.</span><span class="n">LEFT</span> <span class="ow">in</span> <span class="n">pressed</span><span class="p">:</span>
+<span class="linenos">25</span>        <span class="n">left_motor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="linenos">26</span>        <span class="n">wait</span><span class="p">(</span><span class="mi">250</span><span class="p">)</span>
+<span class="linenos">27</span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Speed:&quot;</span><span class="p">,</span> <span class="n">left_motor</span><span class="o">.</span><span class="n">speed</span><span class="p">())</span>
+<span class="linenos">28</span>        <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">29</span>        <span class="n">left_motor</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="linenos">30</span>    
+<span class="linenos">31</span>    <span class="k">elif</span> <span class="n">Button</span><span class="o">.</span><span class="n">RIGHT</span> <span class="ow">in</span> <span class="n">pressed</span><span class="p">:</span>
+<span class="linenos">32</span>        <span class="n">left_motor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="linenos">33</span>        <span class="k">if</span> <span class="n">left_motor</span><span class="o">.</span><span class="n">stalled</span><span class="p">():</span>
+<span class="linenos">34</span>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stalled&quot;</span><span class="p">)</span>
+<span class="linenos">35</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos">36</span>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Torque load:&quot;</span><span class="p">,</span> <span class="n">left_motor</span><span class="o">.</span><span class="n">load</span><span class="p">())</span>
+<span class="linenos">37</span>    
+<span class="linenos">38</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">39</span>        <span class="n">left_motor</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition-investigate admonition">
+<p class="admonition-title">Investigate</p>
+<ul class="simple">
+<li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p></li>
+<li><p><strong>line 10</strong> → initialises the hub</p></li>
+<li><p><strong>line 11</strong> &amp;rarrl initialises the left motor (you will only use one)</p></li>
+<li><p><strong>line 13</strong> → sets the current wheel posistion (angel) as angel <code class="docutils literal notranslate"><span class="pre">0</span></code> (the starting angle)</p></li>
+<li><p><strong>line 16</strong> → starts infinite loop</p></li>
+<li><p><strong>line 17</strong> → checks for pressed buttons and stores them in <code class="docutils literal notranslate"><span class="pre">pressed</span></code></p></li>
+<li><p><strong>line 19</strong> → checks if both the left and right buttons are currently pressed</p></li>
+<li><p><strong>line 20</strong> → prints the current accumulated left motor angle</p></li>
+<li><p><strong>line 21</strong> → send the left motor back to angle <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+<li><p><strong>line 22</strong> → prints the current accumulated left motor angle</p></li>
+<li><p><strong>line 24</strong> → checks if left button is pressed</p></li>
+<li><p><strong>line 25</strong> → starts the left motor running at 300degs/s</p></li>
+<li><p><strong>line 26</strong> → allows a quater of a second for the motor to get up to speed</p></li>
+<li><p><strong>line 27</strong> → reads the left motor’s speed and prints it</p></li>
+<li><p><strong>line 28</strong> → waits another half a second</p></li>
+<li><p><strong>line 29</strong> → stops the left motor</p></li>
+<li><p><strong>line 31</strong> → checks if the right button is pressed</p></li>
+<li><p><strong>line 32</strong> → starts left motor running at 300deg/s</p></li>
+<li><p><strong>line 33</strong> → checks if the left motor is stalled (prevented from moving)</p></li>
+<li><p><strong>line 34</strong> → prints stalled</p></li>
+<li><p><strong>line 35 - 36</strong> → if motor is not stalled then read and print the torque load that the left wheel is experiencing</p></li>
+<li><p><strong>line 38 - 39</strong> → if no button is being pressed, stop the left motor</p></li>
+</ul>
+</div>
+<div class="caution admonition">
+<p class="admonition-title">Modify</p>
+<ul class="simple">
+<li><p>what happens if you move <strong>line 13</strong> inside the main loop?</p></li>
+<li><p>what happens if you comment out <strong>line 26</strong>?</p></li>
+<li><p>what happens if you comment out <strong>line 25</strong> and then physically turn the wheel when holding the left button?</p></li>
+<li><p>what happens if you comment out <strong>line 32</strong> and then physically turn the wheel when holding the right button?</p></li>
+</ul>
+</div>
+</section>
 </section>
 
         </article>
@@ -262,8 +385,28 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Motors as sensors</a><ul>
+<li><a class="reference internal" href="#motor-measurement-functions">Motor Measurement Functions</a></li>
+<li><a class="reference internal" href="#motor-measurement-example">Motor Measurement Example</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
