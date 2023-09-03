@@ -32,15 +32,13 @@ Pybricks also provides a configuration function:
 
 We will use the code below to see these functions work:
 
-Now explore how this functions works.
-
 1. **Create** a new file called `motor_inputs.py`
 2. **Type** the code below into the file
 3. **Predict** what you think will happen.
 4. When **running** your code you will need to interact with the robot:
     - to get a speed reading of the wheel, press the **left button**
     - to get the wheel to return to it's starting point, simultaneously press the **left button** and the **right button**.
-    - to get the torque load and stall reading, press and hold the **right button** then gradually slow the left wheel with your hand until t stops.  
+    - to get the torque load and stall reading, press and hold the **right button** then gradually slow the left wheel with your hand until it stops.  
 
 ```{literalinclude} ./python_files/motors_input.py
 :linenos:

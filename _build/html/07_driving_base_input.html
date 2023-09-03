@@ -137,7 +137,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -202,7 +202,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -210,6 +210,132 @@
         <article role="main">
           <section id="drive-base-as-sensor">
 <h1>Drive Base as Sensor<a class="headerlink" href="#drive-base-as-sensor" title="Link to this heading">#</a></h1>
+<aside class="topic">
+<p class="topic-title">In this lesson you will:</p>
+<ul class="simple">
+<li><p>learn to read how far the dirve base has traveled</p></li>
+<li><p>learn to read how much the drive base has turned</p></li>
+<li><p>learn to read the measurement of the drive base travelling on a curve</p></li>
+<li><p>learn to reset the drive base values</p></li>
+</ul>
+</aside>
+<div class="important admonition">
+<p class="admonition-title">Pybrick Documentation</p>
+<p>To explore all Pybricks’ features check the <strong><a class="reference external" href="https://docs.pybricks.com/en/stable/index.html">Pybricks documentaion</a></strong>. This can also be seen in the right-hand panel of the Pybricks IDE.</p>
+</div>
+<p>Since the drive base is made up of motors, the encoders can also be used to measure what the robot has done.</p>
+<section id="drive-base-measurement-functions">
+<h2>Drive Base Measurement Functions<a class="headerlink" href="#drive-base-measurement-functions" title="Link to this heading">#</a></h2>
+<p>There are three functions that can extract measurements from the drive base:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.distance"><code class="docutils literal notranslate"><span class="pre">distance()→</span> <span class="pre">int:</span> <span class="pre">mm</span></code></a></strong> → Gets the estimated driven distance (mm).</p></li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.angle"><code class="docutils literal notranslate"><span class="pre">angle()→</span> <span class="pre">int:</span> <span class="pre">deg</span></code></a></strong> → Gets the estimated rotation angle (deg) of the drive base.</p></li>
+<li><p><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.state"><code class="docutils literal notranslate"><span class="pre">state()→</span> <span class="pre">Tuple[int,</span> <span class="pre">int,</span> <span class="pre">int,</span> <span class="pre">int]</span></code></a> → Gets the state of the robot. The return tuple is <code class="docutils literal notranslate"><span class="pre">(distance,</span> <span class="pre">speed,</span> <span class="pre">angle,</span> <span class="pre">turn_rate)</span></code></p></li>
+</ul>
+<p>There is also one configuration function:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.reset"><code class="docutils literal notranslate"><span class="pre">reset()</span></code></a></strong> → Resets the estimated driven distance and angle to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+</ul>
+</section>
+<section id="drive-base-measurement-example">
+<h2>Drive Base Measurement Example<a class="headerlink" href="#drive-base-measurement-example" title="Link to this heading">#</a></h2>
+<p>Now use the code below to explore these functions:</p>
+<ol class="arabic simple">
+<li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">drive_base_inputs.py</span></code></p></li>
+<li><p><strong>Type</strong> the code below into the file</p></li>
+<li><p><strong>Predict</strong> what you think will happen.</p></li>
+<li><p>When <strong>running</strong> your code you will need to interact with the robot:</p>
+<ul class="simple">
+<li><p>to get an arc movement reading, press the <strong>left button</strong></p></li>
+<li><p>to get a straight line distance reading, press the <strong>right button</strong></p></li>
+<li><p>to get a turn degrees reading, press the <strong>Bluetooth button</strong></p></li>
+</ul>
+</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># drive_base_inputs.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># --- SETUP</span>
+<span class="linenos">10</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="n">left_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">COUNTERCLOCKWISE</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">right_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">CLOCKWISE</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">my_robot</span> <span class="o">=</span> <span class="n">DriveBase</span><span class="p">(</span><span class="n">left_motor</span><span class="p">,</span> <span class="n">right_motor</span><span class="p">,</span> <span class="n">wheel_diameter</span><span class="o">=</span><span class="mi">56</span><span class="p">,</span> <span class="n">axle_track</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="n">my_robot</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="c1"># --- MAIN LOOP</span>
+<span class="linenos">19</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">20</span>    <span class="n">pressed</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">buttons</span><span class="o">.</span><span class="n">pressed</span><span class="p">()</span>
+<span class="linenos">21</span>    
+<span class="linenos">22</span>    <span class="k">if</span> <span class="n">Button</span><span class="o">.</span><span class="n">LEFT</span> <span class="ow">in</span> <span class="n">pressed</span><span class="p">:</span>
+<span class="linenos">23</span>        <span class="n">distance</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">rate_of_turn</span> <span class="o">=</span> <span class="n">my_robot</span><span class="o">.</span><span class="n">state</span><span class="p">()</span>
+<span class="linenos">24</span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Start - distance:&quot;</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="s2">&quot;speed:&quot;</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="s2">&quot;angle:&quot;</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="s2">&quot;rate of turn:&quot;</span><span class="p">,</span> <span class="n">rate_of_turn</span><span class="p">)</span>
+<span class="linenos">25</span>        <span class="n">my_robot</span><span class="o">.</span><span class="n">curve</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span>
+<span class="linenos">26</span>        <span class="n">distance</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">rate_of_turn</span> <span class="o">=</span> <span class="n">my_robot</span><span class="o">.</span><span class="n">state</span><span class="p">()</span>
+<span class="linenos">27</span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Start - distance:&quot;</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="s2">&quot;speed:&quot;</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="s2">&quot;angle:&quot;</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="s2">&quot;rate of turn:&quot;</span><span class="p">,</span> <span class="n">rate_of_turn</span><span class="p">)</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span>    <span class="k">elif</span> <span class="n">Button</span><span class="o">.</span><span class="n">RIGHT</span> <span class="ow">in</span> <span class="n">pressed</span><span class="p">:</span>
+<span class="linenos">30</span>        <span class="n">distance</span> <span class="o">=</span> <span class="n">my_robot</span><span class="o">.</span><span class="n">distance</span><span class="p">()</span>
+<span class="linenos">31</span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Start distance:&quot;</span><span class="p">,</span> <span class="n">distance</span><span class="p">)</span>
+<span class="linenos">32</span>        <span class="n">my_robot</span><span class="o">.</span><span class="n">straight</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">33</span>        <span class="n">distance</span> <span class="o">=</span> <span class="n">my_robot</span><span class="o">.</span><span class="n">distance</span><span class="p">()</span>
+<span class="linenos">34</span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;End distance:&quot;</span><span class="p">,</span> <span class="n">distance</span><span class="p">)</span>
+<span class="linenos">35</span>
+<span class="linenos">36</span>    <span class="k">elif</span> <span class="n">Button</span><span class="o">.</span><span class="n">BLUETOOTH</span> <span class="ow">in</span> <span class="n">pressed</span><span class="p">:</span>
+<span class="linenos">37</span>        <span class="n">angle</span> <span class="o">=</span> <span class="n">my_robot</span><span class="o">.</span><span class="n">angle</span><span class="p">()</span>
+<span class="linenos">38</span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Start angle:&quot;</span><span class="p">,</span> <span class="n">angle</span><span class="p">)</span>
+<span class="linenos">39</span>        <span class="n">my_robot</span><span class="o">.</span><span class="n">turn</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">40</span>        <span class="n">angle</span> <span class="o">=</span> <span class="n">my_robot</span><span class="o">.</span><span class="n">angle</span><span class="p">()</span>
+<span class="linenos">41</span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;End angle:&quot;</span><span class="p">,</span> <span class="n">angle</span><span class="p">)</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">44</span>        <span class="n">my_robot</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition-investigate admonition">
+<p class="admonition-title">Investigate</p>
+<ul class="simple">
+<li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p></li>
+<li><p><strong>line 10</strong> → initialises the hub</p></li>
+<li><p><strong>lines 12 - 14</strong> → initialises the drive base</p></li>
+<li><p><strong>line 16</strong> → sets the robot’s distance and angle counters to <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+<li><p><strong>line 19</strong> → create the main loop</p></li>
+<li><p><strong>line 20</strong> → checks for pressed buttons and stores them in <code class="docutils literal notranslate"><span class="pre">pressed</span></code></p></li>
+<li><p><strong>line 22</strong> → checks if the left button was pressed</p></li>
+<li><p><strong>line 23</strong> → get the robot’s state tuple and stores the values in <code class="docutils literal notranslate"><span class="pre">distance</span></code>, <code class="docutils literal notranslate"><span class="pre">speed</span></code>, <code class="docutils literal notranslate"><span class="pre">angle</span></code>, and <code class="docutils literal notranslate"><span class="pre">rate_of_turn</span></code></p></li>
+<li><p><strong>line 24</strong> → prints the robot state values stored in <code class="docutils literal notranslate"><span class="pre">distance</span></code>, <code class="docutils literal notranslate"><span class="pre">speed</span></code>, <code class="docutils literal notranslate"><span class="pre">angle</span></code>, and <code class="docutils literal notranslate"><span class="pre">rate_of_turn</span></code></p></li>
+<li><p><strong>line 25</strong> → drives the robot in an arc</p></li>
+<li><p><strong>line 26</strong> → get the robot’s state tuple and stores the values in <code class="docutils literal notranslate"><span class="pre">distance</span></code>, <code class="docutils literal notranslate"><span class="pre">speed</span></code>, <code class="docutils literal notranslate"><span class="pre">angle</span></code>, and <code class="docutils literal notranslate"><span class="pre">rate_of_turn</span></code></p></li>
+<li><p><strong>line 27</strong> → prints the robot state values stored in <code class="docutils literal notranslate"><span class="pre">distance</span></code>, <code class="docutils literal notranslate"><span class="pre">speed</span></code>, <code class="docutils literal notranslate"><span class="pre">angle</span></code>, and <code class="docutils literal notranslate"><span class="pre">rate_of_turn</span></code></p></li>
+<li><p><strong>line 29</strong> → checks if the right button is pressed</p></li>
+<li><p><strong>line 30</strong> → reads the current robot distance count and stores it in <code class="docutils literal notranslate"><span class="pre">distance</span></code></p></li>
+<li><p><strong>line 31</strong> → prints th current robot distance count</p></li>
+<li><p><strong>line 32</strong> → moves the robot in a straight line</p></li>
+<li><p><strong>line 33</strong> → reads the current robot distance count and stores it in <code class="docutils literal notranslate"><span class="pre">distance</span></code></p></li>
+<li><p><strong>line 34</strong> → prints th current robot distance count</p></li>
+<li><p><strong>line 36</strong> → checks if the Bluetooth button is pressed</p></li>
+<li><p><strong>line 37</strong> → reads the current robot angle count and stores it in <code class="docutils literal notranslate"><span class="pre">angle</span></code></p></li>
+<li><p><strong>line 38</strong> → prints th current robot angle count</p></li>
+<li><p><strong>line 39</strong> → turns the robot</p></li>
+<li><p><strong>line 40</strong> → reads the current robot angle count and stores it in <code class="docutils literal notranslate"><span class="pre">angle</span></code></p></li>
+<li><p><strong>line 41</strong> → prints th current robot angle count</p></li>
+<li><p><strong>line 43 - 44</strong> → if not button is pressed stop the drive base</p></li>
+</ul>
+</div>
+<div class="caution admonition">
+<p class="admonition-title">Modify</p>
+<ul class="simple">
+<li><p>what happens if you move line 16 to inside the main loop?</p></li>
+<li><p>can you use <code class="docutils literal notranslate"><span class="pre">my_robot.state()</span></code> to measure a straight move by the robot?</p></li>
+</ul>
+</div>
+</section>
 </section>
 
         </article>
@@ -262,8 +388,28 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Drive Base as Sensor</a><ul>
+<li><a class="reference internal" href="#drive-base-measurement-functions">Drive Base Measurement Functions</a></li>
+<li><a class="reference internal" href="#drive-base-measurement-example">Drive Base Measurement Example</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
