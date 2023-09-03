@@ -97,3 +97,11 @@
 ```{literalinclude} ./python_files/force_sensor.py
 :linenos:
 ```
+
+## Color Sensor
+
+### Color Sensor Example
+
+```{literalinclude} ./python_files/color_sensor.py
+:linenos:
+```
