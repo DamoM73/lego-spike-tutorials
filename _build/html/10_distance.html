@@ -137,7 +137,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -202,7 +202,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -210,6 +210,92 @@
         <article role="main">
           <section id="distance-sensor">
 <h1>Distance Sensor<a class="headerlink" href="#distance-sensor" title="Link to this heading">#</a></h1>
+<aside class="topic">
+<p class="topic-title">In this lesson you will:</p>
+<ul class="simple">
+<li><p>detect the colour of a surface or light source</p></li>
+<li><p>detect the amount of light reflected from a surface</p></li>
+<li><p>detect the amount of ambient light</p></li>
+</ul>
+</aside>
+<div class="important admonition">
+<p class="admonition-title">Pybrick Documentation</p>
+<p>To explore all Pybricks’ features check the <strong><a class="reference external" href="https://docs.pybricks.com/en/stable/index.html">Pybricks documentaion</a></strong>. This can also be seen in the right-hand panel of the Pybricks IDE.</p>
+</div>
+<p>The Distance Sensor measures distance to an object or surface using ultrasound. The sensor works by sending out high frequency sound waves that bounce off any object in range, and measuring how long it takes the sound to return to the sensor. The Distance Sensor can also be used as a light source, with four LED segments around the “eyes” that can be controlled individually.</p>
+<p><img alt="Distance Sensor" src="_images/sensor_ultrasonic_lights.png" /></p>
+<p>To initialise the distance sensor you must call the <code class="docutils literal notranslate"><span class="pre">UltrasonicSensor()</span></code> class and nominate it’s port. For example, with the robot you would use:</p>
+<p><code class="docutils literal notranslate"><span class="pre">distance_sensor</span> <span class="pre">=</span> <span class="pre">UltrasonicSensor(Port.C)</span></code></p>
+<section id="distance-sensor-functions">
+<h2>Distance Sensor Functions<a class="headerlink" href="#distance-sensor-functions" title="Link to this heading">#</a></h2>
+<p>There are two functions you can use to get readings from the distance sensor:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/pupdevices/ultrasonicsensor.html#pybricks.pupdevices.UltrasonicSensor.distance"><code class="docutils literal notranslate"><span class="pre">distance()→</span> <span class="pre">int:</span> <span class="pre">mm</span></code></a></strong> → Measures the distance (mm) between the sensor and an object using ultrasonic sound waves.</p></li>
+<li><p><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/pupdevices/ultrasonicsensor.html#pybricks.pupdevices.UltrasonicSensor.presence"><code class="docutils literal notranslate"><span class="pre">presence()→</span> <span class="pre">bool</span></code></a></p></li>
+</ul>
+<p>Pybricks also has two functions to work with the inbuild lights:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/pupdevices/ultrasonicsensor.html#pybricks.pupdevices.UltrasonicSensor.lights.on"><code class="docutils literal notranslate"><span class="pre">lights.on(brightness)</span></code></a></strong> → Turns on the lights at the specified brightness.</p></li>
+<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/pupdevices/ultrasonicsensor.html#pybricks.pupdevices.UltrasonicSensor.lights.off"><code class="docutils literal notranslate"><span class="pre">lights.off()</span></code></a></strong> → Turns off all the lights.</p></li>
+</ul>
+</section>
+<section id="distance-sensor-example">
+<h2>Distance Sensor Example<a class="headerlink" href="#distance-sensor-example" title="Link to this heading">#</a></h2>
+<p>Use the code below to understand how the functions work.</p>
+<ol class="arabic simple">
+<li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">distance_sensor.py</span></code></p></li>
+<li><p><strong>Type</strong> the code below into the file</p></li>
+<li><p><strong>Predict</strong> what you think will happen.</p></li>
+<li><p><strong>Run</strong> your code:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># distance_sensor.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># --- SETUP</span>
+<span class="linenos">10</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">11</span><span class="n">distance_sensor</span> <span class="o">=</span> <span class="n">UltrasonicSensor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">C</span><span class="p">)</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="c1"># --- MAIN LOOP</span>
+<span class="linenos">14</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">15</span>    <span class="n">distance</span> <span class="o">=</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">distance</span><span class="p">()</span>
+<span class="linenos">16</span>    <span class="n">present</span> <span class="o">=</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">presence</span><span class="p">()</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance:&quot;</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Detected other sensor:&quot;</span><span class="p">,</span> <span class="n">present</span><span class="p">)</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span>    <span class="n">distance_sensor</span><span class="o">.</span><span class="n">lights</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+<span class="linenos">21</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">22</span>    <span class="n">distance_sensor</span><span class="o">.</span><span class="n">lights</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition-investigate admonition">
+<p class="admonition-title">Investigate</p>
+<ul class="simple">
+<li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p></li>
+<li><p><strong>line 10</strong> → initialises the hub</p></li>
+<li><p><strong>line 11</strong> → initialises the distance sensor</p></li>
+<li><p><strong>line 14</strong> → create main loop</p></li>
+<li><p><strong>line 15</strong> → get a distance reading from the sensor and store in <code class="docutils literal notranslate"><span class="pre">distance</span></code></p></li>
+<li><p><strong>line 16</strong> → store in <code class="docutils literal notranslate"><span class="pre">present</span></code> if there are any other ultrasonic sensors around</p></li>
+<li><p><strong>line 18</strong> → print the values in <code class="docutils literal notranslate"><span class="pre">distance</span></code> and <code class="docutils literal notranslate"><span class="pre">present</span></code></p></li>
+<li><p><strong>line 20</strong> → turn lights off</p></li>
+<li><p><strong>line 21</strong> → wait 100 milliseconds</p></li>
+<li><p><strong>line 22</strong> → turn lights on to 100%</p></li>
+</ul>
+</div>
+<div class="caution admonition">
+<p class="admonition-title">Modify</p>
+<ul class="simple">
+<li><p>what happens when your comment out <strong>line 21</strong>?</p></li>
+<li><p>what is the maximum distance reading?</p></li>
+<li><p>what is the minimum distance reading?</p></li>
+</ul>
+</div>
+</section>
 </section>
 
         </article>
@@ -262,8 +348,28 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Distance Sensor</a><ul>
+<li><a class="reference internal" href="#distance-sensor-functions">Distance Sensor Functions</a></li>
+<li><a class="reference internal" href="#distance-sensor-example">Distance Sensor Example</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

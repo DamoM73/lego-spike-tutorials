@@ -105,3 +105,11 @@
 ```{literalinclude} ./python_files/color_sensor.py
 :linenos:
 ```
+
+## Distance Sensor
+
+### Distance Sensor Example
+
+```{literalinclude} ./python_files/distance_sensor.py
+:linenos:
+```

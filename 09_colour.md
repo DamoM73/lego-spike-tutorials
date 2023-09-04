@@ -4,7 +4,6 @@
 - detect the colour of a surface or light source
 - detect the amount of light reflected from a surface
 - detect the amount of ambient light
-- turn the built in lights on or off
 ```
 
 ```{admonition} Pybrick Documentation
