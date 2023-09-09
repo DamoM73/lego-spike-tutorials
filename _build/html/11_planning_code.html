@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Examples" href="99_examples.html" /><link rel="prev" title="Distance Sensor" href="10_distance.html" />
 
     <link rel="shortcut icon" href="_static/spike_logo.ico"/><!-- Generated with Sphinx 7.2.2 and Furo 2023.08.19 -->
-        <title>Planning Code - Lego Spike Python Coding</title>
+        <title>Developing Robot Code - Lego Spike Python Coding</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -137,7 +137,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -172,7 +172,7 @@
 <li class="toctree-l1"><a class="reference internal" href="08_force.html">Force Sensor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_colour.html">Colour Sensor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_distance.html">Distance Sensor</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Planning Code</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Developing Robot Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="99_examples.html">Examples</a></li>
 </ul>
 
@@ -202,14 +202,281 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="planning-code">
-<h1>Planning Code<a class="headerlink" href="#planning-code" title="Link to this heading">#</a></h1>
+          <section id="developing-robot-code">
+<h1>Developing Robot Code<a class="headerlink" href="#developing-robot-code" title="Link to this heading">#</a></h1>
+<aside class="topic">
+<p class="topic-title">In this lesson you will:</p>
+<ul class="simple">
+<li><p>identify the requirements for a robot project</p></li>
+<li><p>identify the inputs, processes and outputs for a robot project</p></li>
+<li><p>use a flowchart to express the process for a robot project</p></li>
+<li><p>use pseudocode to develop an alrogithm</p></li>
+</ul>
+</aside>
+<div class="admonition-scenario admonition">
+<p class="admonition-title">Scenario</p>
+<p>This scenario will be used to explore how to plan a robot project.</p>
+<p>Make your robot move randomly around the room whilst avoiding running into anything.</p>
+</div>
+<section id="step-1-identify-requirements">
+<h2>Step 1 - Identify requirements<a class="headerlink" href="#step-1-identify-requirements" title="Link to this heading">#</a></h2>
+<p>Before you can even start planning you code, you first must identify everything your robot needs to do. These are called <strong>requirements</strong>.</p>
+<p>The requirements need to be specific. Rather than saying the robot drives, you need to say for how long, or until an event happens.</p>
+<p>List down all the requirements you can identify.</p>
+<div class="admonition-scenario-identify-requirements admonition">
+<p class="admonition-title">Scenario - Identify Requirements</p>
+<p>The robot will need to:</p>
+<ol class="arabic simple">
+<li><p>Drive endlessly in a direction</p></li>
+<li><p>Stop when it detects an object within 10cm</p></li>
+<li><p>Turn in a random direction</p></li>
+</ol>
+<p>The robot will then return to requirement 1</p>
+</div>
+</section>
+<section id="step-2-ipo-table">
+<h2>Step 2 - IPO Table<a class="headerlink" href="#step-2-ipo-table" title="Link to this heading">#</a></h2>
+<p>All digital systems consist of three basic elements:</p>
+<ul class="simple">
+<li><p>Input</p></li>
+<li><p>Process</p></li>
+<li><p>Output</p></li>
+</ul>
+<p>Digital systems receive <strong>input</strong> from the real world. They then <strong>process</strong> (perform calculations on) the input. The product of processing then get returned as <strong>output</strong> to the real world.</p>
+<p>This flow is mapped out in an IPO (Input, Process, Output) table.</p>
+<section id="outputs">
+<h3>Outputs<a class="headerlink" href="#outputs" title="Link to this heading">#</a></h3>
+<p>To start, the requirements identified in the previous step form your outputs.</p>
+<div class="admonition-scenario-ipo-table-output admonition">
+<p class="admonition-title">Scenario - IPO table output</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Process</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p>Drive endlessly in a direction</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p>Stop if object within 10cm</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p>Turn in a random direction</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="input">
+<h3>Input<a class="headerlink" href="#input" title="Link to this heading">#</a></h3>
+<p>Next you need to consider what inputs are available to produce the required outputs.</p>
+<div class="admonition-scenario-ipo-table-input admonition">
+<p class="admonition-title">Scenario - IPO table input</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Process</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>no object within 10cm</p></td>
+<td><p></p></td>
+<td><p>Drive endlessly in a direction</p></td>
+</tr>
+<tr class="row-odd"><td><p>object within 10 cm</p></td>
+<td><p></p></td>
+<td><p>Stop if object within 10cm</p></td>
+</tr>
+<tr class="row-even"><td><p>robot stopped</p></td>
+<td><p></p></td>
+<td><p>Turn in a random direction</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="process">
+<h3>Process<a class="headerlink" href="#process" title="Link to this heading">#</a></h3>
+<p>Finally state how the robot will react to the input to create the output. Make sure that you reference the robot components doing the work.</p>
+<div class="admonition-scenario-ipo-table-process admonition">
+<p class="admonition-title">Scenario - IPO table process</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Process</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>no object within 10cm</p></td>
+<td><p>if distance sensor &gt; 100, drive base drives straight</p></td>
+<td><p>Drive endlessly in a direction</p></td>
+</tr>
+<tr class="row-odd"><td><p>object within 10 cm</p></td>
+<td><p>if distance sensor &lt; 100, drive base stops</p></td>
+<td><p>Stop if object within 10cm</p></td>
+</tr>
+<tr class="row-even"><td><p>robot stopped</p></td>
+<td><p>if robot stopped, drive base turns random degrees</p></td>
+<td><p>Turn in a random direction</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="step-3-flow-charts">
+<h2>Step 3 - Flow Charts<a class="headerlink" href="#step-3-flow-charts" title="Link to this heading">#</a></h2>
+<p>The next step is to express the process in the form of a flowchart. Using flowcharts helps to map out the different computational steps needs for the robot to complete its task.</p>
+<p>Below is a reminder of flowchart symbols:</p>
+<p><img alt="Flow Chart Symbols" src="_images/flowchart_symbols.png" /></p>
+<p>Below is the flowchart for the process in the IPO table.</p>
+<div class="admonition-scenario-flowchart admonition">
+<p class="admonition-title">Scenario - Flowchart</p>
+<p><img alt="process flowchart" src="_images/planning_fc.png" /></p>
+</div>
+</section>
+<section id="step-4-pseudocode">
+<h2>Step 4 - Pseudocode<a class="headerlink" href="#step-4-pseudocode" title="Link to this heading">#</a></h2>
+<p>Now we will convert the flowchart to pseudocode. Because pseudocode focuses on algorithm logic, it is used to convert a process into a code-like format without worrying about the syntax of the programming language.</p>
+<div class="note admonition">
+<p class="admonition-title">What is Pseudocode</p>
+<p>Pseudocode is like giving instructions to a friend in a really simple and clear way before you write an actual computer program. Instead of using fancy computer language, you use simple words and basic ideas to tell the computer what you want it to do.</p>
+<p>It’s like making a rough sketch of your plan so that when you start writing real code, you already know what steps to take.</p>
+<p>Pseudocode helps you organize your thoughts and ideas before you dive into the technical details of writing a program.</p>
+</div>
+<p>You don’t need to worry about how you describe each step in pseudocode. The only test is that it needs to be obvious what each line means.</p>
+<div class="admonition-pseudocode admonition">
+<p class="admonition-title">Pseudocode</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>start<span class="w"> </span>main<span class="w"> </span>loop
+<span class="w">    </span><span class="nv">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>distance<span class="w"> </span>sensor
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>distance<span class="w"> </span>&gt;<span class="w"> </span><span class="m">100</span>
+<span class="w">        </span>drive<span class="w"> </span>robot<span class="w"> </span>straight
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span>stop<span class="w"> </span>robot
+<span class="w">        </span><span class="nv">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>get<span class="w"> </span>random<span class="w"> </span>number
+<span class="w">        </span>turn<span class="w"> </span>robot<span class="w"> </span>to<span class="w"> </span>angle
+</pre></div>
+</div>
+</div>
+<p>Notice this pseudocode uses some progamming terms and some structure. Again, this is not needed. As long as the pseudocode clearly explains each setp of the algorithm.</p>
+</section>
+<section id="converting-to-code">
+<h2>Converting to code<a class="headerlink" href="#converting-to-code" title="Link to this heading">#</a></h2>
+<section id="event-driven-programming">
+<h3>Event-driven Programming<a class="headerlink" href="#event-driven-programming" title="Link to this heading">#</a></h3>
+<p>Before you convert your pseudocode to Python code, you will need to learn about event-driven programming. You have actually been using event-driven programming right through these tutorials, but before you can develop your own, you will need to understand it.</p>
+<p>Event-driven programming allows your robot to be responsive to the outside world. It involves two phases: <strong>setup</strong> and <strong>main loop</strong>. You would recognise these from all the examples.</p>
+<section id="setup">
+<h4>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h4>
+<p>The <strong>setup</strong> phase prepares the robot for the main loop. It initialises all the components and creates the variables and functions that will be used by the main loop.</p>
+<p>A distinguishing feature of the setup phase is that is <strong>only runs once</strong>.</p>
+</section>
+<section id="main-loop">
+<h4>Main loop<a class="headerlink" href="#main-loop" title="Link to this heading">#</a></h4>
+<p>The <strong>main loop</strong> is where the robot waits for things to happen, and then reacts to them. The correct terminology is that the robot <strong>listens for events</strong> and then <strong>handles these events</strong>.</p>
+<p>Unlike the setup phase, the main loop will continue to be executed as long as the robot is running or until it is explicitly exited.</p>
+</section>
+<section id="the-party-anaolgy">
+<h4>The party anaolgy<a class="headerlink" href="#the-party-anaolgy" title="Link to this heading">#</a></h4>
+<p>Think if event driven programming like you holding a birthday party. First you will need to set everything up. Go buy the food and drinks, decorate the party room, make your playlist, and so on. All of these are done once. This is the setup phase.</p>
+<p>Once the setup phase is completed, and you are ready to party, you enter the main loop phase. You wait for things to happen (listening for events) and then respond when they do (handling events).</p>
+<p>For example:</p>
+<ul class="simple">
+<li><p>the first person arrives (event) → you welcome them (handle)</p></li>
+<li><p>they give you a gift (event) → you open the gift (handle)</p></li>
+<li><p>you feel thirsty (event) → you pour yourself a drink (handle)</p></li>
+<li><p>the cake arrives (event) → people sing happy birthday (handle)</p></li>
+<li><p>happy birthday finishes → you blow out the candles (handle)</p></li>
+</ul>
+</section>
+</section>
+<section id="code">
+<h3>Code<a class="headerlink" href="#code" title="Link to this heading">#</a></h3>
+<p>Time to write the Python code.</p>
+<ol class="arabic simple">
+<li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">move_and_avoid.py</span></code></p></li>
+<li><p><strong>Type</strong> the code below into the file</p></li>
+<li><p><strong>Predict</strong> what you think will happen.</p></li>
+<li><p><strong>Run</strong> your code:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># move_and_avoid.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 8</span><span class="kn">from</span> <span class="nn">urandom</span> <span class="kn">import</span> <span class="n">randint</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1"># --- SETUP</span>
+<span class="linenos">11</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="n">left_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">COUNTERCLOCKWISE</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">right_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">CLOCKWISE</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">robot</span> <span class="o">=</span> <span class="n">DriveBase</span><span class="p">(</span><span class="n">left_motor</span><span class="p">,</span> <span class="n">right_motor</span><span class="p">,</span> <span class="n">wheel_diameter</span><span class="o">=</span><span class="mi">56</span><span class="p">,</span> <span class="n">axle_track</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="n">distance_sensor</span> <span class="o">=</span> <span class="n">UltrasonicSensor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">C</span><span class="p">)</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="c1"># --- MAIN LOOP</span>
+<span class="linenos">20</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">21</span>    <span class="n">distance_reading</span> <span class="o">=</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">distance</span><span class="p">()</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span>    <span class="k">if</span> <span class="n">distance_reading</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+<span class="linenos">24</span>        <span class="n">robot</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">26</span>        <span class="n">robot</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="linenos">27</span>        <span class="n">angle</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span>
+<span class="linenos">28</span>        <span class="n">robot</span><span class="o">.</span><span class="n">turn</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition-investigate admonition">
+<p class="admonition-title">Investigate</p>
+<p><strong>Import section</strong></p>
+<p><strong>Lines 3 - 8</strong> is the import section which imports all modules necessary for the program.</p>
+<ul class="simple">
+<li><p><strong>line 8</strong> is new. It’s importing the the <code class="docutils literal notranslate"><span class="pre">randint</span></code> function for getting a random angle.</p></li>
+</ul>
+<p><strong>Setup section</strong></p>
+<p><strong>Lines 11 - 17</strong> is the setup section which implements the setup phase of your event-driven program. You need to setup three robot components:</p>
+<ul class="simple">
+<li><p><strong>line 11</strong> initialises the hub. This allows the code to use the Hub’s ports.</p></li>
+<li><p><strong>lines 13 - 15</strong> initialises the robot drive base.</p></li>
+<li><p><strong>line 17</strong> initialises the distance sensor</p></li>
+</ul>
+<p><strong>Main Loop</strong></p>
+<p><strong>Lines 20 - 28</strong> are the main loop which contain the event listener adn the event handler.</p>
+<ul class="simple">
+<li><p><strong>line 20</strong> is the event listener. It is getting the reading from the distance sensor</p></li>
+<li><p><strong>lines 23 - 28</strong> are the event handler. It handles two events:</p>
+<ul>
+<li><p>that the distance is more than 100 → drive straight</p></li>
+<li><p>that the distance is not more than 100 → stop and turn a random number of degrees.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
 </section>
 
         </article>
@@ -262,8 +529,45 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Developing Robot Code</a><ul>
+<li><a class="reference internal" href="#step-1-identify-requirements">Step 1 - Identify requirements</a></li>
+<li><a class="reference internal" href="#step-2-ipo-table">Step 2 - IPO Table</a><ul>
+<li><a class="reference internal" href="#outputs">Outputs</a></li>
+<li><a class="reference internal" href="#input">Input</a></li>
+<li><a class="reference internal" href="#process">Process</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#step-3-flow-charts">Step 3 - Flow Charts</a></li>
+<li><a class="reference internal" href="#step-4-pseudocode">Step 4 - Pseudocode</a></li>
+<li><a class="reference internal" href="#converting-to-code">Converting to code</a><ul>
+<li><a class="reference internal" href="#event-driven-programming">Event-driven Programming</a><ul>
+<li><a class="reference internal" href="#setup">Setup</a></li>
+<li><a class="reference internal" href="#main-loop">Main loop</a></li>
+<li><a class="reference internal" href="#the-party-anaolgy">The party anaolgy</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#code">Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
