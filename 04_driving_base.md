@@ -192,3 +192,19 @@ Change the `DriveBase` values as follows:
 - robot turns too far &rarr; decrease the `axle_track` value slightly.
 
 When making these adjustments, always adjust the wheel_diameter first, as done above. Be sure to test both turning and driving straight after you are done.
+
+Use the code below to calibrate your robot:
+
+- press the **left button** to measure the wheel diameter
+- press the **right button** to measure the axel track
+
+```{literalinclude} ./python_files/calibration.py
+:linenos:
+```
+
+```{admonition} Modify
+:class: important
+Keep a record of your calibrated value for the wheel diameter and the axel track.
+
+These are the values you should use for all future robots.
+```
