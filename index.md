@@ -16,5 +16,6 @@ This website provides tutorials on programming the Lego Spike Prime using Python
 09_colour
 10_distance
 11_planning_code
+12_flowcharts
 99_examples
 ```
