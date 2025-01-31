@@ -7,13 +7,19 @@ from pybricks.robotics import DriveBase
 from pybricks.tools import wait, StopWatch
 
 # --- SETUP
+# start components
 hub = PrimeHub()
 
+# store variables
 
-# --- MAIN LOOP
+# --- RUNNING
 while True:
+    # read sensor data
     pressed = hub.buttons.pressed()
     
+    # process data
+
+    # output data
     if Button.LEFT in pressed:
         hub.display.icon(Icon.ARROW_LEFT)
     elif Button.RIGHT in pressed:

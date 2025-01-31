@@ -1,5 +1,3 @@
-# light_matrix.py
-
 from pybricks.hubs import PrimeHub
 from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop, Icon
@@ -7,27 +5,33 @@ from pybricks.robotics import DriveBase
 from pybricks.tools import wait, StopWatch
 
 # --- SETUP
-
+# start components
 hub = PrimeHub()
 
+# store variables
 
-# --- MAIN LOOP
+# --- RUNNING
 while True:
+    # read sensor data
+
+    # process data
+
+    # output data
     hub.display.orientation(Side.RIGHT)
     hub.display.icon(Icon.UP)
-    wait(500)
+    wait(250)
     hub.display.orientation(Side.BOTTOM)
     hub.display.icon(Icon.UP)
-    wait(500)
+    wait(250)
     hub.display.orientation(Side.LEFT)
     hub.display.icon(Icon.UP)
-    wait(500)
+    wait(250)
     hub.display.orientation(Side.TOP)
     hub.display.icon(Icon.UP)
-    wait(500)
+    wait(250)
 
     hub.display.off()
-    wait(1000)
+    wait(500)
 
     hub.display.pixel(1,1,100)
     hub.display.pixel(1,3,100)
@@ -37,14 +41,14 @@ while True:
     wait(1000)
 
     hub.display.off()
-    wait(1000)
+    wait(500)
 
     arrows = [Icon.RIGHT, Icon.DOWN, Icon.LEFT, Icon.UP]
     hub.display.animate(arrows, 500)
-    wait(2000)
+    wait(1000)
 
     hub.display.off()
-    wait(1000)
+    wait(500)
 
     hub.display.char("R")
     wait(500)

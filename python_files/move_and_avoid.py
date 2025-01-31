@@ -8,6 +8,7 @@ from pybricks.tools import wait, StopWatch
 from urandom import randint
 
 # --- SETUP
+# start components
 hub = PrimeHub()
 
 left_motor = Motor(Port.A, Direction.COUNTERCLOCKWISE)
@@ -16,10 +17,16 @@ robot = DriveBase(left_motor, right_motor, wheel_diameter=56, axle_track=80)
 
 distance_sensor = UltrasonicSensor(Port.C)
 
-# --- MAIN LOOP
-while True:
-    distance_reading = distance_sensor.distance()
+# store variables
 
+# --- RUNNING
+while True:
+    # read sensor data
+    distance_reading = distance_sensor.distance()
+    
+    # process data
+
+    # output data
     if distance_reading > 100:
         robot.drive(500, 0)
     else:

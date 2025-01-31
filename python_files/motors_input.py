@@ -1,5 +1,3 @@
-# motor_inputs.py
-
 from pybricks.hubs import PrimeHub
 from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
@@ -7,15 +5,21 @@ from pybricks.robotics import DriveBase
 from pybricks.tools import wait, StopWatch
 
 # --- SETUP
+# start components
 hub = PrimeHub()
 left_motor = Motor(Port.A, Direction.COUNTERCLOCKWISE)
-
 left_motor.reset_angle(0)
 
-# --- MAIN LOOP
-while True:
-    pressed = hub.buttons.pressed()
+# store variables
 
+# --- RUNNING
+while True:
+    # read sensor data
+    pressed = hub.buttons.pressed()
+    
+    # process data
+
+    # output data
     if Button.LEFT in pressed and Button.RIGHT in pressed:
         print("Angel:", left_motor.angle())
         left_motor.run_target(1000, 0)

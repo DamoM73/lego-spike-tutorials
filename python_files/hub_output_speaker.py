@@ -1,5 +1,3 @@
-# speaker.py
-
 from pybricks.hubs import PrimeHub
 from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
@@ -7,13 +5,18 @@ from pybricks.robotics import DriveBase
 from pybricks.tools import wait, StopWatch
 
 # --- SETUP
-
+# start components
 hub = PrimeHub()
 
+# store variables
 
-# --- MAIN LOOP
+# --- RUNNING
 while True:
-    
+    # read sensor data
+
+    # process data
+
+    # output data
     hub.speaker.volume(100)
     current_volume = str(hub.speaker.volume())
     hub.display.text(current_volume)

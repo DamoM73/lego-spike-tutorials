@@ -1,5 +1,3 @@
-# drive_base_inputs.py
-
 from pybricks.hubs import PrimeHub
 from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
@@ -7,38 +5,52 @@ from pybricks.robotics import DriveBase
 from pybricks.tools import wait, StopWatch
 
 # --- SETUP
+# start components
 hub = PrimeHub()
 
 left_motor = Motor(Port.A, Direction.COUNTERCLOCKWISE)
 right_motor = Motor(Port.B, Direction.CLOCKWISE)
 my_robot = DriveBase(left_motor, right_motor, wheel_diameter=56, axle_track=80)
-
 my_robot.reset()
 
-# --- MAIN LOOP
+# store variables
+
+# --- RUNNING
 while True:
+    # read sensor data
     pressed = hub.buttons.pressed()
     
+    # process data
     if Button.LEFT in pressed:
         distance, speed, angle, rate_of_turn = my_robot.state()
-        print("Start - distance:", distance, "speed:", speed, "angle:", angle, "rate of turn:", rate_of_turn)
+        mode_message = "Curved drive"
+        start_message = "Start - distance: " + str(distance) + ", speed: " + str(speed) + ", angle: " + str(angle) + ", rate of turn: " str(rate_of_turn)
         my_robot.curve(100, 180)
         distance, speed, angle, rate_of_turn = my_robot.state()
-        print("Start - distance:", distance, "speed:", speed, "angle:", angle, "rate of turn:", rate_of_turn)
+        end_message = "End - distance: " + str(distance) + ", speed: " + str(speed) + ", angle: " + str(angle) + ", rate of turn: " str(rate_of_turn)
 
     elif Button.RIGHT in pressed:
         distance = my_robot.distance()
-        print("Start distance:", distance)
+        mode_message = "Straight drive"
+        start_message = "Start distance: " + str(distance)
         my_robot.straight(500)
         distance = my_robot.distance()
-        print("End distance:", distance)
+        end_message = "End distance: " + str(distance)
 
     elif Button.BLUETOOTH in pressed:
         angle = my_robot.angle()
-        print("Start angle:", angle)
+        mode_message = "Turn on spot"
+        start_message = "Start angle:" + str(angle)
         my_robot.turn(-90)
         angle = my_robot.angle()
-        print("End angle:", angle)
+        end_message = "End angle:" + str(angle)
 
     else:
         my_robot.stop()
+        
+    # output data
+    print(mode_message)
+    print("========================")
+    print(start_message)
+    print(end_message)
+    print()
