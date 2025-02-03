@@ -7,8 +7,8 @@ from pybricks.iodevices import PUPDevice
 
 # --- SETUP
 # start components
-left_motor = Motor(Port.A, Direction.COUNTERCLOCKWISE)
-right_motor = Motor(Port.B, Direction.CLOCKWISE)
+left_motor = Motor(Port.E, Direction.CLOCKWISE)
+right_motor = Motor(Port.F, Direction.COUNTERCLOCKWISE)
 drive_base = DriveBase(left_motor, right_motor, wheel_diameter=57, axle_track=80)
 
 # store variables
