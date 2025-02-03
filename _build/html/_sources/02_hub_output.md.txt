@@ -88,20 +88,20 @@ The Spike Prime Hub has a five by five light matrix that can be used to display 
 
 Pybricks has eight functions for the Light Matrix
 
-- **[`display.orientation(up)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.orientation)** &rarr; Sets the orientation of the light matrix display.
-- **[`display.off()`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.off)** &rarr; Turns off all the pixels.
-- **[`display.pixel(row, column, brightness=100)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.pixel)** &rarr; Turns on one pixel at the specified brightness.
-- **[`display.icon(icon)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.icon)** &rarr; Displays an icon, represented by a matrix of brightness: % values. **[A list of icons can be found here](https://code.pybricks.com/static/docs/v2.7.0/parameters/icon.html#pybricks.parameters.Icon)**
-- **[`display.animate(matrices, interval)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.animate)** &rarr; Displays an animation made using a list of images.
-- **[`display.number(number)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.number)** &rarr; Displays a number in the range -99 to 99.
-- **[`display.char(char)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.char)** &rarr; Displays a character or symbol on the light grid. 
-- **[`display.text(text, on=500, off=50)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.display.text)** &rarr; Displays a text string, one character at a time, with a pause between each character. 
+- **[`display.orientation(up)`](https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.display.orientation)** &rarr; Sets the orientation of the light matrix display.
+- **[`display.off()`](https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.display.off)** &rarr; Turns off all the pixels.
+- **[`display.pixel(row, column, brightness=100)`](https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.display.pixel)** &rarr; Turns on one pixel at the specified brightness.
+- **[`display.icon(icon)`](https://code.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.display.icon)** &rarr; Displays an icon, represented by a matrix of brightness: % values. **[A list of icons can be found here](https://code.pybricks.com/en/stable/parameters/icon.html#pybricks.parameters.Icon)**
+- **[`display.animate(matrices, interval)`](https://code.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.display.animate)** &rarr; Displays an animation made using a list of images.
+- **[`display.number(number)`](https://code.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.display.number)** &rarr; Displays a number in the range -99 to 99.
+- **[`display.char(char)`](https://code.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.display.char)** &rarr; Displays a character or symbol on the light grid. 
+- **[`display.text(text, on=500, off=50)`](https://code.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.display.text)** &rarr; Displays a text string, one character at a time, with a pause between each character. 
 
 ### Light Matrix Example
 
 The code below uses all eight functions for the light matrix.
 
-1. **Create** a new file called `light_matrix.py`
+1. **Create** a new file called `speaker.py`
 2. **Type** the code below into the file
 3. **Predict** what you think will happen.
 4. **Run** your code
@@ -144,11 +144,11 @@ The Prime Hub has a speaker built in, which can be used to produce sounds.
 
 The hub's speaker has three functions:
 
-- **[`speaker.volume(volume)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.volume)** &rarr;
+- **[`speaker.volume(volume)`](https://code.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.volume)** &rarr;
   - If volume is given, sets the speaker volume.
   - If no volume is given, this method returns the current volume.
-- **[`speaker.beep(frequency=500, duration=100)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.beep)** &rarr; Play a beep/tone.
-- **[`speaker.play_notes(notes, tempo=120)`](https://code.pybricks.com/static/docs/v2.7.0/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.play_notes)** &rarr; Plays a sequence of musical notes.
+- **[`speaker.beep(frequency=500, duration=100)`](https://code.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.beep)** &rarr; Play a beep/tone.
+- **[`speaker.play_notes(notes, tempo=120)`](https://code.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.play_notes)** &rarr; Plays a sequence of musical notes.
 
 ### Speaker Example
 

@@ -172,7 +172,8 @@
 <li class="toctree-l1"><a class="reference internal" href="08_force.html">Force Sensor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_colour.html">Colour Sensor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_distance.html">Distance Sensor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_planning_code.html">Planning Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_planning_code.html">Developing Robot Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_flowcharts.html">Flowcharts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="99_examples.html">Examples</a></li>
 </ul>
 
@@ -299,38 +300,41 @@
 <li><p><strong>Copy</strong> and <strong>paste</strong> the code below</p></li>
 <li><p><strong>Run</strong> the code</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># check_config.py</span>
-<span class="linenos"> 2</span>
-<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
-<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
-<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
-<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
-<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
-<span class="linenos"> 8</span><span class="kn">from</span> <span class="nn">pybricks.iodevices</span> <span class="kn">import</span> <span class="n">PUPDevice</span>
-<span class="linenos"> 9</span>
-<span class="linenos">10</span><span class="c1"># ---- DETECT WHAT IS CONNECTED TO EACH PORT ----</span>
-<span class="linenos">11</span><span class="n">device_names</span> <span class="o">=</span> <span class="p">{</span>
-<span class="linenos">12</span>    <span class="mi">48</span><span class="p">:</span> <span class="s2">&quot;SPIKE Medium Angular Motor&quot;</span><span class="p">,</span>
-<span class="linenos">13</span>    <span class="mi">49</span><span class="p">:</span> <span class="s2">&quot;SPIKE Large Angular Motor&quot;</span><span class="p">,</span>
-<span class="linenos">14</span>    <span class="mi">61</span><span class="p">:</span> <span class="s2">&quot;SPIKE Color Sensor&quot;</span><span class="p">,</span>
-<span class="linenos">15</span>    <span class="mi">62</span><span class="p">:</span> <span class="s2">&quot;SPIKE Ultrasonic Sensor&quot;</span><span class="p">,</span>
-<span class="linenos">16</span>    <span class="mi">63</span><span class="p">:</span> <span class="s2">&quot;SPIKE Force Sensor&quot;</span>
-<span class="linenos">17</span><span class="p">}</span>
-<span class="linenos">18</span>
-<span class="linenos">19</span><span class="n">ports</span> <span class="o">=</span> <span class="p">[</span><span class="n">Port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">Port</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">Port</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="n">Port</span><span class="o">.</span><span class="n">D</span><span class="p">,</span> <span class="n">Port</span><span class="o">.</span><span class="n">F</span><span class="p">]</span>
-<span class="linenos">20</span>
-<span class="linenos">21</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hub configuration&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">pybricks.hubs</span> <span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">pybricks.pupdevices</span> <span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pybricks.parameters</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pybricks.robotics</span> <span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pybricks.tools</span> <span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pybricks.iodevices</span> <span class="kn">import</span> <span class="n">PUPDevice</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="c1"># --- SETUP</span>
+<span class="linenos"> 9</span><span class="c1"># start components</span>
+<span class="linenos">10</span><span class="n">left_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">COUNTERCLOCKWISE</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">right_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">CLOCKWISE</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">drive_base</span> <span class="o">=</span> <span class="n">DriveBase</span><span class="p">(</span><span class="n">left_motor</span><span class="p">,</span> <span class="n">right_motor</span><span class="p">,</span> <span class="n">wheel_diameter</span><span class="o">=</span><span class="mi">57</span><span class="p">,</span> <span class="n">axle_track</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="c1"># store variables</span>
+<span class="linenos">15</span><span class="n">device_names</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">16</span>    <span class="mi">48</span><span class="p">:</span> <span class="s2">&quot;SPIKE Medium Angular Motor&quot;</span><span class="p">,</span>
+<span class="linenos">17</span>    <span class="mi">49</span><span class="p">:</span> <span class="s2">&quot;SPIKE Large Angular Motor&quot;</span><span class="p">,</span>
+<span class="linenos">18</span>    <span class="mi">61</span><span class="p">:</span> <span class="s2">&quot;SPIKE Color Sensor&quot;</span><span class="p">,</span>
+<span class="linenos">19</span>    <span class="mi">62</span><span class="p">:</span> <span class="s2">&quot;SPIKE Ultrasonic Sensor&quot;</span><span class="p">,</span>
+<span class="linenos">20</span>    <span class="mi">63</span><span class="p">:</span> <span class="s2">&quot;SPIKE Force Sensor&quot;</span>
+<span class="linenos">21</span>    <span class="p">}</span>
 <span class="linenos">22</span>
-<span class="linenos">23</span><span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">:</span>
-<span class="linenos">24</span>    <span class="n">device</span> <span class="o">=</span> <span class="n">PUPDevice</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
-<span class="linenos">25</span>    <span class="nb">print</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="s2">&quot;: &quot;</span><span class="p">,</span> <span class="n">device_names</span><span class="p">[</span><span class="n">device</span><span class="o">.</span><span class="n">info</span><span class="p">()[</span><span class="s2">&quot;id&quot;</span><span class="p">]])</span>
-<span class="linenos">26</span>
-<span class="linenos">27</span><span class="c1"># CHECK THAT LEFT AND RIGHT MOTORS ARE CONNECTED TO CORRECT PORTS</span>
-<span class="linenos">28</span><span class="n">left_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">COUNTERCLOCKWISE</span><span class="p">)</span>
-<span class="linenos">29</span><span class="n">right_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">CLOCKWISE</span><span class="p">)</span>
-<span class="linenos">30</span><span class="n">drive_base</span> <span class="o">=</span> <span class="n">DriveBase</span><span class="p">(</span><span class="n">left_motor</span><span class="p">,</span> <span class="n">right_motor</span><span class="p">,</span> <span class="n">wheel_diameter</span><span class="o">=</span><span class="mi">57</span><span class="p">,</span> <span class="n">axle_track</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
-<span class="linenos">31</span>
-<span class="linenos">32</span><span class="n">drive_base</span><span class="o">.</span><span class="n">turn</span><span class="p">(</span><span class="mi">360</span><span class="p">)</span>
+<span class="linenos">23</span><span class="n">ports</span> <span class="o">=</span> <span class="p">[</span><span class="n">Port</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">Port</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">Port</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="n">Port</span><span class="o">.</span><span class="n">D</span><span class="p">,</span> <span class="n">Port</span><span class="o">.</span><span class="n">F</span><span class="p">]</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="c1"># --- RUNNING</span>
+<span class="linenos">26</span><span class="c1"># checking components in hubs</span>
+<span class="linenos">27</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hub configuration&quot;</span><span class="p">)</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span><span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">:</span>
+<span class="linenos">30</span>    <span class="n">device</span> <span class="o">=</span> <span class="n">PUPDevice</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+<span class="linenos">31</span>    <span class="nb">print</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="s2">&quot;: &quot;</span><span class="p">,</span> <span class="n">device_names</span><span class="p">[</span><span class="n">device</span><span class="o">.</span><span class="n">info</span><span class="p">()[</span><span class="s2">&quot;id&quot;</span><span class="p">]])</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span><span class="c1"># checking motors in correct ports</span>
+<span class="linenos">34</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Robot should drive forward&quot;</span><span class="p">)</span>
+<span class="linenos">35</span><span class="n">drive_base</span><span class="o">.</span><span class="n">turn</span><span class="p">(</span><span class="mi">360</span><span class="p">)</span>
 </pre></div>
 </div>
 <section id="checking-the-ports-devices">
