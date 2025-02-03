@@ -32,7 +32,7 @@ Motors without encoders are called DC motors (direct current). The only programm
 
 Before you can program the motors, you need to create initialize a motor object for each motor you wish to use.
 
-This is achieved through calling the [`Motor` class](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor). You will need to pass minimum arguments:
+This is achieved through calling the [`Motor` class](https://code.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor). You will need to pass minimum arguments:
 
 - port &rarr; the port the motor is plugged into. You will need to use one of Pybricks' constants (eg. `Port.A`)
 - positive direction &rarr; this is the direction you want the wheel to turn when you enter a positive speed value. You will need to use one of Pybricks' constants (eg. `Direction.CLOCKWISE`)
@@ -47,8 +47,8 @@ For example, to initialize the right motor on your robot your would use:
 
 There are two functions that make the motors run forever:
 
-- **[`run(speed)`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.run)** &rarr; Runs the motor at a constant speed.
-- **[`dc(duty)`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.dc)** &rarr; Rotates the motor at a given duty cycle (also known as “power”).
+- **[`run(speed)`](https://docs.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.run)** &rarr; Runs the motor at a constant speed.
+- **[`dc(duty)`](https://code.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.dc)** &rarr; Rotates the motor at a given duty cycle (also known as “power”).
 
 ### Motor Running Forever Examples
 
@@ -92,9 +92,9 @@ Time to explore how these two functions can be used.
 
 Pybricks provides three functions to stop motors, each having a slightly different effect:
 
-- **[`stop()`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.stop)** &rarr; Stops the motor and lets it spin freely.
-- **[`brake()`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.brake)** &rarr; Passively brakes the motor.
-- **[`hold()`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.hold)** &rarr; Stops the motor and actively holds it at its current angle.
+- **[`stop()`](https://code.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.stop)** &rarr; Stops the motor and lets it spin freely.
+- **[`brake()`](https://code.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.brake)** &rarr; Passively brakes the motor.
+- **[`hold()`](https://code.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.hold)** &rarr; Stops the motor and actively holds it at its current angle.
 
 ### Motor Stop Examples
 
@@ -152,10 +152,10 @@ For example, the code above changes the colour of the status light to indicate w
 
 Pybricks has four functions that can run a motor for a designated amount:
 
-- **[`run_time(speed, time, then=Stop.HOLD, wait=True)`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.run_time)** &rarr; Runs the motor at a constant speed for a given amount of time.
-- **[`run_angle(speed, rotation_angle, then=Stop.HOLD, wait=True)`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.run_angle)** &rarr; Runs the motor at a constant speed by a given angle.
-- **[`run_target(speed, target_angle, then=Stop.HOLD, wait=True)`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.run_target)** &rarr; Runs the motor at a constant speed towards a given target angle.
-- **[`track_target(target_angle)`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/motor.html#pybricks.pupdevices.Motor.track_target)** &rarr; Tracks a target angle. This is similar to `run_target()`, but the usual smooth acceleration is skipped: it will move to the target angle as fast as possible.
+- **[`run_time(speed, time, then=Stop.HOLD, wait=True)`](https://code.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.run_time)** &rarr; Runs the motor at a constant speed for a given amount of time.
+- **[`run_angle(speed, rotation_angle, then=Stop.HOLD, wait=True)`](https://code.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.run_angle)** &rarr; Runs the motor at a constant speed by a given angle.
+- **[`run_target(speed, target_angle, then=Stop.HOLD, wait=True)`](https://code.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.run_target)** &rarr; Runs the motor at a constant speed towards a given target angle.
+- **[`track_target(target_angle)`](https://code.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.track_target)** &rarr; Tracks a target angle. This is similar to `run_target()`, but the usual smooth acceleration is skipped: it will move to the target angle as fast as possible.
 
 ```{admonition} Motors waiting
 :class: note
