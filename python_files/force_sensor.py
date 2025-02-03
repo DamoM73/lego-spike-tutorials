@@ -7,7 +7,7 @@ from pybricks.tools import wait, StopWatch
 # --- SETUP
 # start components
 hub = PrimeHub()
-force_sensor = ForceSensor(Port.F)
+force_sensor = ForceSensor(Port.A)
 
 # store variables
 
