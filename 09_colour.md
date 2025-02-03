@@ -27,18 +27,18 @@ To initialise the color sensor you must call the `ColorSensor()` class and nomin
 
 Pybricks provides three functions to interact with the color sensor:
 
-- **[`color(surface=True)→ Color`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/colorsensor.html#pybricks.pupdevices.ColorSensor.color)** &rarr; Scans the color of a surface or an external light source.
+- **[`color(surface=True)→ Color`](https://code.pybricks.com/en/stable/pupdevices/colorsensor.html#pybricks.pupdevices.ColorSensor.color)** &rarr; Scans the color of a surface or an external light source.
   - Choose `True` to scan the color of objects and surfaces. Choose `False` to scan the color of screens and other external light sources.
-- **[`reflection()→ int: %`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/colorsensor.html#pybricks.pupdevices.ColorSensor.reflection)** &rarr; Measures how much a surface reflects the light emitted by the sensor.
-- **[`ambient()→ int: %`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/colorsensor.html#pybricks.pupdevices.ColorSensor.ambient)** &rarr; Measures the ambient light intensity.
+- **[`reflection()→ int: %`](https://code.pybricks.com/en/stable/pupdevices/colorsensor.html#pybricks.pupdevices.ColorSensor.reflection)** &rarr; Measures how much a surface reflects the light emitted by the sensor.
+- **[`ambient()→ int: %`](https://code.pybricks.com/en/stable/pupdevices/colorsensor.html#pybricks.pupdevices.ColorSensor.ambient)** &rarr; Measures the ambient light intensity.
 
 Pybricks also has a configuring function to choose which colors can be returned by `color()`:
 
-- **[`detectable_colors(colors)`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/colorsensor.html#pybricks.pupdevices.ColorSensor.detectable_colors)** &rarr; Specify only colors that you wish to detect in your application. This way, the full-color measurements are rounded to the nearest desired color, and other colors are ignored.
+- **[`detectable_colors(colors)`](https://code.pybricks.com/en/stable/pupdevices/colorsensor.html#pybricks.pupdevices.ColorSensor.detectable_colors)** &rarr; Specify only colors that you wish to detect in your application. This way, the full-color measurements are rounded to the nearest desired color, and other colors are ignored.
 
 Finally Pybricks allows you to turn on the color sensor's lights:
 
-- **[`lights.on(brightness)`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/colorsensor.html#pybricks.pupdevices.ColorSensor.lights.on)** &rarr; Turns on the lights at the specified brightness.
+- **[`lights.on(brightness)`](https://code.pybricks.com/en/stable/pupdevices/colorsensor.html#pybricks.pupdevices.ColorSensor.lights.on)** &rarr; Turns on the lights at the specified brightness.
 
 ## Color Sensor Example
 

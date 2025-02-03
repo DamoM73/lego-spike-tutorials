@@ -27,7 +27,7 @@ exclude_patterns = ['_build',
                     'README.md',
                     'teacher_resources',
                     'notes.md',
-                    'todo.md'
+                    'TODO.md'
                     ]
 
 

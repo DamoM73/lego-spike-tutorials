@@ -24,10 +24,10 @@ To initialise the force sensor you must call the `ForceSensor()` class and nomin
 
 Pybrick provides four functions to interact with the force sensor:
 
-- **[`force()→ float: N`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/forcesensor.html#pybricks.pupdevices.ForceSensor.force)** &rarr; Measures the force (N) exerted on the sensor.
-- [`distance()→ float: mm`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/forcesensor.html#pybricks.pupdevices.ForceSensor.distance) &rarr; Measures by how much (mm) the sensor button has moved.
-- [`pressed(force=3)→ bool`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/forcesensor.html#pybricks.pupdevices.ForceSensor.pressed) &rarr; Checks if the sensor button is pressed. Has a minimum force to be considered pressed.
-- [`touched()→ bool`](https://code.pybricks.com/static/docs/v2.7.0/pupdevices/forcesensor.html#pybricks.pupdevices.ForceSensor.touched) &rarr; Checks if the sensor is touched. Detects slight movements of the button
+- **[`force()→ float: N`](https://code.pybricks.com/en/stable/pupdevices/forcesensor.html#pybricks.pupdevices.ForceSensor.force)** &rarr; Measures the force (N) exerted on the sensor.
+- [`distance()→ float: mm`](https://code.pybricks.com/en/stable/pupdevices/forcesensor.html#pybricks.pupdevices.ForceSensor.distance) &rarr; Measures by how much (mm) the sensor button has moved.
+- [`pressed(force=3)→ bool`](https://code.pybricks.com/en/stable/pupdevices/forcesensor.html#pybricks.pupdevices.ForceSensor.pressed) &rarr; Checks if the sensor button is pressed. Has a minimum force to be considered pressed.
+- [`touched()→ bool`](https://code.pybricks.com/en/stable/pupdevices/forcesensor.html#pybricks.pupdevices.ForceSensor.touched) &rarr; Checks if the sensor is touched. Detects slight movements of the button
 
 ## Force Sensor Example
 
