@@ -144,11 +144,11 @@ The Prime Hub has a speaker built in, which can be used to produce sounds.
 
 The hub's speaker has three functions:
 
-- **[`speaker.volume(volume)`](https://code.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.volume)** &rarr;
+- **[`speaker.volume(volume)`](https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.volume)** &rarr;
   - If volume is given, sets the speaker volume.
   - If no volume is given, this method returns the current volume.
-- **[`speaker.beep(frequency=500, duration=100)`](https://code.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.beep)** &rarr; Play a beep/tone.
-- **[`speaker.play_notes(notes, tempo=120)`](https://code.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.play_notes)** &rarr; Plays a sequence of musical notes.
+- **[`speaker.beep(frequency=500, duration=100)`](https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.beep)** &rarr; Play a beep/tone.
+- **[`speaker.play_notes(notes, tempo=120)`](https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.speaker.play_notes)** &rarr; Plays a sequence of musical notes.
 
 ### Speaker Example
 

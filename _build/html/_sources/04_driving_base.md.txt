@@ -33,7 +33,7 @@ It is important to note the difference between Motor angels and Drivebase angels
 To start using the drive base you first need to create a `left_motor` and a `right_motor` in the same way you did in the **[Motors tutorial](03_motors.md#initialisation)**.
 
 You then need to create a drive base by calling 
-**[`DriveBase(left_motor, right_motor, wheel_diameter, axle_track)`](https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase)**. 
+**[`DriveBase(left_motor, right_motor, wheel_diameter, axle_track)`](https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase)**. 
 
 - **`left_motor** &rarr; the name you gave the left motor
 - **right_motor** &rarr; the name you gave the right motor
@@ -64,8 +64,8 @@ After creating a DriveBase object, you can still use its two motors individually
 
 Pybricks has two function used to implement continuous driving of the drive base:
 
-- **[`drive(speed, turn_rate)`](https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.drive)** &rarr; Starts driving at the specified speed and turn rate.
-- **[`stop()`](https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.stop)** &rarr; Stops the robot by letting the motors spin freely.
+- **[`drive(speed, turn_rate)`](https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.drive)** &rarr; Starts driving at the specified speed and turn rate.
+- **[`stop()`](https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.stop)** &rarr; Stops the robot by letting the motors spin freely.
 
 ### Driving Forever Examples
 
@@ -116,14 +116,14 @@ Use the code below to see these functions in use:
 
 There are three different ways that you can program you drive base to drive a fixed amount:
 
-- **[`straight(distance, then=Stop.HOLD, wait=True)`](https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.straight)** &rarr; Drives straight for a given distance (mm) and then stops.
-- **[`turn(angle, then=Stop.HOLD, wait=True)`](https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.turn)** &rarr; Turns in place by a given angle and then stops.
-- [`curve(radius, angle, then=Stop.HOLD, wait=True)`](https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.curve) &rarr; Drives an arc along a circle of a given radius (mm), by a given angle.
+- **[`straight(distance, then=Stop.HOLD, wait=True)`](https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.straight)** &rarr; Drives straight for a given distance (mm) and then stops.
+- **[`turn(angle, then=Stop.HOLD, wait=True)`](https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.turn)** &rarr; Turns in place by a given angle and then stops.
+- [`curve(radius, angle, then=Stop.HOLD, wait=True)`](https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.curve) &rarr; Drives an arc along a circle of a given radius (mm), by a given angle.
 
 There is also a function to change the setting used by the three functions above:
 
-- **[`settings(straight_speed, straight_acceleration, turn_rate, turn_acceleration)`](https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.settings)** &rarr; Configures the speed and acceleration used by `straight()`, `turn()`, and `curve()`
-- **[`settings()`](https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.settings)** &rarr; If you give no arguments, this returns the current values as a tuple.
+- **[`settings(straight_speed, straight_acceleration, turn_rate, turn_acceleration)`](https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.settings)** &rarr; Configures the speed and acceleration used by `straight()`, `turn()`, and `curve()`
+- **[`settings()`](https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.settings)** &rarr; If you give no arguments, this returns the current values as a tuple.
 
 ### Driving Fixed Example
 

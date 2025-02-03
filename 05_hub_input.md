@@ -25,7 +25,7 @@ The Prime Hub has four buttons, as shown below.
 
 Pybricks has only one function to detect the pressing of a button:
 
-- **[`buttons.pressed()→ Collection[Button]`](https://code.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.buttons.pressed)** &rarr; Checks which buttons are currently pressed.
+- **[`buttons.pressed()→ Collection[Button]`](https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.buttons.pressed)** &rarr; Checks which buttons are currently pressed.
   - returns a **tuple** of buttons currently being pressed.
   - button values are:
     - `Button.LEFT`
@@ -83,7 +83,7 @@ Rotation along each axis has a specific name:
 
 Pybricks offers two functions that informs the hub's orientation:
 
-- **[`imu.up()→ Side`](https://code.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.imu.up)** &rarr; Checks which side of the hub currently faces upward.
+- **[`imu.up()→ Side`](https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.imu.up)** &rarr; Checks which side of the hub currently faces upward.
   - side values are:
     - Side.TOP
     - Side.BOTTOM
@@ -91,7 +91,7 @@ Pybricks offers two functions that informs the hub's orientation:
     - Side.RIGHT
     - Side.FRONT
     - Side.BACK.
-- **[`imu.tilt()→ Tuple[int, int]`](https://code.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.imu.tilt)** &rarr; Returns the pitch and roll angles in a tuple (pitch, roll)
+- **[`imu.tilt()→ Tuple[int, int]`](https://docs.pybricks.com/en/stable/hubs/primehub.html#pybricks.hubs.PrimeHub.imu.tilt)** &rarr; Returns the pitch and roll angles in a tuple (pitch, roll)
 
 ### IMU Orientation Example
 

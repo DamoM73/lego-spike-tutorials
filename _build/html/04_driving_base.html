@@ -244,7 +244,7 @@
 <h2>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
 <p>To start using the drive base you first need to create a <code class="docutils literal notranslate"><span class="pre">left_motor</span></code> and a <code class="docutils literal notranslate"><span class="pre">right_motor</span></code> in the same way you did in the <strong><a class="reference internal" href="03_motors.html#initialisation"><span class="std std-ref">Motors tutorial</span></a></strong>.</p>
 <p>You then need to create a drive base by calling
-<strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase"><code class="docutils literal notranslate"><span class="pre">DriveBase(left_motor,</span> <span class="pre">right_motor,</span> <span class="pre">wheel_diameter,</span> <span class="pre">axle_track)</span></code></a></strong>.</p>
+<strong><a class="reference external" href="https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase"><code class="docutils literal notranslate"><span class="pre">DriveBase(left_motor,</span> <span class="pre">right_motor,</span> <span class="pre">wheel_diameter,</span> <span class="pre">axle_track)</span></code></a></strong>.</p>
 <ul class="simple">
 <li><p><strong>`left_motor</strong> → the name you gave the left motor</p></li>
 <li><p><strong>right_motor</strong> → the name you gave the right motor</p></li>
@@ -285,8 +285,8 @@
 <h3>Driving Forever Functions<a class="headerlink" href="#driving-forever-functions" title="Link to this heading">#</a></h3>
 <p>Pybricks has two function used to implement continuous driving of the drive base:</p>
 <ul class="simple">
-<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.drive"><code class="docutils literal notranslate"><span class="pre">drive(speed,</span> <span class="pre">turn_rate)</span></code></a></strong> → Starts driving at the specified speed and turn rate.</p></li>
-<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.stop"><code class="docutils literal notranslate"><span class="pre">stop()</span></code></a></strong> → Stops the robot by letting the motors spin freely.</p></li>
+<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.drive"><code class="docutils literal notranslate"><span class="pre">drive(speed,</span> <span class="pre">turn_rate)</span></code></a></strong> → Starts driving at the specified speed and turn rate.</p></li>
+<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.stop"><code class="docutils literal notranslate"><span class="pre">stop()</span></code></a></strong> → Stops the robot by letting the motors spin freely.</p></li>
 </ul>
 </section>
 <section id="driving-forever-examples">
@@ -385,14 +385,14 @@
 <h3>Driving Fixed Functions<a class="headerlink" href="#driving-fixed-functions" title="Link to this heading">#</a></h3>
 <p>There are three different ways that you can program you drive base to drive a fixed amount:</p>
 <ul class="simple">
-<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.straight"><code class="docutils literal notranslate"><span class="pre">straight(distance,</span> <span class="pre">then=Stop.HOLD,</span> <span class="pre">wait=True)</span></code></a></strong> → Drives straight for a given distance (mm) and then stops.</p></li>
-<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.turn"><code class="docutils literal notranslate"><span class="pre">turn(angle,</span> <span class="pre">then=Stop.HOLD,</span> <span class="pre">wait=True)</span></code></a></strong> → Turns in place by a given angle and then stops.</p></li>
-<li><p><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.curve"><code class="docutils literal notranslate"><span class="pre">curve(radius,</span> <span class="pre">angle,</span> <span class="pre">then=Stop.HOLD,</span> <span class="pre">wait=True)</span></code></a> → Drives an arc along a circle of a given radius (mm), by a given angle.</p></li>
+<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.straight"><code class="docutils literal notranslate"><span class="pre">straight(distance,</span> <span class="pre">then=Stop.HOLD,</span> <span class="pre">wait=True)</span></code></a></strong> → Drives straight for a given distance (mm) and then stops.</p></li>
+<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.turn"><code class="docutils literal notranslate"><span class="pre">turn(angle,</span> <span class="pre">then=Stop.HOLD,</span> <span class="pre">wait=True)</span></code></a></strong> → Turns in place by a given angle and then stops.</p></li>
+<li><p><a class="reference external" href="https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.curve"><code class="docutils literal notranslate"><span class="pre">curve(radius,</span> <span class="pre">angle,</span> <span class="pre">then=Stop.HOLD,</span> <span class="pre">wait=True)</span></code></a> → Drives an arc along a circle of a given radius (mm), by a given angle.</p></li>
 </ul>
 <p>There is also a function to change the setting used by the three functions above:</p>
 <ul class="simple">
-<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.settings"><code class="docutils literal notranslate"><span class="pre">settings(straight_speed,</span> <span class="pre">straight_acceleration,</span> <span class="pre">turn_rate,</span> <span class="pre">turn_acceleration)</span></code></a></strong> → Configures the speed and acceleration used by <code class="docutils literal notranslate"><span class="pre">straight()</span></code>, <code class="docutils literal notranslate"><span class="pre">turn()</span></code>, and <code class="docutils literal notranslate"><span class="pre">curve()</span></code></p></li>
-<li><p><strong><a class="reference external" href="https://code.pybricks.com/static/docs/v2.7.0/robotics.html#pybricks.robotics.DriveBase.settings"><code class="docutils literal notranslate"><span class="pre">settings()</span></code></a></strong> → If you give no arguments, this returns the current values as a tuple.</p></li>
+<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.settings"><code class="docutils literal notranslate"><span class="pre">settings(straight_speed,</span> <span class="pre">straight_acceleration,</span> <span class="pre">turn_rate,</span> <span class="pre">turn_acceleration)</span></code></a></strong> → Configures the speed and acceleration used by <code class="docutils literal notranslate"><span class="pre">straight()</span></code>, <code class="docutils literal notranslate"><span class="pre">turn()</span></code>, and <code class="docutils literal notranslate"><span class="pre">curve()</span></code></p></li>
+<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.settings"><code class="docutils literal notranslate"><span class="pre">settings()</span></code></a></strong> → If you give no arguments, this returns the current values as a tuple.</p></li>
 </ul>
 </section>
 <section id="driving-fixed-example">

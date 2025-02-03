@@ -23,13 +23,13 @@ To initialise the distance sensor you must call the `UltrasonicSensor()` class a
 
 There are two functions you can use to get readings from the distance sensor:
 
-- **[`distance()→ int: mm`](https://code.pybricks.com/en/stable/pupdevices/ultrasonicsensor.html#pybricks.pupdevices.UltrasonicSensor.distance)** &rarr; Measures the distance (mm) between the sensor and an object using ultrasonic sound waves.
-- [`presence()→ bool`](https://code.pybricks.com/en/stable/pupdevices/ultrasonicsensor.html#pybricks.pupdevices.UltrasonicSensor.presence)
+- **[`distance()→ int: mm`](https://docs.pybricks.com/en/stable/pupdevices/ultrasonicsensor.html#pybricks.pupdevices.UltrasonicSensor.distance)** &rarr; Measures the distance (mm) between the sensor and an object using ultrasonic sound waves.
+- **[`presence()→ bool`](https://docs.pybricks.com/en/stable/pupdevices/ultrasonicsensor.html#pybricks.pupdevices.UltrasonicSensor.presence)** &rarr; Checks for the presence of other ultrasonic sensors by detecting ultrasonic sounds.
 
 Pybricks also has two functions to work with the inbuild lights:
 
-- **[`lights.on(brightness)`](https://code.pybricks.com/en/stable/pupdevices/ultrasonicsensor.html#pybricks.pupdevices.UltrasonicSensor.lights.on)** &rarr; Turns on the lights at the specified brightness.
-- **[`lights.off()`](https://code.pybricks.com/en/stable/pupdevices/ultrasonicsensor.html#pybricks.pupdevices.UltrasonicSensor.lights.off)** &rarr; Turns off all the lights.
+- **[`lights.on(brightness)`](https://docs.pybricks.com/en/stable/pupdevices/ultrasonicsensor.html#pybricks.pupdevices.UltrasonicSensor.lights.on)** &rarr; Turns on the lights at the specified brightness.
+- **[`lights.off()`](https://docs.pybricks.com/en/stable/pupdevices/ultrasonicsensor.html#pybricks.pupdevices.UltrasonicSensor.lights.off)** &rarr; Turns off all the lights.
 
 ## Distance Sensor Example
 

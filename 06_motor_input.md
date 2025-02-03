@@ -19,14 +19,14 @@ In the **[tutorial on motors](03_motors.md)** it was explained that the motors o
 
 You can get measurements from the motors using the following Pybrick functions:
 
-- **[`speed()→ int: deg/s`](https://code.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.speed)** &rarr; Gets the speed of the motor (deg/s).
-- [[`angle()→ int: deg`](https://code.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.angle)](https://code.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.angle) &rarr; Gets the rotation angle of the motor (deg).
-- **[`load()→ int: mNm`](https://code.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.load)** &rarr; Estimates the load that holds back the motor when it tries to move (mNm).
-- **[`stalled()→ bool`](https://code.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.stalled)** &rarr; Checks if the motor is currently stalled.
+- **[`speed()→ int: deg/s`](https://docs.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.speed)** &rarr; Gets the speed of the motor (deg/s).
+- **[`angle()→ int: deg`](https://docs.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.angle)** &rarr; Gets the rotation angle of the motor (deg).
+- **[`load()→ int: mNm`](https://docs.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.load)** &rarr; Estimates the load that holds back the motor when it tries to move (mNm).
+- **[`stalled()→ bool`](https://docs.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.stalled)** &rarr; Checks if the motor is currently stalled.
 
 Pybricks also provides a configuration function:
 
-- **[`reset_angle(angle=None)`](https://code.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.reset_angle)** &rarr; Sets the accumulated rotation angle of the motor to a desired value.
+- **[`reset_angle(angle=None)`](https://docs.pybricks.com/en/stable/pupdevices/motor.html#pybricks.pupdevices.Motor.reset_angle)** &rarr; Sets the accumulated rotation angle of the motor to a desired value.
 
 ## Motor Measurement Example
 
