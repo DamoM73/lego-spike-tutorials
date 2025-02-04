@@ -14,6 +14,9 @@ my_robot = DriveBase(left_motor, right_motor, wheel_diameter=56, axle_track=80)
 my_robot.reset()
 
 # store variables
+mode_message = ""
+start_message = ""
+end_message = ""
 
 # --- RUNNING
 while True:
@@ -24,10 +27,10 @@ while True:
     if Button.LEFT in pressed:
         distance, speed, angle, rate_of_turn = my_robot.state()
         mode_message = "Curved drive"
-        start_message = "Start - distance: " + str(distance) + ", speed: " + str(speed) + ", angle: " + str(angle) + ", rate of turn: " str(rate_of_turn)
+        start_message = "Start - distance: " + str(distance) + ", speed: " + str(speed) + ", angle: " + str(angle) + ", rate of turn: " + str(rate_of_turn)
         my_robot.curve(100, 180)
         distance, speed, angle, rate_of_turn = my_robot.state()
-        end_message = "End - distance: " + str(distance) + ", speed: " + str(speed) + ", angle: " + str(angle) + ", rate of turn: " str(rate_of_turn)
+        end_message = "End - distance: " + str(distance) + ", speed: " + str(speed) + ", angle: " + str(angle) + ", rate of turn: " + str(rate_of_turn)
 
     elif Button.RIGHT in pressed:
         distance = my_robot.distance()
