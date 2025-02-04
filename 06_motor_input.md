@@ -1,4 +1,4 @@
-# Motors as sensors
+# Motors as Sensors
 
 ```{topic} In this lesson you will:
 - learn to read the motor speed

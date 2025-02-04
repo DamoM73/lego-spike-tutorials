@@ -1,4 +1,4 @@
-# Drive Base as Sensor
+# Drive Base as Sensors
 
 ```{topic} In this lesson you will:
 - learn to read how far the dirve base has traveled
