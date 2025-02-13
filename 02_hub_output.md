@@ -101,7 +101,7 @@ Pybricks has eight functions for the Light Matrix
 
 The code below uses all eight functions for the light matrix.
 
-1. **Create** a new file called `speaker.py`
+1. **Create** a new file called `light_matrix.py`
 2. **Type** the code below into the file
 3. **Predict** what you think will happen.
 4. **Run** your code
@@ -154,7 +154,7 @@ The hub's speaker has three functions:
 
 The example below uses the three speaker functions:
 
-1. **Create** a new file called `light_matrix.py`
+1. **Create** a new file called `speaking.py`
 2. **Type** the code below into the file
 3. **Predict** what you think will happen.
 4. **Run** your code
