@@ -20,7 +20,7 @@ There are three functions that can extract measurements from the drive base:
 
 - **[`distance()→ int: mm`](https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.distance)** &rarr; Gets the estimated driven distance (mm).
 - **[`angle()→ int: deg`](https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.angle)** &rarr; Gets the estimated rotation angle (deg) of the drive base.
-- [`state()→ Tuple[int, int, int, int]`](https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.state) &rarr; Gets the state of the robot. The return tuple is `(distance, speed, angle, turn_rate)`
+- **[`state()→ Tuple[int, int, int, int]`](https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.state)** &rarr; Gets the state of the robot. The return tuple is `(distance, speed, angle, turn_rate)`
 
 There is also one configuration function:
 

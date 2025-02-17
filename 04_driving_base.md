@@ -118,7 +118,7 @@ There are three different ways that you can program you drive base to drive a fi
 
 - **[`straight(distance, then=Stop.HOLD, wait=True)`](https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.straight)** &rarr; Drives straight for a given distance (mm) and then stops.
 - **[`turn(angle, then=Stop.HOLD, wait=True)`](https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.turn)** &rarr; Turns in place by a given angle and then stops.
-- [`curve(radius, angle, then=Stop.HOLD, wait=True)`](https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.curve) &rarr; Drives an arc along a circle of a given radius (mm), by a given angle.
+- **[`curve(radius, angle, then=Stop.HOLD, wait=True)`](https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.curve)** &rarr; Drives an arc along a circle of a given radius (mm), by a given angle.
 
 There is also a function to change the setting used by the three functions above:
 
