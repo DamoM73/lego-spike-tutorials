@@ -7,7 +7,7 @@ from pybricks.tools import wait, StopWatch
 # --- SETUP
 # start components
 hub = PrimeHub()
-left_motor = Motor(Port.E, Direction.CLOCKWISE)
+left_motor = Motor(Port.E, Direction.COUNTERCLOCKWISE)
 left_motor.reset_angle(0)
 
 # store variables

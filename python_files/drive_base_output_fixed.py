@@ -8,8 +8,8 @@ from pybricks.tools import wait, StopWatch
 # start components
 hub = PrimeHub()
 
-left_motor = Motor(Port.E, Direction.CLOCKWISE)
-right_motor = Motor(Port.F, Direction.COUNTERCLOCKWISE)
+left_motor = Motor(Port.E, Direction.COUNTERCLOCKWISE)
+right_motor = Motor(Port.F, Direction.CLOCKWISE)
 my_robot = DriveBase(left_motor, right_motor, wheel_diameter=56, axle_track=80)
 
 # store variables

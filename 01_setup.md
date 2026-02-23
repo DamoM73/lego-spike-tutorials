@@ -60,9 +60,9 @@ Your robot has three sensors devices and two motors devices connected.
 | Device | Port | Purpose | Image |
 | --- | --- | --- | --- |
 | Ultrasonic Sensor | C | Detect the distance to object in front | ![Ultrasonic Sensor](assets/distance.png) |
-| Force Sensor | F | Detect the amount of pressure applied | ![Force Sensor](assets/force.png) |
+| Force Sensor | B | Detect the amount of pressure applied | ![Force Sensor](assets/force.png) |
 | Colour Sensor | D | Detect the colour of an object, or the amount of light reflected | ![Colour Sensor](assets/colour.png) |
-| Motor | A B | Turns in response to commands from hub | ![Motor Sensor](assets/motor.png)
+| Motor | E F | Turns in response to commands from hub | ![Motor Sensor](assets/motor.png)
 
 To successfully follow these tutorials, you need to make sure that they are all connected to the correct hub ports. To do this you will run your first program. 
 

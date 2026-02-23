@@ -7,8 +7,8 @@ from pybricks.iodevices import PUPDevice
 
 # --- SETUP
 # start components
-left_motor = Motor(Port.E, Direction.CLOCKWISE)
-right_motor = Motor(Port.F, Direction.COUNTERCLOCKWISE)
+left_motor = Motor(Port.E, Direction.COUNTERCLOCKWISE)
+right_motor = Motor(Port.F, Direction.CLOCKWISE)
 drive_base = DriveBase(left_motor, right_motor, wheel_diameter=57, axle_track=80)
 
 # store variables
@@ -20,7 +20,7 @@ device_names = {
     63: "SPIKE Force Sensor"
     }
 
-ports = [Port.A, Port.B, Port.C, Port.D, Port.F]
+ports = [Port.B, Port.C, Port.D, Port.E, Port.F]
 
 # --- RUNNING
 # checking components in hubs
@@ -31,5 +31,5 @@ for port in ports:
     print(port, ": ", device_names[device.info()["id"]])
 
 # checking motors in correct ports
-print("\nRobot should drive forward")
 drive_base.turn(360)
+drive_base.straight(100)
