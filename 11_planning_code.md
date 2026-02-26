@@ -162,35 +162,54 @@ For example:
 Time to write the Python code.
 
 1. **Create** a new file called `move_and_avoid.py`
-2. **Type** the code below into the file
-3. **Predict** what you think will happen.
-4. **Run** your code:
+   - This time click the template button.
+2. Below the `import` statements and before `hub = PrimeHub()` add:
 
-```{literalinclude} ./python_files/move_and_avoid.py
-:linenos:
+```{code} Python
+from pybricks.hubs import PrimeHub
+from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
+from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
+from pybricks.robotics import DriveBase
+from pybricks.tools import wait, StopWatch
+
+# --- SETUP
+# start components
+hub = PrimeHub()
 ```
 
-```{admonition} Investigate
-**Import section**
+3. Copy the left_motor, right_motor, and my_robot starting code from your other programs
 
-**Lines 3 - 8** is the import section which imports all modules necessary for the program.
+```{code} Python
+from pybricks.hubs import PrimeHub
+from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
+from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
+from pybricks.robotics import DriveBase
+from pybricks.tools import wait, StopWatch
 
-- **line 8** is new. It's importing the the `randint` function for getting a random angle.
+# --- SETUP
+# start components
+hub = PrimeHub()
 
-**Setup section**
-
-**Lines 11 - 17** is the setup section which implements the setup phase of your event-driven program. You need to setup three robot components:
-
-- **line 11** initialises the hub. This allows the code to use the Hub's ports.
-- **lines 13 - 15** initialises the robot drive base.
-- **line 17** initialises the distance sensor
-
-**Main Loop**
-
-**Lines 20 - 28** are the main loop which contain the event listener adn the event handler.
-
-- **line 20** is the event listener. It is getting the reading from the distance sensor
-- **lines 23 - 28** are the event handler. It handles two events:
-   - that the distance is more than 100 &rarr; drive straight
-   - that the distance is not more than 100 &rarr; stop and turn a random number of degrees.
+left_motor = Motor(Port.E, Direction.COUNTERCLOCKWISE)
+right_motor = Motor(Port.F, Direction.CLOCKWISE)
+my_robot = DriveBase(left_motor, right_motor, wheel_diameter=56, axle_track=80)
 ```
+
+4. Add the running section into your code
+
+```{code} Python
+from pybricks.hubs import PrimeHub
+from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
+from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
+from pybricks.robotics import DriveBase
+from pybricks.tools import wait, StopWatch
+
+# --- SETUP
+# start components
+hub = PrimeHub()
+
+# --- RUNNING
+while True:
+```
+
+5. Now the rest is up to you. Follow the pseudocode you have written to complete the program. You can also add extra features if you like.
