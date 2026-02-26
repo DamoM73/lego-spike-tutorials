@@ -1,0 +1,689 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Hub Inputs" href="05_hub_input.html"><link rel="prev" title="Motors" href="03_motors.html">
+        <link rel="prefetch" href="_static/spike_logo.png" as="image">
+
+    <link rel="shortcut icon" href="_static/spike_logo.ico"><!-- Generated with Sphinx 7.4.7 and Furo 2025.12.19 -->
+        <title>Drive Base - Lego Spike Python Coding</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  --font-stack: gill sans, sans-serif;
+  --font-stack--monospace: monaco, monospace;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Lego Spike Python Coding</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/spike_logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Lego Spike Python Coding</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_hub_output.html">Hub Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_motors.html">Motors</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Drive Base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_hub_input.html">Hub Inputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_motor_input.html">Motors as Sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_driving_base_input.html">Drive Base as Sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_force.html">Force Sensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_colour.html">Colour Sensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_distance.html">Distance Sensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_planning_code.html">Developing Robot Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_flowcharts.html">Flowcharts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="99_examples.html">Examples</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/04_driving_base.md.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="drive-base">
+<h1>Drive Base<a class="headerlink" href="#drive-base" title="Link to this heading">¶</a></h1>
+<aside class="topic">
+<p class="topic-title">In this lesson you will:</p>
+<ul class="simple">
+<li><p>learn what a drive base is and how it can be to command your robot</p></li>
+<li><p>set up a drive base on your robot</p></li>
+<li><p>make the robot drive forever</p></li>
+<li><p>make the robot drive for a fixed distance</p></li>
+<li><p>make the robot turn a set nubmer of degrees</p></li>
+<li><p>make the robot drive in a set arc</p></li>
+<li><p>learn to calibrate the robot so the distance measurements are accurate</p></li>
+</ul>
+</aside>
+<div class="important admonition">
+<p class="admonition-title">Pybrick Documentation</p>
+<p>To explore all Pybricks’ features check the <strong><a class="reference external" href="https://docs.pybricks.com/en/stable/index.html">Pybricks documentaion</a></strong>. This can also be seen in the right-hand panel of the Pybricks IDE.</p>
+</div>
+<p>Pybricks uses <code class="docutils literal notranslate"><span class="pre">Drivebase</span></code> to combine two motors so you can issue command to them as a single unit. You will then be able to issue commands to your robot, rather than individual motors, getting it to move a specific distance, or turn a specific angle.</p>
+<ul class="simple">
+<li><p>Positive distances, radii, or drive speeds mean driving forward. Negative means backward.</p></li>
+<li><p>Positive angles and turn rates mean turning right. Negative means left. So when viewed from the top, positive means clockwise and negative means counter-clockwise.</p></li>
+</ul>
+<div class="important admonition">
+<p class="admonition-title">Motor angels vs Drivebase angels</p>
+<p>It is important to note the difference between Motor angels and Drivebase angels.</p>
+<ul class="simple">
+<li><p>Motor angles indicate the amount of rotation of the axel of a motor, eg. 180° will turn a wheel half a rotation.</p></li>
+<li><p>Drivebase angles indicate how far from straight the robot will turn, eg. 180° will make the robot face backwards.</p></li>
+</ul>
+</div>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading">¶</a></h2>
+<p>To start using the drive base you first need to create a <code class="docutils literal notranslate"><span class="pre">left_motor</span></code> and a <code class="docutils literal notranslate"><span class="pre">right_motor</span></code> in the same way you did in the <strong><a class="reference internal" href="03_motors.html#initialisation"><span class="std std-ref">Motors tutorial</span></a></strong>.</p>
+<p>You then need to create a drive base by calling
+<strong><a class="reference external" href="https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase"><code class="docutils literal notranslate"><span class="pre">DriveBase(left_motor,</span> <span class="pre">right_motor,</span> <span class="pre">wheel_diameter,</span> <span class="pre">axle_track)</span></code></a></strong>.</p>
+<ul class="simple">
+<li><p><strong>`left_motor</strong> → the name you gave the left motor</p></li>
+<li><p><strong>right_motor</strong> → the name you gave the right motor</p></li>
+<li><p><strong>wheel_diameter</strong> → the diameter of the robot’s wheel in millimetres (for your robot use <code class="docutils literal notranslate"><span class="pre">56</span></code>)</p></li>
+<li><p><strong>axle_track</strong> → the distance between the wheels in millimetres (for your robot use <code class="docutils literal notranslate"><span class="pre">80</span></code>)</p></li>
+</ul>
+<p>Go ahead and create your first drive base:</p>
+<ol class="arabic simple">
+<li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">drive_base.py</span></code></p></li>
+<li><p><strong>Type</strong> the code below into the file</p></li>
+<li><p><strong>Predict</strong> what you think will happen.</p></li>
+<li><p><strong>Run</strong> your code</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.hubs</span><span class="w"> </span><span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.pupdevices</span><span class="w"> </span><span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.parameters</span><span class="w"> </span><span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 4</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.robotics</span><span class="w"> </span><span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 5</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># --- SETUP</span>
+<span class="linenos"> 8</span><span class="c1"># start components</span>
+<span class="linenos"> 9</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="n">left_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">E</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">COUNTERCLOCKWISE</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">right_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">F</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">CLOCKWISE</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">my_robot</span> <span class="o">=</span> <span class="n">DriveBase</span><span class="p">(</span><span class="n">left_motor</span><span class="p">,</span> <span class="n">right_motor</span><span class="p">,</span> <span class="n">wheel_diameter</span><span class="o">=</span><span class="mi">56</span><span class="p">,</span> <span class="n">axle_track</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Did you predict that your robot would do nothing? Actually it didn’t do nothing, what it <em>did</em> do was initialise both motors and combined them to make a drive base called <code class="docutils literal notranslate"><span class="pre">my_robot</span></code>. The reason your robot did nothing was that you didn’t give it any commands. Let’s fix that by learning some commands you can use.</p>
+<div class="note admonition">
+<p class="admonition-title">Using the DriveBase motors individually</p>
+<p>After creating a DriveBase object, you can still use its two motors individually. If you start one motor, the other motor will automatically stop. Likewise, if a motor is already running and you make the drive base move, the original maneuver is cancelled and the drive base will take over.</p>
+</div>
+</section>
+<section id="driving-forever">
+<h2>Driving Forever<a class="headerlink" href="#driving-forever" title="Link to this heading">¶</a></h2>
+<section id="driving-forever-functions">
+<h3>Driving Forever Functions<a class="headerlink" href="#driving-forever-functions" title="Link to this heading">¶</a></h3>
+<p>Pybricks has two function used to implement continuous driving of the drive base:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.drive"><code class="docutils literal notranslate"><span class="pre">drive(speed,</span> <span class="pre">turn_rate)</span></code></a></strong> → Starts driving at the specified speed and turn rate.</p></li>
+<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.stop"><code class="docutils literal notranslate"><span class="pre">stop()</span></code></a></strong> → Stops the robot by letting the motors spin freely.</p></li>
+</ul>
+</section>
+<section id="driving-forever-examples">
+<h3>Driving Forever Examples<a class="headerlink" href="#driving-forever-examples" title="Link to this heading">¶</a></h3>
+<p>Use the code below to see these functions in use:</p>
+<ol class="arabic simple">
+<li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">drive_base_forever.py</span></code></p></li>
+<li><p><strong>Type</strong> the code below into the file</p></li>
+<li><p><strong>Predict</strong> what you think will happen.</p></li>
+<li><p><strong>Run</strong> your code</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.hubs</span><span class="w"> </span><span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.pupdevices</span><span class="w"> </span><span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.parameters</span><span class="w"> </span><span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 4</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.robotics</span><span class="w"> </span><span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 5</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># --- SETUP</span>
+<span class="linenos"> 8</span><span class="c1"># start components</span>
+<span class="linenos"> 9</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="n">left_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">E</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">COUNTERCLOCKWISE</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">right_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">F</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">CLOCKWISE</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">my_robot</span> <span class="o">=</span> <span class="n">DriveBase</span><span class="p">(</span><span class="n">left_motor</span><span class="p">,</span> <span class="n">right_motor</span><span class="p">,</span> <span class="n">wheel_diameter</span><span class="o">=</span><span class="mi">56</span><span class="p">,</span> <span class="n">axle_track</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="c1"># store variables</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="c1"># --- RUNNING</span>
+<span class="linenos">18</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">19</span>    <span class="c1"># read sensor data</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span>    <span class="c1"># process data</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span>    <span class="c1"># output data</span>
+<span class="linenos">24</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">WHITE</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">26</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="p">)</span>
+<span class="linenos">29</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="o">-</span><span class="mi">300</span><span class="p">)</span>
+<span class="linenos">30</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="linenos">33</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">WHITE</span><span class="p">)</span>
+<span class="linenos">36</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">37</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">GREEN</span><span class="p">)</span>
+<span class="linenos">40</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="linenos">41</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="linenos">44</span>    <span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition-investigate admonition">
+<p class="admonition-title">Investigate</p>
+<ul class="simple">
+<li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p></li>
+<li><p><strong>line 10</strong> → initialised the hub</p></li>
+<li><p><strong>lines 13 - 15</strong> → initialises the drive base</p></li>
+<li><p><strong>line 18</strong> → creates a infinite loop</p></li>
+<li><p><strong>line 19</strong> → sets status light to white</p></li>
+<li><p><strong>line 20</strong> → sets drive base to drive straight</p></li>
+<li><p><strong>line 21</strong> →  waits half a second</p></li>
+<li><p><strong>line 23</strong> → sets status light to red</p></li>
+<li><p><strong>line 24</strong> → sets drive base to drive a left curve</p></li>
+<li><p><strong>line 25</strong> →  waits half a second</p></li>
+<li><p><strong>line 27</strong> → stops the drive base</p></li>
+<li><p><strong>line 28</strong> → waits a second</p></li>
+<li><p><strong>line 30</strong> → sets status light to white</p></li>
+<li><p><strong>line 31</strong> → sets drive base to drive straight</p></li>
+<li><p><strong>line 32</strong> →  waits half a second</p></li>
+<li><p><strong>line 34</strong> → sets status light to green</p></li>
+<li><p><strong>line 35</strong> → sets drive base to drive a right curve</p></li>
+<li><p><strong>line 36</strong> →  waits half a second</p></li>
+<li><p><strong>line 38</strong> → stops the drive base</p></li>
+<li><p><strong>line 39</strong> → waits a second</p></li>
+</ul>
+</div>
+<div class="caution admonition">
+<p class="admonition-title">Modify</p>
+<ul class="simple">
+<li><p>what is lowest turning value to provide the sharpest turn?</p></li>
+<li><p>can you make the robot drive backwards?</p></li>
+<li><p>what happens if you comment out all the <code class="docutils literal notranslate"><span class="pre">wait()</span></code> commands?</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="driving-fixed">
+<h2>Driving Fixed<a class="headerlink" href="#driving-fixed" title="Link to this heading">¶</a></h2>
+<section id="driving-fixed-functions">
+<h3>Driving Fixed Functions<a class="headerlink" href="#driving-fixed-functions" title="Link to this heading">¶</a></h3>
+<p>There are three different ways that you can program you drive base to drive a fixed amount:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.straight"><code class="docutils literal notranslate"><span class="pre">straight(distance,</span> <span class="pre">then=Stop.HOLD,</span> <span class="pre">wait=True)</span></code></a></strong> → Drives straight for a given distance (mm) and then stops.</p></li>
+<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.turn"><code class="docutils literal notranslate"><span class="pre">turn(angle,</span> <span class="pre">then=Stop.HOLD,</span> <span class="pre">wait=True)</span></code></a></strong> → Turns in place by a given angle and then stops.</p></li>
+<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.curve"><code class="docutils literal notranslate"><span class="pre">curve(radius,</span> <span class="pre">angle,</span> <span class="pre">then=Stop.HOLD,</span> <span class="pre">wait=True)</span></code></a></strong> → Drives an arc along a circle of a given radius (mm), by a given angle.</p></li>
+</ul>
+<p>There is also a function to change the setting used by the three functions above:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.settings"><code class="docutils literal notranslate"><span class="pre">settings(straight_speed,</span> <span class="pre">straight_acceleration,</span> <span class="pre">turn_rate,</span> <span class="pre">turn_acceleration)</span></code></a></strong> → Configures the speed and acceleration used by <code class="docutils literal notranslate"><span class="pre">straight()</span></code>, <code class="docutils literal notranslate"><span class="pre">turn()</span></code>, and <code class="docutils literal notranslate"><span class="pre">curve()</span></code></p></li>
+<li><p><strong><a class="reference external" href="https://docs.pybricks.com/en/stable/robotics.html#pybricks.robotics.DriveBase.settings"><code class="docutils literal notranslate"><span class="pre">settings()</span></code></a></strong> → If you give no arguments, this returns the current values as a tuple.</p></li>
+</ul>
+</section>
+<section id="driving-fixed-example">
+<h3>Driving Fixed Example<a class="headerlink" href="#driving-fixed-example" title="Link to this heading">¶</a></h3>
+<p>Use the code below to see these functions in use:</p>
+<ol class="arabic simple">
+<li><p><strong>Create</strong> a new file called <code class="docutils literal notranslate"><span class="pre">drive_base_fixed.py</span></code></p></li>
+<li><p><strong>Type</strong> the code below into the file</p></li>
+<li><p><strong>Predict</strong> what you think will happen.</p></li>
+<li><p><strong>Run</strong> your code</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.hubs</span><span class="w"> </span><span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.pupdevices</span><span class="w"> </span><span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.parameters</span><span class="w"> </span><span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 4</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.robotics</span><span class="w"> </span><span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 5</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># --- SETUP</span>
+<span class="linenos"> 8</span><span class="c1"># start components</span>
+<span class="linenos"> 9</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="n">left_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">E</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">COUNTERCLOCKWISE</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">right_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">F</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">CLOCKWISE</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">my_robot</span> <span class="o">=</span> <span class="n">DriveBase</span><span class="p">(</span><span class="n">left_motor</span><span class="p">,</span> <span class="n">right_motor</span><span class="p">,</span> <span class="n">wheel_diameter</span><span class="o">=</span><span class="mi">56</span><span class="p">,</span> <span class="n">axle_track</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="c1"># store variables</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="c1"># --- RUNNING</span>
+<span class="linenos">18</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">19</span>    <span class="c1"># read sensor data</span>
+<span class="linenos">20</span>    
+<span class="linenos">21</span>    <span class="c1"># process data</span>
+<span class="linenos">22</span>    
+<span class="linenos">23</span>    <span class="c1"># output data</span>
+<span class="linenos">24</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">YELLOW</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">settings</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="linenos">26</span>    <span class="nb">print</span><span class="p">(</span><span class="n">my_robot</span><span class="o">.</span><span class="n">settings</span><span class="p">())</span>
+<span class="linenos">27</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">straight</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="linenos">28</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">turn</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">29</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">curve</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">180</span><span class="p">)</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span>    <span class="n">hub</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">MAGENTA</span><span class="p">)</span>
+<span class="linenos">32</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">settings</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="linenos">33</span>    <span class="nb">print</span><span class="p">(</span><span class="n">my_robot</span><span class="o">.</span><span class="n">settings</span><span class="p">())</span>
+<span class="linenos">34</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">straight</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="linenos">35</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">turn</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="linenos">36</span>    <span class="n">my_robot</span><span class="o">.</span><span class="n">curve</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">180</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition-investigate admonition">
+<p class="admonition-title">Investigate</p>
+<ul class="simple">
+<li><p><strong>lines 3 - 7</strong> → imports all the Pybricks command for use with your robot</p></li>
+<li><p><strong>line 10</strong> → initialised the hub</p></li>
+<li><p><strong>lines 13 - 15</strong> → initialises the drive base</p></li>
+<li><p><strong>line 18</strong> → creates a infinite loop</p></li>
+<li><p><strong>line 19</strong> → sets status light to yellow</p></li>
+<li><p><strong>line 20</strong> → configures the drive base for:</p>
+<ul>
+<li><p>straight speed <code class="docutils literal notranslate"><span class="pre">200</span></code> mm/s</p></li>
+<li><p>straight_acceleration <code class="docutils literal notranslate"><span class="pre">200</span></code> mm/s<sup>2</sup></p></li>
+<li><p>turn rate <code class="docutils literal notranslate"><span class="pre">200</span></code> deg/s</p></li>
+<li><p>turn acceleration <code class="docutils literal notranslate"><span class="pre">200</span></code> deg/s<sup>2</sup></p></li>
+</ul>
+</li>
+<li><p><strong>line 21</strong> → prints current drive base configuration</p></li>
+<li><p><strong>line 22</strong> → drives the robot strait for 200mm</p></li>
+<li><p><strong>line 23</strong> → turns the robot in place for 90°</p></li>
+<li><p><strong>line 24</strong> → drives the robot in a 180° arc with a radius of 100mm</p></li>
+<li><p><strong>line 19</strong> → sets status light to magenta</p></li>
+<li><p><strong>line 20</strong> → configures the drive base for:</p>
+<ul>
+<li><p>straight speed <code class="docutils literal notranslate"><span class="pre">500</span></code> mm/s</p></li>
+<li><p>straight_acceleration <code class="docutils literal notranslate"><span class="pre">500</span></code> mm/s<sup>2</sup></p></li>
+<li><p>turn rate <code class="docutils literal notranslate"><span class="pre">500</span></code> deg/s</p></li>
+<li><p>turn acceleration <code class="docutils literal notranslate"><span class="pre">500</span></code> deg/s<sup>2</sup></p></li>
+</ul>
+</li>
+<li><p><strong>line 21</strong> → prints current drive base configuration</p></li>
+<li><p><strong>line 22</strong> → drives the robot strait for 200mm</p></li>
+<li><p><strong>line 23</strong> → turns the robot in place for 90°</p></li>
+<li><p><strong>line 24</strong> → drives the robot in a 180° arc with a radius of 100mm</p></li>
+</ul>
+</div>
+<div class="caution admonition">
+<p class="admonition-title">Modify</p>
+<ul class="simple">
+<li><p>what is the fastest effective values for straight speed, straight_acceleration, turn rate and turn acceleration?</p></li>
+<li><p>what is the slowest effective values for straight speed, straight_acceleration, turn rate and turn acceleration?</p></li>
+<li><p>what happens when you use negative values for straight speed, straight_acceleration, turn rate and turn acceleration?</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="calibration">
+<h2>Calibration<a class="headerlink" href="#calibration" title="Link to this heading">¶</a></h2>
+<p>The values you entered for <strong>wheel_diameter</strong> and the <strong>axle_track</strong> were estimates measured with a ruler.</p>
+<p>In practice, most wheels compress slightly under the weight of the robot. To verify, make your robot drive 1000 mm using <code class="docutils literal notranslate"><span class="pre">my_robot.straight(1000)</span></code> and measure how far it really travelled.</p>
+<p>Change the <code class="docutils literal notranslate"><span class="pre">DriveBase</span></code> values as follows:</p>
+<ul class="simple">
+<li><p>robot doesn’t drive far enough → decrease the <code class="docutils literal notranslate"><span class="pre">wheel_diameter</span></code> value slightly</p></li>
+<li><p>robot drives too far → increase the <code class="docutils literal notranslate"><span class="pre">wheel_diameter</span></code> value slightly.</p></li>
+</ul>
+<p>Motor shafts and axles bend slightly under the load of the robot, causing the ground contact point of the wheels to be closer to the midpoint of your robot. To verify, make your robot turn 720 degrees using my_robot.turn(720) and check that it is back in the same place.</p>
+<p>Change the <code class="docutils literal notranslate"><span class="pre">DriveBase</span></code> values as follows:</p>
+<ul class="simple">
+<li><p>robot doesn’t turns far enough → increase the <code class="docutils literal notranslate"><span class="pre">axle_track</span></code> value slightly.</p></li>
+<li><p>robot turns too far → decrease the <code class="docutils literal notranslate"><span class="pre">axle_track</span></code> value slightly.</p></li>
+</ul>
+<p>When making these adjustments, always adjust the wheel_diameter first, as done above. Be sure to test both turning and driving straight after you are done.</p>
+<p>Use the code below to calibrate your robot:</p>
+<ul class="simple">
+<li><p>press the <strong>left button</strong> to measure the wheel diameter</p></li>
+<li><p>press the <strong>right button</strong> to measure the axel track</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.hubs</span><span class="w"> </span><span class="kn">import</span> <span class="n">PrimeHub</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.pupdevices</span><span class="w"> </span><span class="kn">import</span> <span class="n">Motor</span><span class="p">,</span> <span class="n">ColorSensor</span><span class="p">,</span> <span class="n">UltrasonicSensor</span><span class="p">,</span> <span class="n">ForceSensor</span>
+<span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.parameters</span><span class="w"> </span><span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Port</span><span class="p">,</span> <span class="n">Side</span><span class="p">,</span> <span class="n">Stop</span>
+<span class="linenos"> 4</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.robotics</span><span class="w"> </span><span class="kn">import</span> <span class="n">DriveBase</span>
+<span class="linenos"> 5</span><span class="kn">from</span><span class="w"> </span><span class="nn">pybricks.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">wait</span><span class="p">,</span> <span class="n">StopWatch</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># --- SETUP</span>
+<span class="linenos"> 8</span><span class="c1"># start components</span>
+<span class="linenos"> 9</span><span class="n">hub</span> <span class="o">=</span> <span class="n">PrimeHub</span><span class="p">()</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="n">left_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">E</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">COUNTERCLOCKWISE</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">right_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">Port</span><span class="o">.</span><span class="n">F</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">CLOCKWISE</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">my_robot</span> <span class="o">=</span> <span class="n">DriveBase</span><span class="p">(</span><span class="n">left_motor</span><span class="p">,</span> <span class="n">right_motor</span><span class="p">,</span> <span class="n">wheel_diameter</span><span class="o">=</span><span class="mi">56</span><span class="p">,</span> <span class="n">axle_track</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="c1"># store variables</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="c1"># --- RUNNING</span>
+<span class="linenos">18</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">19</span>    <span class="c1"># read sensor data</span>
+<span class="linenos">20</span>    <span class="n">pressed</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">buttons</span><span class="o">.</span><span class="n">pressed</span><span class="p">()</span>
+<span class="linenos">21</span>    
+<span class="linenos">22</span>    <span class="c1"># process data</span>
+<span class="linenos">23</span>    
+<span class="linenos">24</span>    <span class="c1"># output data</span>
+<span class="linenos">25</span>    <span class="k">if</span> <span class="n">Button</span><span class="o">.</span><span class="n">LEFT</span> <span class="ow">in</span> <span class="n">pressed</span><span class="p">:</span>
+<span class="linenos">26</span>        <span class="c1"># wheel diameter test</span>
+<span class="linenos">27</span>        <span class="n">hub</span><span class="o">.</span><span class="n">speaker</span><span class="o">.</span><span class="n">beep</span><span class="p">()</span>
+<span class="linenos">28</span>        <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">29</span>        <span class="n">my_robot</span><span class="o">.</span><span class="n">straight</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">30</span>    <span class="k">elif</span> <span class="n">Button</span><span class="o">.</span><span class="n">RIGHT</span> <span class="ow">in</span> <span class="n">pressed</span><span class="p">:</span>
+<span class="linenos">31</span>        <span class="c1"># axel track test</span>
+<span class="linenos">32</span>        <span class="n">hub</span><span class="o">.</span><span class="n">speaker</span><span class="o">.</span><span class="n">beep</span><span class="p">()</span>
+<span class="linenos">33</span>        <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="linenos">34</span>        <span class="n">my_robot</span><span class="o">.</span><span class="n">turn</span><span class="p">(</span><span class="mi">720</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="important admonition">
+<p class="admonition-title">Modify</p>
+<p>Keep a record of your calibrated value for the wheel diameter and the axel track.</p>
+<p>These are the values you should use for all future robots.</p>
+</div>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="05_hub_input.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Hub Inputs</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="03_motors.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Motors</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Damien Murtagh
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/DamoM73/lego-spike-tutorials" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Drive Base</a><ul>
+<li><a class="reference internal" href="#setup">Setup</a></li>
+<li><a class="reference internal" href="#driving-forever">Driving Forever</a><ul>
+<li><a class="reference internal" href="#driving-forever-functions">Driving Forever Functions</a></li>
+<li><a class="reference internal" href="#driving-forever-examples">Driving Forever Examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#driving-fixed">Driving Fixed</a><ul>
+<li><a class="reference internal" href="#driving-fixed-functions">Driving Fixed Functions</a></li>
+<li><a class="reference internal" href="#driving-fixed-example">Driving Fixed Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#calibration">Calibration</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=a4664895"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    </body>
+</html>
