@@ -1,61 +1,49 @@
 # Setup
 
 ```{topic} In this lesson you will:
-- about the Pybricks IDE
+- learn about the Pybricks IDE
 - learn how to use Bluetooth to connect to your robot
 - run your first Spike Prime Python program to check your robot configuration
 ```
 
 ![Technology used](assets/Logos.png)
 
-In this course you will be using three integrated technologies.
+In this course you will use three technologies that work together:
 
-- **LEGO Spike Prime**: the hardware ie. the robot components. 
-- **Pybricks**: the software, both the software running on the robot, and the IDE
-- **Python**: the language you will be programming in. 
-
-These all work together seamlessly, so you will barely recognise that you are using different technologies.
+- **LEGO Spike Prime**: the robot hardware
+- **Pybricks**: the software that runs on the robot and the IDE you use to program it
+- **Python**: the programming language you will write
 
 ```{admonition} Pybricks
 :class: note
-Pybricks is in OpenSource Python platform for smart LEGO hubs.
-
-We have replaced the standard LEGO Spike firmware (the code that runs the robot) with Pybricks' firmware. The advantage is that Pybricks is better at running Python. The disadvantage is that you can no longer use the LEGO Spike App to program the robot.
+We have replaced the standard LEGO Spike firmware with Pybricks firmware because it runs Python better. The trade-off is that you can no longer use the LEGO Spike App to program the robot.
 ```
 
 ```{admonition} Firmware
 :class: note
-Firmware is like a robot's brain – it's the special software that's permanently inside a device, making sure it works the right way every time you use it.
+Firmware is like a robot's brain — special software built into the device that makes it work correctly every time you turn it on.
 ```
 
 ## Pybricks IDE
 
-You will be using the Pybricks IDE to program the robot. You can use the IDE in the browser or you can install it as an app on your computer. either will work fine.
-
-To access the Pybricks IDE go to:
+The Pybricks IDE is where you will write and run your programs. You can use it in a browser or install it as an app — either works fine.
 
 **[https://code.pybricks.com/](https://code.pybricks.com/)**
 
-If this is the first time you have visited code.pybricks.com you should be offered to take a **Welcome Tour**, go ahead an take it (if this option didn't show up, just click on the link on the lefthand menu).
-
-Since your robot already has the Pybricks Firmware installed, you can go strait to connecting to the robot.
+If this is your first visit, take the **Welcome Tour** when prompted. If it doesn't appear, click the link in the left-hand menu.
 
 ## Connect Robot
 
-You can connect to the robot by either using a USB cable or Bluetooth. Bluetooth is more convenient, so you will use that.
-
-To connect using Bluetooth:
-
-1. press and hold the power button on the robot (the big one)
-2. the hub should light up nine squares and the power button should be flashing blue.
-3. Click the **Bluetooth button** on the Pybricks IDE
-4. Choose your robot name from the pop-up list (the name is on the front of your robot)
+1. Press and hold the power button on the hub (the big centre button)
+2. The hub should light up nine squares and the power button should flash blue
+3. Click the **Bluetooth button** in the Pybricks IDE
+4. Choose your robot's name from the pop-up list (the name is on the front of the robot)
 5. Click **Pair**
-6. the hub power button should be solid blue, indicating a successful connection
+6. The power button should turn solid blue — you're connected!
 
 ## Check Configuration
 
-Your robot has three sensors devices and two motors devices connected. 
+Your robot has three sensors and two motors connected to specific ports. The code you are about to run will confirm everything is plugged into the right place.
 
 | Device | Port | Purpose | Image |
 | --- | --- | --- | --- |
@@ -64,12 +52,12 @@ Your robot has three sensors devices and two motors devices connected.
 | Colour Sensor | D | Detect the colour of an object, or the amount of light reflected | ![Colour Sensor](assets/colour.png) |
 | Motor | E F | Turns in response to commands from hub | ![Motor Sensor](assets/motor.png)
 
-To successfully follow these tutorials, you need to make sure that they are all connected to the correct hub ports. To do this you will run your first program. 
+### Run the check
 
-1. In the Pybricks IDE **Create a new file**  and choose the Prime Hub icon
-2. Called the file `check_config.py`
-3. **Copy** and **paste** the code below
-4. **Run** the code
+1. In the Pybricks IDE, click **Create a new file** and choose the Prime Hub icon
+2. Name the file `check_config.py`
+3. Copy and paste the code below
+4. Click the **Run** button (the green play button)
 
 ```{literalinclude} ./python_files/check_config.py
 :linenos:
@@ -83,45 +71,37 @@ What you need to check is the output in the terminal (the panel at the bottom of
 
 ```
 Hub configuration
-Port.A :  SPIKE Medium Angular Motor
-Port.B :  SPIKE Medium Angular Motor
+Port.E :  SPIKE Medium Angular Motor
+Port.F :  SPIKE Medium Angular Motor
 Port.C :  SPIKE Ultrasonic Sensor
 Port.D :  SPIKE Color Sensor
-Port.F :  SPIKE Force Sensor
+Port.B :  SPIKE Force Sensor
 ```
 
-If it is the same, this means the ports are connected to the correct devices. If not, you will need to rearrange the cables so they are plugged into the correct ports.
+If anything is different, unplug and move the cables until each device is in its correct port.
 
 ### Checking the motors
 
-Since there is two motors in **Port A** and **Port B** you need check that the correct motors are in the correct ports. 
+The robot should turn 360° **clockwise**. If it turns **counter-clockwise**, swap the cables in **Port E** and **Port F**.
 
-- left motor &rarr; **Port A**
-- right motor &rarr; **Port B**
-
-If the motors are in the correct ports, the robot should turn 360&deg; in a **clockwise direction**.
-
-If the robot turned in a **counter-clockwise direction**,  switch the cables in **Port A** and **Port B**.
+- left motor → **Port E**
+- right motor → **Port F**
 
 ## Start Exploring
 
-Your robot and computer are now setup but before you start exploring, some points about using this website.
+You're all set up! Keep these tips in mind as you work through the tutorials:
 
-1. **Type the code** - while it is easy to just cut and paste, typing the code will help you remember and understand what it is doing.
-2. **Use PRIMM** - anticipating what code will do before running it, and then playing around with the code to see what it will do are two powerful ways to improving your understanding. These tutorials encourage you to use the PRIMM model to really enhance your learning. Details of the PRIMM model are below.
-3. **Read the text** - other than the code, there is a heap of useful information on this website. Check out the callout boxes (like the PRIMM one below) they normally explain coding concepts and practices. Read the investigations after the code blocks, especially if you don't know what specific line does.
-4. **Remix and build** - staying with the LEGO theme, these tutorials will provide you with heaps of little code building blocks. Play with them, mash them together to produce other things, break them into smaller parts. Use the code the same you would use LEGO.
+1. **Type the code** — it's tempting to copy and paste, but typing helps it stick.
+2. **Use PRIMM** — predict what the code will do before you run it, then investigate and modify it.
+3. **Read the callout boxes** — they explain key concepts and coding practices.
+4. **Remix and build** — treat the code like LEGO. Break it apart, mash pieces together, and make something new.
 
 ```{admonition} PRIMM
-Throughout this course we will use the **PRIMM** process to reinforce our learning. **PRIMM** stands for **Predict**, **Run**, **Investigate**, **Modify**, and **Make**. It reflects effective programming practices and encourages curiosity in programming.
+Throughout this course we use the **PRIMM** process: **Predict**, **Run**, **Investigate**, **Modify**, **Make**.
 
-**Predict**: Before you run the code you need to predict what you think will happen. Go ahead and have a guess at what you think will happen.
-
-**Run**: Then run the program and see how accurate your prediction was. If your prediction was incorrect, how was the result different?
-
-**Investigate**: Go through the code and work out what each line of code does.
-
-**Modify**: Edit the code. Change it around and see that results your get
-
-**Make**: Use your new understanding of the code to make a different program.
+- **Predict**: What do you think the code will do before you run it?
+- **Run**: Run it and compare to your prediction.
+- **Investigate**: Go through the code line by line — what does each part do?
+- **Modify**: Change something and see what happens.
+- **Make**: Use what you've learned to build something new.
 ```
