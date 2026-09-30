@@ -1,5 +1,11 @@
 # Setup
 
+!!! learn "On this page we will learn"
+    - what LEGO SPIKE Prime, Pybricks and Python each do
+    - how to connect the robot to the Pybricks app
+    - how to create and run a program
+    - how to check the robot is built and configured correctly
+
 In this course we will program a LEGO SPIKE Prime robot in Python. This page shows how to set up Pybricks, connect the robot, create and run a program, and check the robot is built correctly.
 
 ![Technology used](../assets/Logos.png)

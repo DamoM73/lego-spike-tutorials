@@ -1,5 +1,11 @@
 # Developing Robot Code
 
+!!! learn "On this page we will learn"
+    - how to plan a robot project before coding it
+    - how to identify requirements and create an IPO table
+    - how to draw a flowchart and write pseudocode
+    - how to build, test and extend the program one step at a time
+
 Before we write code for a robot project, we plan it. In this project we'll plan and build a robot that drives around the room at random without running into anything, using four planning steps: requirements, an IPO table, a flowchart and pseudocode.
 
 !!! tip "Scenario"

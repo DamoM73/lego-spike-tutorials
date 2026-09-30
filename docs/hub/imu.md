@@ -1,5 +1,11 @@
 # IMU
 
+!!! learn "On this page we will learn"
+    - what the IMU is and what it can sense
+    - how to find which side of the hub is facing up
+    - how to measure how much the hub is tilted
+    - how to measure and reset how far the hub has turned
+
 The hub has an **IMU** (inertial measurement unit) inside it. The IMU senses how the hub is moving and which way it is facing, so our programs can tell which side is up, how much it is tilted and how far it has turned.
 
 Possible uses:

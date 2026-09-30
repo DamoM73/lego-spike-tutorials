@@ -1,5 +1,10 @@
 # Speaker
 
+!!! learn "On this page we will learn"
+    - how to set the speaker's volume
+    - how to play beeps
+    - how to play a tune made of musical notes
+
 The hub has a small built-in speaker. We can set its volume, play beeps and play tunes made of musical notes.
 
 Possible uses:

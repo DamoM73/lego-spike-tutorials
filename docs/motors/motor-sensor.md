@@ -1,5 +1,11 @@
 # Motor as a Sensor
 
+!!! learn "On this page we will learn"
+    - how a motor's encoder lets it act as a sensor
+    - how to read and reset a motor's angle
+    - how to read a motor's speed and load
+    - how to tell when a motor has stalled
+
 Each motor has a built-in **encoder** that counts how far it has turned (see [Motor](motor.md)). This means a motor can also be a sensor: it can tell us its angle and speed, how hard it is working, and whether something has stopped it.
 
 Possible uses:

@@ -1,5 +1,11 @@
 # Driving
 
+!!! learn "On this page we will learn"
+    - what a drive base is and why we use one
+    - how to drive forever and stop
+    - how to drive straight, turn and drive in an arc
+    - how to change how fast the robot drives and turns
+
 A **drive base** joins the two wheel motors together so we can control the whole robot instead of each motor. We tell the robot to drive 300 mm or turn 90°, and Pybricks works out what each motor needs to do.
 
 Possible uses:

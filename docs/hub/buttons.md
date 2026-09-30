@@ -1,5 +1,9 @@
 # Buttons
 
+!!! learn "On this page we will learn"
+    - how to check which hub buttons are being pressed
+    - how to use `pressed()` to make the robot react to a button
+
 The hub has four buttons: **left**, **right**, **centre** and **Bluetooth**. Our programs can check which buttons are being pressed.
 
 Possible uses:

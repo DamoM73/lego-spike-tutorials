@@ -1,5 +1,11 @@
 # Distance Sensor
 
+!!! learn "On this page we will learn"
+    - how the distance sensor uses ultrasound
+    - how to measure the distance to an object
+    - how to detect other ultrasonic sensors nearby
+    - how to turn the sensor's lights on and off
+
 The distance sensor measures how far away an object is using **ultrasound**, sound too high-pitched for people to hear. It sends out a sound wave from one "eye", listens for the echo with the other, and uses the time the echo takes to work out the distance. The four lights around its eyes can also be turned on.
 
 Possible uses:

@@ -1,5 +1,10 @@
 # Status Light
 
+!!! learn "On this page we will learn"
+    - how to turn the status light on in different colours
+    - how to turn it off
+    - how to blink it and cycle through colours
+
 The status light is the coloured light around the hub's power button. We can turn it on in different colours, blink it and cycle through colours.
 
 Possible uses:

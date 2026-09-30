@@ -1,5 +1,10 @@
 # Motor
 
+!!! learn "On this page we will learn"
+    - how to run a motor and stop it in different ways
+    - the difference between `stop()`, `brake()` and `hold()`
+    - how to run a motor for a set time or angle, or to a target angle
+
 Our robot has two SPIKE Medium Angular Motors, one for each wheel. We can control each motor on its own: run it forever, stop it in different ways, or move it for a set time or angle.
 
 Possible uses:

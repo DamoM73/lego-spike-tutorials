@@ -1,5 +1,11 @@
 # Flowcharts
 
+!!! learn "On this page we will learn"
+    - what a flowchart is and why we use one
+    - what each flowchart symbol means
+    - the rules for arrows going in and out of each symbol
+    - how to read a complete flowchart
+
 A **flowchart** is a diagram that uses shapes and arrows to show the steps in a process. In programming, we use flowcharts to plan **algorithms**, the step-by-step methods our programs follow.
 
 ## Symbols

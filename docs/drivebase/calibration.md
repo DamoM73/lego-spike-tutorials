@@ -1,5 +1,11 @@
 # Calibration
 
+!!! learn "On this page we will learn"
+    - why a drive base needs calibrating
+    - how to calibrate the wheel diameter
+    - how to calibrate the axle track
+    - how to record the calibrated values
+
 The `wheel_diameter` and `axle_track` values in our drive base were measured with a ruler, so they are only close. **Calibration** means testing the robot and adjusting these values until it drives and turns accurately.
 
 ## Why calibrate?

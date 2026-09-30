@@ -1,5 +1,10 @@
 # Program Structure
 
+!!! learn "On this page we will learn"
+    - what event-driven programming is
+    - why every program has a setup section and a main loop
+    - how to organise a program into input, process and output
+
 Every robot program on this site has the same structure: a **setup** section that runs once, followed by a **main loop** that runs over and over. Once we know this structure, we can read any example and know where to add our own code.
 
 ## Event-driven programming

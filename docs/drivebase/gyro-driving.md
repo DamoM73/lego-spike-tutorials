@@ -1,5 +1,11 @@
 # Gyro Driving
 
+!!! learn "On this page we will learn"
+    - why counting wheel turns makes the robot drift
+    - how to use the gyro to turn more accurately
+    - how to hold a heading so the robot drives straight
+    - how to face the direction the robot started in
+
 On the [Driving](driving.md) page, the robot works out how far it has turned by counting how far each wheel has turned. On this page we'll use the hub's **gyro** (part of the [IMU](../hub/imu.md)) instead, so the robot drives straighter and turns more accurately.
 
 ## Why wheel counting drifts

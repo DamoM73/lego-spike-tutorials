@@ -1,5 +1,10 @@
 # Force Sensor
 
+!!! learn "On this page we will learn"
+    - how to measure how hard the force sensor is pressed
+    - how to measure how far the button has moved in
+    - how to tell whether the sensor is touched or pressed
+
 The force sensor is like a button that can also measure how hard it is being pressed. We press the black button on its front, and the sensor tells us whether it is touched or pressed, how much force is on it and how far the button has moved in.
 
 Possible uses:

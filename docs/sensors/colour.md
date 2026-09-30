@@ -1,5 +1,11 @@
 # Colour Sensor
 
+!!! learn "On this page we will learn"
+    - how to detect the colour of a surface
+    - how to measure reflected light and room brightness
+    - how to choose which colours the sensor looks for
+    - how to turn the sensor's lights on and off
+
 The colour sensor detects the colour of a surface, how much light a surface reflects, and how bright the room is. It has its own lights, so it can light up a surface to measure it.
 
 Possible uses:

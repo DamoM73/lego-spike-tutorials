@@ -1,5 +1,11 @@
 # Light Matrix
 
+!!! learn "On this page we will learn"
+    - how to light up single pixels on the light matrix
+    - how to show icons, numbers and letters
+    - how to scroll text and play animations
+    - how to change which way the display faces
+
 The light matrix is the 5×5 grid of lights on the front of the hub. We can light up single pixels, show icons, numbers and letters, and scroll text.
 
 Possible uses:
