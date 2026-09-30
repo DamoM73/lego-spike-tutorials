@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git update-index *)",
+      "Bash(echo \"exit $?\")",
+      "Bash(git hash-object *)",
+      "Bash(git config *)",
+      "Bash(curl -sfL https://www.gnu.org/licenses/gpl-3.0.txt -o LICENSE)",
+      "Bash(sed -i 's/^us = r\"\\\\\\\\b\\(/us = r\"\\\\\\\\b\\(\\\\\\\\w+i[sz]ation|\\\\\\\\w{3,}iz\\(e|es|ed|ing\\)|\\\\\\\\w+yz\\(e|ed|es|ing\\)|\\\\\\\\w+or\\(?=\\\\\\\\b\\)\\(?<=\\(?:vapor|rumor|humor|armor|valor|vigor|odor|tumor|harbor|parlor|splendor\\)\\)|/' /c/Users/DamoM/AppData/Local/Temp/claude/d--GIT-lego-spike-tutorials/6ab44a8d-85af-45e0-9e15-7199d131b524/scratchpad/spell.py)",
+      "Bash(PYTHONIOENCODING=utf-8 .venv/Scripts/python /c/Users/DamoM/AppData/Local/Temp/claude/d--GIT-lego-spike-tutorials/6ab44a8d-85af-45e0-9e15-7199d131b524/scratchpad/spell.py)",
+      "Bash(.venv/Scripts/python -c \"import spellchecker\")",
+      "Bash(.venv/Scripts/python -m pip install -q --target /c/Users/DamoM/AppData/Local/Temp/claude/d--GIT-lego-spike-tutorials/6ab44a8d-85af-45e0-9e15-7199d131b524/scratchpad/pylib codespell)",
+      "Bash(git add *)",
+      "Bash(awk '{print $1}')",
+      "Bash(git restore *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git fetch *)",
+      "Bash(git ls-remote *)",
+      "Bash(gh api *)",
+      "Bash(git tag *)",
+      "Bash(git checkout *)",
+      "Bash(git merge *)",
+      "Bash(gh run *)",
+      "Bash(curl -sL -w '%{http_code} %{content_type} %{size_download} bytes\\\\n' -o /c/Users/DamoM/AppData/Local/Temp/claude/d--GIT-lego-spike-tutorials/6ab44a8d-85af-45e0-9e15-7199d131b524/scratchpad/live.zip https://damom73.github.io/lego-spike-tutorials/downloads/lego_spike_tutorials.zip)",
+      "Bash(D:/GIT/lego-spike-tutorials/.venv/Scripts/python -c 'import zipfile,sys; z=zipfile.ZipFile\\(sys.argv[1]\\); n=[i for i in z.namelist\\(\\) if i.endswith\\('\\\\''.py'\\\\''\\)]; print\\(len\\(n\\),'\\\\''programs, test:'\\\\'', z.testzip\\(\\) or '\\\\''OK'\\\\''\\)' /c/Users/DamoM/AppData/Local/Temp/claude/d--GIT-lego-spike-tutorials/6ab44a8d-85af-45e0-9e15-7199d131b524/scratchpad/live.zip)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} old Sphinx URL /01_setup.html\\\\n\" https://damom73.github.io/lego-spike-tutorials/01_setup.html)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} live site\\\\n\" https://damom73.github.io/lego-spike-tutorials/)"
+    ]
+  }
+}
