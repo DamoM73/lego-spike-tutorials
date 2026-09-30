@@ -1,0 +1,15 @@
+from pybricks.hubs import PrimeHub
+from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
+from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
+from pybricks.robotics import DriveBase
+from pybricks.tools import wait, StopWatch
+
+# Setup
+hub = PrimeHub()
+left_motor = Motor(Port.E, Direction.COUNTERCLOCKWISE)
+left_motor.run_target(500, 0)
+
+# Main loop
+while True:
+    wait(1000)
+    left_motor.run_angle(500, 6)

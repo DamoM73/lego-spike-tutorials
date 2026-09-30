@@ -1,0 +1,129 @@
+/* ------------------------------------------------------------------
+   Site colour scheme (from the LEGO Education SPIKE Prime Element Overview)
+   lego magenta  #923978  top bar, tabs, links, headings (light mode)
+   magenta tint  #d46aa8  links (dark mode)
+   lego green    #00852b  Code explanation (note) callouts (light mode)
+   green tint    #4cb86b  Code explanation (note) callouts (dark mode)
+   spike teal    #0ab8d3  PRIMM callouts
+   lego yellow   #ffcf00  active tab, headings (dark mode), tip callouts
+   red tint      #ee4b52  warning callouts (a lighter tint of LEGO red #e3000b)
+   ------------------------------------------------------------------ */
+:root {
+  --lego-magenta: #923978;
+  --magenta-tint: #d46aa8;
+  --spike-teal: #0ab8d3;
+  --lego-yellow: #ffcf00;
+  --red-tint: #ee4b52;
+  --lego-green: #00852b;
+  --green-tint: #4cb86b;
+}
+
+/* Light mode */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--lego-magenta);
+  --md-primary-fg-color--light: #a85a91;
+  --md-primary-fg-color--dark: #6e2a5a;
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: var(--lego-magenta);
+  --md-typeset-a-color: var(--lego-magenta);
+  --heading-colour: var(--lego-magenta);
+  --note-colour: var(--lego-green);
+  --warning-colour: var(--red-tint);
+}
+
+/* Dark mode */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: var(--lego-magenta);
+  --md-primary-fg-color--light: #a85a91;
+  --md-primary-fg-color--dark: #6e2a5a;
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: var(--lego-yellow);
+  --md-typeset-a-color: var(--magenta-tint);
+  --heading-colour: var(--lego-yellow);
+  --note-colour: var(--green-tint);
+  --warning-colour: var(--red-tint);
+}
+
+/* Headings, including code inside headings */
+.md-typeset h1, .md-typeset h2, .md-typeset h3,
+.md-typeset h4, .md-typeset h5, .md-typeset h6,
+.md-typeset h1 code, .md-typeset h2 code, .md-typeset h3 code,
+.md-typeset h4 code, .md-typeset h5 code, .md-typeset h6 code {
+  color: var(--heading-colour);
+}
+
+/* Callout colours: each type gets a border, a light tint and a coloured icon */
+.md-typeset .admonition.primm, .md-typeset details.primm { --callout: var(--spike-teal); }
+.md-typeset .admonition.note,  .md-typeset details.note  { --callout: var(--note-colour); }
+.md-typeset .admonition.tip,   .md-typeset details.tip   { --callout: var(--lego-yellow); }
+.md-typeset .admonition.warning, .md-typeset details.warning { --callout: var(--warning-colour); }
+
+.md-typeset :is(.admonition, details):is(.primm, .note, .tip, .warning) {
+  border-color: var(--callout);
+  background-color: color-mix(in srgb, var(--callout) 12%, transparent);
+}
+
+.md-typeset :is(.admonition, details):is(.primm, .note, .tip, .warning):focus-within {
+  box-shadow: 0 0 0 .2rem color-mix(in srgb, var(--callout) 12%, transparent);
+}
+
+.md-typeset :is(.primm, .note, .tip, .warning) > :is(.admonition-title, summary) {
+  background-color: transparent;
+}
+
+.md-typeset :is(.primm, .note, .tip, .warning) > :is(.admonition-title, summary)::before {
+  background-color: var(--callout);
+}
+
+.md-typeset :is(.primm, .note, .tip, .warning) > :is(.admonition-title, summary)::after {
+  color: var(--callout);
+}
+
+/* PRIMM uses the question-mark icon */
+.md-typeset .primm > :is(.admonition-title, summary)::before {
+  -webkit-mask-image: var(--md-admonition-icon--question);
+  mask-image: var(--md-admonition-icon--question);
+}
+
+/* Magenta top bar and section tabs */
+.md-header,
+.md-tabs {
+  background-color: var(--lego-magenta);
+  color: #ffffff;
+}
+
+.md-header :is(.md-header__title, .md-header__button, .md-source),
+.md-tabs .md-tabs__link {
+  color: #ffffff;
+}
+
+.md-tabs .md-tabs__link:hover,
+.md-tabs .md-tabs__item--active .md-tabs__link {
+  color: var(--lego-yellow);
+}
+
+/* Current page in the side navigation */
+.md-nav__link--active,
+.md-nav__item .md-nav__link--active {
+  color: var(--md-typeset-a-color);
+  font-weight: 700;
+}
+
+/* White search box in the top bar (light and dark mode) */
+.md-header .md-search__button,
+.md-header .md-search__button:focus,
+.md-header .md-search__button:hover {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* Magnifying-glass icon */
+.md-header .md-search__button::before {
+  background-color: #333333;
+}
+
+/* "Ctrl+K" shortcut badge */
+.md-header .md-search__button::after {
+  color: #333333;
+  background-color: #eeeeee;
+}

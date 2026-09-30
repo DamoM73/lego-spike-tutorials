@@ -1,0 +1,104 @@
+[project]
+site_name = "Lego Spike Python Coding"
+site_description = "Pybricks Python tutorials for the LEGO SPIKE Prime robot"
+site_author = "Damien Murtagh"
+site_url = "https://damom73.github.io/lego-spike-tutorials/"
+repo_url = "https://github.com/damom73/lego-spike-tutorials"
+repo_name = "damom73/lego-spike-tutorials"
+copyright = "Content licensed under CC BY-NC-SA 4.0. Code licensed under GPLv3."
+docs_dir = "docs"
+extra_css = ["stylesheets/extra.css"]
+
+nav = [
+  { "Home" = "index.md" },
+  { "Getting Started" = [
+    { "Setup" = "start/setup.md" },
+    { "Program Structure" = "start/program-structure.md" },
+  ] },
+  { "Hub" = [
+    { "Status Light" = "hub/status-light.md" },
+    { "Light Matrix" = "hub/light-matrix.md" },
+    { "Speaker" = "hub/speaker.md" },
+    { "Buttons" = "hub/buttons.md" },
+    { "IMU" = "hub/imu.md" },
+  ] },
+  { "Motors" = [
+    { "Motor" = "motors/motor.md" },
+    { "Motor as a Sensor" = "motors/motor-sensor.md" },
+  ] },
+  { "Drive Base" = [
+    { "Driving" = "drivebase/driving.md" },
+    { "Drive Base as a Sensor" = "drivebase/drivebase-sensor.md" },
+    { "Calibration" = "drivebase/calibration.md" },
+    { "Gyro Driving" = "drivebase/gyro-driving.md" },
+  ] },
+  { "Sensors" = [
+    { "Force Sensor" = "sensors/force.md" },
+    { "Colour Sensor" = "sensors/colour.md" },
+    { "Distance Sensor" = "sensors/distance.md" },
+  ] },
+  { "Planning" = [
+    { "Developing Robot Code" = "planning/developing-code.md" },
+    { "Flowcharts" = "planning/flowcharts.md" },
+  ] },
+  { "Reference" = [
+    { "Examples" = "reference/examples.md" },
+    { "Exercise Solutions" = "reference/solutions.md" },
+    { "Licence" = "reference/licence.md" },
+  ] },
+]
+
+[project.theme]
+language = "en"
+logo = "assets/spike_logo.png"
+favicon = "assets/spike_logo.ico"
+features = [
+  "content.code.copy",
+  "content.code.select",
+  "navigation.footer",
+  "navigation.indexes",
+  "navigation.instant",
+  "navigation.path",
+  "navigation.sections",
+  "navigation.tabs",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+]
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+toggle.icon = "lucide/sun-moon"
+toggle.name = "Switch to light mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "custom"
+accent = "custom"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "custom"
+accent = "custom"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to system preference"
+
+[project.markdown_extensions]
+admonition = {}
+attr_list = {}
+md_in_html = {}
+tables = {}
+toc.permalink = true
+pymdownx.details = {}
+pymdownx.highlight.anchor_linenums = true
+pymdownx.highlight.line_spans = "__span"
+pymdownx.highlight.pygments_lang_class = true
+pymdownx.inlinehilite = {}
+pymdownx.keys = {}
+pymdownx.snippets.base_path = ["docs"]
+pymdownx.snippets.check_paths = true
+pymdownx.superfences = {}
