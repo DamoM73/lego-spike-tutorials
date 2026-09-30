@@ -19,7 +19,7 @@ Possible uses:
 
 ![Angular motors](../assets/pupmotors.png)
 
-!!! note "Angular motors and DC motors"
+!!! tip "Angular motors and DC motors"
     The SPIKE Prime motors are called **angular motors** because they can turn an exact number of degrees. They can do this because they have a built-in sensor called an **encoder**, which counts how many degrees the motor has turned.
 
     Motors without encoders are called **DC motors**. We can only turn them on and off, and set their power.
@@ -272,7 +272,7 @@ Turns the motor to a target angle as fast as it can, without speeding up and slo
     - `run_target()` → turn **to** a position, such as "point the arm straight up".
     - `track_target()` → keep following a position that changes all the time.
 
-!!! note "Waiting for the motor"
+!!! tip "Waiting for the motor"
     `run_time()`, `run_angle()` and `run_target()` have a `wait` parameter. It is `True` unless we change it, which means the program waits for the motor to finish before running the next line. To start two motors at the same time, we give the first one `wait=False`:
 
     ```python

@@ -2,7 +2,7 @@
 
 Before we write code for a robot project, we plan it. In this project we'll plan and build a robot that drives around the room at random without running into anything, using four planning steps: requirements, an IPO table, a flowchart and pseudocode.
 
-!!! note "Scenario"
+!!! tip "Scenario"
     Make your robot move randomly around the room while avoiding running into anything.
 
 ## What you need

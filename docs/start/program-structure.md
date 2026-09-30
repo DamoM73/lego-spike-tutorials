@@ -9,7 +9,7 @@ Robots need to respond to the world around them. A robot doesn't know when a but
 - **Setup** → prepares the robot for the main loop. It creates the hub, motors and sensors, and any variables the main loop will use. Setup **only runs once**.
 - **Main loop** → where the robot waits for things to happen and then reacts to them. We say the robot **listens for events** and then **handles** them. The main loop keeps running until we stop the program.
 
-!!! note "The party analogy"
+!!! tip "The party analogy"
     Think of event-driven programming like holding a birthday party.
 
     First we set everything up. We buy the food and drinks, decorate the room and make a playlist. Each of these is done once. This is the **setup** phase.

@@ -10,10 +10,10 @@ We will use three technologies that work together:
 - **Pybricks** → the software that runs on the robot, and the app we use to program it
 - **Python** → the programming language we will write
 
-!!! note "Pybricks"
+!!! tip "Pybricks"
     We have replaced the standard LEGO SPIKE **firmware** with Pybricks firmware because it runs Python better. The trade-off is that we can no longer use the LEGO SPIKE App to program the robot.
 
-!!! note "Firmware"
+!!! tip "Firmware"
     **Firmware** is like a robot's brain. It is special software built into the device that makes it work correctly every time we turn it on.
 
 ## Pybricks IDE

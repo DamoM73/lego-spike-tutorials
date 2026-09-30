@@ -18,7 +18,7 @@ Possible uses:
 - **Positive** distances and speeds drive **forwards**. Negative drives backwards.
 - **Positive** angles turn **right** (clockwise). Negative turns left.
 
-!!! note "Motor angles and drive base angles"
+!!! tip "Motor angles and drive base angles"
     On the [Motor](../motors/motor.md) page, an angle is how far one **wheel** turns. 180° turns the wheel half a rotation.
 
     On a drive base, an angle is how far the **whole robot** turns. 180° makes the robot face the opposite way.
