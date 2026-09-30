@@ -165,3 +165,123 @@ The wheels turn one after the other. `run_angle()` waits until the motor has fin
 ```python linenums="1"
 --8<-- "solutions/motors/motor_sensor/ex3_bump_reverse.py"
 ```
+
+## Driving
+
+### Exercise 1
+
+```python linenums="1"
+--8<-- "solutions/drivebase/driving/ex1_square.py"
+```
+
+### Exercise 2
+
+```python linenums="1"
+--8<-- "solutions/drivebase/driving/ex2_figure_eight.py"
+```
+
+### Exercise 3
+
+With a turn rate of `90` the robot drives in a circle to the right, and with `-90` it drives in a circle to the left. With `360` it turns much faster, so the circle is much smaller. The turn rate is how many degrees the robot turns each second while it drives forwards, so a bigger turn rate means a tighter circle, and the sign chooses right or left.
+
+### Exercise 4
+
+```python linenums="1"
+--8<-- "solutions/drivebase/driving/ex4_slow_fast.py"
+```
+
+## Drive Base as a Sensor
+
+### Exercise 1
+
+```python linenums="1"
+--8<-- "solutions/drivebase/drivebase_sensor/ex1_tape_measure.py"
+```
+
+### Exercise 2
+
+```python linenums="1"
+--8<-- "solutions/drivebase/drivebase_sensor/ex2_stop_at_500.py"
+```
+
+### Exercise 3
+
+```python linenums="1"
+--8<-- "solutions/drivebase/drivebase_sensor/ex3_protractor.py"
+```
+
+## Gyro Driving
+
+### Exercise 1
+
+```python linenums="1"
+--8<-- "solutions/drivebase/gyro_driving/ex1_triangle.py"
+```
+
+### Exercise 2
+
+```python linenums="1"
+--8<-- "solutions/drivebase/gyro_driving/ex2_there_and_back.py"
+```
+
+### Exercise 3
+
+The square with the gyro usually finishes much closer to the start. On a slippery surface the wheels slip during turns, so the wheels turn the right amount but the robot doesn't. Wheel counting can't detect this, so each turn is a bit short or long and the errors add up. The gyro measures how far the robot actually turned, so it keeps turning until the robot really has turned 90°.
+
+## Force Sensor
+
+### Exercise 1
+
+```python linenums="1"
+--8<-- "solutions/sensors/force/ex1_force_meter.py"
+```
+
+### Exercise 2
+
+```python linenums="1"
+--8<-- "solutions/sensors/force/ex2_start_button.py"
+```
+
+### Exercise 3
+
+With a threshold of `0`, the light is on all the time, because the force is always at least 0 N, even when nothing is touching the button. With `15`, the light never turns on, because the sensor can only measure up to about 10 N, so the force can never reach 15 N. The threshold needs to be between these values for `pressed()` to be useful.
+
+## Colour Sensor
+
+### Exercise 1
+
+```python linenums="1"
+--8<-- "solutions/sensors/colour/ex1_colour_match.py"
+```
+
+### Exercise 2
+
+```python linenums="1"
+--8<-- "solutions/sensors/colour/ex2_night_light.py"
+```
+
+### Exercise 3
+
+```python linenums="1"
+--8<-- "solutions/sensors/colour/ex3_stop_on_line.py"
+```
+
+The threshold of `20` is an example. Measure the reflection of the black line and of the mat, and choose a number about halfway between them.
+
+## Distance Sensor
+
+### Exercise 1
+
+```python linenums="1"
+--8<-- "solutions/sensors/distance/ex1_parking_sensor.py"
+```
+
+### Exercise 2
+
+```python linenums="1"
+--8<-- "solutions/sensors/distance/ex2_stop_before_wall.py"
+```
+
+### Exercise 3
+
+The exact numbers depend on the sensor, but readings usually become unreliable closer than a few centimetres and further than about 2 metres, where the sensor returns `2000`. A jumper absorbs much of the sound, so the echo is too weak and the reading may jump around or show `2000`. A wall at an angle reflects the sound away from the sensor, like a ball bouncing off at an angle, so the echo doesn't come back to the sensor.
