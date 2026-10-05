@@ -6,6 +6,11 @@
     - how to hold a heading so the robot drives straight
     - how to face the direction the robot started in
 
+!!! terms "Terminology"
+    - **gyroscope** – a sensor, often called a gyro, that measures how fast something is turning.
+    - **drift** – small errors that add up over time so the robot ends up facing or travelling somewhere different from what we planned.
+    - **for loop** – a loop that repeats its indented lines a set number of times, such as 4 times for the sides of a square.
+
 On the [Driving](driving.md) page, the robot works out how far it has turned by counting how far each wheel has turned. On this page we'll use the hub's **gyro** (part of the [IMU](../hub/imu.md)) instead, so the robot drives straighter and turns more accurately.
 
 ## Why wheel counting drifts

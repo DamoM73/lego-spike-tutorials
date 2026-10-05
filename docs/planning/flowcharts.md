@@ -6,6 +6,18 @@
     - the rules for arrows going in and out of each symbol
     - how to read a complete flowchart
 
+!!! terms "Terminology"
+    - **inflow** – a flow arrow going into a flowchart block.
+    - **outflow** – a flow arrow coming out of a flowchart block.
+    - **flow arrow** – an arrow in a flowchart that shows the path the program takes, in the direction of the arrowhead.
+    - **terminal block** – a rounded rectangle that starts or ends a process in a flowchart.
+    - **process block** – a rectangle in a flowchart that shows a step inside the program, such as a calculation or storing a value.
+    - **input/output block** – a parallelogram in a flowchart that shows information moving between the program and the real world.
+    - **decision block** – a diamond in a flowchart that asks a question and splits the flow depending on the answer.
+    - **loop indicator** – a grey dashed box in a flowchart that surrounds a loop.
+    - **function indicator** – a red dashed box in a flowchart that surrounds a function, from its start terminal to its end terminal.
+    - **tracing** – following a flowchart step by step with test values to check every path works.
+
 A **flowchart** is a diagram that uses shapes and arrows to show the steps in a process. In programming, we use flowcharts to plan **algorithms**, the step-by-step methods our programs follow.
 
 ## Symbols

@@ -5,6 +5,11 @@
     - how to measure how far the button has moved in
     - how to tell whether the sensor is touched or pressed
 
+!!! terms "Terminology"
+    - **force sensor** – a sensor like a button that can tell whether it is touched or pressed and measure how hard it is pressed.
+    - **newton** – the unit (N) used to measure force, where 1 N is roughly the force of holding a 100 g block of chocolate.
+    - **threshold** – a set value that a reading must reach before the program counts it, such as the force needed for a press.
+
 The force sensor is like a button that can also measure how hard it is being pressed. We press the black button on its front, and the sensor tells us whether it is touched or pressed, how much force is on it and how far the button has moved in.
 
 Possible uses:

@@ -5,6 +5,9 @@
     - how to read the robot's distance, angle and state
     - how to reset the drive base's measurements
 
+!!! terms "Terminology"
+    - **wheel slip** – when the wheels turn without the robot moving the same distance, which makes the drive base's measurements wrong.
+
 The drive base is made of two motors, and each motor has an **encoder** that counts how far it has turned (see [Motor as a Sensor](../motors/motor-sensor.md)). Pybricks combines the two encoder readings to work out how far the whole robot has driven and turned.
 
 Possible uses:

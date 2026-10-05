@@ -6,6 +6,16 @@
     - how to draw a flowchart and write pseudocode
     - how to build, test and extend the program one step at a time
 
+!!! terms "Terminology"
+    - **requirement** – something specific that a system needs to do, such as stopping when an object is within 100 mm.
+    - **digital system** – a system that takes input from the real world, processes it and produces output, such as our robot.
+    - **IPO table** – an Input, Process, Output table that maps out what a system takes in, what it decides and what it does.
+    - **flowchart** – a diagram that uses shapes and arrows to show the steps in a process and the order they happen in.
+    - **pseudocode** – a plan for our code written in plain words, without worrying about the rules of a programming language.
+    - **algorithm** – a step-by-step method for solving a problem.
+    - **random number** – a number picked by chance, such as a whole number from −180 to 180.
+    - **placeholder** – code that does nothing, such as `pass`, used to fill a gap until we write the real code.
+
 Before we write code for a robot project, we plan it. In this project we'll plan and build a robot that drives around the room at random without running into anything, using four planning steps: requirements, an IPO table, a flowchart and pseudocode.
 
 !!! tip "Scenario"

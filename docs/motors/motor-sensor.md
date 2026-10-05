@@ -6,6 +6,11 @@
     - how to read a motor's speed and load
     - how to tell when a motor has stalled
 
+!!! terms "Terminology"
+    - **load** – how hard something is pushing against a motor while it runs, measured in millinewton metres.
+    - **Boolean** – a value that can only be `True` or `False`.
+    - **stalling** – when a motor is trying to move but can't, even at full power.
+
 Each motor has a built-in **encoder** that counts how far it has turned (see [Motor](motor.md)). This means a motor can also be a sensor: it can tell us its angle and speed, how hard it is working, and whether something has stopped it.
 
 Possible uses:

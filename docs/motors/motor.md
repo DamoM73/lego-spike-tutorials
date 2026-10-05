@@ -5,6 +5,17 @@
     - the difference between `stop()`, `brake()` and `hold()`
     - how to run a motor for a set time or angle, or to a target angle
 
+!!! terms "Terminology"
+    - **angular motor** – a motor that can turn an exact number of degrees because it has a built-in encoder.
+    - **encoder** – a sensor built into a motor that counts how many degrees the motor has turned.
+    - **DC motor** – a simple motor without an encoder that can only be turned on and off and have its power set.
+    - **object** – a thing in our program, such as a motor or sensor, that we create in the setup and then control with its methods.
+    - **port** – the socket on the hub that a motor or sensor is plugged into, such as `Port.E`.
+    - **positive direction** – the way a motor turns when we give it a positive speed, either clockwise or anticlockwise.
+    - **duty cycle** – the percentage of full power sent to a motor, without the motor trying to keep a constant speed.
+    - **coasting** – cutting the power to a motor and letting it spin freely until friction stops it.
+    - **target angle** – the exact position a motor turns to, measured from where it was when the program started.
+
 Our robot has two SPIKE Medium Angular Motors, one for each wheel. We can control each motor on its own: run it forever, stop it in different ways, or move it for a set time or angle.
 
 Possible uses:

@@ -6,6 +6,14 @@
     - how to drive straight, turn and drive in an arc
     - how to change how fast the robot drives and turns
 
+!!! terms "Terminology"
+    - **drive base** – two wheel motors joined together in code so we can drive and turn the whole robot instead of controlling each motor.
+    - **wheel diameter** – the width of a wheel in millimetres, measured straight across through its centre.
+    - **axle track** – the distance between where the two wheels touch the ground, in millimetres.
+    - **turn rate** – how fast the robot turns, in degrees per second.
+    - **radius** – the distance from the centre of a circle to its edge, such as from the centre of an arc to the robot.
+    - **arc** – a path that follows part of a circle.
+
 A **drive base** joins the two wheel motors together so we can control the whole robot instead of each motor. We tell the robot to drive 300 mm or turn 90°, and Pybricks works out what each motor needs to do.
 
 Possible uses:
