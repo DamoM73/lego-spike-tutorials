@@ -6,18 +6,8 @@
     - how to organise a program into input, process and output
 
 !!! terms "Terminology"
-    - **setup** – the first part of a program, which runs only once and prepares the hub, motors, sensors and variables for the main loop.
-    - **main loop** – the part of a program that runs over and over, waiting for events and reacting to them until the program is stopped.
     - **event-driven programming** – a style of programming where the program keeps checking for things to happen and then responds to them.
-    - **event** – something that happens which the program needs to respond to, such as a button being pressed, which the main loop listens for and then handles.
-    - **while loop** – a loop that repeats the indented lines under it while its condition is true, so `while True:` repeats forever.
-    - **import** – to bring commands from a code library into our program so we can use them, such as the Pybricks commands for the hub and motors.
-    - **millisecond** – one thousandth of a second, so 1000 ms is 1 second.
-    - **comment** – a line starting with `#` that Python ignores, which we use to label and explain parts of our program.
-    - **input** – information the program gathers from the world, such as which buttons are pressed or what a sensor reads.
-    - **process** – the part of a program that decides what to do with the input information.
-    - **output** – the action a program takes based on its decision, such as changing a light or moving a motor.
-    - **indentation** – the spaces at the start of a line, which Python uses to decide which lines belong inside a loop or an `if`.
+    - **event** – something that happens while a program runs, such as a button press or two objects colliding, that the program responds to.
 
 Every robot program on this site has the same structure: a **setup** section that runs once, followed by a **main loop** that runs over and over. Once we know this structure, we can read any example and know where to add our own code.
 

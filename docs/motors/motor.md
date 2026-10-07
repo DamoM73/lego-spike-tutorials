@@ -9,7 +9,7 @@
     - **angular motor** – a motor that can turn an exact number of degrees because it has a built-in encoder.
     - **encoder** – a sensor built into a motor that counts how many degrees the motor has turned.
     - **DC motor** – a simple motor without an encoder that can only be turned on and off and have its power set.
-    - **object** – a thing in our program, such as a motor or sensor, that we create in the setup and then control with its methods.
+    - **object** – a thing in our program, made from a class, that holds its own data and has methods that make it do things, such as a motor or a game character.
     - **port** – the socket on the hub that a motor or sensor is plugged into, such as `Port.E`.
     - **positive direction** – the way a motor turns when we give it a positive speed, either clockwise or anticlockwise.
     - **duty cycle** – the percentage of full power sent to a motor, without the motor trying to keep a constant speed.

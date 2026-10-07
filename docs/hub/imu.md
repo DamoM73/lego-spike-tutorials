@@ -8,12 +8,9 @@
 
 !!! terms "Terminology"
     - **IMU** – an inertial measurement unit, which is a sensor inside the hub that senses how it is moving and which way it is facing.
-    - **axis** – an imaginary line that something turns around, such as the x, y and z axes of the hub.
     - **roll** – turning around the x-axis, like a plane dipping one wing.
     - **pitch** – turning around the y-axis, like a plane pointing its nose up or down.
     - **yaw** – turning around the z-axis, like a car turning left or right.
-    - **heading** – the direction the hub or robot is facing, measured as how many degrees it has turned around the z-axis.
-    - **tuple** – a group of values inside round brackets, such as `(10, -5)`, that a method can return all at once.
 
 The hub has an **IMU** (inertial measurement unit) inside it. The IMU senses how the hub is moving and which way it is facing, so our programs can tell which side is up, how much it is tilted and how far it has turned.
 

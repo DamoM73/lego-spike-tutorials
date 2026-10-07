@@ -6,10 +6,7 @@
     - how to play a tune made of musical notes
 
 !!! terms "Terminology"
-    - **frequency** – how high or low a sound is, where a higher frequency gives a higher pitch.
-    - **hertz** – the unit (Hz) used to measure frequency.
     - **volume** – how loud a sound is, from `0` (silent) to `100` (loudest).
-    - **return value** – a value that a method gives back to our program, such as the current volume.
     - **default value** – the value a parameter uses when we don't give one, such as a 500 Hz beep for 100 ms.
     - **tempo** – the speed of a tune, measured in beats per minute.
 

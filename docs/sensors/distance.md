@@ -9,7 +9,6 @@
 !!! terms "Terminology"
     - **ultrasound** – sound that is too high-pitched for people to hear.
     - **echo** – a sound wave that bounces back off an object.
-    - **distance sensor** – an ultrasonic sensor that works out how far away an object is by timing how long the echo of its sound takes to return.
 
 The distance sensor measures how far away an object is using **ultrasound**, sound too high-pitched for people to hear. It sends out a sound wave from one "eye", listens for the echo with the other, and uses the time the echo takes to work out the distance. The four lights around its eyes can also be turned on.
 

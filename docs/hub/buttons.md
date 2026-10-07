@@ -5,7 +5,7 @@
     - how to use `pressed()` to make the robot react to a button
 
 !!! terms "Terminology"
-    - **set** – a group of values with no order, such as the buttons being pressed right now, which is empty when there are none.
+    - **set** – a collection of values with no order and no repeats, such as the buttons being pressed right now.
 
 The hub has four buttons: **left**, **right**, **centre** and **Bluetooth**. Our programs can check which buttons are being pressed.
 

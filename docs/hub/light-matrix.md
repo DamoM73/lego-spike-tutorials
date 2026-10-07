@@ -8,13 +8,8 @@
 
 !!! terms "Terminology"
     - **light matrix** – the 5×5 grid of lights on the front of the hub that can show pixels, icons, numbers and letters.
-    - **pixel** – one single light in the light matrix.
-    - **coordinate** – a pair of numbers, `(row, column)`, that gives the position of a pixel on the light matrix.
     - **brightness** – how strongly a light shines, from `0` (off) to `100` (fully on).
-    - **list** – a group of several values kept in order inside square brackets.
-    - **variable** – a named place that stores a value our program can use and change, such as a count.
     - **character** – a single letter, digit or symbol.
-    - **string** – a piece of text made up of characters, written inside quotation marks.
     - **orientation** – which way something is facing, such as which side of the hub counts as the top of the display.
 
 The light matrix is the 5×5 grid of lights on the front of the hub. We can light up single pixels, show icons, numbers and letters, and scroll text.

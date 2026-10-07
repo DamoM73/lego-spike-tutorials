@@ -9,7 +9,6 @@
 !!! terms "Terminology"
     - **colour sensor** – a sensor that detects the colour of a surface, how much light it reflects and how bright the room is.
     - **reflected light** – the amount of the sensor's own light that bounces back from a surface, from 0% (black) to 100% (white).
-    - **ambient light** – the light around the sensor, measured without its own lights, from 0% (dark) to 100% (bright).
 
 The colour sensor detects the colour of a surface, how much light a surface reflects, and how bright the room is. It has its own lights, so it can light up a surface to measure it.
 

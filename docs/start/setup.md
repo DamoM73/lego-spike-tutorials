@@ -9,11 +9,9 @@
 !!! terms "Terminology"
     - **LEGO SPIKE Prime** – the LEGO robotics kit that provides our robot's hardware, including the hub, motors and sensors.
     - **Pybricks** – the software that runs on the robot, together with the app we use to write programs for it in Python.
-    - **Python** – the text-based programming language we use to write our robot programs.
     - **firmware** – special software built into a device that makes it work correctly every time we turn it on.
-    - **IDE** – an Integrated Development Environment, which is an app for writing and running code, such as the Pybricks IDE.
     - **hub** – the programmable brick at the centre of the robot that runs our programs and that the motors and sensors plug into.
-    - **terminal** – the area at the bottom of the IDE where anything our program prints is shown.
+    - **terminal** – the panel in the editor where anything our program prints, and any error messages, are shown.
     - **sensor** – a device that detects something about the world around the robot, such as pressure, distance or colour.
 
 In this course we will program a LEGO SPIKE Prime robot in Python. This page shows how to set up Pybricks, connect the robot, create and run a program, and check the robot is built correctly.

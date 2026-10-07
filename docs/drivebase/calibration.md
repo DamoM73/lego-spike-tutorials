@@ -6,9 +6,6 @@
     - how to calibrate the axle track
     - how to record the calibrated values
 
-!!! terms "Terminology"
-    - **calibration** – testing a device and adjusting its settings until its movements or measurements are accurate.
-
 The `wheel_diameter` and `axle_track` values in our drive base were measured with a ruler, so they are only close. **Calibration** means testing the robot and adjusting these values until it drives and turns accurately.
 
 ## Why calibrate?

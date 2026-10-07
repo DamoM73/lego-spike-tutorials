@@ -7,12 +7,6 @@
 
 !!! terms "Terminology"
     - **status light** – the coloured light around the hub's power button, which our programs can turn on, blink and cycle through colours.
-    - **constant** – a named value that never changes, such as `Color.RED`, which we use instead of typing the value itself.
-    - **method** – a command that belongs to an object, such as the hub's light, and makes it do something or tells us about it.
-    - **parameter** – a value we put inside a method's brackets to tell it exactly what to do, such as which colour to show.
-    - **running in the background** – carrying on by itself once started while the rest of the program keeps running.
-    - **library** – a collection of ready-made code, such as Pybricks, that we can use in our own programs.
-    - **documentation** – the official guide written by the people who made a code library, which lists every method and its parameters.
 
 The status light is the coloured light around the hub's power button. We can turn it on in different colours, blink it and cycle through colours.
 
